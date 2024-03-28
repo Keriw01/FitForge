@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "489901447235",
+    "project_id": "fitforge-bdb4e",
+    "storage_bucket": "fitforge-bdb4e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:489901447235:android:d47966adac52c7f2a3dcf6",
+        "android_client_info": {
+          "package_name": "com.example.fit_forge"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDm8L63qn__QClB9x-rhqaSsPxWWm_01I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

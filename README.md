@@ -1,16 +1,12 @@
 # fit_forge
 
-A new Flutter project.
+Mobile application for personalized gym training using Flutter/Dart.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Login and registration, enabling access to personalized training. 
+Users can easily create their own training plans. Possibility to record the course of each training session, including the number of repetitions and the load used. 
+Scanning QR codes placed next to gym equipment, which allows quick access to video instructions related to a given exercise. 
+Users can track their progress by regularly adding body measurements and editing their profile information. 
+Summary of progress in the form of training statistics, including achieved goals, number of training sessions and average results. 
+Notifications reminding you of your progress.
