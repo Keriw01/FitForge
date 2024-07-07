@@ -34,7 +34,7 @@ class EmailInputField extends StatelessWidget {
         return Column(
           children: [
             Padding(
-              padding: const EdgeInsets.fromLTRB(55, 0, 55, 10),
+              padding: const EdgeInsets.fromLTRB(35, 0, 35, 5),
               child: TextFormField(
                 onChanged: (value) =>
                     context.read<AuthBloc>().emailChanged(value),
@@ -52,7 +52,7 @@ class EmailInputField extends StatelessWidget {
                   prefixIcon: const Icon(
                     Icons.email,
                     color: seedBlue,
-                    size: 22,
+                    size: 18,
                   ),
                   labelText: S.of(context).enterEmail,
                   labelStyle: Theme.of(context).textTheme.bodyMedium,

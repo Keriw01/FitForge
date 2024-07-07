@@ -1,4 +1,5 @@
 {
+    "@@locale": "pl",
     "loginPageTitle": "Logowanie",
     "loginButton": "Zaloguj",
     "dontHaveAccount": "Nie masz konta ?",
@@ -17,6 +18,8 @@
     "badAuthorization": "Nie poprawne dane",
     "userAlreadyExist": "Użytkownik już istnieje",
     "userAlreadyLogIn": "Użytkownik już zalogowany",
+    "googleLoginCanceled": "Anulowano logowanie przez Google",
+    "gitHubLoginCanceled": "Anulowano logowanie przez GitHub",
     "invalidEmailFormat": "Nie prawidłowy adres emial",
     "inputEmpty": "Puste pole",
     "notValidEmail": "Niepoprawny adres email",

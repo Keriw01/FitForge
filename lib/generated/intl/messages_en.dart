@@ -28,7 +28,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Internal Credentials"),
         "defaultError": MessageLookupByLibrary.simpleMessage("Error"),
         "dontHaveAccount":
-            MessageLookupByLibrary.simpleMessage("Don\'t have an Account ?"),
+            MessageLookupByLibrary.simpleMessage("Don\'\'t have an Account ?"),
         "enterEmail": MessageLookupByLibrary.simpleMessage("Enter e-mail"),
         "enterPassword":
             MessageLookupByLibrary.simpleMessage("Enter your password"),
@@ -36,6 +36,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Enter valid e-mail"),
         "enterValidPassword": MessageLookupByLibrary.simpleMessage(
             "Password must contains minimum 8 characters"),
+        "gitHubLoginCanceled":
+            MessageLookupByLibrary.simpleMessage("Login with GitHub canceled"),
+        "googleLoginCanceled":
+            MessageLookupByLibrary.simpleMessage("Login with Google canceled"),
         "inputEmpty": MessageLookupByLibrary.simpleMessage("Empty field"),
         "invalidEmailFormat":
             MessageLookupByLibrary.simpleMessage("Invalid Email Format"),

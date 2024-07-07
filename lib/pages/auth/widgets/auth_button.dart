@@ -32,7 +32,7 @@ class AuthButton extends StatelessWidget {
               onPressed: state.item1.isInProgress ? () {} : onPressed,
               style: ButtonStyle(
                 padding: MaterialStateProperty.all<EdgeInsets>(
-                    const EdgeInsets.fromLTRB(70, 10, 70, 10)),
+                    const EdgeInsets.fromLTRB(40, 10, 40, 10)),
                 backgroundColor: MaterialStateProperty.all(seedBlue),
                 shape: MaterialStateProperty.all(
                   const RoundedRectangleBorder(
@@ -53,7 +53,6 @@ class AuthButton extends StatelessWidget {
                       style: Theme.of(context).textTheme.labelLarge,
                     ),
             ),
-            const SizedBox(height: 10),
             FormErrorText(error: responseError),
           ],
         );

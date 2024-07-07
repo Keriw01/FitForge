@@ -7,6 +7,8 @@ enum AuthResponseMessage {
   defaultError,
   userAlreadyLogIn,
   invalidEmailFormat,
+  googleLoginCanceled,
+  gitHubLoginCanceled,
   // emailAlreadyExist,
   // facebookLoginCanceled,
   // facebookLoginFailed,

@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fit_forge/exceptions/auth_exceptions.dart';
 import 'package:fit_forge/models/current_user.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class FirebaseAuthService {
   FirebaseAuthService();
@@ -68,9 +69,25 @@ class FirebaseAuthService {
 
   ///signOutUser
   Future<void> signOutUser() async {
-    final User? firebaseUser = FirebaseAuth.instance.currentUser;
-    if (firebaseUser != null) {
-      await FirebaseAuth.instance.signOut();
+    try {
+      final googleSignIn = GoogleSignIn();
+
+      if (googleSignIn.currentUser != null) {
+        await googleSignIn.signOut();
+      }
+
+      try {
+        await googleSignIn.disconnect();
+      } catch (e) {
+        print('Failed to disconnect on signout: $e');
+      }
+
+      final firebaseAuth = FirebaseAuth.instance;
+      if (firebaseAuth.currentUser != null) {
+        await firebaseAuth.signOut();
+      }
+    } catch (e) {
+      print('Error during sign out: $e');
     }
   }
 }

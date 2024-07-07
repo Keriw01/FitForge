@@ -36,6 +36,10 @@ class MessageLookup extends MessageLookupByLibrary {
             "Wprowadź poprawny adres e-mail"),
         "enterValidPassword": MessageLookupByLibrary.simpleMessage(
             "Hasło musi mieć co najmniej 8 znaków"),
+        "gitHubLoginCanceled": MessageLookupByLibrary.simpleMessage(
+            "Anulowano logowanie przez GitHub"),
+        "googleLoginCanceled": MessageLookupByLibrary.simpleMessage(
+            "Anulowano logowanie przez Google"),
         "inputEmpty": MessageLookupByLibrary.simpleMessage("Puste pole"),
         "invalidEmailFormat":
             MessageLookupByLibrary.simpleMessage("Nie prawidłowy adres emial"),

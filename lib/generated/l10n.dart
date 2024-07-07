@@ -70,10 +70,10 @@ class S {
     );
   }
 
-  /// `Don't have an Account ?`
+  /// `Don''t have an Account ?`
   String get dontHaveAccount {
     return Intl.message(
-      'Don\'t have an Account ?',
+      'Don\'\'t have an Account ?',
       name: 'dontHaveAccount',
       desc: '',
       args: [],
@@ -225,6 +225,26 @@ class S {
     return Intl.message(
       'User already LogIn',
       name: 'userAlreadyLogIn',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Login with Google canceled`
+  String get googleLoginCanceled {
+    return Intl.message(
+      'Login with Google canceled',
+      name: 'googleLoginCanceled',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Login with GitHub canceled`
+  String get gitHubLoginCanceled {
+    return Intl.message(
+      'Login with GitHub canceled',
+      name: 'gitHubLoginCanceled',
       desc: '',
       args: [],
     );

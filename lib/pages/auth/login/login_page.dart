@@ -8,7 +8,6 @@ import 'package:fit_forge/pages/auth/widgets/auth_text_button.dart';
 import 'package:fit_forge/pages/auth/widgets/auth_title_page.dart';
 import 'package:fit_forge/pages/auth/widgets/email_input_field.dart';
 import 'package:fit_forge/pages/auth/widgets/password_input_field.dart';
-import 'package:fit_forge/styles/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -19,7 +18,6 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: whiteColor,
       body: SafeArea(
         child: SingleChildScrollView(
           reverse: true,
@@ -37,7 +35,7 @@ class LoginPage extends StatelessWidget {
                 onPressed: () => context.read<AuthBloc>().login(),
                 text: S.of(context).loginButton,
               ),
-              const SizedBox(height: 10),
+              const SizedBox(height: 5),
               AuthTextButton(
                 onPressed: () =>
                     context.read<AuthBloc>().navigateToRegisterPage(),

@@ -51,7 +51,7 @@ final customTextThemeLight = TextTheme(
 
   /// Authentication Buttons
   labelLarge: GoogleFonts.openSans(
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: FontWeight.bold,
     color: whiteColor,
   ),
@@ -74,6 +74,7 @@ final customTextThemeDark = TextTheme(
   displaySmall: GoogleFonts.lato(
     fontSize: 12,
     fontWeight: FontWeight.bold,
+    color: whiteColor,
   ),
 
   /// Plan Name
@@ -87,8 +88,9 @@ final customTextThemeDark = TextTheme(
 
   /// Titles Of Pages
   titleLarge: GoogleFonts.montserrat(
-    fontSize: 72,
-    fontWeight: FontWeight.bold,
+    fontWeight: FontWeight.w500,
+    fontSize: 34,
+    color: whiteColor,
   ),
 
   /// Titles Of Each Deep Screen "Day 1"
@@ -103,6 +105,7 @@ final customTextThemeDark = TextTheme(
   /// Authentication Form Field
   bodyMedium: GoogleFonts.openSans(
     fontSize: 14,
+    color: defaultFontsColor,
   ),
 
   /// Other Form Field
@@ -110,8 +113,9 @@ final customTextThemeDark = TextTheme(
 
   /// Authentication Buttons
   labelLarge: GoogleFonts.montserrat(
-    fontSize: 30,
+    fontSize: 18,
     fontWeight: FontWeight.bold,
+    color: whiteColor,
   ),
 
   /// Medium Buttons

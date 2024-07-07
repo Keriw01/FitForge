@@ -8,7 +8,6 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 void main() async {
-  // Ensure Flutter is initialized
   WidgetsFlutterBinding.ensureInitialized();
 
   await Firebase.initializeApp();
@@ -18,12 +17,10 @@ void main() async {
 class MyApp extends StatelessWidget {
   MyApp({super.key});
 
-  // Create an instance of AppRouter
   final _appRouter = AppRouter();
 
   @override
   Widget build(BuildContext context) {
-    // MultiBlocProvider for managing BLoCs
     return MultiBlocProvider(
       providers: [
         BlocProvider(

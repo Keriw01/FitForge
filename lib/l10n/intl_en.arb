@@ -1,7 +1,8 @@
 {
+    "@@locale": "en",
     "loginPageTitle": "Login",
     "loginButton": "Login",
-    "dontHaveAccount": "Don't have an Account ?",
+    "dontHaveAccount": "Don''t have an Account ?",
     "signUp": " Sign Up",
     "registerPageTitle": "Register",
     "signUpButton": "Register",
@@ -17,6 +18,8 @@
     "badAuthorization": "Internal Credentials",
     "userAlreadyExist": "User already exist",
     "userAlreadyLogIn": "User already LogIn",
+    "googleLoginCanceled": "Login with Google canceled",
+    "gitHubLoginCanceled": "Login with GitHub canceled",
     "invalidEmailFormat": "Invalid Email Format",
     "inputEmpty": "Empty field",
     "notValidEmail": "Incorrect email address",

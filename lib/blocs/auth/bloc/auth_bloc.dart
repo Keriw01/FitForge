@@ -1,5 +1,7 @@
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:fit_forge/blocs/base_cubit.dart';
 import 'package:fit_forge/exceptions/auth_exceptions.dart';
 import 'package:fit_forge/generated/l10n.dart';
@@ -29,10 +31,11 @@ class AuthBloc extends BaseCubit<AuthState> {
 
     emit(
       state.copyWith(
-          authResponseMessage: AuthResponseMessage.none,
-          email: email,
-          password: password,
-          formStatus: FormzSubmissionStatus.inProgress),
+        authResponseMessage: AuthResponseMessage.none,
+        email: email,
+        password: password,
+        formStatus: FormzSubmissionStatus.inProgress,
+      ),
     );
     print(password);
     if (password.isNotValid || email.isNotValid) {
@@ -51,6 +54,7 @@ class AuthBloc extends BaseCubit<AuthState> {
     try {
       final CurrentUser? user = await _firebaseAuthService
           .signInWithEmailAndPassword(email.value, password.value);
+      await FirebaseAuth.instance.setPersistence(Persistence.LOCAL);
       if (user != null) {
         emit(state.copyWith(
           formStatus: FormzSubmissionStatus.success,
@@ -72,6 +76,58 @@ class AuthBloc extends BaseCubit<AuthState> {
         authResponseMessage: AuthResponseMessage.defaultError,
         formStatus: FormzSubmissionStatus.failure,
       ));
+    }
+  }
+
+  Future<void> signInWithGoogle() async {
+    emit(
+      state.copyWith(authResponseMessage: AuthResponseMessage.none),
+    );
+    try {
+      final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+
+      if (googleUser == null) {
+        emit(state.copyWith(
+          authResponseMessage: AuthResponseMessage.googleLoginCanceled,
+        ));
+        return;
+      }
+
+      final GoogleSignInAuthentication googleAuth =
+          await googleUser.authentication;
+
+      final credential = GoogleAuthProvider.credential(
+        accessToken: googleAuth.accessToken,
+        idToken: googleAuth.idToken,
+      );
+
+      await FirebaseAuth.instance.signInWithCredential(credential);
+      emit(state.copyWith(
+        formStatus: FormzSubmissionStatus.success,
+        currentUser: CurrentUser(
+          userId: googleUser.id,
+          email: googleUser.email,
+          name: googleUser.displayName ?? '',
+        ),
+      ));
+      _navigateToAuthFlowScreen();
+    } catch (e) {
+      emit(state.copyWith(
+        authResponseMessage: AuthResponseMessage.googleLoginCanceled,
+      ));
+    }
+  }
+
+  Future<void> signInWithGitHub() async {
+    emit(
+      state.copyWith(authResponseMessage: AuthResponseMessage.none),
+    );
+    try {
+      GithubAuthProvider githubProvider = GithubAuthProvider();
+      await FirebaseAuth.instance.signInWithProvider(githubProvider);
+    } catch (e) {
+      emit(state.copyWith(
+          authResponseMessage: AuthResponseMessage.gitHubLoginCanceled));
     }
   }
 
@@ -104,6 +160,7 @@ class AuthBloc extends BaseCubit<AuthState> {
     try {
       final CurrentUser? user = await _firebaseAuthService
           .signUpWithEmailAndPassword(email.value, password.value);
+      await FirebaseAuth.instance.setPersistence(Persistence.LOCAL);
       if (user != null) {
         emit(state.copyWith(
           formStatus: FormzSubmissionStatus.success,
@@ -211,10 +268,13 @@ class AuthBloc extends BaseCubit<AuthState> {
       case AuthResponseMessage.invalidEmailFormat:
         return S.of(context).invalidEmailFormat;
 
-      // case AuthResponseMessage.emailAlreadyExist:
-      //   return S.of(context).defaultError;
+      case AuthResponseMessage.googleLoginCanceled:
+        return S.of(context).googleLoginCanceled;
 
-      // case AuthResponseMessage.facebookLoginCanceled:
+      case AuthResponseMessage.gitHubLoginCanceled:
+        return S.of(context).gitHubLoginCanceled;
+
+      // case AuthResponseMessage.emailAlreadyExist:
       //   return S.of(context).defaultError;
 
       // case AuthResponseMessage.facebookLoginFailed:
