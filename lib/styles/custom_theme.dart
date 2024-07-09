@@ -1,6 +1,7 @@
 import 'package:fit_forge/styles/app_colors.dart';
 import 'package:fit_forge/styles/custom_text_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class CustomTheme {
   static ThemeData get lightTheme {
@@ -19,6 +20,17 @@ class CustomTheme {
       centerTitle: true,
       titleTextStyle: customTextThemeLight.headlineLarge,
     ),
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      backgroundColor: lightColorScheme.surface,
+      selectedItemColor: lightColorScheme.primary,
+      unselectedItemColor: lightColorScheme.onSurface,
+      selectedLabelStyle: customTextThemeLight.titleSmall,
+      unselectedLabelStyle: GoogleFonts.roboto(
+        fontSize: 14,
+        fontWeight: FontWeight.normal,
+        color: lightColorScheme.onSurface,
+      ),
+    ),
   );
 
   static final ThemeData _darkTheme = ThemeData(
@@ -28,6 +40,17 @@ class CustomTheme {
     appBarTheme: AppBarTheme(
       centerTitle: true,
       titleTextStyle: customTextThemeDark.headlineLarge,
+    ),
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      backgroundColor: darkColorScheme.surface,
+      selectedItemColor: darkColorScheme.primary,
+      unselectedItemColor: darkColorScheme.onSurface,
+      selectedLabelStyle: customTextThemeDark.titleSmall,
+      unselectedLabelStyle: GoogleFonts.roboto(
+        fontSize: 14,
+        fontWeight: FontWeight.normal,
+        color: darkColorScheme.onSurface,
+      ),
     ),
   );
 }

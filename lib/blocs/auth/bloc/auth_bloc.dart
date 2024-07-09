@@ -37,7 +37,7 @@ class AuthBloc extends BaseCubit<AuthState> {
         formStatus: FormzSubmissionStatus.inProgress,
       ),
     );
-    print(password);
+
     if (password.isNotValid || email.isNotValid) {
       emit(
         state.copyWith(formStatus: FormzSubmissionStatus.failure),
@@ -54,7 +54,6 @@ class AuthBloc extends BaseCubit<AuthState> {
     try {
       final CurrentUser? user = await _firebaseAuthService
           .signInWithEmailAndPassword(email.value, password.value);
-      await FirebaseAuth.instance.setPersistence(Persistence.LOCAL);
       if (user != null) {
         emit(state.copyWith(
           formStatus: FormzSubmissionStatus.success,
@@ -197,6 +196,7 @@ class AuthBloc extends BaseCubit<AuthState> {
           formStatus: FormzSubmissionStatus.inProgress),
     );
     try {
+      _navigateToAuthFlowScreen();
       await _firebaseAuthService.signOutUser();
     } catch (e) {
       emit(state.copyWith(formStatus: FormzSubmissionStatus.failure));

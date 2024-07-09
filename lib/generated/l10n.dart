@@ -299,6 +299,56 @@ class S {
       args: [],
     );
   }
+
+  /// `Workout`
+  String get workoutsLabel {
+    return Intl.message(
+      'Workout',
+      name: 'workoutsLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Exercises`
+  String get exercisesLabel {
+    return Intl.message(
+      'Exercises',
+      name: 'exercisesLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Progress`
+  String get statisticsLabel {
+    return Intl.message(
+      'Progress',
+      name: 'statisticsLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Scan QR`
+  String get scanQrLabel {
+    return Intl.message(
+      'Scan QR',
+      name: 'scanQrLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Logout`
+  String get logOut {
+    return Intl.message(
+      'Logout',
+      name: 'logOut',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -24,5 +24,10 @@
     "inputEmpty": "Puste pole",
     "notValidEmail": "Niepoprawny adres email",
     "weakPassword": "Hasło musi mieć co najmniej 8 znaków, zawierać jedną literę, cyfrę oraz znak specjalny",
-    "shortPassword": "Hasło jest za krótkie minimum 8 znaków"
+    "shortPassword": "Hasło jest za krótkie minimum 8 znaków",
+    "workoutsLabel": "Plany",
+    "exercisesLabel": "Ćwiczenia",
+    "statisticsLabel": "Historia",
+    "scanQrLabel": "Skanuj QR",
+    "logOut": "Wyloguj"
 }

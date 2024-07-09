@@ -36,6 +36,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Wprowadź poprawny adres e-mail"),
         "enterValidPassword": MessageLookupByLibrary.simpleMessage(
             "Hasło musi mieć co najmniej 8 znaków"),
+        "exercisesLabel": MessageLookupByLibrary.simpleMessage("Ćwiczenia"),
         "gitHubLoginCanceled": MessageLookupByLibrary.simpleMessage(
             "Anulowano logowanie przez GitHub"),
         "googleLoginCanceled": MessageLookupByLibrary.simpleMessage(
@@ -43,6 +44,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "inputEmpty": MessageLookupByLibrary.simpleMessage("Puste pole"),
         "invalidEmailFormat":
             MessageLookupByLibrary.simpleMessage("Nie prawidłowy adres emial"),
+        "logOut": MessageLookupByLibrary.simpleMessage("Wyloguj"),
         "loginButton": MessageLookupByLibrary.simpleMessage("Zaloguj"),
         "loginPageTitle": MessageLookupByLibrary.simpleMessage("Logowanie"),
         "notValidEmail":
@@ -52,16 +54,19 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Rejestracja"),
         "requiredPassword":
             MessageLookupByLibrary.simpleMessage("Hasło jest wymagane"),
+        "scanQrLabel": MessageLookupByLibrary.simpleMessage("Skanuj QR"),
         "shortPassword": MessageLookupByLibrary.simpleMessage(
             "Hasło jest za krótkie minimum 8 znaków"),
         "signIn": MessageLookupByLibrary.simpleMessage(" Zaloguj się"),
         "signUp": MessageLookupByLibrary.simpleMessage(" Zarejestruj się"),
         "signUpButton": MessageLookupByLibrary.simpleMessage("Zarejestruj"),
+        "statisticsLabel": MessageLookupByLibrary.simpleMessage("Historia"),
         "userAlreadyExist":
             MessageLookupByLibrary.simpleMessage("Użytkownik już istnieje"),
         "userAlreadyLogIn":
             MessageLookupByLibrary.simpleMessage("Użytkownik już zalogowany"),
         "weakPassword": MessageLookupByLibrary.simpleMessage(
-            "Hasło musi mieć co najmniej 8 znaków, zawierać jedną literę, cyfrę oraz znak specjalny")
+            "Hasło musi mieć co najmniej 8 znaków, zawierać jedną literę, cyfrę oraz znak specjalny"),
+        "workoutsLabel": MessageLookupByLibrary.simpleMessage("Plany")
       };
 }

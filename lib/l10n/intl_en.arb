@@ -24,6 +24,10 @@
     "inputEmpty": "Empty field",
     "notValidEmail": "Incorrect email address",
     "weakPassword": "The password must be at least 8 characters long and contain one letter, a number and a special character",
-    "shortPassword": "The password is too short, at least 8 characters"
-
+    "shortPassword": "The password is too short, at least 8 characters",
+    "workoutsLabel": "Workout",
+    "exercisesLabel": "Exercises",
+    "statisticsLabel": "Progress",
+    "scanQrLabel": "Scan QR",
+    "logOut": "Logout"
 }

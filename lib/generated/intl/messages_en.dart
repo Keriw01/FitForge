@@ -36,6 +36,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Enter valid e-mail"),
         "enterValidPassword": MessageLookupByLibrary.simpleMessage(
             "Password must contains minimum 8 characters"),
+        "exercisesLabel": MessageLookupByLibrary.simpleMessage("Exercises"),
         "gitHubLoginCanceled":
             MessageLookupByLibrary.simpleMessage("Login with GitHub canceled"),
         "googleLoginCanceled":
@@ -43,6 +44,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "inputEmpty": MessageLookupByLibrary.simpleMessage("Empty field"),
         "invalidEmailFormat":
             MessageLookupByLibrary.simpleMessage("Invalid Email Format"),
+        "logOut": MessageLookupByLibrary.simpleMessage("Logout"),
         "loginButton": MessageLookupByLibrary.simpleMessage("Login"),
         "loginPageTitle": MessageLookupByLibrary.simpleMessage("Login"),
         "notValidEmail":
@@ -51,16 +53,19 @@ class MessageLookup extends MessageLookupByLibrary {
         "registerPageTitle": MessageLookupByLibrary.simpleMessage("Register"),
         "requiredPassword":
             MessageLookupByLibrary.simpleMessage("Password is required"),
+        "scanQrLabel": MessageLookupByLibrary.simpleMessage("Scan QR"),
         "shortPassword": MessageLookupByLibrary.simpleMessage(
             "The password is too short, at least 8 characters"),
         "signIn": MessageLookupByLibrary.simpleMessage(" Sign In"),
         "signUp": MessageLookupByLibrary.simpleMessage(" Sign Up"),
         "signUpButton": MessageLookupByLibrary.simpleMessage("Register"),
+        "statisticsLabel": MessageLookupByLibrary.simpleMessage("Progress"),
         "userAlreadyExist":
             MessageLookupByLibrary.simpleMessage("User already exist"),
         "userAlreadyLogIn":
             MessageLookupByLibrary.simpleMessage("User already LogIn"),
         "weakPassword": MessageLookupByLibrary.simpleMessage(
-            "The password must be at least 8 characters long and contain one letter, a number and a special character")
+            "The password must be at least 8 characters long and contain one letter, a number and a special character"),
+        "workoutsLabel": MessageLookupByLibrary.simpleMessage("Workout")
       };
 }

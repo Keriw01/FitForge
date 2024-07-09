@@ -34,8 +34,14 @@ final customTextThemeLight = TextTheme(
   /// Titles Of Each Deep Screen "Day 1"
   titleMedium: null,
 
-  /// Bottom Navigation Text / Button In Filters
-  titleSmall: null,
+  /// Bottom Navigation Text / Button In Filters (selectedLabelStyle)
+  titleSmall: GoogleFonts.roboto(
+    fontSize: 14,
+    fontWeight: FontWeight.bold,
+    color: lightColorScheme.primary,
+  ),
+
+  /// Bottom Navigation Text / Button In Filters (unselectedLabelStyle)
 
   /// Description of Exercises
   bodyLarge: null,
@@ -97,7 +103,11 @@ final customTextThemeDark = TextTheme(
   titleMedium: null,
 
   /// Bottom Navigation Text / Button In Filters
-  titleSmall: null,
+  titleSmall: GoogleFonts.roboto(
+    fontSize: 14,
+    fontWeight: FontWeight.bold,
+    color: darkColorScheme.primary,
+  ),
 
   /// Description of Exercises
   bodyLarge: null,
