@@ -29,5 +29,6 @@
     "exercisesLabel": "Ćwiczenia",
     "statisticsLabel": "Historia",
     "scanQrLabel": "Skanuj QR",
-    "logOut": "Wyloguj"
+    "logOut": "Wyloguj",
+    "settingsTitle": "Ustawienia"
 }

@@ -18,7 +18,7 @@ class CustomTheme {
     textTheme: customTextThemeLight,
     appBarTheme: AppBarTheme(
       centerTitle: true,
-      titleTextStyle: customTextThemeLight.headlineLarge,
+      titleTextStyle: customTextThemeLight.titleLarge,
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       backgroundColor: lightColorScheme.surface,
@@ -39,7 +39,7 @@ class CustomTheme {
     textTheme: customTextThemeDark,
     appBarTheme: AppBarTheme(
       centerTitle: true,
-      titleTextStyle: customTextThemeDark.headlineLarge,
+      titleTextStyle: customTextThemeDark.titleLarge,
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       backgroundColor: darkColorScheme.surface,

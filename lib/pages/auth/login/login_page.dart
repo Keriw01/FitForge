@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:fit_forge/blocs/auth/bloc/auth_bloc.dart';
+import 'package:fit_forge/cubits/auth/auth_cubit.dart';
 import 'package:fit_forge/generated/l10n.dart';
 import 'package:fit_forge/pages/auth/widgets/auth_button.dart';
 import 'package:fit_forge/pages/auth/widgets/auth_image.dart';

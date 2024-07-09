@@ -2,7 +2,7 @@ import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:fit_forge/blocs/base_cubit.dart';
+import 'package:fit_forge/cubits/base_cubit.dart';
 import 'package:fit_forge/exceptions/auth_exceptions.dart';
 import 'package:fit_forge/generated/l10n.dart';
 import 'package:fit_forge/repositories/firebase_auth_service.dart';
@@ -13,7 +13,7 @@ import 'package:flutter/widgets.dart';
 import 'package:formz/formz.dart';
 
 part 'auth_state.dart';
-part 'auth_bloc.g.dart';
+part 'auth_cubit.g.dart';
 
 /// AuthBloc is responsible for managing authorization in the application
 class AuthBloc extends BaseCubit<AuthState> {
@@ -159,7 +159,6 @@ class AuthBloc extends BaseCubit<AuthState> {
     try {
       final CurrentUser? user = await _firebaseAuthService
           .signUpWithEmailAndPassword(email.value, password.value);
-      await FirebaseAuth.instance.setPersistence(Persistence.LOCAL);
       if (user != null) {
         emit(state.copyWith(
           formStatus: FormzSubmissionStatus.success,

@@ -55,6 +55,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "requiredPassword":
             MessageLookupByLibrary.simpleMessage("Hasło jest wymagane"),
         "scanQrLabel": MessageLookupByLibrary.simpleMessage("Skanuj QR"),
+        "settingsTitle": MessageLookupByLibrary.simpleMessage("Ustawienia"),
         "shortPassword": MessageLookupByLibrary.simpleMessage(
             "Hasło jest za krótkie minimum 8 znaków"),
         "signIn": MessageLookupByLibrary.simpleMessage(" Zaloguj się"),

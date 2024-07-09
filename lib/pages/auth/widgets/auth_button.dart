@@ -1,4 +1,4 @@
-import 'package:fit_forge/blocs/auth/bloc/auth_bloc.dart';
+import 'package:fit_forge/cubits/auth/auth_cubit.dart';
 import 'package:fit_forge/pages/auth/widgets/auth_input_error.dart';
 import 'package:fit_forge/styles/app_colors.dart';
 import 'package:fit_forge/widgets/custom_loading_indicator.dart';

@@ -26,8 +26,8 @@ final customTextThemeLight = TextTheme(
 
   /// Titles Of Pages
   titleLarge: GoogleFonts.openSans(
-    fontWeight: FontWeight.w500,
-    fontSize: 34,
+    fontWeight: FontWeight.w600,
+    fontSize: 20,
     color: defaultFontsColor,
   ),
 

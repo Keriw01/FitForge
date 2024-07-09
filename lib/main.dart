@@ -1,4 +1,4 @@
-import 'package:fit_forge/blocs/auth/bloc/auth_bloc.dart';
+import 'package:fit_forge/cubits/auth/auth_cubit.dart';
 import 'package:fit_forge/generated/l10n.dart';
 import 'package:fit_forge/routes/app_router.dart';
 import 'package:fit_forge/styles/custom_theme.dart';
