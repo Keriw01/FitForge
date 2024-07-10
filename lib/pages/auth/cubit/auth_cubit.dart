@@ -1,6 +1,8 @@
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:fit_forge/pages/settings/cubit/settings_cubit.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:fit_forge/base_cubit/base_cubit.dart';
 import 'package:fit_forge/exceptions/exceptions.dart';
@@ -206,7 +208,7 @@ class AuthCubit extends BaseCubit<AuthState> {
     }
   }
 
-  Future<void> logOut() async {
+  void logOut(BuildContext context) {
     const email = EmailInput.pure();
     const password = PasswordInput.pure();
     emit(
@@ -216,17 +218,15 @@ class AuthCubit extends BaseCubit<AuthState> {
           password: password,
           formStatus: FormzSubmissionStatus.inProgress),
     );
+
     try {
-      _navigateToAuthFlowScreen();
-      await _firebaseAuthService.signOutUser();
+      _firebaseAuthService.signOutUser();
     } catch (e) {
       emit(state.copyWith(formStatus: FormzSubmissionStatus.failure));
     } finally {
-      emit(state.copyWith(
-        authResponseMessage: AuthResponseMessage.none,
-        currentUser: null,
-        formStatus: FormzSubmissionStatus.success,
-      ));
+      _navigateToAuthFlowScreen();
+      _clearState();
+      context.read<SettingsCubit>().clearState();
     }
   }
 
@@ -255,15 +255,7 @@ class AuthCubit extends BaseCubit<AuthState> {
   }
 
   void _clearState() {
-    emit(
-      state.copyWith(
-        authResponseMessage: AuthResponseMessage.none,
-        email: const EmailInput.pure(),
-        password: const PasswordInput.pure(),
-        currentUser: null,
-        formStatus: FormzSubmissionStatus.initial,
-      ),
-    );
+    emit(AuthState());
   }
 
   String? getResponseError(

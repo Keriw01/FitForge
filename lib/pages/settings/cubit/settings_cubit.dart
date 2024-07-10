@@ -23,6 +23,7 @@ class SettingsCubit extends BaseCubit<SettingsState> {
         ) {
     _getUserProfile();
   }
+
   Future<void> _getUserProfile() async {
     try {
       emit(state.copyWith(isLoading: true));
@@ -52,6 +53,15 @@ class SettingsCubit extends BaseCubit<SettingsState> {
         isLoading: false,
       ));
     }
+  }
+
+  void navigateToSettingsPage() async {
+    appRouter.push(SettingsRoute());
+    await _getUserProfile();
+  }
+
+  void clearState() {
+    emit(SettingsState());
   }
 
   String? getResponseError(

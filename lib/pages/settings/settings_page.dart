@@ -33,7 +33,9 @@ class SettingsPage extends StatelessWidget {
         },
         builder: (context, state) {
           if (state.isLoading) {
-            return const CustomLoadingIndicator();
+            return const Center(
+              child: CustomLoadingIndicator(),
+            );
           }
 
           return SingleChildScrollView(
@@ -137,8 +139,9 @@ class SettingsPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 50),
                   ElevatedButton(
-                      child: Text(S.of(context).signUp),
-                      onPressed: () => context.read<AuthCubit>().logOut()),
+                      child: Text(S.of(context).logOut),
+                      onPressed: () =>
+                          context.read<AuthCubit>().logOut(context)),
                 ],
               ),
             ),
