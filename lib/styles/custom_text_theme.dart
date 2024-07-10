@@ -19,7 +19,11 @@ final customTextThemeLight = TextTheme(
   headlineLarge: null,
 
   /// Basic Info In Settings
-  headlineMedium: null,
+  headlineMedium: GoogleFonts.roboto(
+    fontWeight: FontWeight.w700,
+    fontSize: 14,
+    color: midNightBlue,
+  ),
 
   /// Filter Main Text
   headlineSmall: null,
@@ -46,7 +50,7 @@ final customTextThemeLight = TextTheme(
   /// Description of Exercises
   bodyLarge: null,
 
-  /// Authentication Form Field
+  /// Authentication Form Field / Labels in Settings
   bodyMedium: GoogleFonts.roboto(
     fontSize: 14,
     color: defaultFontsColor,
@@ -87,7 +91,11 @@ final customTextThemeDark = TextTheme(
   headlineLarge: null,
 
   /// Basic Info In Settings
-  headlineMedium: null,
+  headlineMedium: GoogleFonts.openSans(
+    fontWeight: FontWeight.w600,
+    fontSize: 14,
+    color: babyBlue,
+  ),
 
   /// Filter Main Text
   headlineSmall: null,
@@ -112,7 +120,7 @@ final customTextThemeDark = TextTheme(
   /// Description of Exercises
   bodyLarge: null,
 
-  /// Authentication Form Field
+  /// Authentication Form Field / Labels in Settings
   bodyMedium: GoogleFonts.openSans(
     fontSize: 14,
     color: defaultFontsColor,

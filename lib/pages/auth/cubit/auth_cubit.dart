@@ -2,10 +2,10 @@ import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:fit_forge/cubits/base_cubit.dart';
-import 'package:fit_forge/exceptions/auth_exceptions.dart';
+import 'package:fit_forge/base_cubit/base_cubit.dart';
+import 'package:fit_forge/exceptions/exceptions.dart';
 import 'package:fit_forge/generated/l10n.dart';
-import 'package:fit_forge/repositories/firebase_auth_service.dart';
+import 'package:fit_forge/repositories/firestore_auth_repository.dart';
 import 'package:fit_forge/models/current_user.dart';
 import 'package:fit_forge/routes/app_router.dart';
 import 'package:fit_forge/utils/forms/inputs.dart';
@@ -16,10 +16,11 @@ part 'auth_state.dart';
 part 'auth_cubit.g.dart';
 
 /// AuthBloc is responsible for managing authorization in the application
-class AuthBloc extends BaseCubit<AuthState> {
-  late final FirebaseAuthService _firebaseAuthService = FirebaseAuthService();
+class AuthCubit extends BaseCubit<AuthState> {
+  late final FirestoreAuthRepository _firebaseAuthService =
+      FirestoreAuthRepository();
 
-  AuthBloc(AppRouter appRouter, BuildContext context)
+  AuthCubit(AppRouter appRouter, BuildContext context)
       : super(
           appRouter,
           AuthState(),
@@ -59,6 +60,7 @@ class AuthBloc extends BaseCubit<AuthState> {
           formStatus: FormzSubmissionStatus.success,
           currentUser: user,
         ));
+        _navigateToAuthFlowScreen();
       } else {
         emit(state.copyWith(
           authResponseMessage: AuthResponseMessage.badAuthorization,
@@ -100,16 +102,21 @@ class AuthBloc extends BaseCubit<AuthState> {
         idToken: googleAuth.idToken,
       );
 
-      await FirebaseAuth.instance.signInWithCredential(credential);
-      emit(state.copyWith(
-        formStatus: FormzSubmissionStatus.success,
-        currentUser: CurrentUser(
-          userId: googleUser.id,
-          email: googleUser.email,
-          name: googleUser.displayName ?? '',
-        ),
-      ));
-      _navigateToAuthFlowScreen();
+      final CurrentUser? user =
+          await _firebaseAuthService.signInWithGoogleAccount(credential);
+
+      if (user != null) {
+        emit(state.copyWith(
+          formStatus: FormzSubmissionStatus.success,
+          currentUser: user,
+        ));
+        _navigateToAuthFlowScreen();
+      } else {
+        emit(state.copyWith(
+          authResponseMessage: AuthResponseMessage.badAuthorization,
+          formStatus: FormzSubmissionStatus.failure,
+        ));
+      }
     } catch (e) {
       emit(state.copyWith(
         authResponseMessage: AuthResponseMessage.googleLoginCanceled,
@@ -123,7 +130,22 @@ class AuthBloc extends BaseCubit<AuthState> {
     );
     try {
       GithubAuthProvider githubProvider = GithubAuthProvider();
-      await FirebaseAuth.instance.signInWithProvider(githubProvider);
+
+      final CurrentUser? user =
+          await _firebaseAuthService.signInWithGitHubAccount(githubProvider);
+
+      if (user != null) {
+        emit(state.copyWith(
+          formStatus: FormzSubmissionStatus.success,
+          currentUser: user,
+        ));
+        _navigateToAuthFlowScreen();
+      } else {
+        emit(state.copyWith(
+          authResponseMessage: AuthResponseMessage.badAuthorization,
+          formStatus: FormzSubmissionStatus.failure,
+        ));
+      }
     } catch (e) {
       emit(state.copyWith(
           authResponseMessage: AuthResponseMessage.gitHubLoginCanceled));
@@ -272,12 +294,6 @@ class AuthBloc extends BaseCubit<AuthState> {
 
       case AuthResponseMessage.gitHubLoginCanceled:
         return S.of(context).gitHubLoginCanceled;
-
-      // case AuthResponseMessage.emailAlreadyExist:
-      //   return S.of(context).defaultError;
-
-      // case AuthResponseMessage.facebookLoginFailed:
-      //   return S.of(context).defaultError;
     }
   }
 }

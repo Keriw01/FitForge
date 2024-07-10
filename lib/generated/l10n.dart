@@ -359,6 +359,176 @@ class S {
       args: [],
     );
   }
+
+  /// `Basic information`
+  String get basicInformation {
+    return Intl.message(
+      'Basic information',
+      name: 'basicInformation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Username`
+  String get usernameLabel {
+    return Intl.message(
+      'Username',
+      name: 'usernameLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email`
+  String get emailLabel {
+    return Intl.message(
+      'Email',
+      name: 'emailLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Gender`
+  String get genderLabel {
+    return Intl.message(
+      'Gender',
+      name: 'genderLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Birth Date`
+  String get birthDateLabel {
+    return Intl.message(
+      'Birth Date',
+      name: 'birthDateLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Basic Gym Location`
+  String get basicGymLocationLabel {
+    return Intl.message(
+      'Basic Gym Location',
+      name: 'basicGymLocationLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Current Workout Level`
+  String get currentWorkoutLevelLabel {
+    return Intl.message(
+      'Current Workout Level',
+      name: 'currentWorkoutLevelLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Top Goal`
+  String get topGoalLabel {
+    return Intl.message(
+      'Top Goal',
+      name: 'topGoalLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Profile View Mode`
+  String get profileViewMode {
+    return Intl.message(
+      'Profile View Mode',
+      name: 'profileViewMode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Other`
+  String get other {
+    return Intl.message(
+      'Other',
+      name: 'other',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Unit System`
+  String get unitSystem {
+    return Intl.message(
+      'Unit System',
+      name: 'unitSystem',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Default Reps`
+  String get defaultReps {
+    return Intl.message(
+      'Default Reps',
+      name: 'defaultReps',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Default Sets`
+  String get defaultsSets {
+    return Intl.message(
+      'Default Sets',
+      name: 'defaultsSets',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Connect with Google Fit`
+  String get connectWithGoogleFit {
+    return Intl.message(
+      'Connect with Google Fit',
+      name: 'connectWithGoogleFit',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cloud Database Error`
+  String get firestoreException {
+    return Intl.message(
+      'Cloud Database Error',
+      name: 'firestoreException',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Document Id Not Exist`
+  String get documentIdNotExist {
+    return Intl.message(
+      'Document Id Not Exist',
+      name: 'documentIdNotExist',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `no data`
+  String get noData {
+    return Intl.message(
+      'no data',
+      name: 'noData',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

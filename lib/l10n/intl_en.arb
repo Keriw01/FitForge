@@ -30,5 +30,23 @@
     "statisticsLabel": "Progress",
     "scanQrLabel": "Scan QR",
     "logOut": "Logout",
-    "settingsTitle": "Settings"
+    "settingsTitle": "Settings",
+    "basicInformation": "Basic information",
+    "usernameLabel": "Username",
+    "emailLabel": "Email",
+    "genderLabel": "Gender",
+    "birthDateLabel": "Birth Date",
+    "basicGymLocationLabel": "Basic Gym Location",
+    "currentWorkoutLevelLabel": "Current Workout Level",
+    "topGoalLabel": "Top Goal",
+    "profileViewMode": "Profile View Mode",
+    "other": "Other",
+    "unitSystem": "Unit System",
+    "defaultReps": "Default Reps",
+    "defaultsSets": "Default Sets",
+    "connectWithGoogleFit": "Connect with Google Fit",
+    "firestoreException": "Cloud Database Error",
+    "documentIdNotExist": "Document Id Not Exist",
+    "noData": "no data"
+
 }

@@ -1,4 +1,4 @@
-import 'package:fit_forge/cubits/auth/auth_cubit.dart';
+import 'package:fit_forge/pages/auth/cubit/auth_cubit.dart';
 import 'package:fit_forge/generated/l10n.dart';
 import 'package:fit_forge/pages/auth/widgets/auth_input_error.dart';
 import 'package:fit_forge/pages/auth/widgets/underline_input_border.dart';
@@ -16,7 +16,7 @@ class PasswordInputField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocSelector<AuthBloc, AuthState,
+    return BlocSelector<AuthCubit, AuthState,
         Tuple2<FormzSubmissionStatus, PasswordInput>>(
       selector: (state) => Tuple2(
         state.formStatus,
@@ -39,7 +39,7 @@ class PasswordInputField extends StatelessWidget {
               padding: const EdgeInsets.fromLTRB(35, 5, 35, 5),
               child: TextFormField(
                 onChanged: (value) =>
-                    context.read<AuthBloc>().passwordChanged(value),
+                    context.read<AuthCubit>().passwordChanged(value),
                 readOnly: state.item1.isInProgress,
                 cursorColor: seedBlue,
                 style: Theme.of(context).textTheme.bodyMedium,

@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:fit_forge/cubits/auth/auth_cubit.dart';
+import 'package:fit_forge/pages/auth/cubit/auth_cubit.dart';
 import 'package:fit_forge/generated/l10n.dart';
 import 'package:fit_forge/pages/auth/widgets/auth_button.dart';
 import 'package:fit_forge/pages/auth/widgets/auth_image.dart';
@@ -32,13 +32,13 @@ class LoginPage extends StatelessWidget {
               const PasswordInputField(),
               const SizedBox(height: 10),
               AuthButton(
-                onPressed: () => context.read<AuthBloc>().login(),
+                onPressed: () => context.read<AuthCubit>().login(),
                 text: S.of(context).loginButton,
               ),
               const SizedBox(height: 5),
               AuthTextButton(
                 onPressed: () =>
-                    context.read<AuthBloc>().navigateToRegisterPage(),
+                    context.read<AuthCubit>().navigateToRegisterPage(),
                 textNormal: S.of(context).dontHaveAccount,
                 textBold: S.of(context).signUp,
               ),

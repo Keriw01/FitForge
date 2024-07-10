@@ -30,5 +30,22 @@
     "statisticsLabel": "Historia",
     "scanQrLabel": "Skanuj QR",
     "logOut": "Wyloguj",
-    "settingsTitle": "Ustawienia"
+    "settingsTitle": "Ustawienia",
+    "basicInformation": "Podstawowe informacje",
+    "usernameLabel": "Nazwa użytkownika",
+    "emailLabel": "Email",
+    "genderLabel": "Płeć",
+    "birthDateLabel": "Data urodzenia",
+    "basicGymLocationLabel": "Lokalizacja siłowni",
+    "currentWorkoutLevelLabel": "Poziom zaawansowania",
+    "topGoalLabel": "Cel",
+    "profileViewMode": "Tryb wyświetlania profilu",
+    "other": "Inne",
+    "unitSystem": "Jednostki",
+    "defaultReps": "Ilość powtórzeń",
+    "defaultsSets": "Ilość serii",
+    "connectWithGoogleFit": "Połącz się z Google Fit",
+    "firestoreException": "Błąd Cloud Database",
+    "documentIdNotExist": "Document Id Not Exist",
+    "noData": "brak danych"
 }

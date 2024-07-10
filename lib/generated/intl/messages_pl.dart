@@ -26,9 +26,24 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Masz już konto ?"),
         "badAuthorization":
             MessageLookupByLibrary.simpleMessage("Nie poprawne dane"),
+        "basicGymLocationLabel":
+            MessageLookupByLibrary.simpleMessage("Lokalizacja siłowni"),
+        "basicInformation":
+            MessageLookupByLibrary.simpleMessage("Podstawowe informacje"),
+        "birthDateLabel":
+            MessageLookupByLibrary.simpleMessage("Data urodzenia"),
+        "connectWithGoogleFit":
+            MessageLookupByLibrary.simpleMessage("Połącz się z Google Fit"),
+        "currentWorkoutLevelLabel":
+            MessageLookupByLibrary.simpleMessage("Poziom zaawansowania"),
         "defaultError": MessageLookupByLibrary.simpleMessage("Błąd"),
+        "defaultReps": MessageLookupByLibrary.simpleMessage("Ilość powtórzeń"),
+        "defaultsSets": MessageLookupByLibrary.simpleMessage("Ilość serii"),
+        "documentIdNotExist":
+            MessageLookupByLibrary.simpleMessage("Document Id Not Exist"),
         "dontHaveAccount":
             MessageLookupByLibrary.simpleMessage("Nie masz konta ?"),
+        "emailLabel": MessageLookupByLibrary.simpleMessage("Email"),
         "enterEmail": MessageLookupByLibrary.simpleMessage("Wpisz swój e-mail"),
         "enterPassword":
             MessageLookupByLibrary.simpleMessage("Wpisz swoje hasło"),
@@ -37,6 +52,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "enterValidPassword": MessageLookupByLibrary.simpleMessage(
             "Hasło musi mieć co najmniej 8 znaków"),
         "exercisesLabel": MessageLookupByLibrary.simpleMessage("Ćwiczenia"),
+        "firestoreException":
+            MessageLookupByLibrary.simpleMessage("Błąd Cloud Database"),
+        "genderLabel": MessageLookupByLibrary.simpleMessage("Płeć"),
         "gitHubLoginCanceled": MessageLookupByLibrary.simpleMessage(
             "Anulowano logowanie przez GitHub"),
         "googleLoginCanceled": MessageLookupByLibrary.simpleMessage(
@@ -47,9 +65,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "logOut": MessageLookupByLibrary.simpleMessage("Wyloguj"),
         "loginButton": MessageLookupByLibrary.simpleMessage("Zaloguj"),
         "loginPageTitle": MessageLookupByLibrary.simpleMessage("Logowanie"),
+        "noData": MessageLookupByLibrary.simpleMessage("brak danych"),
         "notValidEmail":
             MessageLookupByLibrary.simpleMessage("Niepoprawny adres email"),
         "or": MessageLookupByLibrary.simpleMessage("LUB"),
+        "other": MessageLookupByLibrary.simpleMessage("Inne"),
+        "profileViewMode":
+            MessageLookupByLibrary.simpleMessage("Tryb wyświetlania profilu"),
         "registerPageTitle":
             MessageLookupByLibrary.simpleMessage("Rejestracja"),
         "requiredPassword":
@@ -62,10 +84,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "signUp": MessageLookupByLibrary.simpleMessage(" Zarejestruj się"),
         "signUpButton": MessageLookupByLibrary.simpleMessage("Zarejestruj"),
         "statisticsLabel": MessageLookupByLibrary.simpleMessage("Historia"),
+        "topGoalLabel": MessageLookupByLibrary.simpleMessage("Cel"),
+        "unitSystem": MessageLookupByLibrary.simpleMessage("Jednostki"),
         "userAlreadyExist":
             MessageLookupByLibrary.simpleMessage("Użytkownik już istnieje"),
         "userAlreadyLogIn":
             MessageLookupByLibrary.simpleMessage("Użytkownik już zalogowany"),
+        "usernameLabel":
+            MessageLookupByLibrary.simpleMessage("Nazwa użytkownika"),
         "weakPassword": MessageLookupByLibrary.simpleMessage(
             "Hasło musi mieć co najmniej 8 znaków, zawierać jedną literę, cyfrę oraz znak specjalny"),
         "workoutsLabel": MessageLookupByLibrary.simpleMessage("Plany")

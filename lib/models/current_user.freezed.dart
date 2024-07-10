@@ -22,7 +22,6 @@ CurrentUser _$CurrentUserFromJson(Map<String, dynamic> json) {
 mixin _$CurrentUser {
   String get userId => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,7 +35,7 @@ abstract class $CurrentUserCopyWith<$Res> {
           CurrentUser value, $Res Function(CurrentUser) then) =
       _$CurrentUserCopyWithImpl<$Res, CurrentUser>;
   @useResult
-  $Res call({String userId, String email, String name});
+  $Res call({String userId, String email});
 }
 
 /// @nodoc
@@ -54,7 +53,6 @@ class _$CurrentUserCopyWithImpl<$Res, $Val extends CurrentUser>
   $Res call({
     Object? userId = null,
     Object? email = null,
-    Object? name = null,
   }) {
     return _then(_value.copyWith(
       userId: null == userId
@@ -64,10 +62,6 @@ class _$CurrentUserCopyWithImpl<$Res, $Val extends CurrentUser>
       email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
@@ -81,7 +75,7 @@ abstract class _$$CurrentUserImplCopyWith<$Res>
       __$$CurrentUserImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String userId, String email, String name});
+  $Res call({String userId, String email});
 }
 
 /// @nodoc
@@ -97,7 +91,6 @@ class __$$CurrentUserImplCopyWithImpl<$Res>
   $Res call({
     Object? userId = null,
     Object? email = null,
-    Object? name = null,
   }) {
     return _then(_$CurrentUserImpl(
       userId: null == userId
@@ -108,10 +101,6 @@ class __$$CurrentUserImplCopyWithImpl<$Res>
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
     ));
   }
 }
@@ -119,8 +108,7 @@ class __$$CurrentUserImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$CurrentUserImpl implements _CurrentUser {
-  const _$CurrentUserImpl(
-      {required this.userId, required this.email, required this.name});
+  const _$CurrentUserImpl({required this.userId, required this.email});
 
   factory _$CurrentUserImpl.fromJson(Map<String, dynamic> json) =>
       _$$CurrentUserImplFromJson(json);
@@ -129,12 +117,10 @@ class _$CurrentUserImpl implements _CurrentUser {
   final String userId;
   @override
   final String email;
-  @override
-  final String name;
 
   @override
   String toString() {
-    return 'CurrentUser(userId: $userId, email: $email, name: $name)';
+    return 'CurrentUser(userId: $userId, email: $email)';
   }
 
   @override
@@ -143,13 +129,12 @@ class _$CurrentUserImpl implements _CurrentUser {
         (other.runtimeType == runtimeType &&
             other is _$CurrentUserImpl &&
             (identical(other.userId, userId) || other.userId == userId) &&
-            (identical(other.email, email) || other.email == email) &&
-            (identical(other.name, name) || other.name == name));
+            (identical(other.email, email) || other.email == email));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, userId, email, name);
+  int get hashCode => Object.hash(runtimeType, userId, email);
 
   @JsonKey(ignore: true)
   @override
@@ -168,8 +153,7 @@ class _$CurrentUserImpl implements _CurrentUser {
 abstract class _CurrentUser implements CurrentUser {
   const factory _CurrentUser(
       {required final String userId,
-      required final String email,
-      required final String name}) = _$CurrentUserImpl;
+      required final String email}) = _$CurrentUserImpl;
 
   factory _CurrentUser.fromJson(Map<String, dynamic> json) =
       _$CurrentUserImpl.fromJson;
@@ -178,8 +162,6 @@ abstract class _CurrentUser implements CurrentUser {
   String get userId;
   @override
   String get email;
-  @override
-  String get name;
   @override
   @JsonKey(ignore: true)
   _$$CurrentUserImplCopyWith<_$CurrentUserImpl> get copyWith =>

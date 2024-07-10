@@ -26,9 +26,23 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Already have an Account ?"),
         "badAuthorization":
             MessageLookupByLibrary.simpleMessage("Internal Credentials"),
+        "basicGymLocationLabel":
+            MessageLookupByLibrary.simpleMessage("Basic Gym Location"),
+        "basicInformation":
+            MessageLookupByLibrary.simpleMessage("Basic information"),
+        "birthDateLabel": MessageLookupByLibrary.simpleMessage("Birth Date"),
+        "connectWithGoogleFit":
+            MessageLookupByLibrary.simpleMessage("Connect with Google Fit"),
+        "currentWorkoutLevelLabel":
+            MessageLookupByLibrary.simpleMessage("Current Workout Level"),
         "defaultError": MessageLookupByLibrary.simpleMessage("Error"),
+        "defaultReps": MessageLookupByLibrary.simpleMessage("Default Reps"),
+        "defaultsSets": MessageLookupByLibrary.simpleMessage("Default Sets"),
+        "documentIdNotExist":
+            MessageLookupByLibrary.simpleMessage("Document Id Not Exist"),
         "dontHaveAccount":
             MessageLookupByLibrary.simpleMessage("Don\'\'t have an Account ?"),
+        "emailLabel": MessageLookupByLibrary.simpleMessage("Email"),
         "enterEmail": MessageLookupByLibrary.simpleMessage("Enter e-mail"),
         "enterPassword":
             MessageLookupByLibrary.simpleMessage("Enter your password"),
@@ -37,6 +51,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "enterValidPassword": MessageLookupByLibrary.simpleMessage(
             "Password must contains minimum 8 characters"),
         "exercisesLabel": MessageLookupByLibrary.simpleMessage("Exercises"),
+        "firestoreException":
+            MessageLookupByLibrary.simpleMessage("Cloud Database Error"),
+        "genderLabel": MessageLookupByLibrary.simpleMessage("Gender"),
         "gitHubLoginCanceled":
             MessageLookupByLibrary.simpleMessage("Login with GitHub canceled"),
         "googleLoginCanceled":
@@ -47,9 +64,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "logOut": MessageLookupByLibrary.simpleMessage("Logout"),
         "loginButton": MessageLookupByLibrary.simpleMessage("Login"),
         "loginPageTitle": MessageLookupByLibrary.simpleMessage("Login"),
+        "noData": MessageLookupByLibrary.simpleMessage("no data"),
         "notValidEmail":
             MessageLookupByLibrary.simpleMessage("Incorrect email address"),
         "or": MessageLookupByLibrary.simpleMessage("OR"),
+        "other": MessageLookupByLibrary.simpleMessage("Other"),
+        "profileViewMode":
+            MessageLookupByLibrary.simpleMessage("Profile View Mode"),
         "registerPageTitle": MessageLookupByLibrary.simpleMessage("Register"),
         "requiredPassword":
             MessageLookupByLibrary.simpleMessage("Password is required"),
@@ -61,10 +82,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "signUp": MessageLookupByLibrary.simpleMessage(" Sign Up"),
         "signUpButton": MessageLookupByLibrary.simpleMessage("Register"),
         "statisticsLabel": MessageLookupByLibrary.simpleMessage("Progress"),
+        "topGoalLabel": MessageLookupByLibrary.simpleMessage("Top Goal"),
+        "unitSystem": MessageLookupByLibrary.simpleMessage("Unit System"),
         "userAlreadyExist":
             MessageLookupByLibrary.simpleMessage("User already exist"),
         "userAlreadyLogIn":
             MessageLookupByLibrary.simpleMessage("User already LogIn"),
+        "usernameLabel": MessageLookupByLibrary.simpleMessage("Username"),
         "weakPassword": MessageLookupByLibrary.simpleMessage(
             "The password must be at least 8 characters long and contain one letter, a number and a special character"),
         "workoutsLabel": MessageLookupByLibrary.simpleMessage("Workout")

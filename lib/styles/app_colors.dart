@@ -1,18 +1,11 @@
 import 'package:flutter/material.dart';
 
-const Color seedColor = Color(0xFFFF8800);
-const Color deepOrange = Color(0xFFFF5722);
-const Color primaryColor = Color(0xFFFF9800);
-const Color lightGreyColor = Color(0xFF9E9E9E);
-const Color darkGreyColor = Color(0xFF5E5E5E);
-const Color heartColor = Color(0xFFED5D53);
-
 const Color seedBlue = Color(0xFF2E8BC0);
 const Color babyBlue = Color(0xFFB1D4E0);
 const Color darkBlue = Color(0xFF0C2D48);
 const Color midNightBlue = Color(0xFF145DA0);
 const Color defaultFontsColor = Color(0xFF2C2C2C);
-const Color offIcons = Color(0xFFBCBCBC);
+const Color lightGreyColor = Color(0xFFBCBCBC);
 const Color dividerColor = Color(0xFF7E7E7E);
 const Color whiteColor = Color(0xFFFFFFFF);
 const Color greenButton = Color(0xFF74FF43);

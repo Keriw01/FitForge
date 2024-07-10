@@ -1,4 +1,4 @@
-import 'package:fit_forge/cubits/auth/auth_cubit.dart';
+import 'package:fit_forge/pages/auth/cubit/auth_cubit.dart';
 import 'package:fit_forge/generated/l10n.dart';
 import 'package:fit_forge/pages/auth/widgets/auth_input_error.dart';
 import 'package:fit_forge/pages/auth/widgets/underline_input_border.dart';
@@ -16,7 +16,7 @@ class EmailInputField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocSelector<AuthBloc, AuthState,
+    return BlocSelector<AuthCubit, AuthState,
         Tuple2<FormzSubmissionStatus, EmailInput>>(
       selector: (state) => Tuple2(
         state.formStatus,
@@ -37,7 +37,7 @@ class EmailInputField extends StatelessWidget {
               padding: const EdgeInsets.fromLTRB(35, 0, 35, 5),
               child: TextFormField(
                 onChanged: (value) =>
-                    context.read<AuthBloc>().emailChanged(value),
+                    context.read<AuthCubit>().emailChanged(value),
                 readOnly: state.item1.isInProgress,
                 keyboardType: TextInputType.emailAddress,
                 cursorColor: seedBlue,

@@ -1,5 +1,6 @@
-import 'package:fit_forge/cubits/auth/auth_cubit.dart';
+import 'package:fit_forge/pages/auth/cubit/auth_cubit.dart';
 import 'package:fit_forge/generated/l10n.dart';
+import 'package:fit_forge/pages/settings/cubit/settings_cubit.dart';
 import 'package:fit_forge/routes/app_router.dart';
 import 'package:fit_forge/styles/custom_theme.dart';
 import 'package:flutter/material.dart';
@@ -24,8 +25,11 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => AuthBloc(_appRouter, context),
+          create: (context) => AuthCubit(_appRouter, context),
           lazy: false,
+        ),
+        BlocProvider(
+          create: (context) => SettingsCubit(_appRouter, context),
         ),
       ],
       child: MaterialApp.router(

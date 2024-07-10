@@ -1,4 +1,4 @@
-import 'package:fit_forge/cubits/auth/auth_cubit.dart';
+import 'package:fit_forge/pages/auth/cubit/auth_cubit.dart';
 import 'package:fit_forge/pages/auth/widgets/auth_input_error.dart';
 import 'package:fit_forge/styles/app_colors.dart';
 import 'package:fit_forge/widgets/custom_loading_indicator.dart';
@@ -19,12 +19,12 @@ class AuthButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocSelector<AuthBloc, AuthState,
+    return BlocSelector<AuthCubit, AuthState,
         Tuple2<FormzSubmissionStatus, AuthResponseMessage>>(
       selector: (state) => Tuple2(state.formStatus, state.authResponseMessage),
       builder: (context, state) {
         String? responseError =
-            context.read<AuthBloc>().getResponseError(state.item2, context);
+            context.read<AuthCubit>().getResponseError(state.item2, context);
 
         return Column(
           children: [
