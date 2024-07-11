@@ -31,6 +31,8 @@ class CustomTheme {
         color: lightColorScheme.onSurface,
       ),
     ),
+    progressIndicatorTheme:
+        ProgressIndicatorThemeData(color: lightColorScheme.primary),
   );
 
   static final ThemeData _darkTheme = ThemeData(
@@ -52,5 +54,7 @@ class CustomTheme {
         color: darkColorScheme.onSurface,
       ),
     ),
+    progressIndicatorTheme:
+        ProgressIndicatorThemeData(color: darkColorScheme.onSurface),
   );
 }

@@ -5,13 +5,13 @@ import 'package:flutter/material.dart';
 class CustomLoadingIndicator extends StatelessWidget {
   final double width;
   final double height;
-  final Color color;
+  final Color? color;
   final double strokeWidth;
   const CustomLoadingIndicator({
     super.key,
     this.width = 100,
     this.height = 100,
-    this.color = whiteColor,
+    this.color,
     this.strokeWidth = 3,
   });
 
