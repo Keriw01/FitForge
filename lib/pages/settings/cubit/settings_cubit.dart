@@ -2,6 +2,7 @@ import 'package:equatable/equatable.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fit_forge/base_cubit/base_cubit.dart';
+import 'package:fit_forge/consts/profile_enums.dart';
 import 'package:fit_forge/exceptions/exceptions.dart';
 import 'package:fit_forge/generated/l10n.dart';
 import 'package:fit_forge/models/user_profile.dart';
@@ -55,33 +56,37 @@ class SettingsCubit extends BaseCubit<SettingsState> {
     }
   }
 
-  Future<void> updateUserProfile(String userName) async {
+  Future<void> updateUserProfile(ProfileCurrenRow profileCurrenRow,
+      {String? userName, String? gender}) async {
     try {
-      emit(state.copyWith(isSavingRow: true));
+      emit(state.copyWith(profileCurrenRow: profileCurrenRow));
 
       User? user = FirebaseAuth.instance.currentUser;
+      UserProfile? currentUserProfile = state.userProfile;
 
       if (user != null) {
-        // TODO - updateUserName() -> updateUserProfile() zamienić funkcję na edycję profilu użytkownika, wszystkich jego pól
-        await firebaseProfileRepository.updateUserName(user.uid, userName);
+        UserProfile updatedUserProfile = state.userProfile!.copyWith(
+          userName: userName ?? currentUserProfile?.userName,
+          gender: gender ?? currentUserProfile?.gender,
+        );
 
-        UserProfile updatedProfile =
-            state.userProfile!.copyWith(userName: userName);
+        await firebaseProfileRepository.updateUserProfile(
+            user.uid, updatedUserProfile);
 
         emit(state.copyWith(
-          userProfile: updatedProfile,
-          isSavingRow: false,
+          userProfile: updatedUserProfile,
+          profileCurrenRow: ProfileCurrenRow.none,
         ));
       }
     } on FirestoreException {
       emit(state.copyWith(
         profileResponseMessage: ProfileResponseMessage.firestoreException,
-        isSavingRow: false,
+        profileCurrenRow: ProfileCurrenRow.none,
       ));
     } catch (e) {
       emit(state.copyWith(
         profileResponseMessage: ProfileResponseMessage.defaultError,
-        isSavingRow: false,
+        profileCurrenRow: ProfileCurrenRow.none,
       ));
     }
   }

@@ -12,7 +12,7 @@ abstract class _$SettingsStateCWProxy {
 
   SettingsState isLoading(bool isLoading);
 
-  SettingsState isSavingRow(bool isSavingRow);
+  SettingsState profileCurrenRow(ProfileCurrenRow profileCurrenRow);
 
   SettingsState userProfile(UserProfile? userProfile);
 
@@ -25,7 +25,7 @@ abstract class _$SettingsStateCWProxy {
   SettingsState call({
     ProfileResponseMessage? profileResponseMessage,
     bool? isLoading,
-    bool? isSavingRow,
+    ProfileCurrenRow? profileCurrenRow,
     UserProfile? userProfile,
   });
 }
@@ -45,7 +45,8 @@ class _$SettingsStateCWProxyImpl implements _$SettingsStateCWProxy {
   SettingsState isLoading(bool isLoading) => this(isLoading: isLoading);
 
   @override
-  SettingsState isSavingRow(bool isSavingRow) => this(isSavingRow: isSavingRow);
+  SettingsState profileCurrenRow(ProfileCurrenRow profileCurrenRow) =>
+      this(profileCurrenRow: profileCurrenRow);
 
   @override
   SettingsState userProfile(UserProfile? userProfile) =>
@@ -62,7 +63,7 @@ class _$SettingsStateCWProxyImpl implements _$SettingsStateCWProxy {
   SettingsState call({
     Object? profileResponseMessage = const $CopyWithPlaceholder(),
     Object? isLoading = const $CopyWithPlaceholder(),
-    Object? isSavingRow = const $CopyWithPlaceholder(),
+    Object? profileCurrenRow = const $CopyWithPlaceholder(),
     Object? userProfile = const $CopyWithPlaceholder(),
   }) {
     return SettingsState(
@@ -76,11 +77,11 @@ class _$SettingsStateCWProxyImpl implements _$SettingsStateCWProxy {
           ? _value.isLoading
           // ignore: cast_nullable_to_non_nullable
           : isLoading as bool,
-      isSavingRow:
-          isSavingRow == const $CopyWithPlaceholder() || isSavingRow == null
-              ? _value.isSavingRow
-              // ignore: cast_nullable_to_non_nullable
-              : isSavingRow as bool,
+      profileCurrenRow: profileCurrenRow == const $CopyWithPlaceholder() ||
+              profileCurrenRow == null
+          ? _value.profileCurrenRow
+          // ignore: cast_nullable_to_non_nullable
+          : profileCurrenRow as ProfileCurrenRow,
       userProfile: userProfile == const $CopyWithPlaceholder()
           ? _value.userProfile
           // ignore: cast_nullable_to_non_nullable

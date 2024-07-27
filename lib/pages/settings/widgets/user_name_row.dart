@@ -1,3 +1,4 @@
+import 'package:fit_forge/consts/profile_enums.dart';
 import 'package:fit_forge/generated/l10n.dart';
 import 'package:fit_forge/pages/settings/cubit/settings_cubit.dart';
 import 'package:fit_forge/styles/app_colors.dart';
@@ -7,24 +8,26 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class UserNameRow extends StatelessWidget {
   final String? userName;
-  final bool isSavingRow;
+  final ProfileCurrenRow profileCurrenRow;
 
   const UserNameRow({
     super.key,
     required this.userName,
-    required this.isSavingRow,
+    required this.profileCurrenRow,
   });
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => isSavingRow
+      onTap: () => profileCurrenRow != ProfileCurrenRow.none
           ? null
           : _showEditDialog(
               context,
               userName ?? '',
-              (newName) =>
-                  context.read<SettingsCubit>().updateUserProfile(newName),
+              (newName) => context.read<SettingsCubit>().updateUserProfile(
+                    ProfileCurrenRow.userName,
+                    userName: newName,
+                  ),
             ),
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 20),
@@ -37,7 +40,7 @@ class UserNameRow extends StatelessWidget {
             ),
             Row(
               children: [
-                isSavingRow
+                profileCurrenRow == ProfileCurrenRow.userName
                     ? const CustomLoadingIndicator(
                         width: 20,
                         height: 20,

@@ -1,3 +1,4 @@
+import 'package:fit_forge/consts/profile_enums.dart';
 import 'package:fit_forge/generated/l10n.dart';
 import 'package:fit_forge/pages/settings/cubit/settings_cubit.dart';
 import 'package:fit_forge/styles/app_colors.dart';
@@ -7,12 +8,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class GenderRow extends StatefulWidget {
   final String? gender;
-  final bool isSavingRow;
+  final ProfileCurrenRow profileCurrenRow;
 
   const GenderRow({
     super.key,
     required this.gender,
-    required this.isSavingRow,
+    required this.profileCurrenRow,
   });
 
   @override
@@ -31,10 +32,13 @@ class _GenderRowState extends State<GenderRow> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => widget.isSavingRow
+      onTap: () => widget.profileCurrenRow != ProfileCurrenRow.none
           ? null
           : _showEditDialog(context, widget.gender ?? '', (newGender) {
-              context.read<SettingsCubit>().updateUserProfile(newGender);
+              context.read<SettingsCubit>().updateUserProfile(
+                    ProfileCurrenRow.gender,
+                    gender: newGender,
+                  );
             }),
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 20),
@@ -47,7 +51,7 @@ class _GenderRowState extends State<GenderRow> {
             ),
             Row(
               children: [
-                widget.isSavingRow
+                widget.profileCurrenRow == ProfileCurrenRow.gender
                     ? const CustomLoadingIndicator(
                         width: 20,
                         height: 20,

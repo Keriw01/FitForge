@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:fit_forge/consts/profile_enums.dart';
 import 'package:fit_forge/pages/auth/cubit/auth_cubit.dart';
 import 'package:fit_forge/generated/l10n.dart';
 import 'package:fit_forge/pages/settings/cubit/settings_cubit.dart';
@@ -73,11 +74,11 @@ class SettingsPage extends StatelessWidget {
                         ),
                         UserNameRow(
                           userName: state.userProfile?.userName,
-                          isSavingRow: state.isSavingRow,
+                          profileCurrenRow: state.profileCurrenRow,
                         ),
                         GenderRow(
                           gender: state.userProfile?.gender,
-                          isSavingRow: state.isSavingRow,
+                          profileCurrenRow: state.profileCurrenRow,
                         ),
                         SettingRow(
                           label: S.of(context).birthDateLabel,
