@@ -2,8 +2,10 @@ import 'package:auto_route/auto_route.dart';
 import 'package:fit_forge/pages/auth/cubit/auth_cubit.dart';
 import 'package:fit_forge/generated/l10n.dart';
 import 'package:fit_forge/pages/settings/cubit/settings_cubit.dart';
+import 'package:fit_forge/pages/settings/widgets/email_row.dart';
+import 'package:fit_forge/pages/settings/widgets/gender_row.dart';
 import 'package:fit_forge/pages/settings/widgets/setting_row.dart';
-import 'package:fit_forge/utils/formation/formation.dart';
+import 'package:fit_forge/pages/settings/widgets/user_name_row.dart';
 import 'package:fit_forge/widgets/custom_loading_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -44,11 +46,13 @@ class SettingsPage extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
+                  //TODO
+                  // Obsłużyć możliwości dodania zdjęcia profilowego z pamięci urządzenia
                   CircleAvatar(
                     minRadius: 32,
                     child: state.userProfile?.photoUrl != null
                         ? Image.network(state.userProfile!.photoUrl!)
-                        : const Icon(Icons.person_outline, size: 48),
+                        : const Icon(Icons.person, size: 48),
                   ),
                   Padding(
                     padding:
@@ -63,20 +67,17 @@ class SettingsPage extends StatelessWidget {
                               .bodyMedium!
                               .copyWith(fontWeight: FontWeight.w600),
                         ),
-                        SettingRow(
-                          label: S.of(context).usernameLabel,
-                          value: state.userProfile?.userName,
-                          onTap: () {},
-                        ),
-                        SettingRow(
+                        EmailRow(
                           label: S.of(context).emailLabel,
                           value: state.userProfile?.email,
-                          onTap: () {},
                         ),
-                        SettingRow(
-                          label: S.of(context).genderLabel,
-                          value: state.userProfile?.gender,
-                          onTap: () {},
+                        UserNameRow(
+                          userName: state.userProfile?.userName,
+                          isSavingRow: state.isSavingRow,
+                        ),
+                        GenderRow(
+                          gender: state.userProfile?.gender,
+                          isSavingRow: state.isSavingRow,
                         ),
                         SettingRow(
                           label: S.of(context).birthDateLabel,
@@ -87,7 +88,7 @@ class SettingsPage extends StatelessWidget {
                           onTap: () {},
                         ),
                         //TODO
-                        //Pominięta lokacja, w tej chwili nie potrzebna
+                        // Pominięta lokacja, w tej chwili nie potrzebna
                         //
                         // SettingRow(
                         //   label: S.of(context).basicGymLocationLabel,

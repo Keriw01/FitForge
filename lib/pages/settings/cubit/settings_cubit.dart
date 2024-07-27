@@ -55,6 +55,37 @@ class SettingsCubit extends BaseCubit<SettingsState> {
     }
   }
 
+  Future<void> updateUserProfile(String userName) async {
+    try {
+      emit(state.copyWith(isSavingRow: true));
+
+      User? user = FirebaseAuth.instance.currentUser;
+
+      if (user != null) {
+        // TODO - updateUserName() -> updateUserProfile() zamienić funkcję na edycję profilu użytkownika, wszystkich jego pól
+        await firebaseProfileRepository.updateUserName(user.uid, userName);
+
+        UserProfile updatedProfile =
+            state.userProfile!.copyWith(userName: userName);
+
+        emit(state.copyWith(
+          userProfile: updatedProfile,
+          isSavingRow: false,
+        ));
+      }
+    } on FirestoreException {
+      emit(state.copyWith(
+        profileResponseMessage: ProfileResponseMessage.firestoreException,
+        isSavingRow: false,
+      ));
+    } catch (e) {
+      emit(state.copyWith(
+        profileResponseMessage: ProfileResponseMessage.defaultError,
+        isSavingRow: false,
+      ));
+    }
+  }
+
   void navigateToSettingsPage() async {
     appRouter.push(SettingsRoute());
     await _getUserProfile();

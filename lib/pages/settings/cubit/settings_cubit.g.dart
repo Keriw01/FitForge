@@ -12,6 +12,8 @@ abstract class _$SettingsStateCWProxy {
 
   SettingsState isLoading(bool isLoading);
 
+  SettingsState isSavingRow(bool isSavingRow);
+
   SettingsState userProfile(UserProfile? userProfile);
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `SettingsState(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
@@ -23,6 +25,7 @@ abstract class _$SettingsStateCWProxy {
   SettingsState call({
     ProfileResponseMessage? profileResponseMessage,
     bool? isLoading,
+    bool? isSavingRow,
     UserProfile? userProfile,
   });
 }
@@ -42,6 +45,9 @@ class _$SettingsStateCWProxyImpl implements _$SettingsStateCWProxy {
   SettingsState isLoading(bool isLoading) => this(isLoading: isLoading);
 
   @override
+  SettingsState isSavingRow(bool isSavingRow) => this(isSavingRow: isSavingRow);
+
+  @override
   SettingsState userProfile(UserProfile? userProfile) =>
       this(userProfile: userProfile);
 
@@ -56,6 +62,7 @@ class _$SettingsStateCWProxyImpl implements _$SettingsStateCWProxy {
   SettingsState call({
     Object? profileResponseMessage = const $CopyWithPlaceholder(),
     Object? isLoading = const $CopyWithPlaceholder(),
+    Object? isSavingRow = const $CopyWithPlaceholder(),
     Object? userProfile = const $CopyWithPlaceholder(),
   }) {
     return SettingsState(
@@ -69,6 +76,11 @@ class _$SettingsStateCWProxyImpl implements _$SettingsStateCWProxy {
           ? _value.isLoading
           // ignore: cast_nullable_to_non_nullable
           : isLoading as bool,
+      isSavingRow:
+          isSavingRow == const $CopyWithPlaceholder() || isSavingRow == null
+              ? _value.isSavingRow
+              // ignore: cast_nullable_to_non_nullable
+              : isSavingRow as bool,
       userProfile: userProfile == const $CopyWithPlaceholder()
           ? _value.userProfile
           // ignore: cast_nullable_to_non_nullable

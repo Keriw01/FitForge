@@ -94,7 +94,7 @@ final customTextThemeDark = TextTheme(
   headlineMedium: GoogleFonts.openSans(
     fontWeight: FontWeight.w600,
     fontSize: 14,
-    color: babyBlue,
+    color: seedBlue,
   ),
 
   /// Filter Main Text
@@ -123,7 +123,7 @@ final customTextThemeDark = TextTheme(
   /// Authentication Form Field / Labels in Settings
   bodyMedium: GoogleFonts.openSans(
     fontSize: 14,
-    color: defaultFontsColor,
+    color: whiteColor,
   ),
 
   /// Other Form Field

@@ -32,6 +32,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Podstawowe informacje"),
         "birthDateLabel":
             MessageLookupByLibrary.simpleMessage("Data urodzenia"),
+        "cancel": MessageLookupByLibrary.simpleMessage("Anuluj"),
         "connectWithGoogleFit":
             MessageLookupByLibrary.simpleMessage("Połącz się z Google Fit"),
         "currentWorkoutLevelLabel":
@@ -43,8 +44,13 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Document Id Not Exist"),
         "dontHaveAccount":
             MessageLookupByLibrary.simpleMessage("Nie masz konta ?"),
+        "editGenderLabel": MessageLookupByLibrary.simpleMessage("Wybierz płeć"),
+        "editUsernameLabel":
+            MessageLookupByLibrary.simpleMessage("Edytuj nazwę użytkownkia"),
         "emailLabel": MessageLookupByLibrary.simpleMessage("Email"),
         "enterEmail": MessageLookupByLibrary.simpleMessage("Wpisz swój e-mail"),
+        "enterNewUsername": MessageLookupByLibrary.simpleMessage(
+            "Wprowadź nową nazwę użytkownika"),
         "enterPassword":
             MessageLookupByLibrary.simpleMessage("Wpisz swoje hasło"),
         "enterValidEmail": MessageLookupByLibrary.simpleMessage(
@@ -76,6 +82,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Rejestracja"),
         "requiredPassword":
             MessageLookupByLibrary.simpleMessage("Hasło jest wymagane"),
+        "save": MessageLookupByLibrary.simpleMessage("Zapisz"),
         "scanQrLabel": MessageLookupByLibrary.simpleMessage("Skanuj QR"),
         "settingsTitle": MessageLookupByLibrary.simpleMessage("Ustawienia"),
         "shortPassword": MessageLookupByLibrary.simpleMessage(

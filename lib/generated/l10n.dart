@@ -529,6 +529,56 @@ class S {
       args: [],
     );
   }
+
+  /// `Edit Username`
+  String get editUsernameLabel {
+    return Intl.message(
+      'Edit Username',
+      name: 'editUsernameLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter New Username`
+  String get enterNewUsername {
+    return Intl.message(
+      'Enter New Username',
+      name: 'enterNewUsername',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cancel`
+  String get cancel {
+    return Intl.message(
+      'Cancel',
+      name: 'cancel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Save`
+  String get save {
+    return Intl.message(
+      'Save',
+      name: 'save',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Choose Gender`
+  String get editGenderLabel {
+    return Intl.message(
+      'Choose Gender',
+      name: 'editGenderLabel',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

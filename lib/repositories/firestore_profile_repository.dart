@@ -21,4 +21,14 @@ class FirestoreProfileRepository {
       throw FirestoreException();
     }
   }
+
+  Future<void> updateUserName(String userId, String userName) async {
+    try {
+      await _firestore.collection('Users').doc(userId).update({
+        'userName': userName,
+      });
+    } catch (e) {
+      throw FirestoreException();
+    }
+  }
 }

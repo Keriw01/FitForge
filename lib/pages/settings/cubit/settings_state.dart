@@ -11,11 +11,13 @@ enum ProfileResponseMessage {
 class SettingsState with EquatableMixin {
   final ProfileResponseMessage profileResponseMessage;
   final bool isLoading;
+  final bool isSavingRow;
   final UserProfile? userProfile;
 
   SettingsState({
     this.profileResponseMessage = ProfileResponseMessage.none,
     this.isLoading = false,
+    this.isSavingRow = false,
     this.userProfile,
   });
 
@@ -23,6 +25,7 @@ class SettingsState with EquatableMixin {
   List<Object?> get props => [
         profileResponseMessage,
         isLoading,
+        isSavingRow,
         userProfile,
       ];
 }

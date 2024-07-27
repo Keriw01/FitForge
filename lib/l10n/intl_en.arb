@@ -47,6 +47,11 @@
     "connectWithGoogleFit": "Connect with Google Fit",
     "firestoreException": "Cloud Database Error",
     "documentIdNotExist": "Document Id Not Exist",
-    "noData": "no data"
+    "noData": "no data",
+    "editUsernameLabel": "Edit Username",
+    "enterNewUsername": "Enter New Username",
+    "cancel": "Cancel",
+    "save": "Save",
+    "editGenderLabel": "Choose Gender"
 
 }
