@@ -4,15 +4,16 @@ import 'package:fit_forge/pages/settings/cubit/settings_cubit.dart';
 import 'package:fit_forge/styles/app_colors.dart';
 import 'package:fit_forge/widgets/custom_loading_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class UserNameRow extends StatelessWidget {
-  final String? userName;
+class DefaultSetsRow extends StatelessWidget {
+  final String defaultSets;
   final ProfileCurrenRow profileCurrenRow;
 
-  const UserNameRow({
+  const DefaultSetsRow({
     super.key,
-    required this.userName,
+    required this.defaultSets,
     required this.profileCurrenRow,
   });
 
@@ -23,11 +24,12 @@ class UserNameRow extends StatelessWidget {
           ? null
           : _showEditDialog(
               context,
-              userName ?? '',
-              (newName) => context.read<SettingsCubit>().updateUserProfile(
-                    ProfileCurrenRow.userName,
-                    userName: newName,
-                  ),
+              defaultSets,
+              (newDefaultSets) =>
+                  context.read<SettingsCubit>().updateUserProfile(
+                        ProfileCurrenRow.defaultSets,
+                        defaultSets: newDefaultSets,
+                      ),
             ),
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 10),
@@ -35,18 +37,18 @@ class UserNameRow extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              S.of(context).usernameLabel,
+              S.of(context).defaultsSets,
               style: Theme.of(context).textTheme.bodyMedium,
             ),
             Row(
               children: [
-                profileCurrenRow == ProfileCurrenRow.userName
+                profileCurrenRow == ProfileCurrenRow.defaultSets
                     ? const CustomLoadingIndicator(
                         width: 20,
                         height: 20,
                       )
                     : Text(
-                        userName ?? S.of(context).noData,
+                        defaultSets,
                         style: Theme.of(context).textTheme.headlineMedium,
                       ),
                 const SizedBox(width: 10),
@@ -66,7 +68,7 @@ class UserNameRow extends StatelessWidget {
 Future<void> _showEditDialog(
   BuildContext context,
   String initialValue,
-  Function(String) onSave,
+  Function(int) onSave,
 ) async {
   TextEditingController controller = TextEditingController(text: initialValue);
 
@@ -75,12 +77,16 @@ Future<void> _showEditDialog(
     builder: (BuildContext context) {
       return AlertDialog(
         title: Text(
-          S.of(context).editUsernameLabel,
+          S.of(context).editDefaultSets,
           style: Theme.of(context).textTheme.headlineLarge,
         ),
         content: TextField(
           controller: controller,
-          decoration: InputDecoration(hintText: S.of(context).enterNewUsername),
+          keyboardType: TextInputType.number,
+          inputFormatters: <TextInputFormatter>[
+            FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
+            FilteringTextInputFormatter.digitsOnly,
+          ],
         ),
         actions: <Widget>[
           Row(
@@ -95,7 +101,7 @@ Future<void> _showEditDialog(
               TextButton(
                 child: Text(S.of(context).save),
                 onPressed: () {
-                  onSave(controller.text);
+                  onSave(int.tryParse(controller.text)!);
                   Navigator.of(context).pop();
                 },
               ),

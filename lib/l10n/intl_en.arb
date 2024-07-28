@@ -53,6 +53,22 @@
     "cancel": "Cancel",
     "save": "Save",
     "editGenderLabel": "Choose Gender",
+    "male": "Male",
+    "female": "Female",
     "enterBirthDate": "Enter birth date",
-    "editCurrentWorkoutLevel": "Choose your workout level"
+    "editCurrentWorkoutLevel": "Choose your workout level",
+    "begginer": "Beginner",
+    "intermediate": "Intermediate",
+    "advanced": "Advanced",
+    "editTopGoal": "Choose your top goal",
+    "maintaining": "Maintaining",
+    "maintainingDescription": "Staying healthy and having good cardiovascular health",
+    "bulking": "Bulking",
+    "bulkingDescription": "Focus on gaining muscle size and building strength",
+    "cutting": "Cutting",
+    "cuttingDescription": "Focus on losing body fat or lose weight in general",
+    "editUnitSystem": "Choose unit system",
+    "editDefaultSets": "Set default sets",
+    "editDefaultReps": "Set default reps",
+    "connect": "Connect"
 }

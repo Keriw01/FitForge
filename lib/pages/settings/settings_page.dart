@@ -5,10 +5,13 @@ import 'package:fit_forge/generated/l10n.dart';
 import 'package:fit_forge/pages/settings/cubit/settings_cubit.dart';
 import 'package:fit_forge/pages/settings/widgets/birth_date_row.dart';
 import 'package:fit_forge/pages/settings/widgets/current_workout_level_row.dart';
+import 'package:fit_forge/pages/settings/widgets/default_reps_row.dart';
+import 'package:fit_forge/pages/settings/widgets/default_sets_row.dart';
 import 'package:fit_forge/pages/settings/widgets/email_row.dart';
 import 'package:fit_forge/pages/settings/widgets/gender_row.dart';
-import 'package:fit_forge/pages/settings/widgets/setting_row.dart';
+import 'package:fit_forge/pages/settings/widgets/connect_with_google_fit_row.dart';
 import 'package:fit_forge/pages/settings/widgets/top_goal_row.dart';
+import 'package:fit_forge/pages/settings/widgets/unit_system_row.dart';
 import 'package:fit_forge/pages/settings/widgets/user_name_row.dart';
 import 'package:fit_forge/widgets/custom_loading_indicator.dart';
 import 'package:flutter/material.dart';
@@ -63,7 +66,7 @@ class SettingsPage extends StatelessWidget {
                   ),
                   Padding(
                     padding:
-                        const EdgeInsets.only(top: 25, left: 20, right: 20),
+                        const EdgeInsets.only(top: 25, left: 10, right: 10),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -110,26 +113,24 @@ class SettingsPage extends StatelessWidget {
                           S.of(context).other,
                           style: Theme.of(context).textTheme.headlineLarge,
                         ),
-                        SettingRow(
-                          label: S.of(context).unitSystem,
-                          value: state.userProfile?.unitSystem,
-                          onTap: () {},
+                        UnitSystemRow(
+                          unitSystem: state.userProfile?.unitSystem,
+                          profileCurrenRow: state.profileCurrenRow,
                         ),
-                        SettingRow(
-                          label: S.of(context).defaultReps,
-                          value: state.userProfile?.defaultReps.toString(),
-                          onTap: () {},
+                        DefaultSetsRow(
+                          defaultSets:
+                              state.userProfile!.defaultSets.toString(),
+                          profileCurrenRow: state.profileCurrenRow,
                         ),
-                        SettingRow(
-                          label: S.of(context).defaultsSets,
-                          value: state.userProfile?.defaultSets.toString(),
-                          onTap: () {},
+                        DefaultRepsRow(
+                          defaultReps:
+                              state.userProfile!.defaultReps.toString(),
+                          profileCurrenRow: state.profileCurrenRow,
                         ),
-                        SettingRow(
-                          label: S.of(context).connectWithGoogleFit,
-                          value: state.userProfile?.isConnectWithGoogleFit
-                              .toString(),
-                          onTap: () {},
+                        ConnectWithGoogleFitRow(
+                          isConnectWithGoogleFit:
+                              state.userProfile!.isConnectWithGoogleFit,
+                          profileCurrenRow: state.profileCurrenRow,
                         ),
                       ],
                     ),

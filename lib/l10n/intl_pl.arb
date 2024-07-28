@@ -53,7 +53,23 @@
     "cancel": "Anuluj",
     "save": "Zapisz",
     "editGenderLabel": "Wybierz płeć",
+    "male": "Mężczyzna",
+    "female": "Kobieta",
     "enterBirthDate": "Wprowadź datę urodzin",
-    "editCurrentWorkoutLevel": "Wybierz poziom zaawansowania"
+    "editCurrentWorkoutLevel": "Wybierz poziom zaawansowania",
+    "begginer": "Początkujący",
+    "intermediate": "Średnio-zaawansowany",
+    "advanced": "Zaawansowany",
+    "editTopGoal": "Wybierz swój cel treningu",
+    "maintaining":"Ogólny",
+    "maintainingDescription": "Bądź zdrowy i dbaj o zdrowie układu krążenia",
+    "bulking": "Zbudować masę",
+    "bulkingDescription": "Skoncentruj się na zwiększaniu masy mięśniowej i budowaniu siły",
+    "cutting": "Schudnąć",
+    "cuttingDescription": "Skoncentruj się na utracie tkanki tłuszczowej lub ogólnie schudnij",
+    "editUnitSystem": "Wybierz rodzaj jednostek",
+    "editDefaultSets": "Ustaw domyślną ilość serii",
+    "editDefaultReps": "Ustaw domyślną ilość powtórzeń",
+    "connect": "Połącz"
     
 }

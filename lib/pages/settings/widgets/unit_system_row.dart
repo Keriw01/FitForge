@@ -6,13 +6,13 @@ import 'package:fit_forge/widgets/custom_loading_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class CurrentWorkoutLevelRow extends StatelessWidget {
-  final String? currentWorkoutLevel;
+class UnitSystemRow extends StatelessWidget {
+  final String? unitSystem;
   final ProfileCurrenRow profileCurrenRow;
 
-  const CurrentWorkoutLevelRow({
+  const UnitSystemRow({
     super.key,
-    required this.currentWorkoutLevel,
+    required this.unitSystem,
     required this.profileCurrenRow,
   });
 
@@ -21,11 +21,10 @@ class CurrentWorkoutLevelRow extends StatelessWidget {
     return InkWell(
       onTap: () => profileCurrenRow != ProfileCurrenRow.none
           ? null
-          : _showEditDialog(context, currentWorkoutLevel ?? '',
-              (newWorkoutLevel) {
+          : _showEditDialog(context, unitSystem ?? '', (newUnitSystem) {
               context.read<SettingsCubit>().updateUserProfile(
-                    ProfileCurrenRow.currentWorkoutLevel,
-                    currentWorkoutLevel: newWorkoutLevel,
+                    ProfileCurrenRow.unitSystem,
+                    unitSystem: newUnitSystem,
                   );
             }),
       child: Padding(
@@ -34,18 +33,18 @@ class CurrentWorkoutLevelRow extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              S.of(context).currentWorkoutLevelLabel,
+              S.of(context).unitSystem,
               style: Theme.of(context).textTheme.bodyMedium,
             ),
             Row(
               children: [
-                profileCurrenRow == ProfileCurrenRow.currentWorkoutLevel
+                profileCurrenRow == ProfileCurrenRow.unitSystem
                     ? const CustomLoadingIndicator(
                         width: 20,
                         height: 20,
                       )
                     : Text(
-                        currentWorkoutLevel ?? S.of(context).noData,
+                        unitSystem ?? S.of(context).noData,
                         style: Theme.of(context).textTheme.headlineMedium,
                       ),
                 const SizedBox(width: 10),
@@ -74,7 +73,7 @@ class CurrentWorkoutLevelRow extends StatelessWidget {
           builder: (context, setState) {
             return AlertDialog(
               title: Text(
-                S.of(context).editCurrentWorkoutLevel,
+                S.of(context).editUnitSystem,
                 style: Theme.of(context).textTheme.headlineLarge,
               ),
               content: Column(
@@ -83,10 +82,10 @@ class CurrentWorkoutLevelRow extends StatelessWidget {
                 children: [
                   RadioListTile<String>(
                     title: Text(
-                      S.of(context).begginer,
+                      'cm/kg',
                       style: Theme.of(context).textTheme.bodyMedium,
                     ),
-                    value: 'Beginner',
+                    value: 'cm/kg',
                     groupValue: tempSelectedOption,
                     onChanged: (value) {
                       setState(() {
@@ -96,23 +95,10 @@ class CurrentWorkoutLevelRow extends StatelessWidget {
                   ),
                   RadioListTile<String>(
                     title: Text(
-                      S.of(context).intermediate,
+                      'inch/lb',
                       style: Theme.of(context).textTheme.bodyMedium,
                     ),
-                    value: 'Intermediate',
-                    groupValue: tempSelectedOption,
-                    onChanged: (value) {
-                      setState(() {
-                        tempSelectedOption = value;
-                      });
-                    },
-                  ),
-                  RadioListTile<String>(
-                    title: Text(
-                      S.of(context).advanced,
-                      style: Theme.of(context).textTheme.bodyMedium,
-                    ),
-                    value: 'Advanced',
+                    value: 'inch/lb',
                     groupValue: tempSelectedOption,
                     onChanged: (value) {
                       setState(() {

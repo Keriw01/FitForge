@@ -30,6 +30,10 @@ class FirestoreProfileRepository {
         'birthDate': userProfile?.birthDate,
         'currentWorkoutLevel': userProfile?.currentWorkoutLevel,
         'topGoal': userProfile?.topGoal,
+        'unitSystem': userProfile?.unitSystem,
+        'defaultReps': userProfile?.defaultReps,
+        'defaultSets': userProfile?.defaultSets,
+        'isConnectWithGoogleFit': userProfile?.isConnectWithGoogleFit,
       });
     } catch (e) {
       throw FirestoreException();

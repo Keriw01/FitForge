@@ -28,7 +28,7 @@ class TopGoalRow extends StatelessWidget {
                   );
             }),
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 20),
+        padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 10),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -73,7 +73,7 @@ class TopGoalRow extends StatelessWidget {
           builder: (context, setState) {
             return AlertDialog(
               title: Text(
-                S.of(context).editCurrentWorkoutLevel,
+                S.of(context).editTopGoal,
                 style: Theme.of(context).textTheme.headlineLarge,
               ),
               content: Column(
@@ -82,11 +82,11 @@ class TopGoalRow extends StatelessWidget {
                 children: [
                   RadioListTile<String>(
                     title: Text(
-                      'Maintaining',
+                      S.of(context).maintaining,
                       style: Theme.of(context).textTheme.bodyMedium,
                     ),
                     subtitle: Text(
-                      'Staying healthy and having good cardiovascular health',
+                      S.of(context).maintainingDescription,
                       style: Theme.of(context).textTheme.headlineSmall,
                     ),
                     value: 'Maintaining',
@@ -99,11 +99,11 @@ class TopGoalRow extends StatelessWidget {
                   ),
                   RadioListTile<String>(
                     title: Text(
-                      'Bulking',
+                      S.of(context).bulking,
                       style: Theme.of(context).textTheme.bodyMedium,
                     ),
                     subtitle: Text(
-                      'Focus on gaining muscle size and building strength',
+                      S.of(context).bulkingDescription,
                       style: Theme.of(context).textTheme.headlineSmall,
                     ),
                     value: 'Bulking',
@@ -116,11 +116,11 @@ class TopGoalRow extends StatelessWidget {
                   ),
                   RadioListTile<String>(
                     title: Text(
-                      'Cutting',
+                      S.of(context).cutting,
                       style: Theme.of(context).textTheme.bodyMedium,
                     ),
                     subtitle: Text(
-                      'Focus on losing body fat or lose weight in general',
+                      S.of(context).cuttingDescription,
                       style: Theme.of(context).textTheme.headlineSmall,
                     ),
                     value: 'Cutting',

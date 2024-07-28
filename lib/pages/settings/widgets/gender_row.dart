@@ -28,7 +28,7 @@ class GenderRow extends StatelessWidget {
                   );
             }),
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 20),
+        padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 10),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -82,7 +82,7 @@ class GenderRow extends StatelessWidget {
                 children: [
                   RadioListTile<String>(
                     title: Text(
-                      'Male',
+                      S.of(context).male,
                       style: Theme.of(context).textTheme.bodyMedium,
                     ),
                     value: 'Male',
@@ -95,7 +95,7 @@ class GenderRow extends StatelessWidget {
                   ),
                   RadioListTile<String>(
                     title: Text(
-                      'Female',
+                      S.of(context).female,
                       style: Theme.of(context).textTheme.bodyMedium,
                     ),
                     value: 'Female',

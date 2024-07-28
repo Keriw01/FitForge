@@ -580,6 +580,26 @@ class S {
     );
   }
 
+  /// `Male`
+  String get male {
+    return Intl.message(
+      'Male',
+      name: 'male',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Female`
+  String get female {
+    return Intl.message(
+      'Female',
+      name: 'female',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Enter birth date`
   String get enterBirthDate {
     return Intl.message(
@@ -595,6 +615,146 @@ class S {
     return Intl.message(
       'Choose your workout level',
       name: 'editCurrentWorkoutLevel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Beginner`
+  String get begginer {
+    return Intl.message(
+      'Beginner',
+      name: 'begginer',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Intermediate`
+  String get intermediate {
+    return Intl.message(
+      'Intermediate',
+      name: 'intermediate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Advanced`
+  String get advanced {
+    return Intl.message(
+      'Advanced',
+      name: 'advanced',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Choose your top goal`
+  String get editTopGoal {
+    return Intl.message(
+      'Choose your top goal',
+      name: 'editTopGoal',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Maintaining`
+  String get maintaining {
+    return Intl.message(
+      'Maintaining',
+      name: 'maintaining',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Staying healthy and having good cardiovascular health`
+  String get maintainingDescription {
+    return Intl.message(
+      'Staying healthy and having good cardiovascular health',
+      name: 'maintainingDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Bulking`
+  String get bulking {
+    return Intl.message(
+      'Bulking',
+      name: 'bulking',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Focus on gaining muscle size and building strength`
+  String get bulkingDescription {
+    return Intl.message(
+      'Focus on gaining muscle size and building strength',
+      name: 'bulkingDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cutting`
+  String get cutting {
+    return Intl.message(
+      'Cutting',
+      name: 'cutting',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Focus on losing body fat or lose weight in general`
+  String get cuttingDescription {
+    return Intl.message(
+      'Focus on losing body fat or lose weight in general',
+      name: 'cuttingDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Choose unit system`
+  String get editUnitSystem {
+    return Intl.message(
+      'Choose unit system',
+      name: 'editUnitSystem',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Set default sets`
+  String get editDefaultSets {
+    return Intl.message(
+      'Set default sets',
+      name: 'editDefaultSets',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Set default reps`
+  String get editDefaultReps {
+    return Intl.message(
+      'Set default reps',
+      name: 'editDefaultReps',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Connect`
+  String get connect {
+    return Intl.message(
+      'Connect',
+      name: 'connect',
       desc: '',
       args: [],
     );

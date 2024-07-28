@@ -6,6 +6,10 @@ enum ProfileCurrenRow {
   birthDate,
   currentWorkoutLevel,
   topGoal,
+  unitSystem,
+  defaultReps,
+  defaultSets,
+  connectWithGoogleFit,
 }
 
 enum ProfileResponseMessage {

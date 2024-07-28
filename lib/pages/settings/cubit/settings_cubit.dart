@@ -63,6 +63,10 @@ class SettingsCubit extends BaseCubit<SettingsState> {
     DateTime? birthDate,
     String? currentWorkoutLevel,
     String? topGoal,
+    String? unitSystem,
+    int? defaultSets,
+    int? defaultReps,
+    bool? isConnectWithGoogleFit,
   }) async {
     try {
       emit(state.copyWith(profileCurrenRow: profileCurrenRow));
@@ -70,14 +74,19 @@ class SettingsCubit extends BaseCubit<SettingsState> {
       User? user = FirebaseAuth.instance.currentUser;
       UserProfile? currentUserProfile = state.userProfile;
 
-      if (user != null) {
+      if (user != null && currentUserProfile != null) {
         UserProfile updatedUserProfile = state.userProfile!.copyWith(
-          userName: userName ?? currentUserProfile?.userName,
-          gender: gender ?? currentUserProfile?.gender,
-          birthDate: birthDate ?? currentUserProfile?.birthDate,
+          userName: userName ?? currentUserProfile.userName,
+          gender: gender ?? currentUserProfile.gender,
+          birthDate: birthDate ?? currentUserProfile.birthDate,
           currentWorkoutLevel:
-              currentWorkoutLevel ?? currentUserProfile?.currentWorkoutLevel,
-          topGoal: topGoal ?? currentUserProfile?.topGoal,
+              currentWorkoutLevel ?? currentUserProfile.currentWorkoutLevel,
+          topGoal: topGoal ?? currentUserProfile.topGoal,
+          unitSystem: unitSystem ?? currentUserProfile.unitSystem,
+          defaultReps: defaultReps ?? currentUserProfile.defaultReps,
+          defaultSets: defaultSets ?? currentUserProfile.defaultSets,
+          isConnectWithGoogleFit: isConnectWithGoogleFit ??
+              currentUserProfile.isConnectWithGoogleFit,
         );
 
         await firebaseProfileRepository.updateUserProfile(

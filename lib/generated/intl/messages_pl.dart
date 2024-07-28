@@ -22,6 +22,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "advanced": MessageLookupByLibrary.simpleMessage("Zaawansowany"),
         "alreadyHaveAccount":
             MessageLookupByLibrary.simpleMessage("Masz już konto ?"),
         "badAuthorization":
@@ -30,13 +31,21 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Lokalizacja siłowni"),
         "basicInformation":
             MessageLookupByLibrary.simpleMessage("Podstawowe informacje"),
+        "begginer": MessageLookupByLibrary.simpleMessage("Początkujący"),
         "birthDateLabel":
             MessageLookupByLibrary.simpleMessage("Data urodzenia"),
+        "bulking": MessageLookupByLibrary.simpleMessage("Zbudować masę"),
+        "bulkingDescription": MessageLookupByLibrary.simpleMessage(
+            "Skoncentruj się na zwiększaniu masy mięśniowej i budowaniu siły"),
         "cancel": MessageLookupByLibrary.simpleMessage("Anuluj"),
+        "connect": MessageLookupByLibrary.simpleMessage("Połącz"),
         "connectWithGoogleFit":
             MessageLookupByLibrary.simpleMessage("Połącz się z Google Fit"),
         "currentWorkoutLevelLabel":
             MessageLookupByLibrary.simpleMessage("Poziom zaawansowania"),
+        "cutting": MessageLookupByLibrary.simpleMessage("Schudnąć"),
+        "cuttingDescription": MessageLookupByLibrary.simpleMessage(
+            "Skoncentruj się na utracie tkanki tłuszczowej lub ogólnie schudnij"),
         "defaultError": MessageLookupByLibrary.simpleMessage("Błąd"),
         "defaultReps": MessageLookupByLibrary.simpleMessage("Ilość powtórzeń"),
         "defaultsSets": MessageLookupByLibrary.simpleMessage("Ilość serii"),
@@ -46,7 +55,15 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Nie masz konta ?"),
         "editCurrentWorkoutLevel": MessageLookupByLibrary.simpleMessage(
             "Wybierz poziom zaawansowania"),
+        "editDefaultReps": MessageLookupByLibrary.simpleMessage(
+            "Ustaw domyślną ilość powtórzeń"),
+        "editDefaultSets":
+            MessageLookupByLibrary.simpleMessage("Ustaw domyślną ilość serii"),
         "editGenderLabel": MessageLookupByLibrary.simpleMessage("Wybierz płeć"),
+        "editTopGoal":
+            MessageLookupByLibrary.simpleMessage("Wybierz swój cel treningu"),
+        "editUnitSystem":
+            MessageLookupByLibrary.simpleMessage("Wybierz rodzaj jednostek"),
         "editUsernameLabel":
             MessageLookupByLibrary.simpleMessage("Edytuj nazwę użytkownkia"),
         "emailLabel": MessageLookupByLibrary.simpleMessage("Email"),
@@ -62,6 +79,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "enterValidPassword": MessageLookupByLibrary.simpleMessage(
             "Hasło musi mieć co najmniej 8 znaków"),
         "exercisesLabel": MessageLookupByLibrary.simpleMessage("Ćwiczenia"),
+        "female": MessageLookupByLibrary.simpleMessage("Kobieta"),
         "firestoreException":
             MessageLookupByLibrary.simpleMessage("Błąd Cloud Database"),
         "genderLabel": MessageLookupByLibrary.simpleMessage("Płeć"),
@@ -70,11 +88,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "googleLoginCanceled": MessageLookupByLibrary.simpleMessage(
             "Anulowano logowanie przez Google"),
         "inputEmpty": MessageLookupByLibrary.simpleMessage("Puste pole"),
+        "intermediate":
+            MessageLookupByLibrary.simpleMessage("Średnio-zaawansowany"),
         "invalidEmailFormat":
             MessageLookupByLibrary.simpleMessage("Nie prawidłowy adres emial"),
         "logOut": MessageLookupByLibrary.simpleMessage("Wyloguj"),
         "loginButton": MessageLookupByLibrary.simpleMessage("Zaloguj"),
         "loginPageTitle": MessageLookupByLibrary.simpleMessage("Logowanie"),
+        "maintaining": MessageLookupByLibrary.simpleMessage("Ogólny"),
+        "maintainingDescription": MessageLookupByLibrary.simpleMessage(
+            "Bądź zdrowy i dbaj o zdrowie układu krążenia"),
+        "male": MessageLookupByLibrary.simpleMessage("Mężczyzna"),
         "noData": MessageLookupByLibrary.simpleMessage("brak danych"),
         "notValidEmail":
             MessageLookupByLibrary.simpleMessage("Niepoprawny adres email"),
