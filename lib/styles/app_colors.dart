@@ -5,6 +5,7 @@ const Color babyBlue = Color(0xFFB1D4E0);
 const Color darkBlue = Color(0xFF0C2D48);
 const Color midNightBlue = Color(0xFF145DA0);
 const Color defaultFontsColor = Color(0xFF2C2C2C);
+const Color lightFontColor = Color.fromARGB(255, 130, 130, 130);
 const Color lightGreyColor = Color(0xFFBCBCBC);
 const Color dividerColor = Color(0xFF7E7E7E);
 const Color whiteColor = Color(0xFFFFFFFF);

@@ -16,7 +16,11 @@ final customTextThemeLight = TextTheme(
   ),
 
   /// Plan Name
-  headlineLarge: null,
+  headlineLarge: GoogleFonts.roboto(
+    fontWeight: FontWeight.w600,
+    fontSize: 16,
+    color: defaultFontsColor,
+  ),
 
   /// Basic Info In Settings
   headlineMedium: GoogleFonts.roboto(
@@ -25,13 +29,16 @@ final customTextThemeLight = TextTheme(
     color: midNightBlue,
   ),
 
-  /// Filter Main Text
-  headlineSmall: null,
+  /// Small label
+  headlineSmall: GoogleFonts.openSans(
+    fontSize: 12,
+    color: lightFontColor,
+  ),
 
   /// Titles Of Pages
-  titleLarge: GoogleFonts.openSans(
+  titleLarge: GoogleFonts.montserrat(
     fontWeight: FontWeight.w600,
-    fontSize: 20,
+    fontSize: 24,
     color: defaultFontsColor,
   ),
 
@@ -50,7 +57,7 @@ final customTextThemeLight = TextTheme(
   /// Description of Exercises
   bodyLarge: null,
 
-  /// Authentication Form Field / Labels in Settings
+  /// Authentication Form Field / Labels in Settings, radio title
   bodyMedium: GoogleFonts.roboto(
     fontSize: 14,
     color: defaultFontsColor,
@@ -73,6 +80,15 @@ final customTextThemeLight = TextTheme(
   labelSmall: null,
 );
 
+///
+///
+///
+///
+/// DARK THEME
+///
+/// |
+/// |
+/// |
 final customTextThemeDark = TextTheme(
   ///
   displayLarge: null,
@@ -87,23 +103,30 @@ final customTextThemeDark = TextTheme(
     color: whiteColor,
   ),
 
-  /// Plan Name
-  headlineLarge: null,
+  /// Plan Name, header of settings
+  headlineLarge: GoogleFonts.roboto(
+    fontWeight: FontWeight.w600,
+    fontSize: 16,
+    color: whiteColor,
+  ),
 
   /// Basic Info In Settings
   headlineMedium: GoogleFonts.openSans(
     fontWeight: FontWeight.w600,
     fontSize: 14,
-    color: seedBlue,
+    color: whiteColor,
   ),
 
-  /// Filter Main Text
-  headlineSmall: null,
+  /// Small label
+  headlineSmall: GoogleFonts.openSans(
+    fontSize: 12,
+    color: babyBlue,
+  ),
 
   /// Titles Of Pages
   titleLarge: GoogleFonts.montserrat(
-    fontWeight: FontWeight.w500,
-    fontSize: 34,
+    fontWeight: FontWeight.w600,
+    fontSize: 24,
     color: whiteColor,
   ),
 
@@ -120,7 +143,7 @@ final customTextThemeDark = TextTheme(
   /// Description of Exercises
   bodyLarge: null,
 
-  /// Authentication Form Field / Labels in Settings
+  /// Authentication Form Field / Labels in Settings, radio title
   bodyMedium: GoogleFonts.openSans(
     fontSize: 14,
     color: whiteColor,

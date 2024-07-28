@@ -74,7 +74,10 @@ Future<void> _showEditDialog(
     context: context,
     builder: (BuildContext context) {
       return AlertDialog(
-        title: Text(S.of(context).editUsernameLabel),
+        title: Text(
+          S.of(context).editUsernameLabel,
+          style: Theme.of(context).textTheme.headlineLarge,
+        ),
         content: TextField(
           controller: controller,
           decoration: InputDecoration(hintText: S.of(context).enterNewUsername),

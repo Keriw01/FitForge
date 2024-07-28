@@ -224,8 +224,6 @@ class AuthCubit extends BaseCubit<AuthState> {
     } catch (e) {
       emit(state.copyWith(formStatus: FormzSubmissionStatus.failure));
     } finally {
-      //TODO sprawdzić czy bez tego pojawia się strzałka powrotu na ekranie głównym po przelogowaniu i przejściu do settings
-      // _navigateToAuthFlowScreen();
       _clearState();
       context.read<SettingsCubit>().clearState();
     }
@@ -252,7 +250,7 @@ class AuthCubit extends BaseCubit<AuthState> {
   }
 
   void _navigateToAuthFlowScreen() {
-    appRouter.replace(const AuthenticationFlowRoute());
+    appRouter.replaceAll([const AuthenticationFlowRoute()]);
   }
 
   void _clearState() {

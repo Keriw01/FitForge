@@ -6,13 +6,13 @@ import 'package:fit_forge/widgets/custom_loading_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class CurrentWorkoutLevelRow extends StatelessWidget {
-  final String? currentWorkoutLevel;
+class TopGoalRow extends StatelessWidget {
+  final String? topGoal;
   final ProfileCurrenRow profileCurrenRow;
 
-  const CurrentWorkoutLevelRow({
+  const TopGoalRow({
     super.key,
-    required this.currentWorkoutLevel,
+    required this.topGoal,
     required this.profileCurrenRow,
   });
 
@@ -21,11 +21,10 @@ class CurrentWorkoutLevelRow extends StatelessWidget {
     return InkWell(
       onTap: () => profileCurrenRow != ProfileCurrenRow.none
           ? null
-          : _showEditDialog(context, currentWorkoutLevel ?? '',
-              (newWorkoutLevel) {
+          : _showEditDialog(context, topGoal ?? '', (newTopGoal) {
               context.read<SettingsCubit>().updateUserProfile(
-                    ProfileCurrenRow.currentWorkoutLevel,
-                    currentWorkoutLevel: newWorkoutLevel,
+                    ProfileCurrenRow.topGoal,
+                    topGoal: newTopGoal,
                   );
             }),
       child: Padding(
@@ -34,18 +33,18 @@ class CurrentWorkoutLevelRow extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              S.of(context).currentWorkoutLevelLabel,
+              S.of(context).topGoalLabel,
               style: Theme.of(context).textTheme.bodyMedium,
             ),
             Row(
               children: [
-                profileCurrenRow == ProfileCurrenRow.currentWorkoutLevel
+                profileCurrenRow == ProfileCurrenRow.topGoal
                     ? const CustomLoadingIndicator(
                         width: 20,
                         height: 20,
                       )
                     : Text(
-                        currentWorkoutLevel ?? S.of(context).noData,
+                        topGoal ?? S.of(context).noData,
                         style: Theme.of(context).textTheme.headlineMedium,
                       ),
                 const SizedBox(width: 10),
@@ -83,10 +82,14 @@ class CurrentWorkoutLevelRow extends StatelessWidget {
                 children: [
                   RadioListTile<String>(
                     title: Text(
-                      'Beginner',
+                      'Maintaining',
                       style: Theme.of(context).textTheme.bodyMedium,
                     ),
-                    value: 'Beginner',
+                    subtitle: Text(
+                      'Staying healthy and having good cardiovascular health',
+                      style: Theme.of(context).textTheme.headlineSmall,
+                    ),
+                    value: 'Maintaining',
                     groupValue: tempSelectedOption,
                     onChanged: (value) {
                       setState(() {
@@ -96,10 +99,14 @@ class CurrentWorkoutLevelRow extends StatelessWidget {
                   ),
                   RadioListTile<String>(
                     title: Text(
-                      'Intermediate',
+                      'Bulking',
                       style: Theme.of(context).textTheme.bodyMedium,
                     ),
-                    value: 'Intermediate',
+                    subtitle: Text(
+                      'Focus on gaining muscle size and building strength',
+                      style: Theme.of(context).textTheme.headlineSmall,
+                    ),
+                    value: 'Bulking',
                     groupValue: tempSelectedOption,
                     onChanged: (value) {
                       setState(() {
@@ -109,10 +116,14 @@ class CurrentWorkoutLevelRow extends StatelessWidget {
                   ),
                   RadioListTile<String>(
                     title: Text(
-                      'Advanced',
+                      'Cutting',
                       style: Theme.of(context).textTheme.bodyMedium,
                     ),
-                    value: 'Advanced',
+                    subtitle: Text(
+                      'Focus on losing body fat or lose weight in general',
+                      style: Theme.of(context).textTheme.headlineSmall,
+                    ),
+                    value: 'Cutting',
                     groupValue: tempSelectedOption,
                     onChanged: (value) {
                       setState(() {

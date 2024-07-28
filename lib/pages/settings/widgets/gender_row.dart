@@ -72,13 +72,19 @@ class GenderRow extends StatelessWidget {
         return StatefulBuilder(
           builder: (context, setState) {
             return AlertDialog(
-              title: Text(S.of(context).editGenderLabel),
+              title: Text(
+                S.of(context).editGenderLabel,
+                style: Theme.of(context).textTheme.headlineLarge,
+              ),
               content: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   RadioListTile<String>(
-                    title: const Text('Male'),
+                    title: Text(
+                      'Male',
+                      style: Theme.of(context).textTheme.bodyMedium,
+                    ),
                     value: 'Male',
                     groupValue: tempSelectedOption,
                     onChanged: (value) {
@@ -88,7 +94,10 @@ class GenderRow extends StatelessWidget {
                     },
                   ),
                   RadioListTile<String>(
-                    title: const Text('Female'),
+                    title: Text(
+                      'Female',
+                      style: Theme.of(context).textTheme.bodyMedium,
+                    ),
                     value: 'Female',
                     groupValue: tempSelectedOption,
                     onChanged: (value) {

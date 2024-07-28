@@ -8,6 +8,7 @@ import 'package:fit_forge/pages/settings/widgets/current_workout_level_row.dart'
 import 'package:fit_forge/pages/settings/widgets/email_row.dart';
 import 'package:fit_forge/pages/settings/widgets/gender_row.dart';
 import 'package:fit_forge/pages/settings/widgets/setting_row.dart';
+import 'package:fit_forge/pages/settings/widgets/top_goal_row.dart';
 import 'package:fit_forge/pages/settings/widgets/user_name_row.dart';
 import 'package:fit_forge/widgets/custom_loading_indicator.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +21,11 @@ class SettingsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(S.of(context).settingsTitle)),
+      appBar: AppBar(
+          title: Text(
+        S.of(context).settingsTitle,
+        style: Theme.of(context).textTheme.titleLarge,
+      )),
       body: BlocConsumer<SettingsCubit, SettingsState>(
         listener: (context, state) {
           if (state.profileResponseMessage != ProfileResponseMessage.none) {
@@ -64,10 +69,7 @@ class SettingsPage extends StatelessWidget {
                       children: [
                         Text(
                           S.of(context).basicInformation,
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodyMedium!
-                              .copyWith(fontWeight: FontWeight.w600),
+                          style: Theme.of(context).textTheme.headlineLarge,
                         ),
                         EmailRow(
                           label: S.of(context).emailLabel,
@@ -94,23 +96,19 @@ class SettingsPage extends StatelessWidget {
                         //       state.userProfile?.basicGymLocation),
                         //   onTap: () {},
                         // ),
-                        CurrentWorkoutLevel(
+                        CurrentWorkoutLevelRow(
                           currentWorkoutLevel:
                               state.userProfile?.currentWorkoutLevel,
                           profileCurrenRow: state.profileCurrenRow,
                         ),
-                        SettingRow(
-                          label: S.of(context).topGoalLabel,
-                          value: state.userProfile?.topGoal,
-                          onTap: () {},
+                        TopGoalRow(
+                          topGoal: state.userProfile?.topGoal,
+                          profileCurrenRow: state.profileCurrenRow,
                         ),
                         const SizedBox(height: 25),
                         Text(
                           S.of(context).other,
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodyMedium!
-                              .copyWith(fontWeight: FontWeight.w600),
+                          style: Theme.of(context).textTheme.headlineLarge,
                         ),
                         SettingRow(
                           label: S.of(context).unitSystem,
