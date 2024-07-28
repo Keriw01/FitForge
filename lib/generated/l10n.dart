@@ -589,6 +589,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Choose your workout level`
+  String get editCurrentWorkoutLevel {
+    return Intl.message(
+      'Choose your workout level',
+      name: 'editCurrentWorkoutLevel',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -61,6 +61,7 @@ class SettingsCubit extends BaseCubit<SettingsState> {
     String? userName,
     String? gender,
     DateTime? birthDate,
+    String? currentWorkoutLevel,
   }) async {
     try {
       emit(state.copyWith(profileCurrenRow: profileCurrenRow));
@@ -73,6 +74,8 @@ class SettingsCubit extends BaseCubit<SettingsState> {
           userName: userName ?? currentUserProfile?.userName,
           gender: gender ?? currentUserProfile?.gender,
           birthDate: birthDate ?? currentUserProfile?.birthDate,
+          currentWorkoutLevel:
+              currentWorkoutLevel ?? currentUserProfile?.currentWorkoutLevel,
         );
 
         await firebaseProfileRepository.updateUserProfile(

@@ -53,6 +53,7 @@
     "cancel": "Anuluj",
     "save": "Zapisz",
     "editGenderLabel": "Wybierz płeć",
-    "enterBirthDate": "Wprowadź datę urodzin"
+    "enterBirthDate": "Wprowadź datę urodzin",
+    "editCurrentWorkoutLevel": "Wybierz poziom zaawansowania"
     
 }

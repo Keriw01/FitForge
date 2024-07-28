@@ -28,6 +28,7 @@ class FirestoreProfileRepository {
         'userName': userProfile?.userName,
         'gender': userProfile?.gender,
         'birthDate': userProfile?.birthDate,
+        'currentWorkoutLevel': userProfile?.currentWorkoutLevel,
       });
     } catch (e) {
       throw FirestoreException();

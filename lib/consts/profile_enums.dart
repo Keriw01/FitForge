@@ -4,6 +4,7 @@ enum ProfileCurrenRow {
   userName,
   gender,
   birthDate,
+  currentWorkoutLevel,
 }
 
 enum ProfileResponseMessage {

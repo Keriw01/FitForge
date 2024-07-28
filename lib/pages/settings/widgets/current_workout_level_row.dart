@@ -6,13 +6,13 @@ import 'package:fit_forge/widgets/custom_loading_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class GenderRow extends StatelessWidget {
-  final String? gender;
+class CurrentWorkoutLevel extends StatelessWidget {
+  final String? currentWorkoutLevel;
   final ProfileCurrenRow profileCurrenRow;
 
-  const GenderRow({
+  const CurrentWorkoutLevel({
     super.key,
-    required this.gender,
+    required this.currentWorkoutLevel,
     required this.profileCurrenRow,
   });
 
@@ -21,10 +21,11 @@ class GenderRow extends StatelessWidget {
     return InkWell(
       onTap: () => profileCurrenRow != ProfileCurrenRow.none
           ? null
-          : _showEditDialog(context, gender ?? '', (newGender) {
+          : _showEditDialog(context, currentWorkoutLevel ?? '',
+              (newWorkoutLevel) {
               context.read<SettingsCubit>().updateUserProfile(
-                    ProfileCurrenRow.gender,
-                    gender: newGender,
+                    ProfileCurrenRow.currentWorkoutLevel,
+                    currentWorkoutLevel: newWorkoutLevel,
                   );
             }),
       child: Padding(
@@ -33,18 +34,18 @@ class GenderRow extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              S.of(context).genderLabel,
+              S.of(context).currentWorkoutLevelLabel,
               style: Theme.of(context).textTheme.bodyMedium,
             ),
             Row(
               children: [
-                profileCurrenRow == ProfileCurrenRow.gender
+                profileCurrenRow == ProfileCurrenRow.currentWorkoutLevel
                     ? const CustomLoadingIndicator(
                         width: 20,
                         height: 20,
                       )
                     : Text(
-                        gender ?? S.of(context).noData,
+                        currentWorkoutLevel ?? S.of(context).noData,
                         style: Theme.of(context).textTheme.headlineMedium,
                       ),
                 const SizedBox(width: 10),
@@ -72,14 +73,14 @@ class GenderRow extends StatelessWidget {
         return StatefulBuilder(
           builder: (context, setState) {
             return AlertDialog(
-              title: Text(S.of(context).editGenderLabel),
+              title: Text(S.of(context).editCurrentWorkoutLevel),
               content: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   RadioListTile<String>(
-                    title: const Text('Male'),
-                    value: 'Male',
+                    title: const Text('Beginner'),
+                    value: 'Beginner',
                     groupValue: tempSelectedOption,
                     onChanged: (value) {
                       setState(() {
@@ -88,8 +89,18 @@ class GenderRow extends StatelessWidget {
                     },
                   ),
                   RadioListTile<String>(
-                    title: const Text('Female'),
-                    value: 'Female',
+                    title: const Text('Intermediate'),
+                    value: 'Intermediate',
+                    groupValue: tempSelectedOption,
+                    onChanged: (value) {
+                      setState(() {
+                        tempSelectedOption = value;
+                      });
+                    },
+                  ),
+                  RadioListTile<String>(
+                    title: const Text('Advanced'),
+                    value: 'Advanced',
                     groupValue: tempSelectedOption,
                     onChanged: (value) {
                       setState(() {

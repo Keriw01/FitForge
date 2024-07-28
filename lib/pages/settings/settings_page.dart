@@ -4,6 +4,7 @@ import 'package:fit_forge/pages/auth/cubit/auth_cubit.dart';
 import 'package:fit_forge/generated/l10n.dart';
 import 'package:fit_forge/pages/settings/cubit/settings_cubit.dart';
 import 'package:fit_forge/pages/settings/widgets/birth_date_row.dart';
+import 'package:fit_forge/pages/settings/widgets/current_workout_level_row.dart';
 import 'package:fit_forge/pages/settings/widgets/email_row.dart';
 import 'package:fit_forge/pages/settings/widgets/gender_row.dart';
 import 'package:fit_forge/pages/settings/widgets/setting_row.dart';
@@ -93,10 +94,10 @@ class SettingsPage extends StatelessWidget {
                         //       state.userProfile?.basicGymLocation),
                         //   onTap: () {},
                         // ),
-                        SettingRow(
-                          label: S.of(context).currentWorkoutLevelLabel,
-                          value: state.userProfile?.currentWorkoutLevel,
-                          onTap: () {},
+                        CurrentWorkoutLevel(
+                          currentWorkoutLevel:
+                              state.userProfile?.currentWorkoutLevel,
+                          profileCurrenRow: state.profileCurrenRow,
                         ),
                         SettingRow(
                           label: S.of(context).topGoalLabel,

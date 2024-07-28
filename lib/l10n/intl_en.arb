@@ -53,5 +53,6 @@
     "cancel": "Cancel",
     "save": "Save",
     "editGenderLabel": "Choose Gender",
-    "enterBirthDate": "Enter birth date"
+    "enterBirthDate": "Enter birth date",
+    "editCurrentWorkoutLevel": "Choose your workout level"
 }

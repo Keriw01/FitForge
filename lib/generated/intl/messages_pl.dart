@@ -44,6 +44,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Document Id Not Exist"),
         "dontHaveAccount":
             MessageLookupByLibrary.simpleMessage("Nie masz konta ?"),
+        "editCurrentWorkoutLevel": MessageLookupByLibrary.simpleMessage(
+            "Wybierz poziom zaawansowania"),
         "editGenderLabel": MessageLookupByLibrary.simpleMessage("Wybierz płeć"),
         "editUsernameLabel":
             MessageLookupByLibrary.simpleMessage("Edytuj nazwę użytkownkia"),
