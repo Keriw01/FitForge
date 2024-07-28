@@ -48,6 +48,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "editUsernameLabel":
             MessageLookupByLibrary.simpleMessage("Edit Username"),
         "emailLabel": MessageLookupByLibrary.simpleMessage("Email"),
+        "enterBirthDate":
+            MessageLookupByLibrary.simpleMessage("Enter birth date"),
         "enterEmail": MessageLookupByLibrary.simpleMessage("Enter e-mail"),
         "enterNewUsername":
             MessageLookupByLibrary.simpleMessage("Enter New Username"),

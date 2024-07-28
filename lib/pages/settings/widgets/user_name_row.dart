@@ -80,18 +80,23 @@ Future<void> _showEditDialog(
           decoration: InputDecoration(hintText: S.of(context).enterNewUsername),
         ),
         actions: <Widget>[
-          TextButton(
-            child: Text(S.of(context).cancel),
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-          ),
-          TextButton(
-            child: Text(S.of(context).save),
-            onPressed: () {
-              onSave(controller.text);
-              Navigator.of(context).pop();
-            },
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              TextButton(
+                child: Text(S.of(context).cancel),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+              TextButton(
+                child: Text(S.of(context).save),
+                onPressed: () {
+                  onSave(controller.text);
+                  Navigator.of(context).pop();
+                },
+              ),
+            ],
           ),
         ],
       );

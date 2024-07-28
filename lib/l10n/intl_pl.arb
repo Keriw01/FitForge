@@ -52,5 +52,7 @@
     "enterNewUsername": "Wprowadź nową nazwę użytkownika",
     "cancel": "Anuluj",
     "save": "Zapisz",
-    "editGenderLabel": "Wybierz płeć"
+    "editGenderLabel": "Wybierz płeć",
+    "enterBirthDate": "Wprowadź datę urodzin"
+    
 }

@@ -52,6 +52,6 @@
     "enterNewUsername": "Enter New Username",
     "cancel": "Cancel",
     "save": "Save",
-    "editGenderLabel": "Choose Gender"
-
+    "editGenderLabel": "Choose Gender",
+    "enterBirthDate": "Enter birth date"
 }

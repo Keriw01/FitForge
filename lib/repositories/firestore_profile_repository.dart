@@ -11,7 +11,6 @@ class FirestoreProfileRepository {
           await _firestore.collection('Users').doc(userId).get();
 
       Map<String, dynamic>? data = snapshot.data();
-
       if (data != null) {
         return UserProfile.fromJson(data);
       } else {
@@ -28,6 +27,7 @@ class FirestoreProfileRepository {
       await _firestore.collection('Users').doc(userId).update({
         'userName': userProfile?.userName,
         'gender': userProfile?.gender,
+        'birthDate': userProfile?.birthDate,
       });
     } catch (e) {
       throw FirestoreException();

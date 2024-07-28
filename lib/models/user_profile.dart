@@ -18,6 +18,7 @@ class UserProfile with _$UserProfile {
     String? photoUrl,
     String? topGoal,
     String? currentWorkoutLevel,
+    @JsonKey(fromJson: _timestampFromJson, toJson: _timestampToJson)
     DateTime? birthDate,
     int? age,
     int? bmi,
@@ -28,6 +29,14 @@ class UserProfile with _$UserProfile {
 
   factory UserProfile.fromJson(Map<String, dynamic> json) =>
       _$UserProfileFromJson(json);
+}
+
+DateTime? _timestampFromJson(Timestamp? timestamp) {
+  return timestamp?.toDate();
+}
+
+Timestamp? _timestampToJson(DateTime? dateTime) {
+  return dateTime != null ? Timestamp.fromDate(dateTime) : null;
 }
 
 GeoPoint? _geoPointFromJson(Map<String, dynamic>? json) {

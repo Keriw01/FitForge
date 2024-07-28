@@ -90,48 +90,49 @@ class _GenderRowState extends State<GenderRow> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  ListTile(
+                  RadioListTile<String>(
                     title: const Text('Male'),
-                    leading: Radio<String>(
-                      value: 'Male',
-                      groupValue: tempSelectedOption,
-                      onChanged: (value) {
-                        setState(() {
-                          tempSelectedOption = value;
-                        });
-                      },
-                    ),
+                    value: 'Male',
+                    groupValue: tempSelectedOption,
+                    onChanged: (value) {
+                      setState(() {
+                        tempSelectedOption = value;
+                      });
+                    },
                   ),
-                  ListTile(
+                  RadioListTile<String>(
                     title: const Text('Female'),
-                    leading: Radio<String>(
-                      value: 'Female',
-                      groupValue: tempSelectedOption,
-                      onChanged: (value) {
-                        setState(() {
-                          tempSelectedOption = value;
-                        });
-                      },
-                    ),
+                    value: 'Female',
+                    groupValue: tempSelectedOption,
+                    onChanged: (value) {
+                      setState(() {
+                        tempSelectedOption = value;
+                      });
+                    },
                   ),
                 ],
               ),
               actions: <Widget>[
-                TextButton(
-                  child: Text(S.of(context).cancel),
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                ),
-                TextButton(
-                  child: Text(S.of(context).save),
-                  onPressed: () {
-                    if (tempSelectedOption!.isNotEmpty) {
-                      onSave(tempSelectedOption!);
-                    }
-                    Navigator.of(context).pop();
-                  },
-                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    TextButton(
+                      child: Text(S.of(context).cancel),
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                    ),
+                    TextButton(
+                      child: Text(S.of(context).save),
+                      onPressed: () {
+                        if (tempSelectedOption!.isNotEmpty) {
+                          onSave(tempSelectedOption!);
+                        }
+                        Navigator.of(context).pop();
+                      },
+                    ),
+                  ],
+                )
               ],
             );
           },

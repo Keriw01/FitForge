@@ -3,6 +3,7 @@ import 'package:fit_forge/consts/profile_enums.dart';
 import 'package:fit_forge/pages/auth/cubit/auth_cubit.dart';
 import 'package:fit_forge/generated/l10n.dart';
 import 'package:fit_forge/pages/settings/cubit/settings_cubit.dart';
+import 'package:fit_forge/pages/settings/widgets/birth_date_row.dart';
 import 'package:fit_forge/pages/settings/widgets/email_row.dart';
 import 'package:fit_forge/pages/settings/widgets/gender_row.dart';
 import 'package:fit_forge/pages/settings/widgets/setting_row.dart';
@@ -10,7 +11,6 @@ import 'package:fit_forge/pages/settings/widgets/user_name_row.dart';
 import 'package:fit_forge/widgets/custom_loading_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:intl/intl.dart';
 
 @RoutePage()
 class SettingsPage extends StatelessWidget {
@@ -80,13 +80,9 @@ class SettingsPage extends StatelessWidget {
                           gender: state.userProfile?.gender,
                           profileCurrenRow: state.profileCurrenRow,
                         ),
-                        SettingRow(
-                          label: S.of(context).birthDateLabel,
-                          value: state.userProfile?.birthDate != null
-                              ? DateFormat('dd.MM.yyyy')
-                                  .format(state.userProfile!.birthDate!)
-                              : S.of(context).noData,
-                          onTap: () {},
+                        BirthDateRow(
+                          birthDate: state.userProfile?.birthDate,
+                          profileCurrenRow: state.profileCurrenRow,
                         ),
                         //TODO
                         // Pominięta lokacja, w tej chwili nie potrzebna

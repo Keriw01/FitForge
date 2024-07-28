@@ -19,9 +19,7 @@ _$UserProfileImpl _$$UserProfileImplFromJson(Map<String, dynamic> json) =>
       photoUrl: json['photoUrl'] as String?,
       topGoal: json['topGoal'] as String?,
       currentWorkoutLevel: json['currentWorkoutLevel'] as String?,
-      birthDate: json['birthDate'] == null
-          ? null
-          : DateTime.parse(json['birthDate'] as String),
+      birthDate: _timestampFromJson(json['birthDate'] as Timestamp?),
       age: json['age'] as int?,
       bmi: json['bmi'] as int?,
       weight: (json['weight'] as num?)?.toDouble(),
@@ -42,7 +40,7 @@ Map<String, dynamic> _$$UserProfileImplToJson(_$UserProfileImpl instance) =>
       'photoUrl': instance.photoUrl,
       'topGoal': instance.topGoal,
       'currentWorkoutLevel': instance.currentWorkoutLevel,
-      'birthDate': instance.birthDate?.toIso8601String(),
+      'birthDate': _timestampToJson(instance.birthDate),
       'age': instance.age,
       'bmi': instance.bmi,
       'weight': instance.weight,

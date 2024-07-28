@@ -56,8 +56,12 @@ class SettingsCubit extends BaseCubit<SettingsState> {
     }
   }
 
-  Future<void> updateUserProfile(ProfileCurrenRow profileCurrenRow,
-      {String? userName, String? gender}) async {
+  Future<void> updateUserProfile(
+    ProfileCurrenRow profileCurrenRow, {
+    String? userName,
+    String? gender,
+    DateTime? birthDate,
+  }) async {
     try {
       emit(state.copyWith(profileCurrenRow: profileCurrenRow));
 
@@ -68,10 +72,13 @@ class SettingsCubit extends BaseCubit<SettingsState> {
         UserProfile updatedUserProfile = state.userProfile!.copyWith(
           userName: userName ?? currentUserProfile?.userName,
           gender: gender ?? currentUserProfile?.gender,
+          birthDate: birthDate ?? currentUserProfile?.birthDate,
         );
 
         await firebaseProfileRepository.updateUserProfile(
-            user.uid, updatedUserProfile);
+          user.uid,
+          updatedUserProfile,
+        );
 
         emit(state.copyWith(
           userProfile: updatedUserProfile,

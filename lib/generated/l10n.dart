@@ -579,6 +579,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Enter birth date`
+  String get enterBirthDate {
+    return Intl.message(
+      'Enter birth date',
+      name: 'enterBirthDate',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
