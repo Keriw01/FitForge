@@ -146,7 +146,7 @@ final customTextThemeDark = TextTheme(
   /// Authentication Form Field / Labels in Settings, radio title
   bodyMedium: GoogleFonts.openSans(
     fontSize: 14,
-    color: whiteColor,
+    color: defaultFontsColor,
   ),
 
   /// Other Form Field

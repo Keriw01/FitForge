@@ -4,7 +4,7 @@ import 'package:fit_forge/styles/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class ConnectWithGoogleFitRow extends StatelessWidget {
-  final bool isConnectWithGoogleFit;
+  final bool? isConnectWithGoogleFit;
   final ProfileCurrenRow profileCurrenRow;
 
   const ConnectWithGoogleFitRow({

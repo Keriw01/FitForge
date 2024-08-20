@@ -224,7 +224,7 @@ class AuthCubit extends BaseCubit<AuthState> {
     } catch (e) {
       emit(state.copyWith(formStatus: FormzSubmissionStatus.failure));
     } finally {
-      _clearState();
+      navigateToLoginPage();
       context.read<SettingsCubit>().clearState();
     }
   }

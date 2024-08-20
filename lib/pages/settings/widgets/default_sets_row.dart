@@ -8,7 +8,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class DefaultSetsRow extends StatelessWidget {
-  final String defaultSets;
+  final String? defaultSets;
   final ProfileCurrenRow profileCurrenRow;
 
   const DefaultSetsRow({
@@ -24,7 +24,7 @@ class DefaultSetsRow extends StatelessWidget {
           ? null
           : _showEditDialog(
               context,
-              defaultSets,
+              defaultSets ?? '',
               (newDefaultSets) =>
                   context.read<SettingsCubit>().updateUserProfile(
                         ProfileCurrenRow.defaultSets,
@@ -48,7 +48,7 @@ class DefaultSetsRow extends StatelessWidget {
                         height: 20,
                       )
                     : Text(
-                        defaultSets,
+                        defaultSets ?? S.of(context).noData,
                         style: Theme.of(context).textTheme.headlineMedium,
                       ),
                 const SizedBox(width: 10),

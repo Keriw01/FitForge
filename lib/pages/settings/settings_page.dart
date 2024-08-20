@@ -119,17 +119,17 @@ class SettingsPage extends StatelessWidget {
                         ),
                         DefaultSetsRow(
                           defaultSets:
-                              state.userProfile!.defaultSets.toString(),
+                              state.userProfile?.defaultSets.toString(),
                           profileCurrenRow: state.profileCurrenRow,
                         ),
                         DefaultRepsRow(
                           defaultReps:
-                              state.userProfile!.defaultReps.toString(),
+                              state.userProfile?.defaultReps.toString(),
                           profileCurrenRow: state.profileCurrenRow,
                         ),
                         ConnectWithGoogleFitRow(
                           isConnectWithGoogleFit:
-                              state.userProfile!.isConnectWithGoogleFit,
+                              state.userProfile?.isConnectWithGoogleFit,
                           profileCurrenRow: state.profileCurrenRow,
                         ),
                       ],
