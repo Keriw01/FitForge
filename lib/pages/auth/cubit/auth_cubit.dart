@@ -43,17 +43,14 @@ class AuthCubit extends BaseCubit<AuthState> {
 
     if (password.isNotValid || email.isNotValid) {
       emit(
-        state.copyWith(formStatus: FormzSubmissionStatus.failure),
+        state.copyWith(
+          formStatus: FormzSubmissionStatus.failure,
+          authResponseMessage: AuthResponseMessage.badAuthorization,
+        ),
       );
       return;
     }
 
-    emit(
-      state.copyWith(
-        authResponseMessage: AuthResponseMessage.none,
-        formStatus: FormzSubmissionStatus.inProgress,
-      ),
-    );
     try {
       final CurrentUser? user = await _firebaseAuthService
           .signInWithEmailAndPassword(email.value, password.value);

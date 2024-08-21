@@ -25,8 +25,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "advanced": MessageLookupByLibrary.simpleMessage("Zaawansowany"),
         "alreadyHaveAccount":
             MessageLookupByLibrary.simpleMessage("Masz już konto ?"),
-        "badAuthorization":
-            MessageLookupByLibrary.simpleMessage("Nie poprawne dane"),
+        "badAuthorization": MessageLookupByLibrary.simpleMessage(
+            "Nie poprawny email lub hasło"),
         "basicGymLocationLabel":
             MessageLookupByLibrary.simpleMessage("Lokalizacja siłowni"),
         "basicInformation":

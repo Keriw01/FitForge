@@ -200,10 +200,10 @@ class S {
     );
   }
 
-  /// `Internal Credentials`
+  /// `Invalid email or password`
   String get badAuthorization {
     return Intl.message(
-      'Internal Credentials',
+      'Invalid email or password',
       name: 'badAuthorization',
       desc: '',
       args: [],
