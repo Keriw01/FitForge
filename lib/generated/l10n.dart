@@ -200,6 +200,16 @@ class S {
     );
   }
 
+  /// `No internet connection`
+  String get networkRequestFailed {
+    return Intl.message(
+      'No internet connection',
+      name: 'networkRequestFailed',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Invalid email or password`
   String get badAuthorization {
     return Intl.message(

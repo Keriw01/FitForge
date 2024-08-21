@@ -71,6 +71,11 @@ class AuthCubit extends BaseCubit<AuthState> {
         authResponseMessage: AuthResponseMessage.badAuthorization,
         formStatus: FormzSubmissionStatus.failure,
       ));
+    } on NetworkRequestFailed {
+      emit(state.copyWith(
+        authResponseMessage: AuthResponseMessage.networkRequestFailed,
+        formStatus: FormzSubmissionStatus.failure,
+      ));
     } catch (e) {
       emit(state.copyWith(
         authResponseMessage: AuthResponseMessage.defaultError,
@@ -116,6 +121,11 @@ class AuthCubit extends BaseCubit<AuthState> {
           formStatus: FormzSubmissionStatus.failure,
         ));
       }
+    } on NetworkRequestFailed {
+      emit(state.copyWith(
+        authResponseMessage: AuthResponseMessage.networkRequestFailed,
+        formStatus: FormzSubmissionStatus.failure,
+      ));
     } catch (e) {
       emit(state.copyWith(
         authResponseMessage: AuthResponseMessage.googleLoginCanceled,
@@ -145,6 +155,11 @@ class AuthCubit extends BaseCubit<AuthState> {
           formStatus: FormzSubmissionStatus.failure,
         ));
       }
+    } on NetworkRequestFailed {
+      emit(state.copyWith(
+        authResponseMessage: AuthResponseMessage.networkRequestFailed,
+        formStatus: FormzSubmissionStatus.failure,
+      ));
     } catch (e) {
       emit(state.copyWith(
           authResponseMessage: AuthResponseMessage.gitHubLoginCanceled));
@@ -195,6 +210,11 @@ class AuthCubit extends BaseCubit<AuthState> {
     } on UserAlreadyExistsError {
       emit(state.copyWith(
         authResponseMessage: AuthResponseMessage.userAlreadyExist,
+        formStatus: FormzSubmissionStatus.failure,
+      ));
+    } on NetworkRequestFailed {
+      emit(state.copyWith(
+        authResponseMessage: AuthResponseMessage.networkRequestFailed,
         formStatus: FormzSubmissionStatus.failure,
       ));
     } catch (e) {
@@ -282,6 +302,9 @@ class AuthCubit extends BaseCubit<AuthState> {
 
       case AuthResponseMessage.gitHubLoginCanceled:
         return S.of(context).gitHubLoginCanceled;
+
+      case AuthResponseMessage.networkRequestFailed:
+        return S.of(context).networkRequestFailed;
     }
   }
 }

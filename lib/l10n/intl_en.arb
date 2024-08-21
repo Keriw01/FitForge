@@ -15,6 +15,7 @@
     "enterValidPassword": "Password must contains minimum 8 characters",
     "enterPassword": "Enter your password",
     "defaultError": "Error",
+    "networkRequestFailed": "No internet connection",
     "badAuthorization": "Invalid email or password",
     "userAlreadyExist": "User already exist",
     "userAlreadyLogIn": "User already LogIn",

@@ -99,6 +99,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "maintainingDescription": MessageLookupByLibrary.simpleMessage(
             "Bądź zdrowy i dbaj o zdrowie układu krążenia"),
         "male": MessageLookupByLibrary.simpleMessage("Mężczyzna"),
+        "networkRequestFailed": MessageLookupByLibrary.simpleMessage(
+            "Brak połączenia internetowego"),
         "noData": MessageLookupByLibrary.simpleMessage("brak danych"),
         "notValidEmail":
             MessageLookupByLibrary.simpleMessage("Niepoprawny adres email"),

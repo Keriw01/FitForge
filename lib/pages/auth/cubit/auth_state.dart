@@ -8,7 +8,8 @@ enum AuthResponseMessage {
   userAlreadyLogIn,
   invalidEmailFormat,
   googleLoginCanceled,
-  gitHubLoginCanceled
+  gitHubLoginCanceled,
+  networkRequestFailed
 }
 
 @CopyWith()

@@ -15,6 +15,7 @@
     "enterValidPassword": "Hasło musi mieć co najmniej 8 znaków",
     "enterPassword": "Wpisz swoje hasło",
     "defaultError": "Błąd",
+    "networkRequestFailed": "Brak połączenia internetowego",
     "badAuthorization": "Nie poprawny email lub hasło",
     "userAlreadyExist": "Użytkownik już istnieje",
     "userAlreadyLogIn": "Użytkownik już zalogowany",

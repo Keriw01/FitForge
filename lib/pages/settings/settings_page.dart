@@ -10,6 +10,7 @@ import 'package:fit_forge/pages/settings/widgets/default_sets_row.dart';
 import 'package:fit_forge/pages/settings/widgets/email_row.dart';
 import 'package:fit_forge/pages/settings/widgets/gender_row.dart';
 import 'package:fit_forge/pages/settings/widgets/connect_with_google_fit_row.dart';
+import 'package:fit_forge/pages/settings/widgets/logout_button.dart';
 import 'package:fit_forge/pages/settings/widgets/top_goal_row.dart';
 import 'package:fit_forge/pages/settings/widgets/unit_system_row.dart';
 import 'package:fit_forge/pages/settings/widgets/user_name_row.dart';
@@ -136,10 +137,10 @@ class SettingsPage extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 50),
-                  ElevatedButton(
-                      child: Text(S.of(context).logOut),
-                      onPressed: () =>
-                          context.read<AuthCubit>().logOut(context)),
+                  LogOutButton(
+                    onPressed: () => context.read<AuthCubit>().logOut(context),
+                    text: S.of(context).logOut,
+                  ),
                 ],
               ),
             ),
