@@ -71,5 +71,18 @@
     "editUnitSystem": "Choose unit system",
     "editDefaultSets": "Set default sets",
     "editDefaultReps": "Set default reps",
-    "connect": "Connect"
+    "connect": "Connect",
+    "exercisesPartsPageTitle": "Body Parts",
+    "triceps": "Triceps",
+    "chest": "Chest",
+    "shoulders": "Shoulders",
+    "biceps": "Biceps",
+    "core": "Core",
+    "back": "Back",
+    "forearms": "Forearms",
+    "upperLegs": "Upper Legs",
+    "glutes": "Glutes",
+    "cardio": "Cardio",
+    "lowerLegs": "Lower Legs",
+    "showAll": "Show All"
 }

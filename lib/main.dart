@@ -1,5 +1,6 @@
 import 'package:fit_forge/pages/auth/cubit/auth_cubit.dart';
 import 'package:fit_forge/generated/l10n.dart';
+import 'package:fit_forge/pages/exercises/cubit/exercises_cubit.dart';
 import 'package:fit_forge/pages/settings/cubit/settings_cubit.dart';
 import 'package:fit_forge/routes/app_router.dart';
 import 'package:fit_forge/styles/custom_theme.dart';
@@ -7,6 +8,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:firebase_core/firebase_core.dart';
+
+// TODO  Paste this link on the website where your app is available for download or in the description section of the platform or marketplace you’re using.
+/*
+<a href="https://www.flaticon.com/free-icons/muscle" title="muscle icons">Muscle icons created by cube29 - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons/muscle" title="muscle icons">Muscle icons created by justicon - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons/cardio" title="cardio icons">Cardio icons created by ultimatearm - Flaticon</a>
+*/
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -30,6 +38,10 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => SettingsCubit(_appRouter, context),
+        ),
+        BlocProvider(
+          create: (context) => ExercisesCubit(_appRouter, context),
+          lazy: false,
         ),
       ],
       child: MaterialApp.router(

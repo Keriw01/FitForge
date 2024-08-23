@@ -769,6 +769,136 @@ class S {
       args: [],
     );
   }
+
+  /// `Body Parts`
+  String get exercisesPartsPageTitle {
+    return Intl.message(
+      'Body Parts',
+      name: 'exercisesPartsPageTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Triceps`
+  String get triceps {
+    return Intl.message(
+      'Triceps',
+      name: 'triceps',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Chest`
+  String get chest {
+    return Intl.message(
+      'Chest',
+      name: 'chest',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Shoulders`
+  String get shoulders {
+    return Intl.message(
+      'Shoulders',
+      name: 'shoulders',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Biceps`
+  String get biceps {
+    return Intl.message(
+      'Biceps',
+      name: 'biceps',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Core`
+  String get core {
+    return Intl.message(
+      'Core',
+      name: 'core',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Back`
+  String get back {
+    return Intl.message(
+      'Back',
+      name: 'back',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Forearms`
+  String get forearms {
+    return Intl.message(
+      'Forearms',
+      name: 'forearms',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Upper Legs`
+  String get upperLegs {
+    return Intl.message(
+      'Upper Legs',
+      name: 'upperLegs',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Glutes`
+  String get glutes {
+    return Intl.message(
+      'Glutes',
+      name: 'glutes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cardio`
+  String get cardio {
+    return Intl.message(
+      'Cardio',
+      name: 'cardio',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Lower Legs`
+  String get lowerLegs {
+    return Intl.message(
+      'Lower Legs',
+      name: 'lowerLegs',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Show All`
+  String get showAll {
+    return Intl.message(
+      'Show All',
+      name: 'showAll',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

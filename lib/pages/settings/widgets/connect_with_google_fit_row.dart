@@ -1,4 +1,4 @@
-import 'package:fit_forge/consts/profile_enums.dart';
+import 'package:fit_forge/consts/enums.dart';
 import 'package:fit_forge/generated/l10n.dart';
 import 'package:fit_forge/styles/app_colors.dart';
 import 'package:flutter/material.dart';

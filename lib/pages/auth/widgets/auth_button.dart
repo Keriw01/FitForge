@@ -1,3 +1,4 @@
+import 'package:fit_forge/consts/enums.dart';
 import 'package:fit_forge/pages/auth/cubit/auth_cubit.dart';
 import 'package:fit_forge/pages/auth/widgets/auth_input_error.dart';
 import 'package:fit_forge/styles/app_colors.dart';

@@ -71,6 +71,19 @@
     "editUnitSystem": "Wybierz rodzaj jednostek",
     "editDefaultSets": "Ustaw domyślną ilość serii",
     "editDefaultReps": "Ustaw domyślną ilość powtórzeń",
-    "connect": "Połącz"
+    "connect": "Połącz",
+    "exercisesPartsPageTitle": "Partie ciała",
+    "triceps": "Triceps",
+    "chest": "Klatka piersiowa",
+    "shoulders": "Barki",
+    "biceps": "Biceps",
+    "core": "Brzuch",
+    "back": "Plecy",
+    "forearms": "Przedramie",
+    "upperLegs": "Górne partie nóg",
+    "glutes": "Pośladki",
+    "cardio": "Cardio",
+    "lowerLegs": "Dolne partie nóg",
+    "showAll": "Pokaż wszystkie"
     
 }
