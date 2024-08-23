@@ -771,10 +771,10 @@ class S {
   }
 
   /// `Body Parts`
-  String get exercisesPartsPageTitle {
+  String get bodyPartsPageTitle {
     return Intl.message(
       'Body Parts',
-      name: 'exercisesPartsPageTitle',
+      name: 'bodyPartsPageTitle',
       desc: '',
       args: [],
     );
@@ -895,6 +895,66 @@ class S {
     return Intl.message(
       'Show All',
       name: 'showAll',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Exercises`
+  String get exercisesPageTitle {
+    return Intl.message(
+      'Exercises',
+      name: 'exercisesPageTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No exercises found.`
+  String get noExercisesFound {
+    return Intl.message(
+      'No exercises found.',
+      name: 'noExercisesFound',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Exercise Detail`
+  String get exerciseDetailPageTitle {
+    return Intl.message(
+      'Exercise Detail',
+      name: 'exerciseDetailPageTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Target Muscle Group`
+  String get targetMuscleGroup {
+    return Intl.message(
+      'Target Muscle Group',
+      name: 'targetMuscleGroup',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Available Equipment`
+  String get availableEquipment {
+    return Intl.message(
+      'Available Equipment',
+      name: 'availableEquipment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Description`
+  String get description {
+    return Intl.message(
+      'Description',
+      name: 'description',
       desc: '',
       args: [],
     );

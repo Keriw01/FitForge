@@ -9,6 +9,7 @@ class Exercise with _$Exercise {
   factory Exercise({
     required String qrCodeUrl,
     required String videoUrl,
+    required String thumbnailUrl,
     required Translation title,
     required Translation description,
     required Translation mainBodyPart,

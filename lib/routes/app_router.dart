@@ -1,5 +1,8 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:fit_forge/models/exercise.dart';
 import 'package:fit_forge/pages/authentication_flow_screen.dart';
+import 'package:fit_forge/pages/exercises/body_parts_page.dart';
+import 'package:fit_forge/pages/exercises/exercise_detail_page.dart';
 import 'package:fit_forge/pages/exercises/exercises_page.dart';
 import 'package:fit_forge/pages/home/main_page.dart';
 import 'package:fit_forge/pages/auth/login/login_page.dart';
@@ -25,12 +28,14 @@ class AppRouter extends _$AppRouter {
             AutoRoute(page: MainRoute.page),
             AutoRoute(page: QrCodeInitialRoute.page),
             AutoRoute(page: WorkoutsRoute.page),
-            AutoRoute(page: ExercisesRoute.page),
+            AutoRoute(page: BodyPartsRoute.page),
             AutoRoute(page: StatisticsRoute.page),
           ],
         ),
-        AutoRoute(page: SettingsRoute.page),
         AutoRoute(page: LoginRoute.page),
         AutoRoute(page: RegisterRoute.page),
+        AutoRoute(page: SettingsRoute.page),
+        AutoRoute(page: ExercisesRoute.page),
+        AutoRoute(page: ExerciseDetailRoute.page),
       ];
 }

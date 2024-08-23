@@ -25,6 +25,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "advanced": MessageLookupByLibrary.simpleMessage("Zaawansowany"),
         "alreadyHaveAccount":
             MessageLookupByLibrary.simpleMessage("Masz już konto ?"),
+        "availableEquipment":
+            MessageLookupByLibrary.simpleMessage("Dostępny ekwipunek"),
         "back": MessageLookupByLibrary.simpleMessage("Plecy"),
         "badAuthorization": MessageLookupByLibrary.simpleMessage(
             "Nie poprawny email lub hasło"),
@@ -36,6 +38,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "biceps": MessageLookupByLibrary.simpleMessage("Biceps"),
         "birthDateLabel":
             MessageLookupByLibrary.simpleMessage("Data urodzenia"),
+        "bodyPartsPageTitle":
+            MessageLookupByLibrary.simpleMessage("Partie ciała"),
         "bulking": MessageLookupByLibrary.simpleMessage("Zbudować masę"),
         "bulkingDescription": MessageLookupByLibrary.simpleMessage(
             "Skoncentruj się na zwiększaniu masy mięśniowej i budowaniu siły"),
@@ -54,6 +58,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "defaultError": MessageLookupByLibrary.simpleMessage("Błąd"),
         "defaultReps": MessageLookupByLibrary.simpleMessage("Ilość powtórzeń"),
         "defaultsSets": MessageLookupByLibrary.simpleMessage("Ilość serii"),
+        "description": MessageLookupByLibrary.simpleMessage("Opis"),
         "documentIdNotExist":
             MessageLookupByLibrary.simpleMessage("Document Id Not Exist"),
         "dontHaveAccount":
@@ -83,9 +88,10 @@ class MessageLookup extends MessageLookupByLibrary {
             "Wprowadź poprawny adres e-mail"),
         "enterValidPassword": MessageLookupByLibrary.simpleMessage(
             "Hasło musi mieć co najmniej 8 znaków"),
+        "exerciseDetailPageTitle":
+            MessageLookupByLibrary.simpleMessage("Szczegóły ćwiczenia"),
         "exercisesLabel": MessageLookupByLibrary.simpleMessage("Ćwiczenia"),
-        "exercisesPartsPageTitle":
-            MessageLookupByLibrary.simpleMessage("Partie ciała"),
+        "exercisesPageTitle": MessageLookupByLibrary.simpleMessage("Ćwiczenia"),
         "female": MessageLookupByLibrary.simpleMessage("Kobieta"),
         "firestoreException":
             MessageLookupByLibrary.simpleMessage("Błąd Cloud Database"),
@@ -112,6 +118,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "networkRequestFailed": MessageLookupByLibrary.simpleMessage(
             "Brak połączenia internetowego"),
         "noData": MessageLookupByLibrary.simpleMessage("brak danych"),
+        "noExercisesFound":
+            MessageLookupByLibrary.simpleMessage("No exercises found."),
         "notValidEmail":
             MessageLookupByLibrary.simpleMessage("Niepoprawny adres email"),
         "or": MessageLookupByLibrary.simpleMessage("LUB"),
@@ -133,6 +141,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "signUp": MessageLookupByLibrary.simpleMessage(" Zarejestruj się"),
         "signUpButton": MessageLookupByLibrary.simpleMessage("Zarejestruj"),
         "statisticsLabel": MessageLookupByLibrary.simpleMessage("Historia"),
+        "targetMuscleGroup":
+            MessageLookupByLibrary.simpleMessage("Grupa docelowa mięśni"),
         "topGoalLabel": MessageLookupByLibrary.simpleMessage("Cel"),
         "triceps": MessageLookupByLibrary.simpleMessage("Triceps"),
         "unitSystem": MessageLookupByLibrary.simpleMessage("Jednostki"),

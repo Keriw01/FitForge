@@ -22,6 +22,7 @@ Exercise _$ExerciseFromJson(Map<String, dynamic> json) {
 mixin _$Exercise {
   String get qrCodeUrl => throw _privateConstructorUsedError;
   String get videoUrl => throw _privateConstructorUsedError;
+  String get thumbnailUrl => throw _privateConstructorUsedError;
   Translation get title => throw _privateConstructorUsedError;
   Translation get description => throw _privateConstructorUsedError;
   Translation get mainBodyPart => throw _privateConstructorUsedError;
@@ -43,6 +44,7 @@ abstract class $ExerciseCopyWith<$Res> {
   $Res call(
       {String qrCodeUrl,
       String videoUrl,
+      String thumbnailUrl,
       Translation title,
       Translation description,
       Translation mainBodyPart,
@@ -69,6 +71,7 @@ class _$ExerciseCopyWithImpl<$Res, $Val extends Exercise>
   $Res call({
     Object? qrCodeUrl = null,
     Object? videoUrl = null,
+    Object? thumbnailUrl = null,
     Object? title = null,
     Object? description = null,
     Object? mainBodyPart = null,
@@ -83,6 +86,10 @@ class _$ExerciseCopyWithImpl<$Res, $Val extends Exercise>
       videoUrl: null == videoUrl
           ? _value.videoUrl
           : videoUrl // ignore: cast_nullable_to_non_nullable
+              as String,
+      thumbnailUrl: null == thumbnailUrl
+          ? _value.thumbnailUrl
+          : thumbnailUrl // ignore: cast_nullable_to_non_nullable
               as String,
       title: null == title
           ? _value.title
@@ -143,6 +150,7 @@ abstract class _$$ExerciseImplCopyWith<$Res>
   $Res call(
       {String qrCodeUrl,
       String videoUrl,
+      String thumbnailUrl,
       Translation title,
       Translation description,
       Translation mainBodyPart,
@@ -170,6 +178,7 @@ class __$$ExerciseImplCopyWithImpl<$Res>
   $Res call({
     Object? qrCodeUrl = null,
     Object? videoUrl = null,
+    Object? thumbnailUrl = null,
     Object? title = null,
     Object? description = null,
     Object? mainBodyPart = null,
@@ -184,6 +193,10 @@ class __$$ExerciseImplCopyWithImpl<$Res>
       videoUrl: null == videoUrl
           ? _value.videoUrl
           : videoUrl // ignore: cast_nullable_to_non_nullable
+              as String,
+      thumbnailUrl: null == thumbnailUrl
+          ? _value.thumbnailUrl
+          : thumbnailUrl // ignore: cast_nullable_to_non_nullable
               as String,
       title: null == title
           ? _value.title
@@ -215,6 +228,7 @@ class _$ExerciseImpl implements _Exercise {
   _$ExerciseImpl(
       {required this.qrCodeUrl,
       required this.videoUrl,
+      required this.thumbnailUrl,
       required this.title,
       required this.description,
       required this.mainBodyPart,
@@ -230,6 +244,8 @@ class _$ExerciseImpl implements _Exercise {
   final String qrCodeUrl;
   @override
   final String videoUrl;
+  @override
+  final String thumbnailUrl;
   @override
   final Translation title;
   @override
@@ -254,7 +270,7 @@ class _$ExerciseImpl implements _Exercise {
 
   @override
   String toString() {
-    return 'Exercise(qrCodeUrl: $qrCodeUrl, videoUrl: $videoUrl, title: $title, description: $description, mainBodyPart: $mainBodyPart, otherBodyParts: $otherBodyParts, equipment: $equipment)';
+    return 'Exercise(qrCodeUrl: $qrCodeUrl, videoUrl: $videoUrl, thumbnailUrl: $thumbnailUrl, title: $title, description: $description, mainBodyPart: $mainBodyPart, otherBodyParts: $otherBodyParts, equipment: $equipment)';
   }
 
   @override
@@ -266,6 +282,8 @@ class _$ExerciseImpl implements _Exercise {
                 other.qrCodeUrl == qrCodeUrl) &&
             (identical(other.videoUrl, videoUrl) ||
                 other.videoUrl == videoUrl) &&
+            (identical(other.thumbnailUrl, thumbnailUrl) ||
+                other.thumbnailUrl == thumbnailUrl) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.description, description) ||
                 other.description == description) &&
@@ -283,6 +301,7 @@ class _$ExerciseImpl implements _Exercise {
       runtimeType,
       qrCodeUrl,
       videoUrl,
+      thumbnailUrl,
       title,
       description,
       mainBodyPart,
@@ -307,6 +326,7 @@ abstract class _Exercise implements Exercise {
   factory _Exercise(
       {required final String qrCodeUrl,
       required final String videoUrl,
+      required final String thumbnailUrl,
       required final Translation title,
       required final Translation description,
       required final Translation mainBodyPart,
@@ -320,6 +340,8 @@ abstract class _Exercise implements Exercise {
   String get qrCodeUrl;
   @override
   String get videoUrl;
+  @override
+  String get thumbnailUrl;
   @override
   Translation get title;
   @override

@@ -72,7 +72,7 @@
     "editDefaultSets": "Set default sets",
     "editDefaultReps": "Set default reps",
     "connect": "Connect",
-    "exercisesPartsPageTitle": "Body Parts",
+    "bodyPartsPageTitle": "Body Parts",
     "triceps": "Triceps",
     "chest": "Chest",
     "shoulders": "Shoulders",
@@ -84,5 +84,11 @@
     "glutes": "Glutes",
     "cardio": "Cardio",
     "lowerLegs": "Lower Legs",
-    "showAll": "Show All"
+    "showAll": "Show All",
+    "exercisesPageTitle": "Exercises",
+    "noExercisesFound": "No exercises found.",
+    "exerciseDetailPageTitle": "Exercise Detail",
+    "targetMuscleGroup": "Target Muscle Group",
+    "availableEquipment": "Available Equipment",
+    "description": "Description"
 }

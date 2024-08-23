@@ -14,6 +14,10 @@ abstract class _$ExercisesStateCWProxy {
 
   ExercisesState exercises(List<Exercises>? exercises);
 
+  ExercisesState isFiltering(bool isFiltering);
+
+  ExercisesState filteredExercises(List<Exercises>? filteredExercises);
+
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `ExercisesState(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
   /// Usage
@@ -24,6 +28,8 @@ abstract class _$ExercisesStateCWProxy {
     FirestoreResponseMessage? firestoreResponseMessage,
     bool? isLoading,
     List<Exercises>? exercises,
+    bool? isFiltering,
+    List<Exercises>? filteredExercises,
   });
 }
 
@@ -46,6 +52,14 @@ class _$ExercisesStateCWProxyImpl implements _$ExercisesStateCWProxy {
       this(exercises: exercises);
 
   @override
+  ExercisesState isFiltering(bool isFiltering) =>
+      this(isFiltering: isFiltering);
+
+  @override
+  ExercisesState filteredExercises(List<Exercises>? filteredExercises) =>
+      this(filteredExercises: filteredExercises);
+
+  @override
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `ExercisesState(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
@@ -57,6 +71,8 @@ class _$ExercisesStateCWProxyImpl implements _$ExercisesStateCWProxy {
     Object? firestoreResponseMessage = const $CopyWithPlaceholder(),
     Object? isLoading = const $CopyWithPlaceholder(),
     Object? exercises = const $CopyWithPlaceholder(),
+    Object? isFiltering = const $CopyWithPlaceholder(),
+    Object? filteredExercises = const $CopyWithPlaceholder(),
   }) {
     return ExercisesState(
       firestoreResponseMessage:
@@ -73,6 +89,15 @@ class _$ExercisesStateCWProxyImpl implements _$ExercisesStateCWProxy {
           ? _value.exercises
           // ignore: cast_nullable_to_non_nullable
           : exercises as List<Exercises>?,
+      isFiltering:
+          isFiltering == const $CopyWithPlaceholder() || isFiltering == null
+              ? _value.isFiltering
+              // ignore: cast_nullable_to_non_nullable
+              : isFiltering as bool,
+      filteredExercises: filteredExercises == const $CopyWithPlaceholder()
+          ? _value.filteredExercises
+          // ignore: cast_nullable_to_non_nullable
+          : filteredExercises as List<Exercises>?,
     );
   }
 }

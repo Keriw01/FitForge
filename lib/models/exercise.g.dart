@@ -10,6 +10,7 @@ _$ExerciseImpl _$$ExerciseImplFromJson(Map<String, dynamic> json) =>
     _$ExerciseImpl(
       qrCodeUrl: json['qrCodeUrl'] as String,
       videoUrl: json['videoUrl'] as String,
+      thumbnailUrl: json['thumbnailUrl'] as String,
       title: Translation.fromJson(json['title'] as Map<String, dynamic>),
       description:
           Translation.fromJson(json['description'] as Map<String, dynamic>),
@@ -27,6 +28,7 @@ Map<String, dynamic> _$$ExerciseImplToJson(_$ExerciseImpl instance) =>
     <String, dynamic>{
       'qrCodeUrl': instance.qrCodeUrl,
       'videoUrl': instance.videoUrl,
+      'thumbnailUrl': instance.thumbnailUrl,
       'title': instance.title,
       'description': instance.description,
       'mainBodyPart': instance.mainBodyPart,

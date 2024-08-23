@@ -15,6 +15,7 @@ class BodyPartItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      onTap: onTap,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -30,7 +31,6 @@ class BodyPartItem extends StatelessWidget {
           Text(title)
         ],
       ),
-      onTap: () => onTap,
     );
   }
 }

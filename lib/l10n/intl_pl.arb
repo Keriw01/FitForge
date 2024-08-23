@@ -72,7 +72,7 @@
     "editDefaultSets": "Ustaw domyślną ilość serii",
     "editDefaultReps": "Ustaw domyślną ilość powtórzeń",
     "connect": "Połącz",
-    "exercisesPartsPageTitle": "Partie ciała",
+    "bodyPartsPageTitle": "Partie ciała",
     "triceps": "Triceps",
     "chest": "Klatka piersiowa",
     "shoulders": "Barki",
@@ -84,6 +84,12 @@
     "glutes": "Pośladki",
     "cardio": "Cardio",
     "lowerLegs": "Dolne partie nóg",
-    "showAll": "Pokaż wszystkie"
+    "showAll": "Pokaż wszystkie",
+    "exercisesPageTitle": "Ćwiczenia",
+    "noExercisesFound": "No exercises found.",
+    "exerciseDetailPageTitle": "Szczegóły ćwiczenia",
+    "targetMuscleGroup": "Grupa docelowa mięśni",
+    "availableEquipment": "Dostępny ekwipunek",
+    "description": "Opis"
     
 }

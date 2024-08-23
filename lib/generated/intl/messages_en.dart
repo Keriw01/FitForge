@@ -25,6 +25,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "advanced": MessageLookupByLibrary.simpleMessage("Advanced"),
         "alreadyHaveAccount":
             MessageLookupByLibrary.simpleMessage("Already have an Account ?"),
+        "availableEquipment":
+            MessageLookupByLibrary.simpleMessage("Available Equipment"),
         "back": MessageLookupByLibrary.simpleMessage("Back"),
         "badAuthorization":
             MessageLookupByLibrary.simpleMessage("Invalid email or password"),
@@ -35,6 +37,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "begginer": MessageLookupByLibrary.simpleMessage("Beginner"),
         "biceps": MessageLookupByLibrary.simpleMessage("Biceps"),
         "birthDateLabel": MessageLookupByLibrary.simpleMessage("Birth Date"),
+        "bodyPartsPageTitle":
+            MessageLookupByLibrary.simpleMessage("Body Parts"),
         "bulking": MessageLookupByLibrary.simpleMessage("Bulking"),
         "bulkingDescription": MessageLookupByLibrary.simpleMessage(
             "Focus on gaining muscle size and building strength"),
@@ -53,6 +57,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "defaultError": MessageLookupByLibrary.simpleMessage("Error"),
         "defaultReps": MessageLookupByLibrary.simpleMessage("Default Reps"),
         "defaultsSets": MessageLookupByLibrary.simpleMessage("Default Sets"),
+        "description": MessageLookupByLibrary.simpleMessage("Description"),
         "documentIdNotExist":
             MessageLookupByLibrary.simpleMessage("Document Id Not Exist"),
         "dontHaveAccount":
@@ -83,9 +88,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Enter valid e-mail"),
         "enterValidPassword": MessageLookupByLibrary.simpleMessage(
             "Password must contains minimum 8 characters"),
+        "exerciseDetailPageTitle":
+            MessageLookupByLibrary.simpleMessage("Exercise Detail"),
         "exercisesLabel": MessageLookupByLibrary.simpleMessage("Exercises"),
-        "exercisesPartsPageTitle":
-            MessageLookupByLibrary.simpleMessage("Body Parts"),
+        "exercisesPageTitle": MessageLookupByLibrary.simpleMessage("Exercises"),
         "female": MessageLookupByLibrary.simpleMessage("Female"),
         "firestoreException":
             MessageLookupByLibrary.simpleMessage("Cloud Database Error"),
@@ -111,6 +117,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "networkRequestFailed":
             MessageLookupByLibrary.simpleMessage("No internet connection"),
         "noData": MessageLookupByLibrary.simpleMessage("no data"),
+        "noExercisesFound":
+            MessageLookupByLibrary.simpleMessage("No exercises found."),
         "notValidEmail":
             MessageLookupByLibrary.simpleMessage("Incorrect email address"),
         "or": MessageLookupByLibrary.simpleMessage("OR"),
@@ -131,6 +139,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "signUp": MessageLookupByLibrary.simpleMessage(" Sign Up"),
         "signUpButton": MessageLookupByLibrary.simpleMessage("Register"),
         "statisticsLabel": MessageLookupByLibrary.simpleMessage("Progress"),
+        "targetMuscleGroup":
+            MessageLookupByLibrary.simpleMessage("Target Muscle Group"),
         "topGoalLabel": MessageLookupByLibrary.simpleMessage("Top Goal"),
         "triceps": MessageLookupByLibrary.simpleMessage("Triceps"),
         "unitSystem": MessageLookupByLibrary.simpleMessage("Unit System"),
