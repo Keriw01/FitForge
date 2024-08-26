@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:fit_forge/consts/profile_enums.dart';
+import 'package:fit_forge/consts/enums.dart';
 import 'package:fit_forge/pages/auth/cubit/auth_cubit.dart';
 import 'package:fit_forge/generated/l10n.dart';
 import 'package:fit_forge/pages/settings/cubit/settings_cubit.dart';
@@ -10,9 +10,11 @@ import 'package:fit_forge/pages/settings/widgets/default_sets_row.dart';
 import 'package:fit_forge/pages/settings/widgets/email_row.dart';
 import 'package:fit_forge/pages/settings/widgets/gender_row.dart';
 import 'package:fit_forge/pages/settings/widgets/connect_with_google_fit_row.dart';
+import 'package:fit_forge/pages/settings/widgets/logout_button.dart';
 import 'package:fit_forge/pages/settings/widgets/top_goal_row.dart';
 import 'package:fit_forge/pages/settings/widgets/unit_system_row.dart';
 import 'package:fit_forge/pages/settings/widgets/user_name_row.dart';
+import 'package:fit_forge/utils/helpers/error_helpers.dart';
 import 'package:fit_forge/widgets/custom_loading_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -31,13 +33,11 @@ class SettingsPage extends StatelessWidget {
       )),
       body: BlocConsumer<SettingsCubit, SettingsState>(
         listener: (context, state) {
-          if (state.profileResponseMessage != ProfileResponseMessage.none) {
+          if (state.firestoreResponseMessage != FirestoreResponseMessage.none) {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
                 content: Text(
-                  context
-                      .read<SettingsCubit>()
-                      .getResponseError(state.profileResponseMessage, context)!,
+                  getResponseError(state.firestoreResponseMessage, context)!,
                 ),
               ),
             );
@@ -58,6 +58,7 @@ class SettingsPage extends StatelessWidget {
                 children: [
                   //TODO
                   // Obsłużyć możliwości dodania zdjęcia profilowego z pamięci urządzenia
+                  const SizedBox(height: 20),
                   CircleAvatar(
                     minRadius: 32,
                     child: state.userProfile?.photoUrl != null
@@ -136,10 +137,10 @@ class SettingsPage extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 50),
-                  ElevatedButton(
-                      child: Text(S.of(context).logOut),
-                      onPressed: () =>
-                          context.read<AuthCubit>().logOut(context)),
+                  LogOutButton(
+                    onPressed: () => context.read<AuthCubit>().logOut(context),
+                    text: S.of(context).logOut,
+                  ),
                 ],
               ),
             ),

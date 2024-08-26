@@ -42,7 +42,10 @@ class PasswordInputField extends StatelessWidget {
                     context.read<AuthCubit>().passwordChanged(value),
                 readOnly: state.item1.isInProgress,
                 cursorColor: seedBlue,
-                style: Theme.of(context).textTheme.bodyMedium,
+                style: const TextStyle(
+                  fontSize: 14,
+                  color: defaultFontsColor,
+                ),
                 decoration: InputDecoration(
                   filled: true,
                   fillColor: whiteColor,
@@ -56,11 +59,14 @@ class PasswordInputField extends StatelessWidget {
                     size: 18,
                   ),
                   labelText: S.of(context).enterPassword,
-                  labelStyle: Theme.of(context).textTheme.bodyMedium,
-                  floatingLabelStyle: Theme.of(context)
-                      .textTheme
-                      .bodyMedium!
-                      .copyWith(fontSize: 12),
+                  labelStyle: const TextStyle(
+                    fontSize: 14,
+                    color: defaultFontsColor,
+                  ),
+                  floatingLabelStyle: const TextStyle(
+                    fontSize: 12,
+                    color: defaultFontsColor,
+                  ),
                 ),
                 obscureText: true,
               ),

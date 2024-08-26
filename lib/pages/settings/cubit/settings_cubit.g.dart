@@ -7,8 +7,8 @@ part of 'settings_cubit.dart';
 // **************************************************************************
 
 abstract class _$SettingsStateCWProxy {
-  SettingsState profileResponseMessage(
-      ProfileResponseMessage profileResponseMessage);
+  SettingsState firestoreResponseMessage(
+      FirestoreResponseMessage firestoreResponseMessage);
 
   SettingsState isLoading(bool isLoading);
 
@@ -23,7 +23,7 @@ abstract class _$SettingsStateCWProxy {
   /// SettingsState(...).copyWith(id: 12, name: "My name")
   /// ````
   SettingsState call({
-    ProfileResponseMessage? profileResponseMessage,
+    FirestoreResponseMessage? firestoreResponseMessage,
     bool? isLoading,
     ProfileCurrenRow? profileCurrenRow,
     UserProfile? userProfile,
@@ -37,9 +37,9 @@ class _$SettingsStateCWProxyImpl implements _$SettingsStateCWProxy {
   final SettingsState _value;
 
   @override
-  SettingsState profileResponseMessage(
-          ProfileResponseMessage profileResponseMessage) =>
-      this(profileResponseMessage: profileResponseMessage);
+  SettingsState firestoreResponseMessage(
+          FirestoreResponseMessage firestoreResponseMessage) =>
+      this(firestoreResponseMessage: firestoreResponseMessage);
 
   @override
   SettingsState isLoading(bool isLoading) => this(isLoading: isLoading);
@@ -61,18 +61,18 @@ class _$SettingsStateCWProxyImpl implements _$SettingsStateCWProxy {
   /// SettingsState(...).copyWith(id: 12, name: "My name")
   /// ````
   SettingsState call({
-    Object? profileResponseMessage = const $CopyWithPlaceholder(),
+    Object? firestoreResponseMessage = const $CopyWithPlaceholder(),
     Object? isLoading = const $CopyWithPlaceholder(),
     Object? profileCurrenRow = const $CopyWithPlaceholder(),
     Object? userProfile = const $CopyWithPlaceholder(),
   }) {
     return SettingsState(
-      profileResponseMessage:
-          profileResponseMessage == const $CopyWithPlaceholder() ||
-                  profileResponseMessage == null
-              ? _value.profileResponseMessage
+      firestoreResponseMessage:
+          firestoreResponseMessage == const $CopyWithPlaceholder() ||
+                  firestoreResponseMessage == null
+              ? _value.firestoreResponseMessage
               // ignore: cast_nullable_to_non_nullable
-              : profileResponseMessage as ProfileResponseMessage,
+              : firestoreResponseMessage as FirestoreResponseMessage,
       isLoading: isLoading == const $CopyWithPlaceholder() || isLoading == null
           ? _value.isLoading
           // ignore: cast_nullable_to_non_nullable

@@ -2,13 +2,13 @@ part of 'settings_cubit.dart';
 
 @CopyWith()
 class SettingsState with EquatableMixin {
-  final ProfileResponseMessage profileResponseMessage;
+  final FirestoreResponseMessage firestoreResponseMessage;
   final bool isLoading;
   final ProfileCurrenRow profileCurrenRow;
   final UserProfile? userProfile;
 
   SettingsState({
-    this.profileResponseMessage = ProfileResponseMessage.none,
+    this.firestoreResponseMessage = FirestoreResponseMessage.none,
     this.isLoading = false,
     this.profileCurrenRow = ProfileCurrenRow.none,
     this.userProfile,
@@ -16,7 +16,7 @@ class SettingsState with EquatableMixin {
 
   @override
   List<Object?> get props => [
-        profileResponseMessage,
+        firestoreResponseMessage,
         isLoading,
         profileCurrenRow,
         userProfile,

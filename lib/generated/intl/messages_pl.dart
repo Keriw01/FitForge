@@ -22,25 +22,36 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "addExerciseToYourPlan":
+            MessageLookupByLibrary.simpleMessage("Dodaj ćwiczenia do planu"),
         "advanced": MessageLookupByLibrary.simpleMessage("Zaawansowany"),
         "alreadyHaveAccount":
             MessageLookupByLibrary.simpleMessage("Masz już konto ?"),
-        "badAuthorization":
-            MessageLookupByLibrary.simpleMessage("Nie poprawne dane"),
+        "availableEquipment":
+            MessageLookupByLibrary.simpleMessage("Dostępny ekwipunek"),
+        "back": MessageLookupByLibrary.simpleMessage("Plecy"),
+        "badAuthorization": MessageLookupByLibrary.simpleMessage(
+            "Nie poprawny email lub hasło"),
         "basicGymLocationLabel":
             MessageLookupByLibrary.simpleMessage("Lokalizacja siłowni"),
         "basicInformation":
             MessageLookupByLibrary.simpleMessage("Podstawowe informacje"),
         "begginer": MessageLookupByLibrary.simpleMessage("Początkujący"),
+        "biceps": MessageLookupByLibrary.simpleMessage("Biceps"),
         "birthDateLabel":
             MessageLookupByLibrary.simpleMessage("Data urodzenia"),
+        "bodyPartsPageTitle":
+            MessageLookupByLibrary.simpleMessage("Partie ciała"),
         "bulking": MessageLookupByLibrary.simpleMessage("Zbudować masę"),
         "bulkingDescription": MessageLookupByLibrary.simpleMessage(
             "Skoncentruj się na zwiększaniu masy mięśniowej i budowaniu siły"),
         "cancel": MessageLookupByLibrary.simpleMessage("Anuluj"),
+        "cardio": MessageLookupByLibrary.simpleMessage("Cardio"),
+        "chest": MessageLookupByLibrary.simpleMessage("Klatka piersiowa"),
         "connect": MessageLookupByLibrary.simpleMessage("Połącz"),
         "connectWithGoogleFit":
             MessageLookupByLibrary.simpleMessage("Połącz się z Google Fit"),
+        "core": MessageLookupByLibrary.simpleMessage("Brzuch"),
         "currentWorkoutLevelLabel":
             MessageLookupByLibrary.simpleMessage("Poziom zaawansowania"),
         "cutting": MessageLookupByLibrary.simpleMessage("Schudnąć"),
@@ -49,6 +60,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "defaultError": MessageLookupByLibrary.simpleMessage("Błąd"),
         "defaultReps": MessageLookupByLibrary.simpleMessage("Ilość powtórzeń"),
         "defaultsSets": MessageLookupByLibrary.simpleMessage("Ilość serii"),
+        "description": MessageLookupByLibrary.simpleMessage("Opis"),
         "documentIdNotExist":
             MessageLookupByLibrary.simpleMessage("Document Id Not Exist"),
         "dontHaveAccount":
@@ -78,13 +90,19 @@ class MessageLookup extends MessageLookupByLibrary {
             "Wprowadź poprawny adres e-mail"),
         "enterValidPassword": MessageLookupByLibrary.simpleMessage(
             "Hasło musi mieć co najmniej 8 znaków"),
+        "exerciseDetailPageTitle":
+            MessageLookupByLibrary.simpleMessage("Szczegóły ćwiczenia"),
         "exercisesLabel": MessageLookupByLibrary.simpleMessage("Ćwiczenia"),
+        "exercisesPageTitle": MessageLookupByLibrary.simpleMessage("Ćwiczenia"),
+        "exit": MessageLookupByLibrary.simpleMessage("Wyjście"),
         "female": MessageLookupByLibrary.simpleMessage("Kobieta"),
         "firestoreException":
             MessageLookupByLibrary.simpleMessage("Błąd Cloud Database"),
+        "forearms": MessageLookupByLibrary.simpleMessage("Przedramie"),
         "genderLabel": MessageLookupByLibrary.simpleMessage("Płeć"),
         "gitHubLoginCanceled": MessageLookupByLibrary.simpleMessage(
             "Anulowano logowanie przez GitHub"),
+        "glutes": MessageLookupByLibrary.simpleMessage("Pośladki"),
         "googleLoginCanceled": MessageLookupByLibrary.simpleMessage(
             "Anulowano logowanie przez Google"),
         "inputEmpty": MessageLookupByLibrary.simpleMessage("Puste pole"),
@@ -95,11 +113,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "logOut": MessageLookupByLibrary.simpleMessage("Wyloguj"),
         "loginButton": MessageLookupByLibrary.simpleMessage("Zaloguj"),
         "loginPageTitle": MessageLookupByLibrary.simpleMessage("Logowanie"),
+        "lowerLegs": MessageLookupByLibrary.simpleMessage("Dolne partie nóg"),
         "maintaining": MessageLookupByLibrary.simpleMessage("Ogólny"),
         "maintainingDescription": MessageLookupByLibrary.simpleMessage(
             "Bądź zdrowy i dbaj o zdrowie układu krążenia"),
         "male": MessageLookupByLibrary.simpleMessage("Mężczyzna"),
+        "networkRequestFailed": MessageLookupByLibrary.simpleMessage(
+            "Brak połączenia internetowego"),
         "noData": MessageLookupByLibrary.simpleMessage("brak danych"),
+        "noExercisesFound":
+            MessageLookupByLibrary.simpleMessage("No exercises found."),
         "notValidEmail":
             MessageLookupByLibrary.simpleMessage("Niepoprawny adres email"),
         "or": MessageLookupByLibrary.simpleMessage("LUB"),
@@ -115,12 +138,18 @@ class MessageLookup extends MessageLookupByLibrary {
         "settingsTitle": MessageLookupByLibrary.simpleMessage("Ustawienia"),
         "shortPassword": MessageLookupByLibrary.simpleMessage(
             "Hasło jest za krótkie minimum 8 znaków"),
+        "shoulders": MessageLookupByLibrary.simpleMessage("Barki"),
+        "showAll": MessageLookupByLibrary.simpleMessage("Pokaż wszystkie"),
         "signIn": MessageLookupByLibrary.simpleMessage(" Zaloguj się"),
         "signUp": MessageLookupByLibrary.simpleMessage(" Zarejestruj się"),
         "signUpButton": MessageLookupByLibrary.simpleMessage("Zarejestruj"),
         "statisticsLabel": MessageLookupByLibrary.simpleMessage("Historia"),
+        "targetMuscleGroup":
+            MessageLookupByLibrary.simpleMessage("Grupa docelowa mięśni"),
         "topGoalLabel": MessageLookupByLibrary.simpleMessage("Cel"),
+        "triceps": MessageLookupByLibrary.simpleMessage("Triceps"),
         "unitSystem": MessageLookupByLibrary.simpleMessage("Jednostki"),
+        "upperLegs": MessageLookupByLibrary.simpleMessage("Górne partie nóg"),
         "userAlreadyExist":
             MessageLookupByLibrary.simpleMessage("Użytkownik już istnieje"),
         "userAlreadyLogIn":

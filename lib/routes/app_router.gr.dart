@@ -21,12 +21,32 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const AuthenticationFlowScreen(),
       );
     },
-    ExercisesRoute.name: (routeData) {
-      final args = routeData.argsAs<ExercisesRouteArgs>(
-          orElse: () => const ExercisesRouteArgs());
+    BodyPartsRoute.name: (routeData) {
+      final args = routeData.argsAs<BodyPartsRouteArgs>(
+          orElse: () => const BodyPartsRouteArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: ExercisesPage(key: args.key),
+        child: BodyPartsPage(key: args.key),
+      );
+    },
+    ExerciseDetailRoute.name: (routeData) {
+      final args = routeData.argsAs<ExerciseDetailRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: ExerciseDetailPage(
+          key: args.key,
+          exercise: args.exercise,
+        ),
+      );
+    },
+    ExercisesRoute.name: (routeData) {
+      final args = routeData.argsAs<ExercisesRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: ExercisesPage(
+          key: args.key,
+          bodyPart: args.bodyPart,
+        ),
       );
     },
     HistoryRoute.name: (routeData) {
@@ -115,14 +135,85 @@ class AuthenticationFlowRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [BodyPartsPage]
+class BodyPartsRoute extends PageRouteInfo<BodyPartsRouteArgs> {
+  BodyPartsRoute({
+    Key? key,
+    List<PageRouteInfo>? children,
+  }) : super(
+          BodyPartsRoute.name,
+          args: BodyPartsRouteArgs(key: key),
+          initialChildren: children,
+        );
+
+  static const String name = 'BodyPartsRoute';
+
+  static const PageInfo<BodyPartsRouteArgs> page =
+      PageInfo<BodyPartsRouteArgs>(name);
+}
+
+class BodyPartsRouteArgs {
+  const BodyPartsRouteArgs({this.key});
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'BodyPartsRouteArgs{key: $key}';
+  }
+}
+
+/// generated route for
+/// [ExerciseDetailPage]
+class ExerciseDetailRoute extends PageRouteInfo<ExerciseDetailRouteArgs> {
+  ExerciseDetailRoute({
+    Key? key,
+    required Exercise exercise,
+    List<PageRouteInfo>? children,
+  }) : super(
+          ExerciseDetailRoute.name,
+          args: ExerciseDetailRouteArgs(
+            key: key,
+            exercise: exercise,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'ExerciseDetailRoute';
+
+  static const PageInfo<ExerciseDetailRouteArgs> page =
+      PageInfo<ExerciseDetailRouteArgs>(name);
+}
+
+class ExerciseDetailRouteArgs {
+  const ExerciseDetailRouteArgs({
+    this.key,
+    required this.exercise,
+  });
+
+  final Key? key;
+
+  final Exercise exercise;
+
+  @override
+  String toString() {
+    return 'ExerciseDetailRouteArgs{key: $key, exercise: $exercise}';
+  }
+}
+
+/// generated route for
 /// [ExercisesPage]
 class ExercisesRoute extends PageRouteInfo<ExercisesRouteArgs> {
   ExercisesRoute({
     Key? key,
+    required String bodyPart,
     List<PageRouteInfo>? children,
   }) : super(
           ExercisesRoute.name,
-          args: ExercisesRouteArgs(key: key),
+          args: ExercisesRouteArgs(
+            key: key,
+            bodyPart: bodyPart,
+          ),
           initialChildren: children,
         );
 
@@ -133,13 +224,18 @@ class ExercisesRoute extends PageRouteInfo<ExercisesRouteArgs> {
 }
 
 class ExercisesRouteArgs {
-  const ExercisesRouteArgs({this.key});
+  const ExercisesRouteArgs({
+    this.key,
+    required this.bodyPart,
+  });
 
   final Key? key;
 
+  final String bodyPart;
+
   @override
   String toString() {
-    return 'ExercisesRouteArgs{key: $key}';
+    return 'ExercisesRouteArgs{key: $key, bodyPart: $bodyPart}';
   }
 }
 

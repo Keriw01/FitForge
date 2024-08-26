@@ -1,16 +1,5 @@
 part of 'auth_cubit.dart';
 
-enum AuthResponseMessage {
-  none,
-  userAlreadyExist,
-  badAuthorization,
-  defaultError,
-  userAlreadyLogIn,
-  invalidEmailFormat,
-  googleLoginCanceled,
-  gitHubLoginCanceled
-}
-
 @CopyWith()
 class AuthState with EquatableMixin {
   final AuthResponseMessage authResponseMessage;

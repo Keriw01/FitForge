@@ -9,8 +9,8 @@ part of 'user_profile.dart';
 _$UserProfileImpl _$$UserProfileImplFromJson(Map<String, dynamic> json) =>
     _$UserProfileImpl(
       isConnectWithGoogleFit: json['isConnectWithGoogleFit'] as bool,
-      defaultReps: json['defaultReps'] as int,
-      defaultSets: json['defaultSets'] as int,
+      defaultReps: (json['defaultReps'] as num).toInt(),
+      defaultSets: (json['defaultSets'] as num).toInt(),
       unitSystem: json['unitSystem'] as String,
       email: json['email'] as String,
       userName: json['userName'] as String?,
@@ -20,8 +20,8 @@ _$UserProfileImpl _$$UserProfileImplFromJson(Map<String, dynamic> json) =>
       topGoal: json['topGoal'] as String?,
       currentWorkoutLevel: json['currentWorkoutLevel'] as String?,
       birthDate: _timestampFromJson(json['birthDate'] as Timestamp?),
-      age: json['age'] as int?,
-      bmi: json['bmi'] as int?,
+      age: (json['age'] as num?)?.toInt(),
+      bmi: (json['bmi'] as num?)?.toInt(),
       weight: (json['weight'] as num?)?.toDouble(),
       basicGymLocation:
           _geoPointFromJson(json['basicGymLocation'] as Map<String, dynamic>?),

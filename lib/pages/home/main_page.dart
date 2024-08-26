@@ -12,7 +12,7 @@ class MainPage extends StatelessWidget {
     return AutoTabsRouter(
       routes: [
         WorkoutsRoute(),
-        ExercisesRoute(),
+        BodyPartsRoute(),
         StatisticsRoute(),
         QrCodeInitialRoute()
       ],

@@ -1,6 +1,7 @@
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:fit_forge/consts/enums.dart';
 import 'package:fit_forge/pages/settings/cubit/settings_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -43,17 +44,14 @@ class AuthCubit extends BaseCubit<AuthState> {
 
     if (password.isNotValid || email.isNotValid) {
       emit(
-        state.copyWith(formStatus: FormzSubmissionStatus.failure),
+        state.copyWith(
+          formStatus: FormzSubmissionStatus.failure,
+          authResponseMessage: AuthResponseMessage.badAuthorization,
+        ),
       );
       return;
     }
 
-    emit(
-      state.copyWith(
-        authResponseMessage: AuthResponseMessage.none,
-        formStatus: FormzSubmissionStatus.inProgress,
-      ),
-    );
     try {
       final CurrentUser? user = await _firebaseAuthService
           .signInWithEmailAndPassword(email.value, password.value);
@@ -72,6 +70,11 @@ class AuthCubit extends BaseCubit<AuthState> {
     } on InternalCredentialsError {
       emit(state.copyWith(
         authResponseMessage: AuthResponseMessage.badAuthorization,
+        formStatus: FormzSubmissionStatus.failure,
+      ));
+    } on NetworkRequestFailed {
+      emit(state.copyWith(
+        authResponseMessage: AuthResponseMessage.networkRequestFailed,
         formStatus: FormzSubmissionStatus.failure,
       ));
     } catch (e) {
@@ -119,6 +122,11 @@ class AuthCubit extends BaseCubit<AuthState> {
           formStatus: FormzSubmissionStatus.failure,
         ));
       }
+    } on NetworkRequestFailed {
+      emit(state.copyWith(
+        authResponseMessage: AuthResponseMessage.networkRequestFailed,
+        formStatus: FormzSubmissionStatus.failure,
+      ));
     } catch (e) {
       emit(state.copyWith(
         authResponseMessage: AuthResponseMessage.googleLoginCanceled,
@@ -148,6 +156,11 @@ class AuthCubit extends BaseCubit<AuthState> {
           formStatus: FormzSubmissionStatus.failure,
         ));
       }
+    } on NetworkRequestFailed {
+      emit(state.copyWith(
+        authResponseMessage: AuthResponseMessage.networkRequestFailed,
+        formStatus: FormzSubmissionStatus.failure,
+      ));
     } catch (e) {
       emit(state.copyWith(
           authResponseMessage: AuthResponseMessage.gitHubLoginCanceled));
@@ -198,6 +211,11 @@ class AuthCubit extends BaseCubit<AuthState> {
     } on UserAlreadyExistsError {
       emit(state.copyWith(
         authResponseMessage: AuthResponseMessage.userAlreadyExist,
+        formStatus: FormzSubmissionStatus.failure,
+      ));
+    } on NetworkRequestFailed {
+      emit(state.copyWith(
+        authResponseMessage: AuthResponseMessage.networkRequestFailed,
         formStatus: FormzSubmissionStatus.failure,
       ));
     } catch (e) {
@@ -285,6 +303,9 @@ class AuthCubit extends BaseCubit<AuthState> {
 
       case AuthResponseMessage.gitHubLoginCanceled:
         return S.of(context).gitHubLoginCanceled;
+
+      case AuthResponseMessage.networkRequestFailed:
+        return S.of(context).networkRequestFailed;
     }
   }
 }

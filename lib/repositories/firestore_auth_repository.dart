@@ -25,7 +25,10 @@ class FirestoreAuthRepository {
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found' || e.code == 'wrong-password') {
         throw InternalCredentialsError();
+      } else if (e.code == 'network-request-failed') {
+        throw NetworkRequestFailed();
       }
+      throw DefaultException();
     }
     return null;
   }
@@ -40,6 +43,8 @@ class FirestoreAuthRepository {
     } on FirebaseAuthException catch (e) {
       if (e.code == 'email-already-in-use') {
         throw UserAlreadyExistsError();
+      } else if (e.code == 'network-request-failed') {
+        throw NetworkRequestFailed();
       }
       throw DefaultException();
     }
@@ -52,7 +57,10 @@ class FirestoreAuthRepository {
           await FirebaseAuth.instance.signInWithCredential(credential);
 
       return await _addDataToUserProfile(userCredential.user);
-    } on FirebaseAuthException {
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'network-request-failed') {
+        throw NetworkRequestFailed();
+      }
       throw DefaultException();
     }
   }
@@ -64,7 +72,10 @@ class FirestoreAuthRepository {
           await FirebaseAuth.instance.signInWithProvider(githubProvider);
 
       return await _addDataToUserProfile(userCredential.user);
-    } on FirebaseAuthException {
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'network-request-failed') {
+        throw NetworkRequestFailed();
+      }
       throw DefaultException();
     }
   }

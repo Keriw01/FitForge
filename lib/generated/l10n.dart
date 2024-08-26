@@ -200,10 +200,20 @@ class S {
     );
   }
 
-  /// `Internal Credentials`
+  /// `No internet connection`
+  String get networkRequestFailed {
+    return Intl.message(
+      'No internet connection',
+      name: 'networkRequestFailed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Invalid email or password`
   String get badAuthorization {
     return Intl.message(
-      'Internal Credentials',
+      'Invalid email or password',
       name: 'badAuthorization',
       desc: '',
       args: [],
@@ -755,6 +765,216 @@ class S {
     return Intl.message(
       'Connect',
       name: 'connect',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Body Parts`
+  String get bodyPartsPageTitle {
+    return Intl.message(
+      'Body Parts',
+      name: 'bodyPartsPageTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Triceps`
+  String get triceps {
+    return Intl.message(
+      'Triceps',
+      name: 'triceps',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Chest`
+  String get chest {
+    return Intl.message(
+      'Chest',
+      name: 'chest',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Shoulders`
+  String get shoulders {
+    return Intl.message(
+      'Shoulders',
+      name: 'shoulders',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Biceps`
+  String get biceps {
+    return Intl.message(
+      'Biceps',
+      name: 'biceps',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Core`
+  String get core {
+    return Intl.message(
+      'Core',
+      name: 'core',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Back`
+  String get back {
+    return Intl.message(
+      'Back',
+      name: 'back',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Forearms`
+  String get forearms {
+    return Intl.message(
+      'Forearms',
+      name: 'forearms',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Upper Legs`
+  String get upperLegs {
+    return Intl.message(
+      'Upper Legs',
+      name: 'upperLegs',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Glutes`
+  String get glutes {
+    return Intl.message(
+      'Glutes',
+      name: 'glutes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cardio`
+  String get cardio {
+    return Intl.message(
+      'Cardio',
+      name: 'cardio',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Lower Legs`
+  String get lowerLegs {
+    return Intl.message(
+      'Lower Legs',
+      name: 'lowerLegs',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Show All`
+  String get showAll {
+    return Intl.message(
+      'Show All',
+      name: 'showAll',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Exercises`
+  String get exercisesPageTitle {
+    return Intl.message(
+      'Exercises',
+      name: 'exercisesPageTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No exercises found.`
+  String get noExercisesFound {
+    return Intl.message(
+      'No exercises found.',
+      name: 'noExercisesFound',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Exercise Detail`
+  String get exerciseDetailPageTitle {
+    return Intl.message(
+      'Exercise Detail',
+      name: 'exerciseDetailPageTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Target Muscle Group`
+  String get targetMuscleGroup {
+    return Intl.message(
+      'Target Muscle Group',
+      name: 'targetMuscleGroup',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Available Equipment`
+  String get availableEquipment {
+    return Intl.message(
+      'Available Equipment',
+      name: 'availableEquipment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Description`
+  String get description {
+    return Intl.message(
+      'Description',
+      name: 'description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add Exercise To Your Plan`
+  String get addExerciseToYourPlan {
+    return Intl.message(
+      'Add Exercise To Your Plan',
+      name: 'addExerciseToYourPlan',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Exit`
+  String get exit {
+    return Intl.message(
+      'Exit',
+      name: 'exit',
       desc: '',
       args: [],
     );
