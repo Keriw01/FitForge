@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:fit_forge/generated/l10n.dart';
-import 'package:fit_forge/pages/exercises/body_parts_page.dart';
 import 'package:fit_forge/routes/app_router.dart';
 import 'package:flutter/material.dart';
 

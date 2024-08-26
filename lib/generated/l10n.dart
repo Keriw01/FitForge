@@ -959,6 +959,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Add Exercise To Your Plan`
+  String get addExerciseToYourPlan {
+    return Intl.message(
+      'Add Exercise To Your Plan',
+      name: 'addExerciseToYourPlan',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Exit`
+  String get exit {
+    return Intl.message(
+      'Exit',
+      name: 'exit',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

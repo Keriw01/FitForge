@@ -1,4 +1,3 @@
-import 'package:fit_forge/styles/app_colors.dart';
 import 'package:flutter/material.dart';
 
 /// LoadingIndicator is a reusable widget that displays a centered CircularProgressIndicator.

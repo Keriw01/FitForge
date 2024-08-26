@@ -1,7 +1,5 @@
-import 'dart:math';
-
 import 'package:fit_forge/models/translation.dart';
-import 'package:fit_forge/utils/get_translation_text.dart';
+import 'package:fit_forge/utils/helpers/translation_helpers.dart';
 import 'package:flutter/material.dart';
 
 class EquipmentSubtitle extends StatelessWidget {
@@ -23,6 +21,7 @@ class EquipmentSubtitle extends StatelessWidget {
       allTranslations,
       maxLines: 1,
       overflow: TextOverflow.ellipsis,
+      style: Theme.of(context).textTheme.bodySmall,
     );
   }
 }

@@ -2,7 +2,6 @@ import 'package:fit_forge/base_cubit/base_cubit.dart';
 import 'package:fit_forge/consts/enums.dart';
 import 'package:fit_forge/exceptions/exceptions.dart';
 import 'package:fit_forge/models/exercises.dart';
-import 'package:fit_forge/pages/exercises/exercises_page.dart';
 import 'package:fit_forge/repositories/firestore_exercises_repository.dart';
 import 'package:fit_forge/routes/app_router.dart';
 import 'package:flutter/widgets.dart';

@@ -22,6 +22,8 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "addExerciseToYourPlan":
+            MessageLookupByLibrary.simpleMessage("Add Exercise To Your Plan"),
         "advanced": MessageLookupByLibrary.simpleMessage("Advanced"),
         "alreadyHaveAccount":
             MessageLookupByLibrary.simpleMessage("Already have an Account ?"),
@@ -92,6 +94,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Exercise Detail"),
         "exercisesLabel": MessageLookupByLibrary.simpleMessage("Exercises"),
         "exercisesPageTitle": MessageLookupByLibrary.simpleMessage("Exercises"),
+        "exit": MessageLookupByLibrary.simpleMessage("Exit"),
         "female": MessageLookupByLibrary.simpleMessage("Female"),
         "firestoreException":
             MessageLookupByLibrary.simpleMessage("Cloud Database Error"),

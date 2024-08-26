@@ -1,4 +1,5 @@
 import 'package:fit_forge/pages/auth/cubit/auth_cubit.dart';
+import 'package:fit_forge/styles/app_colors.dart';
 import 'package:fit_forge/widgets/custom_loading_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -24,6 +25,7 @@ class LogOutButton extends StatelessWidget {
             ElevatedButton(
               onPressed: state.isInProgress ? () {} : onPressed,
               style: ButtonStyle(
+                backgroundColor: MaterialStatePropertyAll(midNightBlue),
                 padding: MaterialStateProperty.all<EdgeInsets>(
                     const EdgeInsets.fromLTRB(40, 10, 40, 10)),
                 shape: MaterialStateProperty.all(
@@ -41,6 +43,7 @@ class LogOutButton extends StatelessWidget {
                     )
                   : Text(
                       text,
+                      style: Theme.of(context).textTheme.labelLarge,
                     ),
             ),
           ],

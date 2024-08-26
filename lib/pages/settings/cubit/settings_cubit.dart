@@ -4,7 +4,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fit_forge/base_cubit/base_cubit.dart';
 import 'package:fit_forge/consts/enums.dart';
 import 'package:fit_forge/exceptions/exceptions.dart';
-import 'package:fit_forge/generated/l10n.dart';
 import 'package:fit_forge/models/user_profile.dart';
 import 'package:fit_forge/repositories/firestore_profile_repository.dart';
 import 'package:fit_forge/routes/app_router.dart';

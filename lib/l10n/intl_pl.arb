@@ -90,6 +90,8 @@
     "exerciseDetailPageTitle": "Szczegóły ćwiczenia",
     "targetMuscleGroup": "Grupa docelowa mięśni",
     "availableEquipment": "Dostępny ekwipunek",
-    "description": "Opis"
+    "description": "Opis",
+    "addExerciseToYourPlan": "Dodaj ćwiczenia do planu",
+    "exit": "Wyjście"
     
 }

@@ -90,5 +90,7 @@
     "exerciseDetailPageTitle": "Exercise Detail",
     "targetMuscleGroup": "Target Muscle Group",
     "availableEquipment": "Available Equipment",
-    "description": "Description"
+    "description": "Description",
+    "addExerciseToYourPlan": "Add Exercise To Your Plan",
+    "exit": "Exit"
 }

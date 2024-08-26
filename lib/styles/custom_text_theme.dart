@@ -18,7 +18,7 @@ final customTextThemeLight = TextTheme(
   /// Plan Name
   headlineLarge: GoogleFonts.roboto(
     fontWeight: FontWeight.w600,
-    fontSize: 16,
+    fontSize: 18,
     color: defaultFontsColor,
   ),
 
@@ -39,7 +39,7 @@ final customTextThemeLight = TextTheme(
   titleLarge: GoogleFonts.montserrat(
     fontWeight: FontWeight.w600,
     fontSize: 24,
-    color: defaultFontsColor,
+    color: whiteColor,
   ),
 
   /// Titles Of Each Deep Screen "Day 1"
@@ -55,9 +55,12 @@ final customTextThemeLight = TextTheme(
   /// Bottom Navigation Text / Button In Filters (unselectedLabelStyle)
 
   /// Description of Exercises
-  bodyLarge: null,
+  bodyLarge: GoogleFonts.roboto(
+    fontSize: 13,
+    color: defaultFontsColor,
+  ),
 
-  /// Authentication Form Field / Labels in Settings, radio title
+  /// Labels in Settings, radio title
   bodyMedium: GoogleFonts.roboto(
     fontSize: 14,
     color: defaultFontsColor,
@@ -77,7 +80,11 @@ final customTextThemeLight = TextTheme(
   labelMedium: null,
 
   /// Small Button
-  labelSmall: null,
+  labelSmall: GoogleFonts.openSans(
+    fontSize: 12,
+    fontWeight: FontWeight.bold,
+    color: whiteColor,
+  ),
 );
 
 ///
@@ -141,12 +148,15 @@ final customTextThemeDark = TextTheme(
   ),
 
   /// Description of Exercises
-  bodyLarge: null,
+  bodyLarge: GoogleFonts.roboto(
+    fontSize: 13,
+    color: whiteColor,
+  ),
 
-  /// Authentication Form Field / Labels in Settings, radio title
+  /// Labels in Settings, radio title
   bodyMedium: GoogleFonts.openSans(
     fontSize: 14,
-    color: defaultFontsColor,
+    color: whiteColor,
   ),
 
   /// Other Form Field
@@ -163,5 +173,9 @@ final customTextThemeDark = TextTheme(
   labelMedium: null,
 
   /// Small Button
-  labelSmall: null,
+  labelSmall: GoogleFonts.openSans(
+    fontSize: 12,
+    fontWeight: FontWeight.bold,
+    color: defaultFontsColor,
+  ),
 );

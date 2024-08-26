@@ -14,7 +14,7 @@ import 'package:fit_forge/pages/settings/widgets/logout_button.dart';
 import 'package:fit_forge/pages/settings/widgets/top_goal_row.dart';
 import 'package:fit_forge/pages/settings/widgets/unit_system_row.dart';
 import 'package:fit_forge/pages/settings/widgets/user_name_row.dart';
-import 'package:fit_forge/utils/get_response_error.dart';
+import 'package:fit_forge/utils/helpers/error_helpers.dart';
 import 'package:fit_forge/widgets/custom_loading_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -58,6 +58,7 @@ class SettingsPage extends StatelessWidget {
                 children: [
                   //TODO
                   // Obsłużyć możliwości dodania zdjęcia profilowego z pamięci urządzenia
+                  const SizedBox(height: 20),
                   CircleAvatar(
                     minRadius: 32,
                     child: state.userProfile?.photoUrl != null
