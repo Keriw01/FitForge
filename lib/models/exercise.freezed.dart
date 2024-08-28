@@ -20,7 +20,7 @@ Exercise _$ExerciseFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Exercise {
-  String get qrCodeUrl => throw _privateConstructorUsedError;
+  String get qrCode => throw _privateConstructorUsedError;
   String get videoUrl => throw _privateConstructorUsedError;
   String get thumbnailUrl => throw _privateConstructorUsedError;
   Translation get title => throw _privateConstructorUsedError;
@@ -42,7 +42,7 @@ abstract class $ExerciseCopyWith<$Res> {
       _$ExerciseCopyWithImpl<$Res, Exercise>;
   @useResult
   $Res call(
-      {String qrCodeUrl,
+      {String qrCode,
       String videoUrl,
       String thumbnailUrl,
       Translation title,
@@ -69,7 +69,7 @@ class _$ExerciseCopyWithImpl<$Res, $Val extends Exercise>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? qrCodeUrl = null,
+    Object? qrCode = null,
     Object? videoUrl = null,
     Object? thumbnailUrl = null,
     Object? title = null,
@@ -79,9 +79,9 @@ class _$ExerciseCopyWithImpl<$Res, $Val extends Exercise>
     Object? equipment = null,
   }) {
     return _then(_value.copyWith(
-      qrCodeUrl: null == qrCodeUrl
-          ? _value.qrCodeUrl
-          : qrCodeUrl // ignore: cast_nullable_to_non_nullable
+      qrCode: null == qrCode
+          ? _value.qrCode
+          : qrCode // ignore: cast_nullable_to_non_nullable
               as String,
       videoUrl: null == videoUrl
           ? _value.videoUrl
@@ -148,7 +148,7 @@ abstract class _$$ExerciseImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String qrCodeUrl,
+      {String qrCode,
       String videoUrl,
       String thumbnailUrl,
       Translation title,
@@ -176,7 +176,7 @@ class __$$ExerciseImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? qrCodeUrl = null,
+    Object? qrCode = null,
     Object? videoUrl = null,
     Object? thumbnailUrl = null,
     Object? title = null,
@@ -186,9 +186,9 @@ class __$$ExerciseImplCopyWithImpl<$Res>
     Object? equipment = null,
   }) {
     return _then(_$ExerciseImpl(
-      qrCodeUrl: null == qrCodeUrl
-          ? _value.qrCodeUrl
-          : qrCodeUrl // ignore: cast_nullable_to_non_nullable
+      qrCode: null == qrCode
+          ? _value.qrCode
+          : qrCode // ignore: cast_nullable_to_non_nullable
               as String,
       videoUrl: null == videoUrl
           ? _value.videoUrl
@@ -226,7 +226,7 @@ class __$$ExerciseImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ExerciseImpl implements _Exercise {
   _$ExerciseImpl(
-      {required this.qrCodeUrl,
+      {required this.qrCode,
       required this.videoUrl,
       required this.thumbnailUrl,
       required this.title,
@@ -241,7 +241,7 @@ class _$ExerciseImpl implements _Exercise {
       _$$ExerciseImplFromJson(json);
 
   @override
-  final String qrCodeUrl;
+  final String qrCode;
   @override
   final String videoUrl;
   @override
@@ -270,7 +270,7 @@ class _$ExerciseImpl implements _Exercise {
 
   @override
   String toString() {
-    return 'Exercise(qrCodeUrl: $qrCodeUrl, videoUrl: $videoUrl, thumbnailUrl: $thumbnailUrl, title: $title, description: $description, mainBodyPart: $mainBodyPart, otherBodyParts: $otherBodyParts, equipment: $equipment)';
+    return 'Exercise(qrCode: $qrCode, videoUrl: $videoUrl, thumbnailUrl: $thumbnailUrl, title: $title, description: $description, mainBodyPart: $mainBodyPart, otherBodyParts: $otherBodyParts, equipment: $equipment)';
   }
 
   @override
@@ -278,8 +278,7 @@ class _$ExerciseImpl implements _Exercise {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ExerciseImpl &&
-            (identical(other.qrCodeUrl, qrCodeUrl) ||
-                other.qrCodeUrl == qrCodeUrl) &&
+            (identical(other.qrCode, qrCode) || other.qrCode == qrCode) &&
             (identical(other.videoUrl, videoUrl) ||
                 other.videoUrl == videoUrl) &&
             (identical(other.thumbnailUrl, thumbnailUrl) ||
@@ -299,7 +298,7 @@ class _$ExerciseImpl implements _Exercise {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      qrCodeUrl,
+      qrCode,
       videoUrl,
       thumbnailUrl,
       title,
@@ -324,7 +323,7 @@ class _$ExerciseImpl implements _Exercise {
 
 abstract class _Exercise implements Exercise {
   factory _Exercise(
-      {required final String qrCodeUrl,
+      {required final String qrCode,
       required final String videoUrl,
       required final String thumbnailUrl,
       required final Translation title,
@@ -337,7 +336,7 @@ abstract class _Exercise implements Exercise {
       _$ExerciseImpl.fromJson;
 
   @override
-  String get qrCodeUrl;
+  String get qrCode;
   @override
   String get videoUrl;
   @override

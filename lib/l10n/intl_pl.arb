@@ -92,6 +92,21 @@
     "availableEquipment": "Dostępny ekwipunek",
     "description": "Opis",
     "addExerciseToYourPlan": "Dodaj ćwiczenia do planu",
-    "exit": "Wyjście"
-    
+    "exit": "Wyjście",
+    "scanQrInfo": "Zeskanuj kod QR, aby uzyskać informacje i instrukcje wideo dotyczące tej maszyny/ćwiczenia.",
+    "scanQrFirstHeader": "Skanuj, Ćwicz, Osiągaj Cele!",
+    "scanQrFirstDescription": "Skanowanie kodów QR w naszej siłowni to nowoczesne rozwiązanie, które sprawi, że Twoje treningi staną się bardziej efektywne i przyjemne. Wystarczy zeskanować kod QR znajdujący się przy każdej maszynie lub na bilbordzie przy ćwiczeniach statycznych, aby uzyskać pełny opis ćwiczenia.",
+    "scanQrSecondHeader": "Co znajdziesz po zeskanowaniu?",
+    "scanQrFirstPoint": "Szczegółowy opis wykonywanego ćwiczenia, który pomoże Ci prawidłowo je wykonać:",
+    "scanQrSecondPoint": "Jasne i zrozumiałe instrukcje krok po kroku, które pomogą Ci utrzymać prawidłową formę i technikę.",
+    "scanQrThirdPoint": "Informacja, na jakie partie ciała działa dane ćwiczenie, abyś mógł skutecznie planować swoje sesje treningowe.",
+    "scanQrFourPoint": "Informacje na temat niezbędnego sprzętu lub maszyn wymaganych do wykonania ćwiczenia, jeśli są potrzebne.",
+    "scanQrThirdHeader": "Nasze kody QR to Twoje kluczowe źródło wiedzy na temat treningów w siłowni. Dzięki nim zaoszczędzisz czas, unikniesz błędów i maksymalnie wykorzystasz każdą minutę spędzoną na treningu. Zeskanuj kod, poznaj ćwiczenie i osiągnij swoje cele szybciej!",
+    "close": "Zamknij",
+    "backButton": "Cofnij",
+    "invalidBarcode": "Kod QR jest nieprawidłowy lub nieczytelny. Spróbuj zeskanować ponownie.",
+    "qrCodeNotFound": "Kod QR nie został znaleziony. Upewnij się, że skanujesz poprawny kod.",
+    "cameraAccessDenied": "Uprawnienia kamery zostały odmówione.",
+    "cameraAccessLimited": "Uprawnienia kamery zostały ograniczone."
+
 }

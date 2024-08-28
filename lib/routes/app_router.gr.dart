@@ -79,12 +79,18 @@ abstract class _$AppRouter extends RootStackRouter {
         child: MainPage(key: args.key),
       );
     },
-    QrCodeInitialRoute.name: (routeData) {
-      final args = routeData.argsAs<QrCodeInitialRouteArgs>(
-          orElse: () => const QrCodeInitialRouteArgs());
+    QrCodeRoute.name: (routeData) {
+      final args = routeData.argsAs<QrCodeRouteArgs>(
+          orElse: () => const QrCodeRouteArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: QrCodeInitialPage(key: args.key),
+        child: QrCodePage(key: args.key),
+      );
+    },
+    QrScanRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const QrScanPage(),
       );
     },
     RegisterRoute.name: (routeData) {
@@ -340,32 +346,45 @@ class MainRouteArgs {
 }
 
 /// generated route for
-/// [QrCodeInitialPage]
-class QrCodeInitialRoute extends PageRouteInfo<QrCodeInitialRouteArgs> {
-  QrCodeInitialRoute({
+/// [QrCodePage]
+class QrCodeRoute extends PageRouteInfo<QrCodeRouteArgs> {
+  QrCodeRoute({
     Key? key,
     List<PageRouteInfo>? children,
   }) : super(
-          QrCodeInitialRoute.name,
-          args: QrCodeInitialRouteArgs(key: key),
+          QrCodeRoute.name,
+          args: QrCodeRouteArgs(key: key),
           initialChildren: children,
         );
 
-  static const String name = 'QrCodeInitialRoute';
+  static const String name = 'QrCodeRoute';
 
-  static const PageInfo<QrCodeInitialRouteArgs> page =
-      PageInfo<QrCodeInitialRouteArgs>(name);
+  static const PageInfo<QrCodeRouteArgs> page = PageInfo<QrCodeRouteArgs>(name);
 }
 
-class QrCodeInitialRouteArgs {
-  const QrCodeInitialRouteArgs({this.key});
+class QrCodeRouteArgs {
+  const QrCodeRouteArgs({this.key});
 
   final Key? key;
 
   @override
   String toString() {
-    return 'QrCodeInitialRouteArgs{key: $key}';
+    return 'QrCodeRouteArgs{key: $key}';
   }
+}
+
+/// generated route for
+/// [QrScanPage]
+class QrScanRoute extends PageRouteInfo<void> {
+  const QrScanRoute({List<PageRouteInfo>? children})
+      : super(
+          QrScanRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'QrScanRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for

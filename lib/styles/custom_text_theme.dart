@@ -15,7 +15,7 @@ final customTextThemeLight = TextTheme(
     color: defaultFontsColor,
   ),
 
-  /// Plan Name
+  /// Plan Name, qr_code_page text
   headlineLarge: GoogleFonts.roboto(
     fontWeight: FontWeight.w600,
     fontSize: 18,
@@ -60,7 +60,7 @@ final customTextThemeLight = TextTheme(
     color: defaultFontsColor,
   ),
 
-  /// Labels in Settings, radio title
+  /// Labels in Settings, radio title, qr_code_page text
   bodyMedium: GoogleFonts.roboto(
     fontSize: 14,
     color: defaultFontsColor,
@@ -110,7 +110,7 @@ final customTextThemeDark = TextTheme(
     color: whiteColor,
   ),
 
-  /// Plan Name, header of settings
+  /// Plan Name, header of settings, qr_code_page text
   headlineLarge: GoogleFonts.roboto(
     fontWeight: FontWeight.w600,
     fontSize: 16,
@@ -153,7 +153,7 @@ final customTextThemeDark = TextTheme(
     color: whiteColor,
   ),
 
-  /// Labels in Settings, radio title
+  /// Labels in Settings, radio title, qr_code_page text
   bodyMedium: GoogleFonts.openSans(
     fontSize: 14,
     color: whiteColor,

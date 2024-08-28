@@ -30,6 +30,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "availableEquipment":
             MessageLookupByLibrary.simpleMessage("Available Equipment"),
         "back": MessageLookupByLibrary.simpleMessage("Back"),
+        "backButton": MessageLookupByLibrary.simpleMessage("Back"),
         "badAuthorization":
             MessageLookupByLibrary.simpleMessage("Invalid email or password"),
         "basicGymLocationLabel":
@@ -44,9 +45,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "bulking": MessageLookupByLibrary.simpleMessage("Bulking"),
         "bulkingDescription": MessageLookupByLibrary.simpleMessage(
             "Focus on gaining muscle size and building strength"),
+        "cameraAccessDenied": MessageLookupByLibrary.simpleMessage(
+            "Camera permissions were denied."),
+        "cameraAccessLimited": MessageLookupByLibrary.simpleMessage(
+            "Camera permissions have been restricted."),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "cardio": MessageLookupByLibrary.simpleMessage("Cardio"),
         "chest": MessageLookupByLibrary.simpleMessage("Chest"),
+        "close": MessageLookupByLibrary.simpleMessage("Close"),
         "connect": MessageLookupByLibrary.simpleMessage("Connect"),
         "connectWithGoogleFit":
             MessageLookupByLibrary.simpleMessage("Connect with Google Fit"),
@@ -107,6 +113,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Login with Google canceled"),
         "inputEmpty": MessageLookupByLibrary.simpleMessage("Empty field"),
         "intermediate": MessageLookupByLibrary.simpleMessage("Intermediate"),
+        "invalidBarcode": MessageLookupByLibrary.simpleMessage(
+            "The QR code is invalid or illegible. Please try scanning again."),
         "invalidEmailFormat":
             MessageLookupByLibrary.simpleMessage("Invalid Email Format"),
         "logOut": MessageLookupByLibrary.simpleMessage("Logout"),
@@ -128,11 +136,31 @@ class MessageLookup extends MessageLookupByLibrary {
         "other": MessageLookupByLibrary.simpleMessage("Other"),
         "profileViewMode":
             MessageLookupByLibrary.simpleMessage("Profile View Mode"),
+        "qrCodeNotFound": MessageLookupByLibrary.simpleMessage(
+            "QR code not found. Make sure you are scanning the correct code."),
         "registerPageTitle": MessageLookupByLibrary.simpleMessage("Register"),
         "requiredPassword":
             MessageLookupByLibrary.simpleMessage("Password is required"),
         "save": MessageLookupByLibrary.simpleMessage("Save"),
+        "scanQrFirstDescription": MessageLookupByLibrary.simpleMessage(
+            "Scanning QR codes in our gym is a modern solution that will make your workouts more effective and enjoyable. Simply scan the QR code located at each machine or on the billboard for static exercises to get a full description of the exercise."),
+        "scanQrFirstHeader": MessageLookupByLibrary.simpleMessage(
+            "Scan, Practice, Achieve Goals!"),
+        "scanQrFirstPoint": MessageLookupByLibrary.simpleMessage(
+            "A detailed description of the exercise being performed, which will help you perform it correctly:"),
+        "scanQrFourPoint": MessageLookupByLibrary.simpleMessage(
+            "Information about any necessary equipment or machines required to perform the exercise, if needed."),
+        "scanQrInfo": MessageLookupByLibrary.simpleMessage(
+            "Scan QR code to get information and video instruction about this machine/exercise."),
         "scanQrLabel": MessageLookupByLibrary.simpleMessage("Scan QR"),
+        "scanQrSecondHeader": MessageLookupByLibrary.simpleMessage(
+            "What will you find after scanning?"),
+        "scanQrSecondPoint": MessageLookupByLibrary.simpleMessage(
+            "Clear, step-by-step instructions to help you maintain correct form and technique."),
+        "scanQrThirdHeader": MessageLookupByLibrary.simpleMessage(
+            "Our QR codes are your key source of gym training knowledge. They will help you save time, avoid mistakes and make the most of every minute spent training. Scan the code, learn the exercise and achieve your goals faster!"),
+        "scanQrThirdPoint": MessageLookupByLibrary.simpleMessage(
+            "Information on which body parts a given exercise works, so you can effectively plan your training sessions."),
         "settingsTitle": MessageLookupByLibrary.simpleMessage("Settings"),
         "shortPassword": MessageLookupByLibrary.simpleMessage(
             "The password is too short, at least 8 characters"),

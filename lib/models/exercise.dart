@@ -7,7 +7,7 @@ part 'exercise.g.dart';
 @freezed
 class Exercise with _$Exercise {
   factory Exercise({
-    required String qrCodeUrl,
+    required String qrCode,
     required String videoUrl,
     required String thumbnailUrl,
     required Translation title,

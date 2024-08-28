@@ -30,3 +30,11 @@ enum FirestoreResponseMessage {
   firestoreException,
   defaultError,
 }
+
+enum QrScanErrorMessage {
+  none,
+  invalidBarcode,
+  qrCodeNotFound,
+  cameraAccessDenied,
+  cameraAccessLimited,
+}

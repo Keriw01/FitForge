@@ -7,8 +7,9 @@ import 'package:fit_forge/pages/exercises/exercises_page.dart';
 import 'package:fit_forge/pages/home/main_page.dart';
 import 'package:fit_forge/pages/auth/login/login_page.dart';
 import 'package:fit_forge/pages/auth/register/register_page.dart';
+import 'package:fit_forge/pages/scan_qr_code/qr_scan_page.dart';
 import 'package:fit_forge/pages/workouts/workouts_page.dart';
-import 'package:fit_forge/pages/scan_qr_code/qr_code_initial_page.dart';
+import 'package:fit_forge/pages/scan_qr_code/qr_code_page.dart';
 import 'package:fit_forge/pages/settings/settings_page.dart';
 import 'package:fit_forge/pages/statistics/history_page.dart';
 import 'package:fit_forge/pages/statistics/statistics_page.dart';
@@ -26,7 +27,7 @@ class AppRouter extends _$AppRouter {
           initial: true,
           children: [
             AutoRoute(page: MainRoute.page),
-            AutoRoute(page: QrCodeInitialRoute.page),
+            AutoRoute(page: QrCodeRoute.page),
             AutoRoute(page: WorkoutsRoute.page),
             AutoRoute(page: BodyPartsRoute.page),
             AutoRoute(page: StatisticsRoute.page),
@@ -37,5 +38,6 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: SettingsRoute.page),
         AutoRoute(page: ExercisesRoute.page),
         AutoRoute(page: ExerciseDetailRoute.page),
+        AutoRoute(page: QrScanRoute.page),
       ];
 }

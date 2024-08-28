@@ -14,7 +14,7 @@ class MainPage extends StatelessWidget {
         WorkoutsRoute(),
         BodyPartsRoute(),
         StatisticsRoute(),
-        QrCodeInitialRoute()
+        QrCodeRoute()
       ],
       builder: (context, child) {
         final tabsRouter = AutoTabsRouter.of(context);

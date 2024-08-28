@@ -8,7 +8,7 @@ part of 'exercise.dart';
 
 _$ExerciseImpl _$$ExerciseImplFromJson(Map<String, dynamic> json) =>
     _$ExerciseImpl(
-      qrCodeUrl: json['qrCodeUrl'] as String,
+      qrCode: json['qrCode'] as String,
       videoUrl: json['videoUrl'] as String,
       thumbnailUrl: json['thumbnailUrl'] as String,
       title: Translation.fromJson(json['title'] as Map<String, dynamic>),
@@ -26,7 +26,7 @@ _$ExerciseImpl _$$ExerciseImplFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$ExerciseImplToJson(_$ExerciseImpl instance) =>
     <String, dynamic>{
-      'qrCodeUrl': instance.qrCodeUrl,
+      'qrCode': instance.qrCode,
       'videoUrl': instance.videoUrl,
       'thumbnailUrl': instance.thumbnailUrl,
       'title': instance.title,

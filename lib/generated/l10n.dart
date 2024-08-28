@@ -979,6 +979,156 @@ class S {
       args: [],
     );
   }
+
+  /// `Scan QR code to get information and video instruction about this machine/exercise.`
+  String get scanQrInfo {
+    return Intl.message(
+      'Scan QR code to get information and video instruction about this machine/exercise.',
+      name: 'scanQrInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Scan, Practice, Achieve Goals!`
+  String get scanQrFirstHeader {
+    return Intl.message(
+      'Scan, Practice, Achieve Goals!',
+      name: 'scanQrFirstHeader',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Scanning QR codes in our gym is a modern solution that will make your workouts more effective and enjoyable. Simply scan the QR code located at each machine or on the billboard for static exercises to get a full description of the exercise.`
+  String get scanQrFirstDescription {
+    return Intl.message(
+      'Scanning QR codes in our gym is a modern solution that will make your workouts more effective and enjoyable. Simply scan the QR code located at each machine or on the billboard for static exercises to get a full description of the exercise.',
+      name: 'scanQrFirstDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `What will you find after scanning?`
+  String get scanQrSecondHeader {
+    return Intl.message(
+      'What will you find after scanning?',
+      name: 'scanQrSecondHeader',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `A detailed description of the exercise being performed, which will help you perform it correctly:`
+  String get scanQrFirstPoint {
+    return Intl.message(
+      'A detailed description of the exercise being performed, which will help you perform it correctly:',
+      name: 'scanQrFirstPoint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Clear, step-by-step instructions to help you maintain correct form and technique.`
+  String get scanQrSecondPoint {
+    return Intl.message(
+      'Clear, step-by-step instructions to help you maintain correct form and technique.',
+      name: 'scanQrSecondPoint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Information on which body parts a given exercise works, so you can effectively plan your training sessions.`
+  String get scanQrThirdPoint {
+    return Intl.message(
+      'Information on which body parts a given exercise works, so you can effectively plan your training sessions.',
+      name: 'scanQrThirdPoint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Information about any necessary equipment or machines required to perform the exercise, if needed.`
+  String get scanQrFourPoint {
+    return Intl.message(
+      'Information about any necessary equipment or machines required to perform the exercise, if needed.',
+      name: 'scanQrFourPoint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Our QR codes are your key source of gym training knowledge. They will help you save time, avoid mistakes and make the most of every minute spent training. Scan the code, learn the exercise and achieve your goals faster!`
+  String get scanQrThirdHeader {
+    return Intl.message(
+      'Our QR codes are your key source of gym training knowledge. They will help you save time, avoid mistakes and make the most of every minute spent training. Scan the code, learn the exercise and achieve your goals faster!',
+      name: 'scanQrThirdHeader',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Close`
+  String get close {
+    return Intl.message(
+      'Close',
+      name: 'close',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Back`
+  String get backButton {
+    return Intl.message(
+      'Back',
+      name: 'backButton',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The QR code is invalid or illegible. Please try scanning again.`
+  String get invalidBarcode {
+    return Intl.message(
+      'The QR code is invalid or illegible. Please try scanning again.',
+      name: 'invalidBarcode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `QR code not found. Make sure you are scanning the correct code.`
+  String get qrCodeNotFound {
+    return Intl.message(
+      'QR code not found. Make sure you are scanning the correct code.',
+      name: 'qrCodeNotFound',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Camera permissions were denied.`
+  String get cameraAccessDenied {
+    return Intl.message(
+      'Camera permissions were denied.',
+      name: 'cameraAccessDenied',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Camera permissions have been restricted.`
+  String get cameraAccessLimited {
+    return Intl.message(
+      'Camera permissions have been restricted.',
+      name: 'cameraAccessLimited',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

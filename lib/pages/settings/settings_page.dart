@@ -37,7 +37,8 @@ class SettingsPage extends StatelessWidget {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
                 content: Text(
-                  getResponseError(state.firestoreResponseMessage, context)!,
+                  getFirestoreResponseError(
+                      state.firestoreResponseMessage, context)!,
                 ),
               ),
             );

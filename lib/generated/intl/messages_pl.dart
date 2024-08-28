@@ -30,6 +30,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "availableEquipment":
             MessageLookupByLibrary.simpleMessage("Dostępny ekwipunek"),
         "back": MessageLookupByLibrary.simpleMessage("Plecy"),
+        "backButton": MessageLookupByLibrary.simpleMessage("Cofnij"),
         "badAuthorization": MessageLookupByLibrary.simpleMessage(
             "Nie poprawny email lub hasło"),
         "basicGymLocationLabel":
@@ -45,9 +46,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "bulking": MessageLookupByLibrary.simpleMessage("Zbudować masę"),
         "bulkingDescription": MessageLookupByLibrary.simpleMessage(
             "Skoncentruj się na zwiększaniu masy mięśniowej i budowaniu siły"),
+        "cameraAccessDenied": MessageLookupByLibrary.simpleMessage(
+            "Uprawnienia kamery zostały odmówione."),
+        "cameraAccessLimited": MessageLookupByLibrary.simpleMessage(
+            "Uprawnienia kamery zostały ograniczone."),
         "cancel": MessageLookupByLibrary.simpleMessage("Anuluj"),
         "cardio": MessageLookupByLibrary.simpleMessage("Cardio"),
         "chest": MessageLookupByLibrary.simpleMessage("Klatka piersiowa"),
+        "close": MessageLookupByLibrary.simpleMessage("Zamknij"),
         "connect": MessageLookupByLibrary.simpleMessage("Połącz"),
         "connectWithGoogleFit":
             MessageLookupByLibrary.simpleMessage("Połącz się z Google Fit"),
@@ -108,6 +114,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "inputEmpty": MessageLookupByLibrary.simpleMessage("Puste pole"),
         "intermediate":
             MessageLookupByLibrary.simpleMessage("Średnio-zaawansowany"),
+        "invalidBarcode": MessageLookupByLibrary.simpleMessage(
+            "Kod QR jest nieprawidłowy lub nieczytelny. Spróbuj zeskanować ponownie."),
         "invalidEmailFormat":
             MessageLookupByLibrary.simpleMessage("Nie prawidłowy adres emial"),
         "logOut": MessageLookupByLibrary.simpleMessage("Wyloguj"),
@@ -129,12 +137,32 @@ class MessageLookup extends MessageLookupByLibrary {
         "other": MessageLookupByLibrary.simpleMessage("Inne"),
         "profileViewMode":
             MessageLookupByLibrary.simpleMessage("Tryb wyświetlania profilu"),
+        "qrCodeNotFound": MessageLookupByLibrary.simpleMessage(
+            "Kod QR nie został znaleziony. Upewnij się, że skanujesz poprawny kod."),
         "registerPageTitle":
             MessageLookupByLibrary.simpleMessage("Rejestracja"),
         "requiredPassword":
             MessageLookupByLibrary.simpleMessage("Hasło jest wymagane"),
         "save": MessageLookupByLibrary.simpleMessage("Zapisz"),
+        "scanQrFirstDescription": MessageLookupByLibrary.simpleMessage(
+            "Skanowanie kodów QR w naszej siłowni to nowoczesne rozwiązanie, które sprawi, że Twoje treningi staną się bardziej efektywne i przyjemne. Wystarczy zeskanować kod QR znajdujący się przy każdej maszynie lub na bilbordzie przy ćwiczeniach statycznych, aby uzyskać pełny opis ćwiczenia."),
+        "scanQrFirstHeader": MessageLookupByLibrary.simpleMessage(
+            "Skanuj, Ćwicz, Osiągaj Cele!"),
+        "scanQrFirstPoint": MessageLookupByLibrary.simpleMessage(
+            "Szczegółowy opis wykonywanego ćwiczenia, który pomoże Ci prawidłowo je wykonać:"),
+        "scanQrFourPoint": MessageLookupByLibrary.simpleMessage(
+            "Informacje na temat niezbędnego sprzętu lub maszyn wymaganych do wykonania ćwiczenia, jeśli są potrzebne."),
+        "scanQrInfo": MessageLookupByLibrary.simpleMessage(
+            "Zeskanuj kod QR, aby uzyskać informacje i instrukcje wideo dotyczące tej maszyny/ćwiczenia."),
         "scanQrLabel": MessageLookupByLibrary.simpleMessage("Skanuj QR"),
+        "scanQrSecondHeader": MessageLookupByLibrary.simpleMessage(
+            "Co znajdziesz po zeskanowaniu?"),
+        "scanQrSecondPoint": MessageLookupByLibrary.simpleMessage(
+            "Jasne i zrozumiałe instrukcje krok po kroku, które pomogą Ci utrzymać prawidłową formę i technikę."),
+        "scanQrThirdHeader": MessageLookupByLibrary.simpleMessage(
+            "Nasze kody QR to Twoje kluczowe źródło wiedzy na temat treningów w siłowni. Dzięki nim zaoszczędzisz czas, unikniesz błędów i maksymalnie wykorzystasz każdą minutę spędzoną na treningu. Zeskanuj kod, poznaj ćwiczenie i osiągnij swoje cele szybciej!"),
+        "scanQrThirdPoint": MessageLookupByLibrary.simpleMessage(
+            "Informacja, na jakie partie ciała działa dane ćwiczenie, abyś mógł skutecznie planować swoje sesje treningowe."),
         "settingsTitle": MessageLookupByLibrary.simpleMessage("Ustawienia"),
         "shortPassword": MessageLookupByLibrary.simpleMessage(
             "Hasło jest za krótkie minimum 8 znaków"),
