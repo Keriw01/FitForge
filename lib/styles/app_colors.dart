@@ -83,3 +83,11 @@ const darkColorScheme = ColorScheme(
   outlineVariant: Color(0xFF41474D),
   scrim: Color(0xFF74FF43),
 );
+
+final List<Color> planColors = [
+  Colors.red,
+  Colors.blue,
+  Colors.green,
+  Colors.purple,
+  Colors.orange,
+];

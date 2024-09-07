@@ -78,11 +78,11 @@ class _ExerciseDetailPageState extends State<ExerciseDetailPage> {
                     const SizedBox(height: 20),
                     YoutubePlayer(
                       controller: _controller,
-                      bottomActions: [
+                      bottomActions: const [
                         CurrentPosition(),
-                        const SizedBox(width: 10),
+                        SizedBox(width: 10),
                         ProgressBar(isExpanded: true),
-                        const SizedBox(width: 10),
+                        SizedBox(width: 10),
                         RemainingDuration(),
                       ],
                     ),
@@ -168,8 +168,6 @@ class _ExerciseDetailPageState extends State<ExerciseDetailPage> {
                     width: double.infinity,
                     child: Text(
                       S.of(context).exit,
-                      textAlign: TextAlign.center,
-                      style: Theme.of(context).textTheme.labelLarge,
                     ),
                   ),
                 ),

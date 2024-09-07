@@ -116,11 +116,9 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     WorkoutsRoute.name: (routeData) {
-      final args = routeData.argsAs<WorkoutsRouteArgs>(
-          orElse: () => const WorkoutsRouteArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: WorkoutsPage(key: args.key),
+        child: const WorkoutsPage(),
       );
     },
   };
@@ -461,29 +459,14 @@ class StatisticsRouteArgs {
 
 /// generated route for
 /// [WorkoutsPage]
-class WorkoutsRoute extends PageRouteInfo<WorkoutsRouteArgs> {
-  WorkoutsRoute({
-    Key? key,
-    List<PageRouteInfo>? children,
-  }) : super(
+class WorkoutsRoute extends PageRouteInfo<void> {
+  const WorkoutsRoute({List<PageRouteInfo>? children})
+      : super(
           WorkoutsRoute.name,
-          args: WorkoutsRouteArgs(key: key),
           initialChildren: children,
         );
 
   static const String name = 'WorkoutsRoute';
 
-  static const PageInfo<WorkoutsRouteArgs> page =
-      PageInfo<WorkoutsRouteArgs>(name);
-}
-
-class WorkoutsRouteArgs {
-  const WorkoutsRouteArgs({this.key});
-
-  final Key? key;
-
-  @override
-  String toString() {
-    return 'WorkoutsRouteArgs{key: $key}';
-  }
+  static const PageInfo<void> page = PageInfo<void>(name);
 }

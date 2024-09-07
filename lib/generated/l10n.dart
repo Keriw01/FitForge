@@ -70,10 +70,10 @@ class S {
     );
   }
 
-  /// `Don''t have an Account ?`
+  /// `Don't have an Account ?`
   String get dontHaveAccount {
     return Intl.message(
-      'Don\'\'t have an Account ?',
+      'Don`t have an Account ?',
       name: 'dontHaveAccount',
       desc: '',
       args: [],
@@ -1125,6 +1125,306 @@ class S {
     return Intl.message(
       'Camera permissions have been restricted.',
       name: 'cameraAccessLimited',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `My plans`
+  String get myPlansHeader {
+    return Intl.message(
+      'My plans',
+      name: 'myPlansHeader',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Current`
+  String get currentPlanHeader {
+    return Intl.message(
+      'Current',
+      name: 'currentPlanHeader',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You don't have any training plan created.\nCreate one using the button at the bottom.`
+  String get emptyPlans {
+    return Intl.message(
+      'You don`t have any training plan created.\nCreate one using the button at the bottom.',
+      name: 'emptyPlans',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You don't have a training plan selected.\nSelect one in the section`
+  String get emptyCurrentPlan {
+    return Intl.message(
+      'You don`t have a training plan selected.\nSelect one in the section',
+      name: 'emptyCurrentPlan',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Create Your Own Workout Plan`
+  String get createYourOwnWorkoutPlanButton {
+    return Intl.message(
+      'Create Your Own Workout Plan',
+      name: 'createYourOwnWorkoutPlanButton',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Create Plan`
+  String get createWorkoutPlanHeader {
+    return Intl.message(
+      'Create Plan',
+      name: 'createWorkoutPlanHeader',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm`
+  String get confirm {
+    return Intl.message(
+      'Confirm',
+      name: 'confirm',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Plan Name`
+  String get planName {
+    return Intl.message(
+      'Plan Name',
+      name: 'planName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select Plan Type`
+  String get selectPlanType {
+    return Intl.message(
+      'Select Plan Type',
+      name: 'selectPlanType',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select Difficulty Level`
+  String get selectDifficultyLevel {
+    return Intl.message(
+      'Select Difficulty Level',
+      name: 'selectDifficultyLevel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select Number of Days`
+  String get selectNumberOfDays {
+    return Intl.message(
+      'Select Number of Days',
+      name: 'selectNumberOfDays',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Plan Description`
+  String get planDescription {
+    return Intl.message(
+      'Plan Description',
+      name: 'planDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Plan name required`
+  String get planNameRequired {
+    return Intl.message(
+      'Plan name required',
+      name: 'planNameRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Plan description required`
+  String get planDescriptionRequired {
+    return Intl.message(
+      'Plan description required',
+      name: 'planDescriptionRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Set`
+  String get set {
+    return Intl.message(
+      'Set',
+      name: 'set',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Last activity: `
+  String get lastActivity {
+    return Intl.message(
+      'Last activity: ',
+      name: 'lastActivity',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Day(s)`
+  String get days {
+    return Intl.message(
+      'Day(s)',
+      name: 'days',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Active`
+  String get active {
+    return Intl.message(
+      'Active',
+      name: 'active',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit Plan`
+  String get editPlan {
+    return Intl.message(
+      'Edit Plan',
+      name: 'editPlan',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Discard`
+  String get discard {
+    return Intl.message(
+      'Discard',
+      name: 'discard',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit`
+  String get edit {
+    return Intl.message(
+      'Edit',
+      name: 'edit',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delete`
+  String get delete {
+    return Intl.message(
+      'Delete',
+      name: 'delete',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm Delete`
+  String get confirmDelete {
+    return Intl.message(
+      'Confirm Delete',
+      name: 'confirmDelete',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The selected plan will be deleted.`
+  String get deleteConfirmationMessage {
+    return Intl.message(
+      'The selected plan will be deleted.',
+      name: 'deleteConfirmationMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Plan is empty.`
+  String get planIsEmpty {
+    return Intl.message(
+      'Plan is empty.',
+      name: 'planIsEmpty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please add day to this routine.`
+  String get addDayInfo {
+    return Intl.message(
+      'Please add day to this routine.',
+      name: 'addDayInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add a day`
+  String get addDay {
+    return Intl.message(
+      'Add a day',
+      name: 'addDay',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Last performed: `
+  String get lastPerformed {
+    return Intl.message(
+      'Last performed: ',
+      name: 'lastPerformed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Day`
+  String get day {
+    return Intl.message(
+      'Day',
+      name: 'day',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Rename`
+  String get renameDay {
+    return Intl.message(
+      'Rename',
+      name: 'renameDay',
       desc: '',
       args: [],
     );

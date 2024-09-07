@@ -57,3 +57,30 @@ class InvalidEmailError extends AuthInputError {}
 class WeakPasswordError extends AuthInputError {}
 
 class ShortPassword extends AuthInputError {}
+
+enum PlanNameValidationError { empty }
+
+class PlanName extends FormzInput<String, PlanNameValidationError> {
+  const PlanName.pure() : super.pure('');
+  const PlanName.dirty([String value = '']) : super.dirty(value);
+
+  @override
+  PlanNameValidationError? validator(String? value) {
+    return value?.isNotEmpty == true ? null : PlanNameValidationError.empty;
+  }
+}
+
+enum PlanDescriptionValidationError { empty }
+
+class PlanDescription
+    extends FormzInput<String, PlanDescriptionValidationError> {
+  const PlanDescription.pure() : super.pure('');
+  const PlanDescription.dirty([String value = '']) : super.dirty(value);
+
+  @override
+  PlanDescriptionValidationError? validator(String? value) {
+    return value?.isNotEmpty == true
+        ? null
+        : PlanDescriptionValidationError.empty;
+  }
+}

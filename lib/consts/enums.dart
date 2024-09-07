@@ -38,3 +38,15 @@ enum QrScanErrorMessage {
   cameraAccessDenied,
   cameraAccessLimited,
 }
+
+enum PlanTypes {
+  maintaining,
+  bulking,
+  cutting,
+}
+
+enum DifficultyLevels {
+  beginner,
+  intermediate,
+  advanced,
+}

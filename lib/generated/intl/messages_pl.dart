@@ -22,6 +22,10 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "active": MessageLookupByLibrary.simpleMessage("Aktywny"),
+        "addDay": MessageLookupByLibrary.simpleMessage("Dodaj dzień"),
+        "addDayInfo": MessageLookupByLibrary.simpleMessage(
+            "Proszę dodaj dzień ćwiczeniowy."),
         "addExerciseToYourPlan":
             MessageLookupByLibrary.simpleMessage("Dodaj ćwiczenia do planu"),
         "advanced": MessageLookupByLibrary.simpleMessage("Zaawansowany"),
@@ -54,23 +58,38 @@ class MessageLookup extends MessageLookupByLibrary {
         "cardio": MessageLookupByLibrary.simpleMessage("Cardio"),
         "chest": MessageLookupByLibrary.simpleMessage("Klatka piersiowa"),
         "close": MessageLookupByLibrary.simpleMessage("Zamknij"),
+        "confirm": MessageLookupByLibrary.simpleMessage("Potwierdź"),
+        "confirmDelete":
+            MessageLookupByLibrary.simpleMessage("Potwierdź usunięcie"),
         "connect": MessageLookupByLibrary.simpleMessage("Połącz"),
         "connectWithGoogleFit":
             MessageLookupByLibrary.simpleMessage("Połącz się z Google Fit"),
         "core": MessageLookupByLibrary.simpleMessage("Brzuch"),
+        "createWorkoutPlanHeader":
+            MessageLookupByLibrary.simpleMessage("Stwórz plan"),
+        "createYourOwnWorkoutPlanButton":
+            MessageLookupByLibrary.simpleMessage("Stwórz swój plan treningowy"),
+        "currentPlanHeader": MessageLookupByLibrary.simpleMessage("Bieżący"),
         "currentWorkoutLevelLabel":
             MessageLookupByLibrary.simpleMessage("Poziom zaawansowania"),
         "cutting": MessageLookupByLibrary.simpleMessage("Schudnąć"),
         "cuttingDescription": MessageLookupByLibrary.simpleMessage(
             "Skoncentruj się na utracie tkanki tłuszczowej lub ogólnie schudnij"),
+        "day": MessageLookupByLibrary.simpleMessage("Dzień"),
+        "days": MessageLookupByLibrary.simpleMessage("Dni"),
         "defaultError": MessageLookupByLibrary.simpleMessage("Błąd"),
         "defaultReps": MessageLookupByLibrary.simpleMessage("Ilość powtórzeń"),
         "defaultsSets": MessageLookupByLibrary.simpleMessage("Ilość serii"),
+        "delete": MessageLookupByLibrary.simpleMessage("Usuń"),
+        "deleteConfirmationMessage": MessageLookupByLibrary.simpleMessage(
+            "Wybrany plan zostanie usunięty."),
         "description": MessageLookupByLibrary.simpleMessage("Opis"),
+        "discard": MessageLookupByLibrary.simpleMessage("Odrzuć"),
         "documentIdNotExist":
             MessageLookupByLibrary.simpleMessage("Document Id Not Exist"),
         "dontHaveAccount":
             MessageLookupByLibrary.simpleMessage("Nie masz konta ?"),
+        "edit": MessageLookupByLibrary.simpleMessage("Edycja"),
         "editCurrentWorkoutLevel": MessageLookupByLibrary.simpleMessage(
             "Wybierz poziom zaawansowania"),
         "editDefaultReps": MessageLookupByLibrary.simpleMessage(
@@ -78,6 +97,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "editDefaultSets":
             MessageLookupByLibrary.simpleMessage("Ustaw domyślną ilość serii"),
         "editGenderLabel": MessageLookupByLibrary.simpleMessage("Wybierz płeć"),
+        "editPlan": MessageLookupByLibrary.simpleMessage("Edycja planu"),
         "editTopGoal":
             MessageLookupByLibrary.simpleMessage("Wybierz swój cel treningu"),
         "editUnitSystem":
@@ -85,6 +105,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "editUsernameLabel":
             MessageLookupByLibrary.simpleMessage("Edytuj nazwę użytkownkia"),
         "emailLabel": MessageLookupByLibrary.simpleMessage("Email"),
+        "emptyCurrentPlan": MessageLookupByLibrary.simpleMessage(
+            "Nie masz wybranego planu treningowego.\nWybierz go w sekcji"),
+        "emptyPlans": MessageLookupByLibrary.simpleMessage(
+            "Nie masz utworzonego żadnego planu treningowego.\nUtwórz go poprzez przycisk na dole."),
         "enterBirthDate":
             MessageLookupByLibrary.simpleMessage("Wprowadź datę urodzin"),
         "enterEmail": MessageLookupByLibrary.simpleMessage("Wpisz swój e-mail"),
@@ -118,6 +142,10 @@ class MessageLookup extends MessageLookupByLibrary {
             "Kod QR jest nieprawidłowy lub nieczytelny. Spróbuj zeskanować ponownie."),
         "invalidEmailFormat":
             MessageLookupByLibrary.simpleMessage("Nie prawidłowy adres emial"),
+        "lastActivity":
+            MessageLookupByLibrary.simpleMessage("Ostatnia aktywność: "),
+        "lastPerformed":
+            MessageLookupByLibrary.simpleMessage("Ostatnio wykonany: "),
         "logOut": MessageLookupByLibrary.simpleMessage("Wyloguj"),
         "loginButton": MessageLookupByLibrary.simpleMessage("Zaloguj"),
         "loginPageTitle": MessageLookupByLibrary.simpleMessage("Logowanie"),
@@ -126,6 +154,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "maintainingDescription": MessageLookupByLibrary.simpleMessage(
             "Bądź zdrowy i dbaj o zdrowie układu krążenia"),
         "male": MessageLookupByLibrary.simpleMessage("Mężczyzna"),
+        "myPlansHeader": MessageLookupByLibrary.simpleMessage("Moje plany"),
         "networkRequestFailed": MessageLookupByLibrary.simpleMessage(
             "Brak połączenia internetowego"),
         "noData": MessageLookupByLibrary.simpleMessage("brak danych"),
@@ -135,12 +164,20 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Niepoprawny adres email"),
         "or": MessageLookupByLibrary.simpleMessage("LUB"),
         "other": MessageLookupByLibrary.simpleMessage("Inne"),
+        "planDescription": MessageLookupByLibrary.simpleMessage("Opis planu"),
+        "planDescriptionRequired":
+            MessageLookupByLibrary.simpleMessage("Opis planu wymagany"),
+        "planIsEmpty": MessageLookupByLibrary.simpleMessage("Plan jest pusty."),
+        "planName": MessageLookupByLibrary.simpleMessage("Nazwa planu"),
+        "planNameRequired":
+            MessageLookupByLibrary.simpleMessage("Nazwa planu wymagana"),
         "profileViewMode":
             MessageLookupByLibrary.simpleMessage("Tryb wyświetlania profilu"),
         "qrCodeNotFound": MessageLookupByLibrary.simpleMessage(
             "Kod QR nie został znaleziony. Upewnij się, że skanujesz poprawny kod."),
         "registerPageTitle":
             MessageLookupByLibrary.simpleMessage("Rejestracja"),
+        "renameDay": MessageLookupByLibrary.simpleMessage("Zmień nazwę"),
         "requiredPassword":
             MessageLookupByLibrary.simpleMessage("Hasło jest wymagane"),
         "save": MessageLookupByLibrary.simpleMessage("Zapisz"),
@@ -163,6 +200,13 @@ class MessageLookup extends MessageLookupByLibrary {
             "Nasze kody QR to Twoje kluczowe źródło wiedzy na temat treningów w siłowni. Dzięki nim zaoszczędzisz czas, unikniesz błędów i maksymalnie wykorzystasz każdą minutę spędzoną na treningu. Zeskanuj kod, poznaj ćwiczenie i osiągnij swoje cele szybciej!"),
         "scanQrThirdPoint": MessageLookupByLibrary.simpleMessage(
             "Informacja, na jakie partie ciała działa dane ćwiczenie, abyś mógł skutecznie planować swoje sesje treningowe."),
+        "selectDifficultyLevel": MessageLookupByLibrary.simpleMessage(
+            "Wybierz poziom zaawansowania"),
+        "selectNumberOfDays":
+            MessageLookupByLibrary.simpleMessage("Wybierz ilość dni planu"),
+        "selectPlanType":
+            MessageLookupByLibrary.simpleMessage("Wybierz typ planu"),
+        "set": MessageLookupByLibrary.simpleMessage("Ustaw"),
         "settingsTitle": MessageLookupByLibrary.simpleMessage("Ustawienia"),
         "shortPassword": MessageLookupByLibrary.simpleMessage(
             "Hasło jest za krótkie minimum 8 znaków"),

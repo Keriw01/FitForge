@@ -77,7 +77,11 @@ final customTextThemeLight = TextTheme(
   ),
 
   /// Medium Buttons
-  labelMedium: null,
+  labelMedium: GoogleFonts.openSans(
+    fontSize: 14,
+    fontWeight: FontWeight.bold,
+    color: whiteColor,
+  ),
 
   /// Small Button
   labelSmall: GoogleFonts.openSans(
@@ -170,7 +174,11 @@ final customTextThemeDark = TextTheme(
   ),
 
   /// Medium Buttons
-  labelMedium: null,
+  labelMedium: GoogleFonts.montserrat(
+    fontSize: 14,
+    color: whiteColor,
+    fontWeight: FontWeight.w600,
+  ),
 
   /// Small Button
   labelSmall: GoogleFonts.openSans(
