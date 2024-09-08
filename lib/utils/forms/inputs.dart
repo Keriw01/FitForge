@@ -84,3 +84,15 @@ class PlanDescription
         : PlanDescriptionValidationError.empty;
   }
 }
+
+enum DayTitleValidationError { empty }
+
+class DayTitle extends FormzInput<String, DayTitleValidationError> {
+  const DayTitle.pure() : super.pure('');
+  const DayTitle.dirty([String value = '']) : super.dirty(value);
+
+  @override
+  DayTitleValidationError? validator(String? value) {
+    return value?.isNotEmpty == true ? null : DayTitleValidationError.empty;
+  }
+}

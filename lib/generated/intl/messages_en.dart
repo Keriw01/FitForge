@@ -74,6 +74,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "cuttingDescription": MessageLookupByLibrary.simpleMessage(
             "Focus on losing body fat or lose weight in general"),
         "day": MessageLookupByLibrary.simpleMessage("Day"),
+        "dayTitle": MessageLookupByLibrary.simpleMessage("Day Title"),
+        "dayTitleRequired":
+            MessageLookupByLibrary.simpleMessage("Day Title Required"),
         "days": MessageLookupByLibrary.simpleMessage("Day(s)"),
         "defaultError": MessageLookupByLibrary.simpleMessage("Error"),
         "defaultReps": MessageLookupByLibrary.simpleMessage("Default Reps"),
@@ -111,6 +114,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "enterBirthDate":
             MessageLookupByLibrary.simpleMessage("Enter birth date"),
         "enterEmail": MessageLookupByLibrary.simpleMessage("Enter e-mail"),
+        "enterNewName": MessageLookupByLibrary.simpleMessage("Enter New Name"),
         "enterNewUsername":
             MessageLookupByLibrary.simpleMessage("Enter New Username"),
         "enterPassword":

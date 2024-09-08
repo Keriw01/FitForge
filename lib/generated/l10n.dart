@@ -1429,6 +1429,36 @@ class S {
       args: [],
     );
   }
+
+  /// `Enter New Name`
+  String get enterNewName {
+    return Intl.message(
+      'Enter New Name',
+      name: 'enterNewName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Day Title`
+  String get dayTitle {
+    return Intl.message(
+      'Day Title',
+      name: 'dayTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Day Title Required`
+  String get dayTitleRequired {
+    return Intl.message(
+      'Day Title Required',
+      name: 'dayTitleRequired',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

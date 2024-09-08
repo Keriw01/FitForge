@@ -118,7 +118,6 @@ class WorkoutsCubit extends BaseCubit<WorkoutsState> {
           await firestoreWorkoutsRepository.addNewPlan(user?.uid, newPlan);
 
       if (addedPlan?.planId != null) {
-        // await _getUserPlansAndCurrent();
         List<Plan> updatedPlans = List.from(state.userPlans ?? [])
           ..add(addedPlan!);
 
@@ -238,7 +237,6 @@ class WorkoutsCubit extends BaseCubit<WorkoutsState> {
       emit(state.copyWith(
         userPlans: updatedPlans,
       ));
-      // _getUserPlansAndCurrent();
     } on FirestoreException {
       emit(state.copyWith(
         firestoreResponseMessage: FirestoreResponseMessage.firestoreException,
@@ -342,6 +340,61 @@ class WorkoutsCubit extends BaseCubit<WorkoutsState> {
         firestoreResponseMessage: FirestoreResponseMessage.firestoreException,
       ));
     } catch (e) {
+      emit(state.copyWith(
+        firestoreResponseMessage: FirestoreResponseMessage.defaultError,
+      ));
+    }
+  }
+
+  void setDayTitle(String value) {
+    final dayTitle = DayTitle.dirty(value);
+    emit(state.copyWith(dayTitle: dayTitle));
+  }
+
+  void saveRenamedDay(String? planId, PlanDay day) async {
+    try {
+      emit(state.copyWith(
+        firestoreResponseMessage: FirestoreResponseMessage.none,
+      ));
+
+      Plan editedPlan =
+          state.userPlans!.firstWhere((planData) => planData.planId == planId);
+
+      PlanDay editedPlanDay = day.copyWith(dayTitle: state.dayTitle.value);
+
+      List<PlanDay> updatedPlanDays = (editedPlan.days ?? []).map((day) {
+        return day.dayId == editedPlanDay.dayId ? editedPlanDay : day;
+      }).toList();
+// TODO Sortować listę po tytule, zapisywać w bazie tylko dayTitle, dayId, bez dayNumber
+      editedPlan = editedPlan.copyWith(days: updatedPlanDays);
+
+      List<Plan> updatedPlans = (state.userPlans ?? []).map((plan) {
+        return plan.planId == editedPlan.planId ? editedPlan : plan;
+      }).toList();
+
+      User? user = FirebaseAuth.instance.currentUser;
+      await firestoreWorkoutsRepository.saveEditedPlanDay(
+        user?.uid,
+        planId,
+        editedPlanDay,
+      );
+
+      emit(state.copyWith(
+        userPlans: updatedPlans,
+        currentPlan: planId == state.currentPlan?.planId
+            ? editedPlan
+            : state.currentPlan,
+      ));
+
+      emit(state.copyWith(
+        dayTitle: const DayTitle.pure(),
+      ));
+    } on FirestoreException {
+      emit(state.copyWith(
+        firestoreResponseMessage: FirestoreResponseMessage.firestoreException,
+      ));
+    } catch (e) {
+      print(e);
       emit(state.copyWith(
         firestoreResponseMessage: FirestoreResponseMessage.defaultError,
       ));

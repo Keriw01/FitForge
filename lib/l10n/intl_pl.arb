@@ -137,6 +137,9 @@
     "addDay": "Dodaj dzień",
     "lastPerformed": "Ostatnio wykonany: ",
     "day": "Dzień",
-    "renameDay": "Zmień nazwę"
+    "renameDay": "Zmień nazwę",
+    "enterNewName": "Wprowadź nową nazwę",
+    "dayTitle": "Tytuł dnia",
+    "dayTitleRequired": "Tytuł dnia wymagany"
 
 }

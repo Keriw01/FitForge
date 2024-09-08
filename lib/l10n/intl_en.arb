@@ -137,5 +137,8 @@
     "addDay": "Add a day",
     "lastPerformed": "Last performed: ",
     "day": "Day",
-    "renameDay": "Rename"
+    "renameDay": "Rename",
+    "enterNewName": "Enter New Name",
+    "dayTitle": "Day Title",
+    "dayTitleRequired": "Day Title Required"
 }

@@ -13,7 +13,6 @@ class CurrentPlanView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<WorkoutsCubit, WorkoutsState>(
       builder: (context, state) {
-        print(state.currentPlan);
         if (state.currentPlan != null) {
           return Column(
             children: [
@@ -197,7 +196,8 @@ class CurrentPlanView extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      '${S.of(context).day} ${day.dayNumber}',
+                                      day.dayTitle ??
+                                          '${S.of(context).day} ${day.dayNumber}',
                                       style: GoogleFonts.roboto(
                                         fontWeight: FontWeight.w500,
                                         fontSize: 16,
@@ -244,7 +244,8 @@ class CurrentPlanView extends StatelessWidget {
                                             textAlign: TextAlign.right,
                                           ),
                                           onPressed: () {
-                                            // TODO Edit Day rename
+                                            showRenameDialog(context,
+                                                state.currentPlan?.planId, day);
                                           },
                                         ),
                                         MenuItemButton(
@@ -267,12 +268,13 @@ class CurrentPlanView extends StatelessWidget {
                                       ],
                                     ),
                                     IconButton(
-                                        onPressed: () {},
-                                        icon: const Icon(
-                                          Icons.arrow_forward_ios,
-                                          size: 20,
-                                          color: defaultFontsColor,
-                                        )),
+                                      onPressed: () {},
+                                      icon: const Icon(
+                                        Icons.arrow_forward_ios,
+                                        size: 20,
+                                        color: defaultFontsColor,
+                                      ),
+                                    ),
                                   ],
                                 ),
                               ],

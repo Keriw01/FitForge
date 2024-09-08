@@ -15,6 +15,8 @@ class WorkoutsState with EquatableMixin {
   final List<Plan>? userPlans;
   final Plan? currentPlan;
 
+  final DayTitle dayTitle;
+
   WorkoutsState({
     this.planName = const PlanName.pure(),
     this.planDescription = const PlanDescription.pure(),
@@ -25,6 +27,7 @@ class WorkoutsState with EquatableMixin {
     this.isLoading = false,
     this.userPlans,
     this.currentPlan,
+    this.dayTitle = const DayTitle.pure(),
   });
 
   @override
@@ -38,5 +41,6 @@ class WorkoutsState with EquatableMixin {
         isLoading,
         userPlans,
         currentPlan,
+        dayTitle,
       ];
 }

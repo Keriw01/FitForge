@@ -35,13 +35,12 @@ class FirestoreWorkoutsRepository {
 
             List<DayExercise> exercises =
                 exercisesSnapshot.docs.map((exerciseDoc) {
-              print(exerciseDoc);
               return DayExercise.fromJson(exerciseDoc.data());
             }).toList();
 
             PlanDay day = PlanDay.fromJson(dayDoc.data())
                 .copyWith(dayExercises: exercises);
-            print(day);
+
             days.add(day);
           }
           days.sort((a, b) => a.dayNumber.compareTo(b.dayNumber));
@@ -261,6 +260,25 @@ class FirestoreWorkoutsRepository {
 
       final daysCollectionRef = planDocRef.collection('Days').doc(dayId);
       daysCollectionRef.delete();
+    } catch (e) {
+      throw FirestoreException();
+    }
+  }
+
+  Future<void> saveEditedPlanDay(
+      String? userId, String? planId, PlanDay day) async {
+    try {
+      await _firestore
+          .collection('UserTrainingPlans')
+          .doc(userId)
+          .collection('Plans')
+          .doc(planId)
+          .collection('Days')
+          .doc(day.dayId)
+          .update({
+        'dayNumber': day.dayNumber,
+        'dayTitle': day.dayTitle,
+      });
     } catch (e) {
       throw FirestoreException();
     }

@@ -168,6 +168,8 @@ class _ExerciseDetailPageState extends State<ExerciseDetailPage> {
                     width: double.infinity,
                     child: Text(
                       S.of(context).exit,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(color: whiteColor),
                     ),
                   ),
                 ),

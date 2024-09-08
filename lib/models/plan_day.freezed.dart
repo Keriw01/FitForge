@@ -22,6 +22,7 @@ PlanDay _$PlanDayFromJson(Map<String, dynamic> json) {
 mixin _$PlanDay {
   String get dayId => throw _privateConstructorUsedError;
   int get dayNumber => throw _privateConstructorUsedError;
+  String? get dayTitle => throw _privateConstructorUsedError;
   List<DayExercise>? get dayExercises => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -34,7 +35,11 @@ abstract class $PlanDayCopyWith<$Res> {
   factory $PlanDayCopyWith(PlanDay value, $Res Function(PlanDay) then) =
       _$PlanDayCopyWithImpl<$Res, PlanDay>;
   @useResult
-  $Res call({String dayId, int dayNumber, List<DayExercise>? dayExercises});
+  $Res call(
+      {String dayId,
+      int dayNumber,
+      String? dayTitle,
+      List<DayExercise>? dayExercises});
 }
 
 /// @nodoc
@@ -52,6 +57,7 @@ class _$PlanDayCopyWithImpl<$Res, $Val extends PlanDay>
   $Res call({
     Object? dayId = null,
     Object? dayNumber = null,
+    Object? dayTitle = freezed,
     Object? dayExercises = freezed,
   }) {
     return _then(_value.copyWith(
@@ -63,6 +69,10 @@ class _$PlanDayCopyWithImpl<$Res, $Val extends PlanDay>
           ? _value.dayNumber
           : dayNumber // ignore: cast_nullable_to_non_nullable
               as int,
+      dayTitle: freezed == dayTitle
+          ? _value.dayTitle
+          : dayTitle // ignore: cast_nullable_to_non_nullable
+              as String?,
       dayExercises: freezed == dayExercises
           ? _value.dayExercises
           : dayExercises // ignore: cast_nullable_to_non_nullable
@@ -78,7 +88,11 @@ abstract class _$$PlanDayImplCopyWith<$Res> implements $PlanDayCopyWith<$Res> {
       __$$PlanDayImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String dayId, int dayNumber, List<DayExercise>? dayExercises});
+  $Res call(
+      {String dayId,
+      int dayNumber,
+      String? dayTitle,
+      List<DayExercise>? dayExercises});
 }
 
 /// @nodoc
@@ -94,6 +108,7 @@ class __$$PlanDayImplCopyWithImpl<$Res>
   $Res call({
     Object? dayId = null,
     Object? dayNumber = null,
+    Object? dayTitle = freezed,
     Object? dayExercises = freezed,
   }) {
     return _then(_$PlanDayImpl(
@@ -105,6 +120,10 @@ class __$$PlanDayImplCopyWithImpl<$Res>
           ? _value.dayNumber
           : dayNumber // ignore: cast_nullable_to_non_nullable
               as int,
+      dayTitle: freezed == dayTitle
+          ? _value.dayTitle
+          : dayTitle // ignore: cast_nullable_to_non_nullable
+              as String?,
       dayExercises: freezed == dayExercises
           ? _value._dayExercises
           : dayExercises // ignore: cast_nullable_to_non_nullable
@@ -119,6 +138,7 @@ class _$PlanDayImpl implements _PlanDay {
   _$PlanDayImpl(
       {required this.dayId,
       required this.dayNumber,
+      this.dayTitle,
       final List<DayExercise>? dayExercises})
       : _dayExercises = dayExercises;
 
@@ -129,6 +149,8 @@ class _$PlanDayImpl implements _PlanDay {
   final String dayId;
   @override
   final int dayNumber;
+  @override
+  final String? dayTitle;
   final List<DayExercise>? _dayExercises;
   @override
   List<DayExercise>? get dayExercises {
@@ -141,7 +163,7 @@ class _$PlanDayImpl implements _PlanDay {
 
   @override
   String toString() {
-    return 'PlanDay(dayId: $dayId, dayNumber: $dayNumber, dayExercises: $dayExercises)';
+    return 'PlanDay(dayId: $dayId, dayNumber: $dayNumber, dayTitle: $dayTitle, dayExercises: $dayExercises)';
   }
 
   @override
@@ -152,13 +174,15 @@ class _$PlanDayImpl implements _PlanDay {
             (identical(other.dayId, dayId) || other.dayId == dayId) &&
             (identical(other.dayNumber, dayNumber) ||
                 other.dayNumber == dayNumber) &&
+            (identical(other.dayTitle, dayTitle) ||
+                other.dayTitle == dayTitle) &&
             const DeepCollectionEquality()
                 .equals(other._dayExercises, _dayExercises));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, dayId, dayNumber,
+  int get hashCode => Object.hash(runtimeType, dayId, dayNumber, dayTitle,
       const DeepCollectionEquality().hash(_dayExercises));
 
   @JsonKey(ignore: true)
@@ -179,6 +203,7 @@ abstract class _PlanDay implements PlanDay {
   factory _PlanDay(
       {required final String dayId,
       required final int dayNumber,
+      final String? dayTitle,
       final List<DayExercise>? dayExercises}) = _$PlanDayImpl;
 
   factory _PlanDay.fromJson(Map<String, dynamic> json) = _$PlanDayImpl.fromJson;
@@ -187,6 +212,8 @@ abstract class _PlanDay implements PlanDay {
   String get dayId;
   @override
   int get dayNumber;
+  @override
+  String? get dayTitle;
   @override
   List<DayExercise>? get dayExercises;
   @override

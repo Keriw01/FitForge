@@ -76,6 +76,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "cuttingDescription": MessageLookupByLibrary.simpleMessage(
             "Skoncentruj się na utracie tkanki tłuszczowej lub ogólnie schudnij"),
         "day": MessageLookupByLibrary.simpleMessage("Dzień"),
+        "dayTitle": MessageLookupByLibrary.simpleMessage("Tytuł dnia"),
+        "dayTitleRequired":
+            MessageLookupByLibrary.simpleMessage("Tytuł dnia wymagany"),
         "days": MessageLookupByLibrary.simpleMessage("Dni"),
         "defaultError": MessageLookupByLibrary.simpleMessage("Błąd"),
         "defaultReps": MessageLookupByLibrary.simpleMessage("Ilość powtórzeń"),
@@ -112,6 +115,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "enterBirthDate":
             MessageLookupByLibrary.simpleMessage("Wprowadź datę urodzin"),
         "enterEmail": MessageLookupByLibrary.simpleMessage("Wpisz swój e-mail"),
+        "enterNewName":
+            MessageLookupByLibrary.simpleMessage("Wprowadź nową nazwę"),
         "enterNewUsername": MessageLookupByLibrary.simpleMessage(
             "Wprowadź nową nazwę użytkownika"),
         "enterPassword":

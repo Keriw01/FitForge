@@ -26,6 +26,8 @@ abstract class _$WorkoutsStateCWProxy {
 
   WorkoutsState currentPlan(Plan? currentPlan);
 
+  WorkoutsState dayTitle(DayTitle dayTitle);
+
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `WorkoutsState(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
   /// Usage
@@ -42,6 +44,7 @@ abstract class _$WorkoutsStateCWProxy {
     bool? isLoading,
     List<Plan>? userPlans,
     Plan? currentPlan,
+    DayTitle? dayTitle,
   });
 }
 
@@ -86,6 +89,9 @@ class _$WorkoutsStateCWProxyImpl implements _$WorkoutsStateCWProxy {
       this(currentPlan: currentPlan);
 
   @override
+  WorkoutsState dayTitle(DayTitle dayTitle) => this(dayTitle: dayTitle);
+
+  @override
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `WorkoutsState(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
@@ -103,6 +109,7 @@ class _$WorkoutsStateCWProxyImpl implements _$WorkoutsStateCWProxy {
     Object? isLoading = const $CopyWithPlaceholder(),
     Object? userPlans = const $CopyWithPlaceholder(),
     Object? currentPlan = const $CopyWithPlaceholder(),
+    Object? dayTitle = const $CopyWithPlaceholder(),
   }) {
     return WorkoutsState(
       planName: planName == const $CopyWithPlaceholder() || planName == null
@@ -148,6 +155,10 @@ class _$WorkoutsStateCWProxyImpl implements _$WorkoutsStateCWProxy {
           ? _value.currentPlan
           // ignore: cast_nullable_to_non_nullable
           : currentPlan as Plan?,
+      dayTitle: dayTitle == const $CopyWithPlaceholder() || dayTitle == null
+          ? _value.dayTitle
+          // ignore: cast_nullable_to_non_nullable
+          : dayTitle as DayTitle,
     );
   }
 }

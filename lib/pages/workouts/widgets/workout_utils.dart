@@ -1,3 +1,4 @@
+import 'package:fit_forge/generated/l10n.dart';
 import 'package:fit_forge/models/plan.dart';
 import 'package:fit_forge/models/plan_day.dart';
 import 'package:fit_forge/pages/workouts/cubit/workouts_cubit.dart';
@@ -28,6 +29,50 @@ void openBottomSheet(
           isCreatingPlan: forCreatingPlan,
           planId: editingPlan?.planId,
         ),
+      );
+    },
+  );
+}
+
+void showRenameDialog(
+  BuildContext context,
+  String? planId,
+  PlanDay day,
+) {
+  final cubit = context.read<WorkoutsCubit>();
+
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        title: Text(S.of(context).renameDay),
+        content: TextFormField(
+          initialValue: cubit.state.dayTitle.value,
+          onChanged: (value) => cubit.setDayTitle(value),
+          decoration: InputDecoration(
+            labelText: S.of(context).dayTitle,
+            labelStyle: Theme.of(context).textTheme.headlineMedium,
+            errorText: cubit.state.dayTitle.isNotValid
+                ? S.of(context).dayTitleRequired
+                : null,
+            contentPadding: EdgeInsets.zero,
+          ),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            child: Text(S.of(context).cancel),
+          ),
+          TextButton(
+            onPressed: () {
+              context.read<WorkoutsCubit>().saveRenamedDay(planId, day);
+              Navigator.of(context).pop();
+            },
+            child: Text(S.of(context).save),
+          ),
+        ],
       );
     },
   );
