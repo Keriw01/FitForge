@@ -8,8 +8,7 @@ part 'plan_day.g.dart';
 class PlanDay with _$PlanDay {
   factory PlanDay({
     required String dayId,
-    required int dayNumber,
-    String? dayTitle,
+    required String dayTitle,
     List<DayExercise>? dayExercises,
   }) = _PlanDay;
 

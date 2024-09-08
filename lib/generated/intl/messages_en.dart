@@ -73,7 +73,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "cutting": MessageLookupByLibrary.simpleMessage("Cutting"),
         "cuttingDescription": MessageLookupByLibrary.simpleMessage(
             "Focus on losing body fat or lose weight in general"),
-        "day": MessageLookupByLibrary.simpleMessage("Day"),
         "dayTitle": MessageLookupByLibrary.simpleMessage("Day Title"),
         "dayTitleRequired":
             MessageLookupByLibrary.simpleMessage("Day Title Required"),
@@ -82,7 +81,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "defaultReps": MessageLookupByLibrary.simpleMessage("Default Reps"),
         "defaultsSets": MessageLookupByLibrary.simpleMessage("Default Sets"),
         "delete": MessageLookupByLibrary.simpleMessage("Delete"),
-        "deleteConfirmationMessage": MessageLookupByLibrary.simpleMessage(
+        "deleteDayConfirmation": MessageLookupByLibrary.simpleMessage(
+            "The selected day will be deleted."),
+        "deletePlanConfirmation": MessageLookupByLibrary.simpleMessage(
             "The selected plan will be deleted."),
         "description": MessageLookupByLibrary.simpleMessage("Description"),
         "discard": MessageLookupByLibrary.simpleMessage("Discard"),

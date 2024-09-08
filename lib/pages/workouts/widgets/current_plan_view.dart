@@ -196,8 +196,7 @@ class CurrentPlanView extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      day.dayTitle ??
-                                          '${S.of(context).day} ${day.dayNumber}',
+                                      day.dayTitle,
                                       style: GoogleFonts.roboto(
                                         fontWeight: FontWeight.w500,
                                         fontSize: 16,
@@ -243,10 +242,11 @@ class CurrentPlanView extends StatelessWidget {
                                             ),
                                             textAlign: TextAlign.right,
                                           ),
-                                          onPressed: () {
-                                            showRenameDialog(context,
-                                                state.currentPlan?.planId, day);
-                                          },
+                                          onPressed: () => showRenameDialog(
+                                            context,
+                                            state.currentPlan?.planId,
+                                            day,
+                                          ),
                                         ),
                                         MenuItemButton(
                                           child: Text(
@@ -256,14 +256,17 @@ class CurrentPlanView extends StatelessWidget {
                                               fontSize: 14,
                                             ),
                                           ),
-                                          onPressed: () {
-                                            context
+                                          onPressed: () => confirmDelete(
+                                            context,
+                                            state.currentPlan!,
+                                            S.of(context).deleteDayConfirmation,
+                                            () => context
                                                 .read<WorkoutsCubit>()
                                                 .deleteDay(
                                                   state.currentPlan,
                                                   day,
-                                                );
-                                          },
+                                                ),
+                                          ),
                                         ),
                                       ],
                                     ),

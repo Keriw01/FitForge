@@ -75,7 +75,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "cutting": MessageLookupByLibrary.simpleMessage("Schudnąć"),
         "cuttingDescription": MessageLookupByLibrary.simpleMessage(
             "Skoncentruj się na utracie tkanki tłuszczowej lub ogólnie schudnij"),
-        "day": MessageLookupByLibrary.simpleMessage("Dzień"),
         "dayTitle": MessageLookupByLibrary.simpleMessage("Tytuł dnia"),
         "dayTitleRequired":
             MessageLookupByLibrary.simpleMessage("Tytuł dnia wymagany"),
@@ -84,8 +83,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "defaultReps": MessageLookupByLibrary.simpleMessage("Ilość powtórzeń"),
         "defaultsSets": MessageLookupByLibrary.simpleMessage("Ilość serii"),
         "delete": MessageLookupByLibrary.simpleMessage("Usuń"),
-        "deleteConfirmationMessage": MessageLookupByLibrary.simpleMessage(
-            "Wybrany plan zostanie usunięty."),
+        "deleteDayConfirmation": MessageLookupByLibrary.simpleMessage(
+            "Wybrany dzień zostanie usunięty."),
         "description": MessageLookupByLibrary.simpleMessage("Opis"),
         "discard": MessageLookupByLibrary.simpleMessage("Odrzuć"),
         "documentIdNotExist":

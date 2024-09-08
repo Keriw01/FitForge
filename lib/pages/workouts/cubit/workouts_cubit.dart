@@ -256,9 +256,8 @@ class WorkoutsCubit extends BaseCubit<WorkoutsState> {
 
       User? user = FirebaseAuth.instance.currentUser;
       if (currentPlan != null && currentPlan.days != null) {
-        int newDayNumber = currentPlan.days!.isNotEmpty
-            ? currentPlan.days!.last.dayNumber + 1
-            : 1;
+        int newDayNumber =
+            currentPlan.numberOfDays != 0 ? currentPlan.numberOfDays + 1 : 1;
 
         String? newDayId = await firestoreWorkoutsRepository.addNewDayAndGetId(
           user?.uid,
@@ -269,12 +268,17 @@ class WorkoutsCubit extends BaseCubit<WorkoutsState> {
         if (newDayId != null) {
           PlanDay newDay = PlanDay(
             dayId: newDayId,
-            dayNumber: newDayNumber,
+            dayTitle: 'Day $newDayNumber',
           );
 
           List<PlanDay> updatedDays = List.from(currentPlan.days!)..add(newDay);
 
-          Plan updatedCurrentPlan = currentPlan.copyWith(days: updatedDays);
+          updatedDays.sort((a, b) => a.dayTitle.compareTo(b.dayTitle));
+
+          Plan updatedCurrentPlan = currentPlan.copyWith(
+            days: updatedDays,
+            numberOfDays: newDayNumber,
+          );
 
           List<Plan> updatedUserPlans = (state.userPlans ?? []).map((plan) {
             return plan.planId == updatedCurrentPlan.planId
@@ -313,11 +317,17 @@ class WorkoutsCubit extends BaseCubit<WorkoutsState> {
       User? user = FirebaseAuth.instance.currentUser;
       if (currentPlan != null && currentPlan.days != null) {
         await firestoreWorkoutsRepository.deleteDay(
-            user?.uid, currentPlan.planId, day.dayId);
+          user?.uid,
+          currentPlan,
+          day.dayId,
+        );
 
         List<PlanDay> updatedDays = List.from(currentPlan.days!)..remove(day);
 
-        Plan updatedCurrentPlan = currentPlan.copyWith(days: updatedDays);
+        Plan updatedCurrentPlan = currentPlan.copyWith(
+          days: updatedDays,
+          numberOfDays: currentPlan.numberOfDays - 1,
+        );
 
         List<Plan> updatedUserPlans = (state.userPlans ?? []).map((plan) {
           return plan.planId == updatedCurrentPlan.planId
@@ -330,6 +340,8 @@ class WorkoutsCubit extends BaseCubit<WorkoutsState> {
           currentPlan: updatedCurrentPlan,
           firestoreResponseMessage: FirestoreResponseMessage.none,
         ));
+
+        appRouter.maybePop();
       } else {
         emit(state.copyWith(
           firestoreResponseMessage: FirestoreResponseMessage.defaultError,
@@ -365,7 +377,9 @@ class WorkoutsCubit extends BaseCubit<WorkoutsState> {
       List<PlanDay> updatedPlanDays = (editedPlan.days ?? []).map((day) {
         return day.dayId == editedPlanDay.dayId ? editedPlanDay : day;
       }).toList();
-// TODO Sortować listę po tytule, zapisywać w bazie tylko dayTitle, dayId, bez dayNumber
+
+      updatedPlanDays.sort((a, b) => a.dayTitle.compareTo(b.dayTitle));
+
       editedPlan = editedPlan.copyWith(days: updatedPlanDays);
 
       List<Plan> updatedPlans = (state.userPlans ?? []).map((plan) {
@@ -384,11 +398,10 @@ class WorkoutsCubit extends BaseCubit<WorkoutsState> {
         currentPlan: planId == state.currentPlan?.planId
             ? editedPlan
             : state.currentPlan,
-      ));
-
-      emit(state.copyWith(
         dayTitle: const DayTitle.pure(),
       ));
+
+      appRouter.maybePop();
     } on FirestoreException {
       emit(state.copyWith(
         firestoreResponseMessage: FirestoreResponseMessage.firestoreException,

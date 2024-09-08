@@ -43,7 +43,7 @@ class FirestoreWorkoutsRepository {
 
             days.add(day);
           }
-          days.sort((a, b) => a.dayNumber.compareTo(b.dayNumber));
+          days.sort((a, b) => a.dayTitle.compareTo(b.dayTitle));
 
           Plan plan = Plan.fromJson(planDoc.data()).copyWith(days: days);
 
@@ -101,7 +101,7 @@ class FirestoreWorkoutsRepository {
         days.add(day);
       }
 
-      days.sort((a, b) => a.dayNumber.compareTo(b.dayNumber));
+      days.sort((a, b) => a.dayTitle.compareTo(b.dayTitle));
 
       Plan plan = Plan.fromJson(planData).copyWith(days: days);
 
@@ -148,15 +148,12 @@ class FirestoreWorkoutsRepository {
         final dayId = daysDocRef.id;
 
         days.add(
-          PlanDay(
-            dayId: dayId,
-            dayNumber: i,
-          ),
+          PlanDay(dayId: dayId, dayTitle: 'Day $i'),
         );
 
         await daysDocRef.set({
           'dayId': dayId,
-          'dayNumber': i,
+          'dayTitle': 'Day $i',
         });
       }
 
@@ -231,13 +228,17 @@ class FirestoreWorkoutsRepository {
           .collection('Plans')
           .doc(planId);
 
+      await planDocRef.update({
+        'numberOfDays': newDayNumber,
+      });
+
       final daysCollectionRef = planDocRef.collection('Days');
       final daysDocRef = daysCollectionRef.doc();
       final dayId = daysDocRef.id;
 
       await daysDocRef.set({
         'dayId': dayId,
-        'dayNumber': newDayNumber,
+        'dayTitle': 'Day $newDayNumber',
       });
 
       return dayId;
@@ -248,7 +249,7 @@ class FirestoreWorkoutsRepository {
 
   Future<void> deleteDay(
     String? userId,
-    String? planId,
+    Plan plan,
     String dayId,
   ) async {
     try {
@@ -256,7 +257,11 @@ class FirestoreWorkoutsRepository {
           .collection('UserTrainingPlans')
           .doc(userId)
           .collection('Plans')
-          .doc(planId);
+          .doc(plan.planId);
+
+      planDocRef.update({
+        'numberOfDays': plan.numberOfDays - 1,
+      });
 
       final daysCollectionRef = planDocRef.collection('Days').doc(dayId);
       daysCollectionRef.delete();
@@ -276,7 +281,6 @@ class FirestoreWorkoutsRepository {
           .collection('Days')
           .doc(day.dayId)
           .update({
-        'dayNumber': day.dayNumber,
         'dayTitle': day.dayTitle,
       });
     } catch (e) {

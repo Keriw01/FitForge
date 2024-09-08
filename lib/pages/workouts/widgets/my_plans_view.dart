@@ -2,6 +2,7 @@ import 'package:fit_forge/generated/l10n.dart';
 import 'package:fit_forge/models/plan.dart';
 import 'package:fit_forge/pages/workouts/cubit/workouts_cubit.dart';
 import 'package:fit_forge/pages/workouts/widgets/bottom_sheet_content.dart';
+import 'package:fit_forge/pages/workouts/widgets/workout_utils.dart';
 import 'package:fit_forge/styles/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -82,7 +83,14 @@ class _MyPlansViewState extends State<MyPlansView> {
                   ),
                   onTap: () {
                     Navigator.pop(context);
-                    _confirmDelete(plan);
+                    confirmDelete(
+                      context,
+                      plan,
+                      S.of(context).deletePlanConfirmation,
+                      () {
+                        context.read<WorkoutsCubit>().deletePlan(plan);
+                      },
+                    );
                   },
                 ),
                 ListTile(
@@ -101,42 +109,6 @@ class _MyPlansViewState extends State<MyPlansView> {
               ],
             ),
           ),
-        );
-      },
-    );
-  }
-
-  void _confirmDelete(Plan plan) {
-    showDialog(
-      context: context,
-      builder: (context) {
-        return AlertDialog(
-          title: Text(
-            S.of(context).confirmDelete,
-            style: Theme.of(context).textTheme.headlineLarge,
-          ),
-          content: Text(
-            S.of(context).deleteConfirmationMessage,
-            style: Theme.of(context).textTheme.bodyMedium,
-          ),
-          actions: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                TextButton(
-                  onPressed: () => Navigator.pop(context),
-                  child: Text(S.of(context).cancel),
-                ),
-                TextButton(
-                  onPressed: () {
-                    context.read<WorkoutsCubit>().deletePlan(plan);
-                    Navigator.pop(context);
-                  },
-                  child: Text(S.of(context).delete),
-                ),
-              ],
-            ),
-          ],
         );
       },
     );

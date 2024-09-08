@@ -1361,10 +1361,20 @@ class S {
   }
 
   /// `The selected plan will be deleted.`
-  String get deleteConfirmationMessage {
+  String get deletePlanConfirmation {
     return Intl.message(
       'The selected plan will be deleted.',
-      name: 'deleteConfirmationMessage',
+      name: 'deletePlanConfirmation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The selected day will be deleted.`
+  String get deleteDayConfirmation {
+    return Intl.message(
+      'The selected day will be deleted.',
+      name: 'deleteDayConfirmation',
       desc: '',
       args: [],
     );
@@ -1405,16 +1415,6 @@ class S {
     return Intl.message(
       'Last performed: ',
       name: 'lastPerformed',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Day`
-  String get day {
-    return Intl.message(
-      'Day',
-      name: 'day',
       desc: '',
       args: [],
     );
