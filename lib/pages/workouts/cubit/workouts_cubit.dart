@@ -37,10 +37,10 @@ class WorkoutsCubit extends BaseCubit<WorkoutsState> {
 
       List<Plan>? userPlans =
           await firestoreWorkoutsRepository.getUserPlans(user?.uid);
-      print(userPlans);
+
       Plan? currentPlan =
           await firestoreWorkoutsRepository.getCurrentPlan(user?.uid);
-      print("CurrentPlan: $currentPlan");
+
       emit(state.copyWith(
         userPlans: userPlans,
         currentPlan: currentPlan,
@@ -412,5 +412,33 @@ class WorkoutsCubit extends BaseCubit<WorkoutsState> {
         firestoreResponseMessage: FirestoreResponseMessage.defaultError,
       ));
     }
+  }
+
+  void updatedPlanDayAfterAdd(String? planId, PlanDay? newPlanDay) {
+    if (planId == null || newPlanDay == null) return;
+
+    final updatedDays = state.currentPlan?.days?.map((day) {
+          return day.dayId == newPlanDay.dayId ? newPlanDay : day;
+        }).toList() ??
+        [];
+
+    Plan? updatedCurrentPlan = state.currentPlan?.copyWith(
+      days: updatedDays,
+    );
+
+    List<Plan> updatedUserPlans = (state.userPlans ?? []).map((plan) {
+      return plan.planId == updatedCurrentPlan?.planId
+          ? updatedCurrentPlan!
+          : plan;
+    }).toList();
+
+    emit(state.copyWith(
+      userPlans: updatedUserPlans,
+      currentPlan: updatedCurrentPlan,
+    ));
+  }
+
+  void clearState() {
+    emit(WorkoutsState());
   }
 }

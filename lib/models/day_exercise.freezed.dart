@@ -20,6 +20,7 @@ DayExercise _$DayExerciseFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$DayExercise {
+  String get exerciseRefId => throw _privateConstructorUsedError;
   int get numberOfSets => throw _privateConstructorUsedError;
   int get numberOfReps => throw _privateConstructorUsedError;
   int? get duration => throw _privateConstructorUsedError;
@@ -39,7 +40,8 @@ abstract class $DayExerciseCopyWith<$Res> {
       _$DayExerciseCopyWithImpl<$Res, DayExercise>;
   @useResult
   $Res call(
-      {int numberOfSets,
+      {String exerciseRefId,
+      int numberOfSets,
       int numberOfReps,
       int? duration,
       int? restTime,
@@ -59,6 +61,7 @@ class _$DayExerciseCopyWithImpl<$Res, $Val extends DayExercise>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? exerciseRefId = null,
     Object? numberOfSets = null,
     Object? numberOfReps = null,
     Object? duration = freezed,
@@ -66,6 +69,10 @@ class _$DayExerciseCopyWithImpl<$Res, $Val extends DayExercise>
     Object? best1RM = freezed,
   }) {
     return _then(_value.copyWith(
+      exerciseRefId: null == exerciseRefId
+          ? _value.exerciseRefId
+          : exerciseRefId // ignore: cast_nullable_to_non_nullable
+              as String,
       numberOfSets: null == numberOfSets
           ? _value.numberOfSets
           : numberOfSets // ignore: cast_nullable_to_non_nullable
@@ -99,7 +106,8 @@ abstract class _$$DayExerciseImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int numberOfSets,
+      {String exerciseRefId,
+      int numberOfSets,
       int numberOfReps,
       int? duration,
       int? restTime,
@@ -117,6 +125,7 @@ class __$$DayExerciseImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? exerciseRefId = null,
     Object? numberOfSets = null,
     Object? numberOfReps = null,
     Object? duration = freezed,
@@ -124,6 +133,10 @@ class __$$DayExerciseImplCopyWithImpl<$Res>
     Object? best1RM = freezed,
   }) {
     return _then(_$DayExerciseImpl(
+      exerciseRefId: null == exerciseRefId
+          ? _value.exerciseRefId
+          : exerciseRefId // ignore: cast_nullable_to_non_nullable
+              as String,
       numberOfSets: null == numberOfSets
           ? _value.numberOfSets
           : numberOfSets // ignore: cast_nullable_to_non_nullable
@@ -152,7 +165,8 @@ class __$$DayExerciseImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$DayExerciseImpl implements _DayExercise {
   _$DayExerciseImpl(
-      {required this.numberOfSets,
+      {required this.exerciseRefId,
+      required this.numberOfSets,
       required this.numberOfReps,
       this.duration,
       this.restTime,
@@ -161,6 +175,8 @@ class _$DayExerciseImpl implements _DayExercise {
   factory _$DayExerciseImpl.fromJson(Map<String, dynamic> json) =>
       _$$DayExerciseImplFromJson(json);
 
+  @override
+  final String exerciseRefId;
   @override
   final int numberOfSets;
   @override
@@ -174,7 +190,7 @@ class _$DayExerciseImpl implements _DayExercise {
 
   @override
   String toString() {
-    return 'DayExercise(numberOfSets: $numberOfSets, numberOfReps: $numberOfReps, duration: $duration, restTime: $restTime, best1RM: $best1RM)';
+    return 'DayExercise(exerciseRefId: $exerciseRefId, numberOfSets: $numberOfSets, numberOfReps: $numberOfReps, duration: $duration, restTime: $restTime, best1RM: $best1RM)';
   }
 
   @override
@@ -182,6 +198,8 @@ class _$DayExerciseImpl implements _DayExercise {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DayExerciseImpl &&
+            (identical(other.exerciseRefId, exerciseRefId) ||
+                other.exerciseRefId == exerciseRefId) &&
             (identical(other.numberOfSets, numberOfSets) ||
                 other.numberOfSets == numberOfSets) &&
             (identical(other.numberOfReps, numberOfReps) ||
@@ -195,8 +213,8 @@ class _$DayExerciseImpl implements _DayExercise {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, numberOfSets, numberOfReps, duration, restTime, best1RM);
+  int get hashCode => Object.hash(runtimeType, exerciseRefId, numberOfSets,
+      numberOfReps, duration, restTime, best1RM);
 
   @JsonKey(ignore: true)
   @override
@@ -214,7 +232,8 @@ class _$DayExerciseImpl implements _DayExercise {
 
 abstract class _DayExercise implements DayExercise {
   factory _DayExercise(
-      {required final int numberOfSets,
+      {required final String exerciseRefId,
+      required final int numberOfSets,
       required final int numberOfReps,
       final int? duration,
       final int? restTime,
@@ -223,6 +242,8 @@ abstract class _DayExercise implements DayExercise {
   factory _DayExercise.fromJson(Map<String, dynamic> json) =
       _$DayExerciseImpl.fromJson;
 
+  @override
+  String get exerciseRefId;
   @override
   int get numberOfSets;
   @override

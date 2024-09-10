@@ -287,4 +287,36 @@ class FirestoreWorkoutsRepository {
       throw FirestoreException();
     }
   }
+
+  Future<void> addNewExerciseToDay(
+    String? userId,
+    String? planId,
+    PlanDay? planDay,
+    List<DayExercise>? selectedListExercises,
+  ) async {
+    try {
+      final planDocRef = _firestore
+          .collection('UserTrainingPlans')
+          .doc(userId)
+          .collection('Plans')
+          .doc(planId);
+
+      final daysDocRef = planDocRef.collection('Days').doc(planDay?.dayId);
+      final planExercisesCollectionRef = daysDocRef.collection('PlanExercises');
+
+      for (DayExercise exercise in selectedListExercises ?? []) {
+        final planExercisesDocRef = planExercisesCollectionRef.doc();
+        await planExercisesDocRef.set({
+          'exerciseRefId': exercise.exerciseRefId,
+          'numberOfReps': exercise.numberOfReps,
+          'numberOfSets': exercise.numberOfSets,
+          'duration': exercise.duration,
+          'restTime': exercise.restTime,
+          'best1RM': exercise.best1RM,
+        });
+      }
+    } catch (e) {
+      throw FirestoreException();
+    }
+  }
 }

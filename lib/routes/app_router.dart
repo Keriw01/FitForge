@@ -8,6 +8,8 @@ import 'package:fit_forge/pages/home/main_page.dart';
 import 'package:fit_forge/pages/auth/login/login_page.dart';
 import 'package:fit_forge/pages/auth/register/register_page.dart';
 import 'package:fit_forge/pages/scan_qr_code/qr_scan_page.dart';
+import 'package:fit_forge/pages/workouts/day/day_add_exercise_page.dart';
+import 'package:fit_forge/pages/workouts/day/day_page.dart';
 import 'package:fit_forge/pages/workouts/workouts_page.dart';
 import 'package:fit_forge/pages/scan_qr_code/qr_code_page.dart';
 import 'package:fit_forge/pages/settings/settings_page.dart';
@@ -39,5 +41,7 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: ExercisesRoute.page),
         AutoRoute(page: ExerciseDetailRoute.page),
         AutoRoute(page: QrScanRoute.page),
+        AutoRoute(page: DayRoute.page),
+        AutoRoute(page: DayAddExerciseRoute.page),
       ];
 }

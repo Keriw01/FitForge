@@ -8,6 +8,7 @@ part of 'day_exercise.dart';
 
 _$DayExerciseImpl _$$DayExerciseImplFromJson(Map<String, dynamic> json) =>
     _$DayExerciseImpl(
+      exerciseRefId: json['exerciseRefId'] as String,
       numberOfSets: (json['numberOfSets'] as num).toInt(),
       numberOfReps: (json['numberOfReps'] as num).toInt(),
       duration: (json['duration'] as num?)?.toInt(),
@@ -17,6 +18,7 @@ _$DayExerciseImpl _$$DayExerciseImplFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$DayExerciseImplToJson(_$DayExerciseImpl instance) =>
     <String, dynamic>{
+      'exerciseRefId': instance.exerciseRefId,
       'numberOfSets': instance.numberOfSets,
       'numberOfReps': instance.numberOfReps,
       'duration': instance.duration,

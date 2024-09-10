@@ -1,5 +1,6 @@
 import 'package:fit_forge/generated/l10n.dart';
 import 'package:fit_forge/pages/workouts/cubit/workouts_cubit.dart';
+import 'package:fit_forge/pages/workouts/day/cubit/day_cubit.dart';
 import 'package:fit_forge/pages/workouts/widgets/workout_utils.dart';
 import 'package:fit_forge/styles/app_colors.dart';
 import 'package:flutter/material.dart';
@@ -271,7 +272,9 @@ class CurrentPlanView extends StatelessWidget {
                                       ],
                                     ),
                                     IconButton(
-                                      onPressed: () {},
+                                      onPressed: () => context
+                                          .read<DayCubit>()
+                                          .navigateToDayPage(day),
                                       icon: const Icon(
                                         Icons.arrow_forward_ios,
                                         size: 20,

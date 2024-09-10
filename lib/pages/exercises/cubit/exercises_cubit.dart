@@ -1,9 +1,12 @@
 import 'package:fit_forge/base_cubit/base_cubit.dart';
 import 'package:fit_forge/consts/enums.dart';
 import 'package:fit_forge/exceptions/exceptions.dart';
+import 'package:fit_forge/models/day_exercise.dart';
+import 'package:fit_forge/models/exercise.dart';
 import 'package:fit_forge/models/exercises.dart';
 import 'package:fit_forge/repositories/firestore_exercises_repository.dart';
 import 'package:fit_forge/routes/app_router.dart';
+import 'package:fit_forge/utils/helpers/translation_helpers.dart';
 import 'package:flutter/widgets.dart';
 import 'package:equatable/equatable.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
@@ -65,5 +68,9 @@ class ExercisesCubit extends BaseCubit<ExercisesState> {
       isFiltering: false,
       filteredExercises: filteredExercised,
     ));
+  }
+
+  void clearState() {
+    emit(ExercisesState());
   }
 }

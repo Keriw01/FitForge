@@ -1459,6 +1459,106 @@ class S {
       args: [],
     );
   }
+
+  /// `No exercise that day.`
+  String get noExercisesInDay {
+    return Intl.message(
+      'No exercise that day.',
+      name: 'noExercisesInDay',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add Exercise`
+  String get addExercise {
+    return Intl.message(
+      'Add Exercise',
+      name: 'addExercise',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add`
+  String get add {
+    return Intl.message(
+      'Add',
+      name: 'add',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Exercise(s)`
+  String get exercise {
+    return Intl.message(
+      'Exercise(s)',
+      name: 'exercise',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `START WORKOUT`
+  String get startWorkout {
+    return Intl.message(
+      'START WORKOUT',
+      name: 'startWorkout',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reps`
+  String get reps {
+    return Intl.message(
+      'Reps',
+      name: 'reps',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sets`
+  String get sets {
+    return Intl.message(
+      'Sets',
+      name: 'sets',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Duration`
+  String get duration {
+    return Intl.message(
+      'Duration',
+      name: 'duration',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Search Exercise...`
+  String get searchExerciseHint {
+    return Intl.message(
+      'Search Exercise...',
+      name: 'searchExerciseHint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Empty Exercises List`
+  String get emptyExercisesList {
+    return Intl.message(
+      'Empty Exercises List',
+      name: 'emptyExercisesList',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

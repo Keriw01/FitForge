@@ -23,9 +23,11 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "active": MessageLookupByLibrary.simpleMessage("Aktywny"),
+        "add": MessageLookupByLibrary.simpleMessage("Dodaj"),
         "addDay": MessageLookupByLibrary.simpleMessage("Dodaj dzień"),
         "addDayInfo": MessageLookupByLibrary.simpleMessage(
             "Proszę dodaj dzień ćwiczeniowy."),
+        "addExercise": MessageLookupByLibrary.simpleMessage("Dodaj ćwiczenie"),
         "addExerciseToYourPlan":
             MessageLookupByLibrary.simpleMessage("Dodaj ćwiczenia do planu"),
         "advanced": MessageLookupByLibrary.simpleMessage("Zaawansowany"),
@@ -91,6 +93,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Document Id Not Exist"),
         "dontHaveAccount":
             MessageLookupByLibrary.simpleMessage("Nie masz konta ?"),
+        "duration": MessageLookupByLibrary.simpleMessage("Czas trwania"),
         "edit": MessageLookupByLibrary.simpleMessage("Edycja"),
         "editCurrentWorkoutLevel": MessageLookupByLibrary.simpleMessage(
             "Wybierz poziom zaawansowania"),
@@ -109,6 +112,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "emailLabel": MessageLookupByLibrary.simpleMessage("Email"),
         "emptyCurrentPlan": MessageLookupByLibrary.simpleMessage(
             "Nie masz wybranego planu treningowego.\nWybierz go w sekcji"),
+        "emptyExercisesList":
+            MessageLookupByLibrary.simpleMessage("Pusta lista ćwiczeń"),
         "emptyPlans": MessageLookupByLibrary.simpleMessage(
             "Nie masz utworzonego żadnego planu treningowego.\nUtwórz go poprzez przycisk na dole."),
         "enterBirthDate":
@@ -124,6 +129,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Wprowadź poprawny adres e-mail"),
         "enterValidPassword": MessageLookupByLibrary.simpleMessage(
             "Hasło musi mieć co najmniej 8 znaków"),
+        "exercise": MessageLookupByLibrary.simpleMessage("ćwiczenie(a)"),
         "exerciseDetailPageTitle":
             MessageLookupByLibrary.simpleMessage("Szczegóły ćwiczenia"),
         "exercisesLabel": MessageLookupByLibrary.simpleMessage("Ćwiczenia"),
@@ -164,6 +170,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "noData": MessageLookupByLibrary.simpleMessage("brak danych"),
         "noExercisesFound":
             MessageLookupByLibrary.simpleMessage("No exercises found."),
+        "noExercisesInDay":
+            MessageLookupByLibrary.simpleMessage("Brak ćwiczeń w tym dniu"),
         "notValidEmail":
             MessageLookupByLibrary.simpleMessage("Niepoprawny adres email"),
         "or": MessageLookupByLibrary.simpleMessage("LUB"),
@@ -182,6 +190,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "registerPageTitle":
             MessageLookupByLibrary.simpleMessage("Rejestracja"),
         "renameDay": MessageLookupByLibrary.simpleMessage("Zmień nazwę"),
+        "reps": MessageLookupByLibrary.simpleMessage("Powtórzenia"),
         "requiredPassword":
             MessageLookupByLibrary.simpleMessage("Hasło jest wymagane"),
         "save": MessageLookupByLibrary.simpleMessage("Zapisz"),
@@ -204,6 +213,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Nasze kody QR to Twoje kluczowe źródło wiedzy na temat treningów w siłowni. Dzięki nim zaoszczędzisz czas, unikniesz błędów i maksymalnie wykorzystasz każdą minutę spędzoną na treningu. Zeskanuj kod, poznaj ćwiczenie i osiągnij swoje cele szybciej!"),
         "scanQrThirdPoint": MessageLookupByLibrary.simpleMessage(
             "Informacja, na jakie partie ciała działa dane ćwiczenie, abyś mógł skutecznie planować swoje sesje treningowe."),
+        "searchExerciseHint":
+            MessageLookupByLibrary.simpleMessage("Wyszukaj ćwiczenie..."),
         "selectDifficultyLevel": MessageLookupByLibrary.simpleMessage(
             "Wybierz poziom zaawansowania"),
         "selectNumberOfDays":
@@ -211,6 +222,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "selectPlanType":
             MessageLookupByLibrary.simpleMessage("Wybierz typ planu"),
         "set": MessageLookupByLibrary.simpleMessage("Ustaw"),
+        "sets": MessageLookupByLibrary.simpleMessage("Serie"),
         "settingsTitle": MessageLookupByLibrary.simpleMessage("Ustawienia"),
         "shortPassword": MessageLookupByLibrary.simpleMessage(
             "Hasło jest za krótkie minimum 8 znaków"),
@@ -219,6 +231,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "signIn": MessageLookupByLibrary.simpleMessage(" Zaloguj się"),
         "signUp": MessageLookupByLibrary.simpleMessage(" Zarejestruj się"),
         "signUpButton": MessageLookupByLibrary.simpleMessage("Zarejestruj"),
+        "startWorkout":
+            MessageLookupByLibrary.simpleMessage("Rozpocznij sesję"),
         "statisticsLabel": MessageLookupByLibrary.simpleMessage("Historia"),
         "targetMuscleGroup":
             MessageLookupByLibrary.simpleMessage("Grupa docelowa mięśni"),

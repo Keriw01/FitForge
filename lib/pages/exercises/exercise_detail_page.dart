@@ -60,7 +60,6 @@ class _ExerciseDetailPageState extends State<ExerciseDetailPage> {
         ),
       ),
       body: Stack(
-        alignment: AlignmentDirectional.bottomCenter,
         children: [
           SingleChildScrollView(
             child: SizedBox(
@@ -69,11 +68,14 @@ class _ExerciseDetailPageState extends State<ExerciseDetailPage> {
                 padding:
                     const EdgeInsets.only(left: 10, right: 10, bottom: 110),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const SizedBox(height: 10),
-                    Text(
-                      getTranslationText(widget.exercise.title, context),
-                      style: Theme.of(context).textTheme.headlineLarge,
+                    Center(
+                      child: Text(
+                        getTranslationText(widget.exercise.title, context),
+                        style: Theme.of(context).textTheme.headlineLarge,
+                      ),
                     ),
                     const SizedBox(height: 20),
                     YoutubePlayer(

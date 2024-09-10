@@ -140,5 +140,15 @@
     "renameDay": "Rename",
     "enterNewName": "Enter New Name",
     "dayTitle": "Day Title",
-    "dayTitleRequired": "Day Title Required"
+    "dayTitleRequired": "Day Title Required",
+    "noExercisesInDay": "No exercise that day.",
+    "addExercise": "Add Exercise",
+    "add": "Add",
+    "exercise": "Exercise(s)",
+    "startWorkout": "START WORKOUT",
+    "reps": "Reps",
+    "sets": "Sets",
+    "duration": "Duration",
+    "searchExerciseHint": "Search Exercise...",
+    "emptyExercisesList": "Empty Exercises List"
 }

@@ -6,6 +6,7 @@ part 'day_exercise.g.dart';
 @freezed
 class DayExercise with _$DayExercise {
   factory DayExercise({
+    required String exerciseRefId,
     required int numberOfSets,
     required int numberOfReps,
     int? duration,

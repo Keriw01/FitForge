@@ -2,7 +2,11 @@ import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fit_forge/consts/enums.dart';
+import 'package:fit_forge/pages/exercises/cubit/exercises_cubit.dart';
+import 'package:fit_forge/pages/scan_qr_code/cubit/qr_cubit.dart';
 import 'package:fit_forge/pages/settings/cubit/settings_cubit.dart';
+import 'package:fit_forge/pages/workouts/cubit/workouts_cubit.dart';
+import 'package:fit_forge/pages/workouts/day/cubit/day_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:fit_forge/base_cubit/base_cubit.dart';
@@ -244,6 +248,10 @@ class AuthCubit extends BaseCubit<AuthState> {
     } finally {
       navigateToLoginPage();
       context.read<SettingsCubit>().clearState();
+      context.read<ExercisesCubit>().clearState();
+      context.read<QrCubit>().clearState();
+      context.read<WorkoutsCubit>().clearState();
+      context.read<DayCubit>().clearState();
     }
   }
 

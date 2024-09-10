@@ -92,4 +92,8 @@ class QrCubit extends BaseCubit<QrState> {
 
     appRouter.maybePop();
   }
+
+  void clearState() {
+    emit(QrState());
+  }
 }

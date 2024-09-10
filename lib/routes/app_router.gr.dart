@@ -29,6 +29,18 @@ abstract class _$AppRouter extends RootStackRouter {
         child: BodyPartsPage(key: args.key),
       );
     },
+    DayAddExerciseRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const DayAddExercisePage(),
+      );
+    },
+    DayRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const DayPage(),
+      );
+    },
     ExerciseDetailRoute.name: (routeData) {
       final args = routeData.argsAs<ExerciseDetailRouteArgs>();
       return AutoRoutePage<dynamic>(
@@ -165,6 +177,34 @@ class BodyPartsRouteArgs {
   String toString() {
     return 'BodyPartsRouteArgs{key: $key}';
   }
+}
+
+/// generated route for
+/// [DayAddExercisePage]
+class DayAddExerciseRoute extends PageRouteInfo<void> {
+  const DayAddExerciseRoute({List<PageRouteInfo>? children})
+      : super(
+          DayAddExerciseRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'DayAddExerciseRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [DayPage]
+class DayRoute extends PageRouteInfo<void> {
+  const DayRoute({List<PageRouteInfo>? children})
+      : super(
+          DayRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'DayRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for

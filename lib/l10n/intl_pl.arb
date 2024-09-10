@@ -140,6 +140,16 @@
     "renameDay": "Zmień nazwę",
     "enterNewName": "Wprowadź nową nazwę",
     "dayTitle": "Tytuł dnia",
-    "dayTitleRequired": "Tytuł dnia wymagany"
+    "dayTitleRequired": "Tytuł dnia wymagany",
+    "noExercisesInDay": "Brak ćwiczeń w tym dniu",
+    "addExercise": "Dodaj ćwiczenie",
+    "add": "Dodaj",
+    "exercise": "ćwiczenie(a)",
+    "startWorkout": "Rozpocznij sesję",
+    "reps": "Powtórzenia",
+    "sets": "Serie",
+    "duration": "Czas trwania",
+    "searchExerciseHint": "Wyszukaj ćwiczenie...",
+    "emptyExercisesList": "Pusta lista ćwiczeń"
 
 }
