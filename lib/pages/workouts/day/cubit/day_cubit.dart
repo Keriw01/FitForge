@@ -5,7 +5,7 @@ import 'package:fit_forge/base_cubit/base_cubit.dart';
 import 'package:fit_forge/consts/enums.dart';
 import 'package:fit_forge/exceptions/exceptions.dart';
 import 'package:fit_forge/models/day_exercise.dart';
-import 'package:fit_forge/models/exercises.dart';
+import 'package:fit_forge/models/exercise_info.dart';
 import 'package:fit_forge/models/plan_day.dart';
 import 'package:fit_forge/pages/exercises/cubit/exercises_cubit.dart';
 import 'package:fit_forge/pages/settings/cubit/settings_cubit.dart';
@@ -41,7 +41,7 @@ class DayCubit extends BaseCubit<DayState> {
       planDay: planDay,
     ));
 
-    List<Exercises>? filteredExercises = getFilteredExercises(planDay);
+    List<ExerciseInfo>? filteredExercises = getFilteredExercises(planDay);
 
     emit(state.copyWith(
       isLoading: false,
@@ -51,7 +51,7 @@ class DayCubit extends BaseCubit<DayState> {
     appRouter.push(const DayRoute());
   }
 
-  List<Exercises>? getFilteredExercises(PlanDay? planDay) {
+  List<ExerciseInfo>? getFilteredExercises(PlanDay? planDay) {
     final exercises = _exercisesCubit.state.exercises;
 
     return planDay?.dayExercises
@@ -59,7 +59,7 @@ class DayCubit extends BaseCubit<DayState> {
           return exercises?.firstWhere(
               (exercise) => exercise.exerciseId == planExercise.exerciseRefId);
         })
-        .whereType<Exercises>()
+        .whereType<ExerciseInfo>()
         .toList();
   }
 
@@ -69,8 +69,8 @@ class DayCubit extends BaseCubit<DayState> {
       filteredExercisesForAdding: [],
     ));
 
-    List<Exercises>? exercisesToExclude = state.exercisesOfDay;
-    List<Exercises>? exercises = _exercisesCubit.state.exercises;
+    List<ExerciseInfo>? exercisesToExclude = state.exercisesOfDay;
+    List<ExerciseInfo>? exercises = _exercisesCubit.state.exercises;
 
     if (exercisesToExclude == null || exercisesToExclude.isEmpty) {
       emit(state.copyWith(filteredExercisesForAdding: exercises));
@@ -78,7 +78,7 @@ class DayCubit extends BaseCubit<DayState> {
       return;
     }
 
-    List<Exercises> filteredExercises = exercises?.where((exercise) {
+    List<ExerciseInfo> filteredExercises = exercises?.where((exercise) {
           return !exercisesToExclude
               .any((exclude) => exclude.exerciseId == exercise.exerciseId);
         }).toList() ??
@@ -89,7 +89,7 @@ class DayCubit extends BaseCubit<DayState> {
     appRouter.push(const DayAddExerciseRoute());
   }
 
-  void toggleExerciseSelection(Exercises exerciseInfo) {
+  void toggleExerciseSelection(ExerciseInfo exerciseInfo) {
     List<DayExercise> updatedSelectedListExercises = [
       ...state.selectedListExercises ?? []
     ];
@@ -116,7 +116,7 @@ class DayCubit extends BaseCubit<DayState> {
     emit(state.copyWith(selectedListExercises: updatedSelectedListExercises));
   }
 
-  bool isExerciseSelected(Exercises? exercisesInfo) {
+  bool isExerciseSelected(ExerciseInfo? exercisesInfo) {
     return state.selectedListExercises?.any(
           (selectedExercise) =>
               selectedExercise.exerciseRefId == exercisesInfo?.exerciseId,
@@ -136,7 +136,7 @@ class DayCubit extends BaseCubit<DayState> {
       await firestoreWorkoutsRepository.addNewExerciseToDay(
         user?.uid,
         planId,
-        state.planDay,
+        state.planDay?.dayId,
         state.selectedListExercises,
       );
 
@@ -148,7 +148,8 @@ class DayCubit extends BaseCubit<DayState> {
       PlanDay? updatedPlanDay =
           state.planDay?.copyWith(dayExercises: updatedExercisesOfPlanDay);
 
-      List<Exercises>? filteredExercises = getFilteredExercises(updatedPlanDay);
+      List<ExerciseInfo>? filteredExercises =
+          getFilteredExercises(updatedPlanDay);
 
       _workoutsCubit.updatedPlanDayAfterAdd(planId, updatedPlanDay);
 
@@ -179,10 +180,10 @@ class DayCubit extends BaseCubit<DayState> {
     BuildContext context,
     String query,
   ) {
-    List<Exercises>? exercises = _exercisesCubit.state.exercises;
+    List<ExerciseInfo>? exercises = _exercisesCubit.state.exercises;
 
     // Filter exercises that are not in exercisesOfDay
-    List<Exercises>? filteredExercises = exercises?.where((exercise) {
+    List<ExerciseInfo>? filteredExercises = exercises?.where((exercise) {
       return state.exercisesOfDay?.any((planExercise) =>
               planExercise.exerciseId == exercise.exerciseId) ==
           false;

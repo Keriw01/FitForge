@@ -42,8 +42,8 @@ class ExercisesPage extends StatelessWidget {
           return ListView.builder(
             itemCount: filteredExercises.length,
             itemBuilder: (context, index) {
-              final exercises = filteredExercises[index];
-              return ExercisesItemList(exercise: exercises.exercise);
+              final exerciseInfo = filteredExercises[index];
+              return ExercisesItemList(exerciseInfo: exerciseInfo);
             },
           );
         },

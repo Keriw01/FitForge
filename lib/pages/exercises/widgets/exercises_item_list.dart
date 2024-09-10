@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:fit_forge/models/exercise.dart';
+import 'package:fit_forge/models/exercise_info.dart';
 import 'package:fit_forge/pages/exercises/widgets/equipment_subtitle.dart';
 import 'package:fit_forge/routes/app_router.dart';
 import 'package:fit_forge/utils/helpers/translation_helpers.dart';
@@ -9,22 +9,24 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class ExercisesItemList extends StatelessWidget {
-  final Exercise exercise;
+  final ExerciseInfo exerciseInfo;
 
   const ExercisesItemList({
     super.key,
-    required this.exercise,
+    required this.exerciseInfo,
   });
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => context.router.push(ExerciseDetailRoute(exercise: exercise)),
+      onTap: () => context.router.push(ExerciseDetailRoute(
+        exerciseInfo: exerciseInfo,
+      )),
       child: ListTile(
         trailing: const Icon(Icons.arrow_forward_ios),
         title: Text(
           getTranslationText(
-            exercise.title,
+            exerciseInfo.exercise.title,
             context,
           ),
           style: Theme.of(context)
@@ -33,7 +35,7 @@ class ExercisesItemList extends StatelessWidget {
               ?.copyWith(fontWeight: FontWeight.w600),
         ),
         subtitle: EquipmentSubtitle(
-          equipment: exercise.equipment,
+          equipment: exerciseInfo.exercise.equipment,
         ),
         leading: CircleAvatar(
           backgroundColor: Colors.transparent,
@@ -42,7 +44,7 @@ class ExercisesItemList extends StatelessWidget {
               width: 100,
               height: 100,
               fit: BoxFit.fill,
-              imageUrl: exercise.thumbnailUrl,
+              imageUrl: exerciseInfo.exercise.thumbnailUrl,
               progressIndicatorBuilder: (context, url, downloadProgress) =>
                   const CustomLoadingIndicator(
                 width: 20,

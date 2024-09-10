@@ -150,6 +150,9 @@
     "sets": "Serie",
     "duration": "Czas trwania",
     "searchExerciseHint": "Wyszukaj ćwiczenie...",
-    "emptyExercisesList": "Pusta lista ćwiczeń"
+    "emptyExercisesList": "Pusta lista ćwiczeń",
+    "noPlansAvailable": "Brak planów",
+    "whichPlan": "Który plan",
+    "whichDay": "Który dzień"
 
 }

@@ -95,7 +95,7 @@ class FirestoreAuthRepository {
       'userName': firebaseUser.displayName,
       'isConnectWithGoogleFit': false,
       'defaultReps': 8,
-      'defaultSets': 8,
+      'defaultSets': 3,
       'unitSystem': 'cm/kg',
     };
 

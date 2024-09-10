@@ -4,22 +4,28 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fit_forge/base_cubit/base_cubit.dart';
 import 'package:fit_forge/consts/enums.dart';
 import 'package:fit_forge/exceptions/exceptions.dart';
+import 'package:fit_forge/models/day_exercise.dart';
+import 'package:fit_forge/models/exercise_info.dart';
 import 'package:fit_forge/models/plan.dart';
 import 'package:fit_forge/models/plan_day.dart';
+import 'package:fit_forge/pages/settings/cubit/settings_cubit.dart';
 import 'package:fit_forge/repositories/firestore_workouts_repository.dart';
 import 'package:fit_forge/routes/app_router.dart';
 import 'package:fit_forge/utils/forms/inputs.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 part 'workouts_state.dart';
 part 'workouts_cubit.g.dart';
 
 class WorkoutsCubit extends BaseCubit<WorkoutsState> {
   late final FirestoreWorkoutsRepository firestoreWorkoutsRepository =
       FirestoreWorkoutsRepository();
+  late final SettingsCubit _settingsCubit;
 
   WorkoutsCubit(AppRouter appRouter, BuildContext context)
-      : super(
+      : _settingsCubit = context.read<SettingsCubit>(),
+        super(
           appRouter,
           WorkoutsState(),
         ) {
@@ -142,6 +148,7 @@ class WorkoutsCubit extends BaseCubit<WorkoutsState> {
   }
 
   void setCurrentPlan(Plan plan) async {
+    print(plan);
     try {
       emit(state.copyWith(
         firestoreResponseMessage: FirestoreResponseMessage.none,
@@ -436,6 +443,59 @@ class WorkoutsCubit extends BaseCubit<WorkoutsState> {
       userPlans: updatedUserPlans,
       currentPlan: updatedCurrentPlan,
     ));
+  }
+
+  void addNewExercise(
+    String? planId,
+    PlanDay? planDay,
+    ExerciseInfo exerciseInfo,
+  ) async {
+    User? user = FirebaseAuth.instance.currentUser;
+
+    DayExercise newExercise = DayExercise(
+      exerciseRefId: exerciseInfo.exerciseId,
+      numberOfReps: _settingsCubit.state.userProfile?.defaultReps ?? 8,
+      numberOfSets: _settingsCubit.state.userProfile?.defaultSets ?? 3,
+    );
+
+    await firestoreWorkoutsRepository.addNewExerciseToDayFromExerciseDetail(
+      user?.uid,
+      planId,
+      planDay?.dayId,
+      newExercise,
+    );
+
+    if (planDay != null) {
+      Plan? targetPlan =
+          (state.userPlans ?? []).firstWhere((plan) => plan.planId == planId);
+
+      PlanDay updatedPlanDay = planDay.copyWith(
+        dayExercises: [
+          ...?planDay.dayExercises,
+          newExercise,
+        ],
+      );
+
+      final updatedDays = targetPlan.days?.map((day) {
+            return day.dayId == planDay.dayId ? updatedPlanDay : day;
+          }).toList() ??
+          [];
+
+      Plan updatedTargetPlan = targetPlan.copyWith(days: updatedDays);
+
+      List<Plan> updatedUserPlans = (state.userPlans ?? []).map((plan) {
+        return plan.planId == updatedTargetPlan.planId
+            ? updatedTargetPlan
+            : plan;
+      }).toList();
+      print('addNewExercise $updatedUserPlans');
+      emit(state.copyWith(
+        userPlans: updatedUserPlans,
+        currentPlan: updatedTargetPlan.planId == state.currentPlan?.planId
+            ? updatedTargetPlan
+            : state.currentPlan,
+      ));
+    }
   }
 
   void clearState() {

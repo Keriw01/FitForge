@@ -47,7 +47,7 @@ abstract class _$AppRouter extends RootStackRouter {
         routeData: routeData,
         child: ExerciseDetailPage(
           key: args.key,
-          exercise: args.exercise,
+          exerciseInfo: args.exerciseInfo,
         ),
       );
     },
@@ -212,13 +212,13 @@ class DayRoute extends PageRouteInfo<void> {
 class ExerciseDetailRoute extends PageRouteInfo<ExerciseDetailRouteArgs> {
   ExerciseDetailRoute({
     Key? key,
-    required Exercise exercise,
+    required ExerciseInfo exerciseInfo,
     List<PageRouteInfo>? children,
   }) : super(
           ExerciseDetailRoute.name,
           args: ExerciseDetailRouteArgs(
             key: key,
-            exercise: exercise,
+            exerciseInfo: exerciseInfo,
           ),
           initialChildren: children,
         );
@@ -232,16 +232,16 @@ class ExerciseDetailRoute extends PageRouteInfo<ExerciseDetailRouteArgs> {
 class ExerciseDetailRouteArgs {
   const ExerciseDetailRouteArgs({
     this.key,
-    required this.exercise,
+    required this.exerciseInfo,
   });
 
   final Key? key;
 
-  final Exercise exercise;
+  final ExerciseInfo exerciseInfo;
 
   @override
   String toString() {
-    return 'ExerciseDetailRouteArgs{key: $key, exercise: $exercise}';
+    return 'ExerciseDetailRouteArgs{key: $key, exerciseInfo: $exerciseInfo}';
   }
 }
 

@@ -170,6 +170,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("No exercises found."),
         "noExercisesInDay":
             MessageLookupByLibrary.simpleMessage("No exercise that day."),
+        "noPlansAvailable":
+            MessageLookupByLibrary.simpleMessage("No Plans Available"),
         "notValidEmail":
             MessageLookupByLibrary.simpleMessage("Incorrect email address"),
         "or": MessageLookupByLibrary.simpleMessage("OR"),
@@ -244,6 +246,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "usernameLabel": MessageLookupByLibrary.simpleMessage("Username"),
         "weakPassword": MessageLookupByLibrary.simpleMessage(
             "The password must be at least 8 characters long and contain one letter, a number and a special character"),
+        "whichDay": MessageLookupByLibrary.simpleMessage("Which Day"),
+        "whichPlan": MessageLookupByLibrary.simpleMessage("Which Plan"),
         "workoutsLabel": MessageLookupByLibrary.simpleMessage("Workout")
       };
 }

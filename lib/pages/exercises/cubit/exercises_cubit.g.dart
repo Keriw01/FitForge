@@ -12,11 +12,11 @@ abstract class _$ExercisesStateCWProxy {
 
   ExercisesState isLoading(bool isLoading);
 
-  ExercisesState exercises(List<Exercises>? exercises);
+  ExercisesState exercises(List<ExerciseInfo>? exercises);
 
   ExercisesState isFiltering(bool isFiltering);
 
-  ExercisesState filteredExercises(List<Exercises>? filteredExercises);
+  ExercisesState filteredExercises(List<ExerciseInfo>? filteredExercises);
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `ExercisesState(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
@@ -27,9 +27,9 @@ abstract class _$ExercisesStateCWProxy {
   ExercisesState call({
     FirestoreResponseMessage? firestoreResponseMessage,
     bool? isLoading,
-    List<Exercises>? exercises,
+    List<ExerciseInfo>? exercises,
     bool? isFiltering,
-    List<Exercises>? filteredExercises,
+    List<ExerciseInfo>? filteredExercises,
   });
 }
 
@@ -48,7 +48,7 @@ class _$ExercisesStateCWProxyImpl implements _$ExercisesStateCWProxy {
   ExercisesState isLoading(bool isLoading) => this(isLoading: isLoading);
 
   @override
-  ExercisesState exercises(List<Exercises>? exercises) =>
+  ExercisesState exercises(List<ExerciseInfo>? exercises) =>
       this(exercises: exercises);
 
   @override
@@ -56,7 +56,7 @@ class _$ExercisesStateCWProxyImpl implements _$ExercisesStateCWProxy {
       this(isFiltering: isFiltering);
 
   @override
-  ExercisesState filteredExercises(List<Exercises>? filteredExercises) =>
+  ExercisesState filteredExercises(List<ExerciseInfo>? filteredExercises) =>
       this(filteredExercises: filteredExercises);
 
   @override
@@ -88,7 +88,7 @@ class _$ExercisesStateCWProxyImpl implements _$ExercisesStateCWProxy {
       exercises: exercises == const $CopyWithPlaceholder()
           ? _value.exercises
           // ignore: cast_nullable_to_non_nullable
-          : exercises as List<Exercises>?,
+          : exercises as List<ExerciseInfo>?,
       isFiltering:
           isFiltering == const $CopyWithPlaceholder() || isFiltering == null
               ? _value.isFiltering
@@ -97,7 +97,7 @@ class _$ExercisesStateCWProxyImpl implements _$ExercisesStateCWProxy {
       filteredExercises: filteredExercises == const $CopyWithPlaceholder()
           ? _value.filteredExercises
           // ignore: cast_nullable_to_non_nullable
-          : filteredExercises as List<Exercises>?,
+          : filteredExercises as List<ExerciseInfo>?,
     );
   }
 }

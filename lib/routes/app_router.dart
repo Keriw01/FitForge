@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:fit_forge/models/exercise.dart';
+import 'package:fit_forge/models/exercise_info.dart';
 import 'package:fit_forge/pages/authentication_flow_screen.dart';
 import 'package:fit_forge/pages/exercises/body_parts_page.dart';
 import 'package:fit_forge/pages/exercises/exercise_detail_page.dart';

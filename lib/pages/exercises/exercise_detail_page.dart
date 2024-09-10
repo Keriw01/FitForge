@@ -1,21 +1,26 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:fit_forge/generated/l10n.dart';
-import 'package:fit_forge/models/exercise.dart';
+import 'package:fit_forge/models/exercise_info.dart';
+import 'package:fit_forge/models/plan.dart';
+import 'package:fit_forge/models/plan_day.dart';
 import 'package:fit_forge/pages/exercises/widgets/available_equipment_list.dart';
 import 'package:fit_forge/pages/exercises/widgets/target_muscle_group_list.dart';
+import 'package:fit_forge/pages/workouts/cubit/workouts_cubit.dart';
 import 'package:fit_forge/styles/app_colors.dart';
 import 'package:fit_forge/utils/helpers/exercise_helpers.dart';
 import 'package:fit_forge/utils/helpers/translation_helpers.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 @RoutePage()
 class ExerciseDetailPage extends StatefulWidget {
-  final Exercise exercise;
+  final ExerciseInfo exerciseInfo;
 
   const ExerciseDetailPage({
     super.key,
-    required this.exercise,
+    required this.exerciseInfo,
   });
 
   @override
@@ -29,7 +34,8 @@ class _ExerciseDetailPageState extends State<ExerciseDetailPage> {
   void initState() {
     super.initState();
     _controller = YoutubePlayerController(
-      initialVideoId: YoutubePlayer.convertUrlToId(widget.exercise.videoUrl)!,
+      initialVideoId:
+          YoutubePlayer.convertUrlToId(widget.exerciseInfo.exercise.videoUrl)!,
       flags: const YoutubePlayerFlags(
         autoPlay: false,
         mute: true,
@@ -48,6 +54,138 @@ class _ExerciseDetailPageState extends State<ExerciseDetailPage> {
   void deactivate() {
     _controller.pause();
     super.deactivate();
+  }
+
+  void _showAddToPlanModal(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      builder: (_) {
+        return BlocBuilder<WorkoutsCubit, WorkoutsState>(
+          builder: (context, state) {
+            final userPlans = state.userPlans;
+            if (userPlans == null || userPlans.isEmpty) {
+              return Center(
+                child: Text(S.of(context).noPlansAvailable),
+              );
+            }
+
+            Plan? selectedPlan;
+            PlanDay? selectedDay;
+
+            return StatefulBuilder(
+              builder: (context, setState) {
+                return Padding(
+                  padding: const EdgeInsets.only(
+                    left: 20,
+                    top: 10,
+                    right: 20,
+                    bottom: 70,
+                  ),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            TextButton(
+                              onPressed: () => context.router.maybePop(),
+                              child: Text(S.of(context).cancel),
+                            ),
+                            Text(S.of(context).addExercise),
+                            TextButton(
+                              onPressed:
+                                  selectedPlan != null && selectedDay != null
+                                      ? () {
+                                          context
+                                              .read<WorkoutsCubit>()
+                                              .addNewExercise(
+                                                selectedPlan?.planId,
+                                                selectedDay,
+                                                widget.exerciseInfo,
+                                              );
+                                          Navigator.of(context).pop();
+                                        }
+                                      : null,
+                              child: Text(S.of(context).add),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 10),
+                        Text(S.of(context).whichPlan),
+                        DropdownButtonHideUnderline(
+                          child: DropdownButton2<Plan>(
+                            alignment: Alignment.center,
+                            isExpanded: true,
+                            hint: Text(S.of(context).planName),
+                            value: selectedPlan,
+                            items: userPlans.map((plan) {
+                              return DropdownMenuItem<Plan>(
+                                alignment: Alignment.center,
+                                value: plan,
+                                child: Text(plan.planName),
+                              );
+                            }).toList(),
+                            onChanged: (Plan? newPlan) {
+                              setState(() {
+                                selectedPlan = newPlan;
+                                selectedDay = null;
+                              });
+                            },
+                            dropdownStyleData: const DropdownStyleData(
+                              isOverButton: true,
+                              maxHeight: 100,
+                            ),
+                          ),
+                        ),
+                        if (selectedPlan != null)
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const SizedBox(height: 10),
+                              Text(S.of(context).whichDay),
+                              DropdownButtonHideUnderline(
+                                child: DropdownButton2<PlanDay>(
+                                  alignment: Alignment.center,
+                                  isExpanded: true,
+                                  hint: Text(S.of(context).whichDay),
+                                  value: selectedDay,
+                                  items: selectedPlan!.days!
+                                      .where((day) => !(day.dayExercises ?? [])
+                                          .any((exercise) =>
+                                              exercise.exerciseRefId ==
+                                              widget.exerciseInfo.exerciseId))
+                                      .map((day) {
+                                    return DropdownMenuItem<PlanDay>(
+                                      alignment: Alignment.center,
+                                      value: day,
+                                      child: Text(day.dayTitle),
+                                    );
+                                  }).toList(),
+                                  onChanged: (PlanDay? newDay) {
+                                    setState(() {
+                                      selectedDay = newDay;
+                                    });
+                                  },
+                                  dropdownStyleData: const DropdownStyleData(
+                                    isOverButton: true,
+                                    maxHeight: 100,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                      ],
+                    ),
+                  ),
+                );
+              },
+            );
+          },
+        );
+      },
+    );
   }
 
   @override
@@ -73,7 +211,8 @@ class _ExerciseDetailPageState extends State<ExerciseDetailPage> {
                     const SizedBox(height: 10),
                     Center(
                       child: Text(
-                        getTranslationText(widget.exercise.title, context),
+                        getTranslationText(
+                            widget.exerciseInfo.exercise.title, context),
                         style: Theme.of(context).textTheme.headlineLarge,
                       ),
                     ),
@@ -99,9 +238,11 @@ class _ExerciseDetailPageState extends State<ExerciseDetailPage> {
                         const SizedBox(height: 10),
                         TargetMuscleGroupList(
                           targetMuscleGroupList: convertMapToList(
-                              widget.exercise.otherBodyParts, context),
+                              widget.exerciseInfo.exercise.otherBodyParts,
+                              context),
                           mainBodyPart: getTranslationText(
-                              widget.exercise.mainBodyPart, context),
+                              widget.exerciseInfo.exercise.mainBodyPart,
+                              context),
                         ),
                         const SizedBox(height: 10),
                         Text(
@@ -111,7 +252,8 @@ class _ExerciseDetailPageState extends State<ExerciseDetailPage> {
                         const SizedBox(height: 10),
                         AvailableEquipmentList(
                             availableEquipmentList: convertMapToList(
-                                widget.exercise.equipment, context)),
+                                widget.exerciseInfo.exercise.equipment,
+                                context)),
                         const SizedBox(height: 10),
                         Text(
                           S.of(context).description,
@@ -120,7 +262,8 @@ class _ExerciseDetailPageState extends State<ExerciseDetailPage> {
                         const SizedBox(height: 10),
                         Text(
                           getTranslationText(
-                              widget.exercise.description, context),
+                              widget.exerciseInfo.exercise.description,
+                              context),
                           style: Theme.of(context).textTheme.bodyLarge,
                           textAlign: TextAlign.justify,
                         ),
@@ -137,7 +280,7 @@ class _ExerciseDetailPageState extends State<ExerciseDetailPage> {
               children: [
                 const Spacer(),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () => _showAddToPlanModal(context),
                   style: ButtonStyle(
                     backgroundColor:
                         const MaterialStatePropertyAll(midNightBlue),

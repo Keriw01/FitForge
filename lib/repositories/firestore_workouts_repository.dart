@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fit_forge/exceptions/exceptions.dart';
+import 'package:fit_forge/models/exercise_info.dart';
 import 'package:fit_forge/models/plan.dart';
 import 'package:fit_forge/models/plan_day.dart';
 import 'package:fit_forge/models/day_exercise.dart';
@@ -291,7 +292,7 @@ class FirestoreWorkoutsRepository {
   Future<void> addNewExerciseToDay(
     String? userId,
     String? planId,
-    PlanDay? planDay,
+    String? dayId,
     List<DayExercise>? selectedListExercises,
   ) async {
     try {
@@ -301,7 +302,7 @@ class FirestoreWorkoutsRepository {
           .collection('Plans')
           .doc(planId);
 
-      final daysDocRef = planDocRef.collection('Days').doc(planDay?.dayId);
+      final daysDocRef = planDocRef.collection('Days').doc(dayId);
       final planExercisesCollectionRef = daysDocRef.collection('PlanExercises');
 
       for (DayExercise exercise in selectedListExercises ?? []) {
@@ -315,6 +316,33 @@ class FirestoreWorkoutsRepository {
           'best1RM': exercise.best1RM,
         });
       }
+    } catch (e) {
+      throw FirestoreException();
+    }
+  }
+
+  Future<void> addNewExerciseToDayFromExerciseDetail(
+    String? userId,
+    String? planId,
+    String? dayId,
+    DayExercise exercise,
+  ) async {
+    try {
+      final planDocRef = _firestore
+          .collection('UserTrainingPlans')
+          .doc(userId)
+          .collection('Plans')
+          .doc(planId);
+
+      final daysDocRef = planDocRef.collection('Days').doc(dayId);
+      final planExercisesCollectionRef = daysDocRef.collection('PlanExercises');
+
+      final planExercisesDocRef = planExercisesCollectionRef.doc();
+      await planExercisesDocRef.set({
+        'exerciseRefId': exercise.exerciseRefId,
+        'numberOfReps': exercise.numberOfReps,
+        'numberOfSets': exercise.numberOfSets,
+      });
     } catch (e) {
       throw FirestoreException();
     }

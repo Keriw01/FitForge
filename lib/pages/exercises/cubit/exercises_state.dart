@@ -4,9 +4,9 @@ part of 'exercises_cubit.dart';
 class ExercisesState with EquatableMixin {
   final FirestoreResponseMessage firestoreResponseMessage;
   final bool isLoading;
-  final List<Exercises>? exercises;
+  final List<ExerciseInfo>? exercises;
   final bool isFiltering;
-  final List<Exercises>? filteredExercises;
+  final List<ExerciseInfo>? filteredExercises;
 
   ExercisesState({
     this.firestoreResponseMessage = FirestoreResponseMessage.none,

@@ -150,5 +150,8 @@
     "sets": "Sets",
     "duration": "Duration",
     "searchExerciseHint": "Search Exercise...",
-    "emptyExercisesList": "Empty Exercises List"
+    "emptyExercisesList": "Empty Exercises List",
+    "noPlansAvailable": "No Plans Available",
+    "whichPlan": "Which Plan",
+    "whichDay": "Which Day"
 }

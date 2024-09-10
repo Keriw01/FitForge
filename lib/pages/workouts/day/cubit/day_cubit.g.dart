@@ -14,10 +14,10 @@ abstract class _$DayStateCWProxy {
 
   DayState planDay(PlanDay? planDay);
 
-  DayState exercisesOfDay(List<Exercises>? exercisesOfDay);
+  DayState exercisesOfDay(List<ExerciseInfo>? exercisesOfDay);
 
   DayState filteredExercisesForAdding(
-      List<Exercises>? filteredExercisesForAdding);
+      List<ExerciseInfo>? filteredExercisesForAdding);
 
   DayState selectedListExercises(List<DayExercise>? selectedListExercises);
 
@@ -31,8 +31,8 @@ abstract class _$DayStateCWProxy {
     bool? isLoading,
     FirestoreResponseMessage? firestoreResponseMessage,
     PlanDay? planDay,
-    List<Exercises>? exercisesOfDay,
-    List<Exercises>? filteredExercisesForAdding,
+    List<ExerciseInfo>? exercisesOfDay,
+    List<ExerciseInfo>? filteredExercisesForAdding,
     List<DayExercise>? selectedListExercises,
   });
 }
@@ -55,12 +55,12 @@ class _$DayStateCWProxyImpl implements _$DayStateCWProxy {
   DayState planDay(PlanDay? planDay) => this(planDay: planDay);
 
   @override
-  DayState exercisesOfDay(List<Exercises>? exercisesOfDay) =>
+  DayState exercisesOfDay(List<ExerciseInfo>? exercisesOfDay) =>
       this(exercisesOfDay: exercisesOfDay);
 
   @override
   DayState filteredExercisesForAdding(
-          List<Exercises>? filteredExercisesForAdding) =>
+          List<ExerciseInfo>? filteredExercisesForAdding) =>
       this(filteredExercisesForAdding: filteredExercisesForAdding);
 
   @override
@@ -101,12 +101,12 @@ class _$DayStateCWProxyImpl implements _$DayStateCWProxy {
       exercisesOfDay: exercisesOfDay == const $CopyWithPlaceholder()
           ? _value.exercisesOfDay
           // ignore: cast_nullable_to_non_nullable
-          : exercisesOfDay as List<Exercises>?,
+          : exercisesOfDay as List<ExerciseInfo>?,
       filteredExercisesForAdding:
           filteredExercisesForAdding == const $CopyWithPlaceholder()
               ? _value.filteredExercisesForAdding
               // ignore: cast_nullable_to_non_nullable
-              : filteredExercisesForAdding as List<Exercises>?,
+              : filteredExercisesForAdding as List<ExerciseInfo>?,
       selectedListExercises:
           selectedListExercises == const $CopyWithPlaceholder()
               ? _value.selectedListExercises

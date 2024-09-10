@@ -6,9 +6,9 @@ class DayState with EquatableMixin {
   final FirestoreResponseMessage firestoreResponseMessage;
 
   final PlanDay? planDay;
-  final List<Exercises>? exercisesOfDay;
+  final List<ExerciseInfo>? exercisesOfDay;
 
-  final List<Exercises>? filteredExercisesForAdding;
+  final List<ExerciseInfo>? filteredExercisesForAdding;
   final List<DayExercise>? selectedListExercises;
 
   DayState({

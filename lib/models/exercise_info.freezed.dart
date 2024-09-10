@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'exercises.dart';
+part of 'exercise_info.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,25 +14,26 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-Exercises _$ExercisesFromJson(Map<String, dynamic> json) {
-  return _Exercises.fromJson(json);
+ExerciseInfo _$ExerciseInfoFromJson(Map<String, dynamic> json) {
+  return _ExerciseInfo.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Exercises {
+mixin _$ExerciseInfo {
   String get exerciseId => throw _privateConstructorUsedError;
   Exercise get exercise => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ExercisesCopyWith<Exercises> get copyWith =>
+  $ExerciseInfoCopyWith<ExerciseInfo> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ExercisesCopyWith<$Res> {
-  factory $ExercisesCopyWith(Exercises value, $Res Function(Exercises) then) =
-      _$ExercisesCopyWithImpl<$Res, Exercises>;
+abstract class $ExerciseInfoCopyWith<$Res> {
+  factory $ExerciseInfoCopyWith(
+          ExerciseInfo value, $Res Function(ExerciseInfo) then) =
+      _$ExerciseInfoCopyWithImpl<$Res, ExerciseInfo>;
   @useResult
   $Res call({String exerciseId, Exercise exercise});
 
@@ -40,9 +41,9 @@ abstract class $ExercisesCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ExercisesCopyWithImpl<$Res, $Val extends Exercises>
-    implements $ExercisesCopyWith<$Res> {
-  _$ExercisesCopyWithImpl(this._value, this._then);
+class _$ExerciseInfoCopyWithImpl<$Res, $Val extends ExerciseInfo>
+    implements $ExerciseInfoCopyWith<$Res> {
+  _$ExerciseInfoCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -77,11 +78,11 @@ class _$ExercisesCopyWithImpl<$Res, $Val extends Exercises>
 }
 
 /// @nodoc
-abstract class _$$ExercisesImplCopyWith<$Res>
-    implements $ExercisesCopyWith<$Res> {
-  factory _$$ExercisesImplCopyWith(
-          _$ExercisesImpl value, $Res Function(_$ExercisesImpl) then) =
-      __$$ExercisesImplCopyWithImpl<$Res>;
+abstract class _$$ExerciseInfoImplCopyWith<$Res>
+    implements $ExerciseInfoCopyWith<$Res> {
+  factory _$$ExerciseInfoImplCopyWith(
+          _$ExerciseInfoImpl value, $Res Function(_$ExerciseInfoImpl) then) =
+      __$$ExerciseInfoImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String exerciseId, Exercise exercise});
@@ -91,11 +92,11 @@ abstract class _$$ExercisesImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$ExercisesImplCopyWithImpl<$Res>
-    extends _$ExercisesCopyWithImpl<$Res, _$ExercisesImpl>
-    implements _$$ExercisesImplCopyWith<$Res> {
-  __$$ExercisesImplCopyWithImpl(
-      _$ExercisesImpl _value, $Res Function(_$ExercisesImpl) _then)
+class __$$ExerciseInfoImplCopyWithImpl<$Res>
+    extends _$ExerciseInfoCopyWithImpl<$Res, _$ExerciseInfoImpl>
+    implements _$$ExerciseInfoImplCopyWith<$Res> {
+  __$$ExerciseInfoImplCopyWithImpl(
+      _$ExerciseInfoImpl _value, $Res Function(_$ExerciseInfoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -104,7 +105,7 @@ class __$$ExercisesImplCopyWithImpl<$Res>
     Object? exerciseId = null,
     Object? exercise = null,
   }) {
-    return _then(_$ExercisesImpl(
+    return _then(_$ExerciseInfoImpl(
       exerciseId: null == exerciseId
           ? _value.exerciseId
           : exerciseId // ignore: cast_nullable_to_non_nullable
@@ -119,11 +120,11 @@ class __$$ExercisesImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ExercisesImpl implements _Exercises {
-  _$ExercisesImpl({required this.exerciseId, required this.exercise});
+class _$ExerciseInfoImpl implements _ExerciseInfo {
+  _$ExerciseInfoImpl({required this.exerciseId, required this.exercise});
 
-  factory _$ExercisesImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ExercisesImplFromJson(json);
+  factory _$ExerciseInfoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ExerciseInfoImplFromJson(json);
 
   @override
   final String exerciseId;
@@ -132,14 +133,14 @@ class _$ExercisesImpl implements _Exercises {
 
   @override
   String toString() {
-    return 'Exercises(exerciseId: $exerciseId, exercise: $exercise)';
+    return 'ExerciseInfo(exerciseId: $exerciseId, exercise: $exercise)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ExercisesImpl &&
+            other is _$ExerciseInfoImpl &&
             (identical(other.exerciseId, exerciseId) ||
                 other.exerciseId == exerciseId) &&
             (identical(other.exercise, exercise) ||
@@ -153,24 +154,24 @@ class _$ExercisesImpl implements _Exercises {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ExercisesImplCopyWith<_$ExercisesImpl> get copyWith =>
-      __$$ExercisesImplCopyWithImpl<_$ExercisesImpl>(this, _$identity);
+  _$$ExerciseInfoImplCopyWith<_$ExerciseInfoImpl> get copyWith =>
+      __$$ExerciseInfoImplCopyWithImpl<_$ExerciseInfoImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ExercisesImplToJson(
+    return _$$ExerciseInfoImplToJson(
       this,
     );
   }
 }
 
-abstract class _Exercises implements Exercises {
-  factory _Exercises(
+abstract class _ExerciseInfo implements ExerciseInfo {
+  factory _ExerciseInfo(
       {required final String exerciseId,
-      required final Exercise exercise}) = _$ExercisesImpl;
+      required final Exercise exercise}) = _$ExerciseInfoImpl;
 
-  factory _Exercises.fromJson(Map<String, dynamic> json) =
-      _$ExercisesImpl.fromJson;
+  factory _ExerciseInfo.fromJson(Map<String, dynamic> json) =
+      _$ExerciseInfoImpl.fromJson;
 
   @override
   String get exerciseId;
@@ -178,6 +179,6 @@ abstract class _Exercises implements Exercises {
   Exercise get exercise;
   @override
   @JsonKey(ignore: true)
-  _$$ExercisesImplCopyWith<_$ExercisesImpl> get copyWith =>
+  _$$ExerciseInfoImplCopyWith<_$ExerciseInfoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

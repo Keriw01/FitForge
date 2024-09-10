@@ -3,7 +3,6 @@ import 'package:fit_forge/generated/l10n.dart';
 import 'package:fit_forge/pages/workouts/day/cubit/day_cubit.dart';
 import 'package:fit_forge/pages/workouts/day/widgets/day_exercise_item.dart';
 import 'package:fit_forge/pages/workouts/widgets/workout_utils.dart';
-import 'package:fit_forge/routes/app_router.dart';
 import 'package:fit_forge/styles/app_colors.dart';
 import 'package:fit_forge/widgets/custom_loading_indicator.dart';
 import 'package:flutter/material.dart';
@@ -67,7 +66,7 @@ class DayPage extends StatelessWidget {
                           return Column(
                             children: [
                               DayExerciseItem(
-                                exercise: exerciseInfo!.exercise,
+                                exerciseInfo: exerciseInfo!,
                                 dayExercise: dayExercise!,
                               ),
                               const Divider(height: 1),

@@ -2,8 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:fit_forge/generated/l10n.dart';
 import 'package:fit_forge/models/day_exercise.dart';
-import 'package:fit_forge/models/exercise.dart';
-import 'package:fit_forge/pages/exercises/widgets/equipment_subtitle.dart';
+import 'package:fit_forge/models/exercise_info.dart';
 import 'package:fit_forge/routes/app_router.dart';
 import 'package:fit_forge/utils/helpers/translation_helpers.dart';
 import 'package:fit_forge/widgets/custom_loading_indicator.dart';
@@ -11,12 +10,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class DayExerciseItem extends StatelessWidget {
-  final Exercise exercise;
+  final ExerciseInfo exerciseInfo;
   final DayExercise dayExercise;
 
   const DayExerciseItem({
     super.key,
-    required this.exercise,
+    required this.exerciseInfo,
     required this.dayExercise,
   });
 
@@ -33,7 +32,7 @@ class DayExerciseItem extends StatelessWidget {
                 width: 100,
                 height: 100,
                 fit: BoxFit.fill,
-                imageUrl: exercise.thumbnailUrl,
+                imageUrl: exerciseInfo.exercise.thumbnailUrl,
                 progressIndicatorBuilder: (context, url, downloadProgress) =>
                     const CustomLoadingIndicator(
                   width: 20,
@@ -51,7 +50,7 @@ class DayExerciseItem extends StatelessWidget {
             children: [
               Text(
                 getTranslationText(
-                  exercise.title,
+                  exerciseInfo.exercise.title,
                   context,
                 ),
                 style: Theme.of(context)
@@ -66,8 +65,8 @@ class DayExerciseItem extends StatelessWidget {
           ),
           const Spacer(),
           IconButton(
-            onPressed: () =>
-                context.router.push(ExerciseDetailRoute(exercise: exercise)),
+            onPressed: () => context.router
+                .push(ExerciseDetailRoute(exerciseInfo: exerciseInfo)),
             icon: const Icon(Icons.arrow_forward_ios),
           ),
         ],

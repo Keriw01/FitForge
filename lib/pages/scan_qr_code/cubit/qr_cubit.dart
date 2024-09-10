@@ -2,7 +2,7 @@ import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
 import 'package:fit_forge/base_cubit/base_cubit.dart';
 import 'package:fit_forge/consts/enums.dart';
-import 'package:fit_forge/models/exercises.dart';
+import 'package:fit_forge/models/exercise_info.dart';
 import 'package:fit_forge/pages/exercises/cubit/exercises_cubit.dart';
 import 'package:fit_forge/routes/app_router.dart';
 import 'package:flutter/material.dart';
@@ -30,9 +30,9 @@ class QrCubit extends BaseCubit<QrState> {
       return;
     }
 
-    final List<Exercises>? exercises = exercisesCubit.state.exercises;
+    final List<ExerciseInfo>? exercises = exercisesCubit.state.exercises;
 
-    Exercises? exercisesItem;
+    ExerciseInfo? exercisesItem;
     if (exercises != null) {
       try {
         exercisesItem = exercises.firstWhere(
@@ -55,7 +55,7 @@ class QrCubit extends BaseCubit<QrState> {
 
       appRouter.replaceAll([
         QrCodeRoute(),
-        ExerciseDetailRoute(exercise: exercisesItem.exercise),
+        ExerciseDetailRoute(exerciseInfo: exercisesItem),
       ]);
     }
   }

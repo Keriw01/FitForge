@@ -1559,6 +1559,36 @@ class S {
       args: [],
     );
   }
+
+  /// `No Plans Available`
+  String get noPlansAvailable {
+    return Intl.message(
+      'No Plans Available',
+      name: 'noPlansAvailable',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Which Plan`
+  String get whichPlan {
+    return Intl.message(
+      'Which Plan',
+      name: 'whichPlan',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Which Day`
+  String get whichDay {
+    return Intl.message(
+      'Which Day',
+      name: 'whichDay',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
