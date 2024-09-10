@@ -69,7 +69,7 @@ class _ExerciseDetailPageState extends State<ExerciseDetailPage> {
               );
             }
 
-            Plan? selectedPlan;
+            Plan? selectedPlan = state.currentPlan;
             PlanDay? selectedDay;
 
             return StatefulBuilder(
