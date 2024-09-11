@@ -20,11 +20,9 @@ class SettingsCubit extends BaseCubit<SettingsState> {
       : super(
           appRouter,
           SettingsState(),
-        ) {
-    _getUserProfile();
-  }
+        );
 
-  Future<void> _getUserProfile() async {
+  Future<void> getUserProfile() async {
     try {
       emit(state.copyWith(isLoading: true));
 
@@ -113,7 +111,7 @@ class SettingsCubit extends BaseCubit<SettingsState> {
 
   void navigateToSettingsPage() async {
     appRouter.push(SettingsRoute());
-    await _getUserProfile();
+    await getUserProfile();
   }
 
   void clearState() {

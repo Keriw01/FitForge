@@ -29,10 +29,10 @@ class WorkoutsCubit extends BaseCubit<WorkoutsState> {
           appRouter,
           WorkoutsState(),
         ) {
-    _getUserPlansAndCurrent();
+    getUserPlansAndCurrent();
   }
 
-  Future<void> _getUserPlansAndCurrent() async {
+  Future<void> getUserPlansAndCurrent() async {
     try {
       emit(state.copyWith(
         isLoading: true,
@@ -148,7 +148,6 @@ class WorkoutsCubit extends BaseCubit<WorkoutsState> {
   }
 
   void setCurrentPlan(Plan plan) async {
-    print(plan);
     try {
       emit(state.copyWith(
         firestoreResponseMessage: FirestoreResponseMessage.none,

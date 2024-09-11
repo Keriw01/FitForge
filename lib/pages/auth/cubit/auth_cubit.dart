@@ -26,9 +26,11 @@ part 'auth_cubit.g.dart';
 class AuthCubit extends BaseCubit<AuthState> {
   late final FirestoreAuthRepository _firebaseAuthService =
       FirestoreAuthRepository();
+  late final WorkoutsCubit _workoutsCubit;
 
   AuthCubit(AppRouter appRouter, BuildContext context)
-      : super(
+      : _workoutsCubit = context.read<WorkoutsCubit>(),
+        super(
           appRouter,
           AuthState(),
         );
@@ -64,6 +66,9 @@ class AuthCubit extends BaseCubit<AuthState> {
           formStatus: FormzSubmissionStatus.success,
           currentUser: user,
         ));
+
+        _workoutsCubit.getUserPlansAndCurrent();
+
         _navigateToAuthFlowScreen();
       } else {
         emit(state.copyWith(
@@ -272,7 +277,7 @@ class AuthCubit extends BaseCubit<AuthState> {
 
   void navigateToRegisterPage() {
     _clearState();
-    appRouter.replace(RegisterRoute());
+    appRouter.replace(const RegisterRoute());
   }
 
   void _navigateToAuthFlowScreen() {
