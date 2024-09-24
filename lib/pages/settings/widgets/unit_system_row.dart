@@ -34,7 +34,7 @@ class UnitSystemRow extends StatelessWidget {
           children: [
             Text(
               S.of(context).unitSystem,
-              style: Theme.of(context).textTheme.bodyMedium,
+              style: Theme.of(context).textTheme.headlineSmall,
             ),
             Row(
               children: [
@@ -45,7 +45,7 @@ class UnitSystemRow extends StatelessWidget {
                       )
                     : Text(
                         unitSystem ?? S.of(context).noData,
-                        style: Theme.of(context).textTheme.headlineMedium,
+                        style: Theme.of(context).textTheme.displaySmall,
                       ),
                 const SizedBox(width: 10),
                 const Icon(
@@ -83,7 +83,7 @@ class UnitSystemRow extends StatelessWidget {
                   RadioListTile<String>(
                     title: Text(
                       'cm/kg',
-                      style: Theme.of(context).textTheme.bodyMedium,
+                      style: Theme.of(context).textTheme.labelMedium,
                     ),
                     value: 'cm/kg',
                     groupValue: tempSelectedOption,
@@ -96,7 +96,7 @@ class UnitSystemRow extends StatelessWidget {
                   RadioListTile<String>(
                     title: Text(
                       'inch/lb',
-                      style: Theme.of(context).textTheme.bodyMedium,
+                      style: Theme.of(context).textTheme.labelMedium,
                     ),
                     value: 'inch/lb',
                     groupValue: tempSelectedOption,
@@ -113,13 +113,19 @@ class UnitSystemRow extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     TextButton(
-                      child: Text(S.of(context).cancel),
+                      child: Text(
+                        S.of(context).cancel,
+                        style: Theme.of(context).textTheme.displaySmall,
+                      ),
                       onPressed: () {
                         Navigator.of(context).pop();
                       },
                     ),
                     TextButton(
-                      child: Text(S.of(context).save),
+                      child: Text(
+                        S.of(context).save,
+                        style: Theme.of(context).textTheme.displaySmall,
+                      ),
                       onPressed: () {
                         if (tempSelectedOption!.isNotEmpty) {
                           onSave(tempSelectedOption!);

@@ -16,7 +16,7 @@ class FormErrorText extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: 5),
             child: Text(
               error.toString(),
-              style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+              style: Theme.of(context).textTheme.labelMedium!.copyWith(
                     fontSize: 12,
                     color: redColor,
                   ),

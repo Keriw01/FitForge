@@ -4,9 +4,9 @@ import 'package:fit_forge/pages/workouts/cubit/workouts_cubit.dart';
 import 'package:fit_forge/pages/workouts/widgets/bottom_sheet_content.dart';
 import 'package:fit_forge/pages/workouts/widgets/workout_utils.dart';
 import 'package:fit_forge/styles/app_colors.dart';
+import 'package:fit_forge/utils/helpers/helper_methods.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class MyPlansView extends StatefulWidget {
   const MyPlansView({super.key});
@@ -53,19 +53,20 @@ class _MyPlansViewState extends State<MyPlansView> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 ListTile(
-                    title: Text(
-                  plan.planName,
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.bodyMedium,
-                )),
+                  title: Text(
+                    plan.planName,
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.headlineLarge,
+                  ),
+                ),
                 ListTile(
                   title: Text(
                     S.of(context).edit,
                     textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Colors.amber[700],
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: Theme.of(context)
+                        .textTheme
+                        .displaySmall
+                        ?.copyWith(color: orangeColor),
                   ),
                   onTap: () {
                     Navigator.pop(context);
@@ -76,10 +77,10 @@ class _MyPlansViewState extends State<MyPlansView> {
                   title: Text(
                     S.of(context).delete,
                     textAlign: TextAlign.center,
-                    style: const TextStyle(
-                      color: redColor,
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: Theme.of(context)
+                        .textTheme
+                        .displaySmall
+                        ?.copyWith(color: redColor),
                   ),
                   onTap: () {
                     Navigator.pop(context);
@@ -97,10 +98,7 @@ class _MyPlansViewState extends State<MyPlansView> {
                   title: Text(
                     S.of(context).cancel,
                     textAlign: TextAlign.center,
-                    style: const TextStyle(
-                      color: midNightBlue,
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: Theme.of(context).textTheme.displaySmall,
                   ),
                   onTap: () {
                     Navigator.pop(context);
@@ -118,142 +116,132 @@ class _MyPlansViewState extends State<MyPlansView> {
   Widget build(BuildContext context) {
     return BlocBuilder<WorkoutsCubit, WorkoutsState>(
       builder: (context, state) {
-        if (state.userPlans != null) {
-          return Stack(
-            alignment: AlignmentDirectional.bottomCenter,
-            children: [
-              ListView.builder(
-                itemCount: state.userPlans?.length,
-                itemBuilder: (context, index) {
-                  Color containerColor = planColors[index % planColors.length];
+        Widget content;
 
-                  bool isCurrentPlan = state.userPlans?[index].planId ==
-                      state.currentPlan?.planId;
+        if (state.userPlans != null && state.userPlans!.isNotEmpty) {
+          content = ListView.builder(
+            itemCount: state.userPlans?.length,
+            itemBuilder: (context, index) {
+              Color containerColor = planColors[index % planColors.length];
+              bool isCurrentPlan =
+                  state.userPlans?[index].planId == state.currentPlan?.planId;
 
-                  return Container(
-                    padding: const EdgeInsets.all(10),
-                    margin: const EdgeInsets.all(10),
-                    height: 120,
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      color: containerColor,
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    child: Row(
+              return Container(
+                padding: const EdgeInsets.all(10),
+                margin: const EdgeInsets.all(10),
+                height: 120,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: containerColor,
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                child: Row(
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Text(
-                              state.userPlans![index].planName,
-                              style: GoogleFonts.roboto(
-                                fontWeight: FontWeight.w600,
-                                fontSize: 18,
-                                color: whiteColor,
-                              ),
-                            ),
-                            Text(
-                              '${state.userPlans![index].planType[0].toUpperCase()}${state.userPlans![index].planType.substring(1)} ${state.userPlans![index].numberOfDays} ${S.of(context).days}',
-                              style: GoogleFonts.roboto(
-                                fontSize: 14,
-                                color: whiteColor,
-                              ),
-                            ),
-                            // TODO Wyświetlić dane dotyczące ostatnie aktywności
-                            Text(
-                              '${S.of(context).lastActivity}empty data',
-                              style: GoogleFonts.roboto(
-                                fontSize: 12,
-                                color: whiteColor,
-                              ),
-                            ),
-                          ],
+                        Text(
+                          state.userPlans![index].planName,
+                          style: Theme.of(context)
+                              .textTheme
+                              .headlineLarge
+                              ?.copyWith(color: whiteColor),
                         ),
-                        const Spacer(),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            IconButton(
-                              color: whiteColor,
-                              alignment: Alignment.topRight,
-                              onPressed: () =>
-                                  _showPlanOptions(state.userPlans![index]),
-                              icon: const Icon(Icons.more_horiz),
-                            ),
-                            const Spacer(),
-                            ElevatedButton(
-                              onPressed: () => context
-                                  .read<WorkoutsCubit>()
-                                  .setCurrentPlan(state.userPlans![index]),
-                              style: ButtonStyle(
-                                backgroundColor: MaterialStateProperty.all(
-                                    isCurrentPlan
-                                        ? whiteColor
-                                        : Colors.transparent),
-                                elevation: MaterialStateProperty.all(0),
-                                side: isCurrentPlan
-                                    ? null
-                                    : MaterialStateProperty.all(
-                                        const BorderSide(
-                                            color: whiteColor, width: 2),
-                                      ),
-                                shape: MaterialStateProperty.all(
-                                  RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(20),
-                                  ),
-                                ),
-                                padding:
-                                    MaterialStateProperty.all(EdgeInsets.zero),
-                                minimumSize: MaterialStateProperty.all(
-                                  const Size(70, 25),
-                                ),
-                              ),
-                              child: Text(
-                                isCurrentPlan
-                                    ? S.of(context).active
-                                    : S.of(context).set,
-                                style: GoogleFonts.roboto(
-                                  fontSize: 14,
-                                  color:
-                                      isCurrentPlan ? midNightBlue : whiteColor,
-                                ),
-                              ),
-                            ),
-                          ],
-                        )
+                        Text(
+                          '${state.userPlans![index].planType[0].toUpperCase()}${state.userPlans![index].planType.substring(1)} ${state.userPlans![index].numberOfDays} ${S.of(context).days}',
+                          style: Theme.of(context)
+                              .textTheme
+                              .headlineSmall
+                              ?.copyWith(color: whiteColor),
+                        ),
+                        // TODO Display actual last activity data
+                        Text(
+                          '${S.of(context).lastActivity}empty data',
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodySmall
+                              ?.copyWith(color: whiteColor),
+                        ),
                       ],
                     ),
-                  );
-                },
-              ),
-              Padding(
-                padding: const EdgeInsets.only(bottom: 10),
-                child: ElevatedButton(
-                  onPressed: () => _openBottomSheet(true),
-                  child: Text(
-                    S.of(context).createYourOwnWorkoutPlanButton,
-                  ),
+                    const Spacer(),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        IconButton(
+                          color: whiteColor,
+                          alignment: Alignment.topRight,
+                          onPressed: () =>
+                              _showPlanOptions(state.userPlans![index]),
+                          icon: const Icon(Icons.more_horiz),
+                        ),
+                        const Spacer(),
+                        ElevatedButton(
+                          onPressed: () => context
+                              .read<WorkoutsCubit>()
+                              .setCurrentPlan(state.userPlans![index]),
+                          style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all(
+                              isCurrentPlan ? whiteColor : Colors.transparent,
+                            ),
+                            elevation: MaterialStateProperty.all(0),
+                            side: isCurrentPlan
+                                ? null
+                                : MaterialStateProperty.all(
+                                    const BorderSide(
+                                        color: whiteColor, width: 2),
+                                  ),
+                            shape: MaterialStateProperty.all(
+                              RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                            ),
+                            padding: MaterialStateProperty.all(EdgeInsets.zero),
+                            minimumSize: MaterialStateProperty.all(
+                              const Size(70, 25),
+                            ),
+                          ),
+                          child: Text(
+                            isCurrentPlan
+                                ? S.of(context).active
+                                : S.of(context).set,
+                            style: Theme.of(context)
+                                .textTheme
+                                .displaySmall
+                                ?.copyWith(
+                                  color: !isCurrentPlan ? whiteColor : seedBlue,
+                                ),
+                          ),
+                        ),
+                      ],
+                    )
+                  ],
                 ),
-              ),
-            ],
+              );
+            },
+          );
+        } else {
+          content = Center(
+            child: Text(
+              S.of(context).emptyPlans,
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.bodyLarge,
+            ),
           );
         }
+
         return Stack(
           alignment: AlignmentDirectional.bottomCenter,
           children: [
-            Center(
-              child: Text(
-                S.of(context).emptyPlans,
-                textAlign: TextAlign.center,
-              ),
-            ),
+            content,
             Padding(
               padding: const EdgeInsets.only(bottom: 10),
               child: ElevatedButton(
                 onPressed: () => _openBottomSheet(true),
                 child: Text(
                   S.of(context).createYourOwnWorkoutPlanButton,
+                  style: Theme.of(context).textTheme.displayMedium,
                 ),
               ),
             ),

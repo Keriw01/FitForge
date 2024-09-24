@@ -119,6 +119,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "enterBirthDate":
             MessageLookupByLibrary.simpleMessage("Wprowadź datę urodzin"),
         "enterEmail": MessageLookupByLibrary.simpleMessage("Wpisz swój e-mail"),
+        "enterNewDefaultReps": MessageLookupByLibrary.simpleMessage(
+            "Wprowadź nową ilość powtórzeń"),
+        "enterNewDefaultSets":
+            MessageLookupByLibrary.simpleMessage("Wprowadź nową ilość serii"),
         "enterNewName":
             MessageLookupByLibrary.simpleMessage("Wprowadź nową nazwę"),
         "enterNewUsername": MessageLookupByLibrary.simpleMessage(

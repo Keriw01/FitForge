@@ -3,10 +3,9 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:fit_forge/models/exercise_info.dart';
 import 'package:fit_forge/pages/exercises/widgets/equipment_subtitle.dart';
 import 'package:fit_forge/routes/app_router.dart';
-import 'package:fit_forge/utils/helpers/translation_helpers.dart';
+import 'package:fit_forge/utils/helpers/helper_methods.dart';
 import 'package:fit_forge/widgets/custom_loading_indicator.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class ExercisesItemList extends StatelessWidget {
   final ExerciseInfo exerciseInfo;
@@ -32,7 +31,7 @@ class ExercisesItemList extends StatelessWidget {
           style: Theme.of(context)
               .textTheme
               .bodyMedium
-              ?.copyWith(fontWeight: FontWeight.w600),
+              ?.copyWith(fontWeight: FontWeight.bold),
         ),
         subtitle: EquipmentSubtitle(
           equipment: exerciseInfo.exercise.equipment,

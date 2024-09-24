@@ -2,6 +2,7 @@ import 'package:fit_forge/consts/enums.dart';
 import 'package:fit_forge/generated/l10n.dart';
 import 'package:fit_forge/pages/workouts/cubit/workouts_cubit.dart';
 import 'package:fit_forge/styles/app_colors.dart';
+import 'package:fit_forge/utils/helpers/helper_methods.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:numberpicker/numberpicker.dart';
@@ -18,7 +19,7 @@ class BottomSheetContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool isLight = Theme.of(context).brightness == Brightness.light;
+    bool isLight = isLightTheme(context);
 
     return BlocBuilder<WorkoutsCubit, WorkoutsState>(
       builder: (context, state) {
@@ -38,17 +39,17 @@ class BottomSheetContent extends StatelessWidget {
                       isCreatingPlan
                           ? S.of(context).cancel
                           : S.of(context).discard,
-                      style: Theme.of(context)
-                          .textTheme
-                          .labelMedium!
-                          .copyWith(color: isLight ? midNightBlue : whiteColor),
+                      style: Theme.of(context).textTheme.displaySmall,
                     ),
                   ),
                   Text(
                     isCreatingPlan
                         ? S.of(context).createWorkoutPlanHeader
                         : S.of(context).editPlan,
-                    style: Theme.of(context).textTheme.headlineLarge,
+                    style: Theme.of(context)
+                        .textTheme
+                        .headlineLarge
+                        ?.copyWith(color: isLight ? defaultFontsColor : null),
                   ),
                   TextButton(
                     onPressed: () => isCreatingPlan
@@ -58,10 +59,7 @@ class BottomSheetContent extends StatelessWidget {
                       isCreatingPlan
                           ? S.of(context).confirm
                           : S.of(context).save,
-                      style: Theme.of(context)
-                          .textTheme
-                          .labelMedium!
-                          .copyWith(color: isLight ? midNightBlue : whiteColor),
+                      style: Theme.of(context).textTheme.displaySmall,
                     ),
                   ),
                 ],
@@ -71,17 +69,19 @@ class BottomSheetContent extends StatelessWidget {
                 onChanged: (value) => cubit.setPlanName(value),
                 decoration: InputDecoration(
                   labelText: S.of(context).planName,
-                  labelStyle: Theme.of(context).textTheme.headlineMedium,
+                  labelStyle: Theme.of(context).textTheme.labelMedium,
+                  floatingLabelStyle: Theme.of(context).textTheme.labelSmall,
                   errorText: state.planName.isNotValid
                       ? S.of(context).planNameRequired
                       : null,
                   contentPadding: EdgeInsets.zero,
                 ),
+                style: Theme.of(context).textTheme.labelMedium,
               ),
               const SizedBox(height: 10),
               Text(
                 S.of(context).selectPlanType,
-                style: Theme.of(context).textTheme.headlineMedium,
+                style: Theme.of(context).textTheme.labelMedium,
               ),
               ToggleButtons(
                 isSelected: PlanTypes.values
@@ -97,13 +97,16 @@ class BottomSheetContent extends StatelessWidget {
                 children: PlanTypes.values.map((type) {
                   return Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10),
-                    child: Text(type.name),
+                    child: Text(
+                      type.name,
+                      style: Theme.of(context).textTheme.labelMedium,
+                    ),
                   );
                 }).toList(),
               ),
               Text(
                 S.of(context).selectDifficultyLevel,
-                style: Theme.of(context).textTheme.headlineMedium,
+                style: Theme.of(context).textTheme.labelMedium,
               ),
               ToggleButtons(
                 isSelected: DifficultyLevels.values
@@ -119,14 +122,17 @@ class BottomSheetContent extends StatelessWidget {
                 children: DifficultyLevels.values.map((level) {
                   return Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10),
-                    child: Text(level.name),
+                    child: Text(
+                      level.name,
+                      style: Theme.of(context).textTheme.labelMedium,
+                    ),
                   );
                 }).toList(),
               ),
               isCreatingPlan
                   ? Text(
                       S.of(context).selectNumberOfDays,
-                      style: Theme.of(context).textTheme.headlineMedium,
+                      style: Theme.of(context).textTheme.labelMedium,
                     )
                   : const SizedBox(),
               isCreatingPlan ? const SizedBox(height: 10) : const SizedBox(),
@@ -138,11 +144,13 @@ class BottomSheetContent extends StatelessWidget {
                       maxValue: 8,
                       value: state.numberOfDays,
                       onChanged: (value) => cubit.setNumberOfDays(value),
-                      textStyle: const TextStyle(fontSize: 12),
-                      selectedTextStyle: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold,
-                          color: isLight ? midNightBlue : whiteColor),
+                      textStyle: Theme.of(context).textTheme.labelMedium,
+                      selectedTextStyle: Theme.of(context)
+                          .textTheme
+                          .labelMedium
+                          ?.copyWith(
+                              fontWeight: FontWeight.bold,
+                              color: isLight ? seedBlue : whiteColor),
                     )
                   : const SizedBox(),
               TextFormField(
@@ -150,13 +158,15 @@ class BottomSheetContent extends StatelessWidget {
                 onChanged: (value) => cubit.setPlanDescription(value),
                 decoration: InputDecoration(
                   labelText: S.of(context).planDescription,
-                  labelStyle: Theme.of(context).textTheme.headlineMedium,
+                  labelStyle: Theme.of(context).textTheme.labelMedium,
+                  floatingLabelStyle: Theme.of(context).textTheme.labelSmall,
                   errorText: state.planDescription.isNotValid
                       ? S.of(context).planDescriptionRequired
                       : null,
                   contentPadding: EdgeInsets.zero,
                 ),
                 maxLines: 3,
+                style: Theme.of(context).textTheme.labelMedium,
               ),
               const SizedBox(height: 10)
             ],

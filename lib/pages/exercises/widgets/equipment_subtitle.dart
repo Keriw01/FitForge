@@ -1,5 +1,5 @@
 import 'package:fit_forge/models/translation.dart';
-import 'package:fit_forge/utils/helpers/translation_helpers.dart';
+import 'package:fit_forge/utils/helpers/helper_methods.dart';
 import 'package:flutter/material.dart';
 
 class EquipmentSubtitle extends StatelessWidget {

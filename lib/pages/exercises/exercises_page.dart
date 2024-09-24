@@ -36,7 +36,11 @@ class ExercisesPage extends StatelessWidget {
           final filteredExercises = state.filteredExercises;
 
           if (filteredExercises == null || filteredExercises.isEmpty) {
-            return Center(child: Text(S.of(context).noExercisesFound));
+            return Center(
+                child: Text(
+              S.of(context).noExercisesFound,
+              style: Theme.of(context).textTheme.bodyLarge,
+            ));
           }
 
           return ListView.builder(

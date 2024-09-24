@@ -18,19 +18,19 @@ class AuthSocialButtons extends StatelessWidget {
             Container(
               height: 1,
               width: 70,
-              color: midNightBlue,
+              color: seedBlue,
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 5),
               child: Text(
                 S.of(context).or,
-                style: Theme.of(context).textTheme.displaySmall,
+                style: Theme.of(context).textTheme.bodySmall,
               ),
             ),
             Container(
               height: 1,
               width: 70,
-              color: midNightBlue,
+              color: seedBlue,
             ),
           ],
         ),

@@ -19,11 +19,9 @@ class ExercisesCubit extends BaseCubit<ExercisesState> {
       : super(
           appRouter,
           ExercisesState(),
-        ) {
-    _getExercises();
-  }
+        );
 
-  Future<void> _getExercises() async {
+  Future<void> getExercises() async {
     try {
       emit(state.copyWith(isLoading: true));
 

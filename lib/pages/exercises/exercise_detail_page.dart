@@ -8,8 +8,7 @@ import 'package:fit_forge/pages/exercises/widgets/available_equipment_list.dart'
 import 'package:fit_forge/pages/exercises/widgets/target_muscle_group_list.dart';
 import 'package:fit_forge/pages/workouts/cubit/workouts_cubit.dart';
 import 'package:fit_forge/styles/app_colors.dart';
-import 'package:fit_forge/utils/helpers/exercise_helpers.dart';
-import 'package:fit_forge/utils/helpers/translation_helpers.dart';
+import 'package:fit_forge/utils/helpers/helper_methods.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
@@ -60,12 +59,16 @@ class _ExerciseDetailPageState extends State<ExerciseDetailPage> {
     showModalBottomSheet(
       context: context,
       builder: (_) {
+        bool isLight = isLightTheme(context);
         return BlocBuilder<WorkoutsCubit, WorkoutsState>(
           builder: (context, state) {
             final userPlans = state.userPlans;
             if (userPlans == null || userPlans.isEmpty) {
               return Center(
-                child: Text(S.of(context).noPlansAvailable),
+                child: Text(
+                  S.of(context).noPlansAvailable,
+                  style: Theme.of(context).textTheme.bodyLarge,
+                ),
               );
             }
 
@@ -91,9 +94,20 @@ class _ExerciseDetailPageState extends State<ExerciseDetailPage> {
                           children: [
                             TextButton(
                               onPressed: () => context.router.maybePop(),
-                              child: Text(S.of(context).cancel),
+                              child: Text(
+                                S.of(context).cancel,
+                                style: Theme.of(context).textTheme.displaySmall,
+                              ),
                             ),
-                            Text(S.of(context).addExercise),
+                            Text(
+                              S.of(context).addExercise,
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .headlineLarge
+                                  ?.copyWith(
+                                      color:
+                                          isLight ? defaultFontsColor : null),
+                            ),
                             TextButton(
                               onPressed:
                                   selectedPlan != null && selectedDay != null
@@ -108,12 +122,18 @@ class _ExerciseDetailPageState extends State<ExerciseDetailPage> {
                                           Navigator.of(context).pop();
                                         }
                                       : null,
-                              child: Text(S.of(context).add),
+                              child: Text(
+                                S.of(context).add,
+                                style: Theme.of(context).textTheme.displaySmall,
+                              ),
                             ),
                           ],
                         ),
                         const SizedBox(height: 10),
-                        Text(S.of(context).whichPlan),
+                        Text(
+                          S.of(context).whichPlan,
+                          style: Theme.of(context).textTheme.labelMedium,
+                        ),
                         DropdownButtonHideUnderline(
                           child: DropdownButton2<Plan>(
                             alignment: Alignment.center,
@@ -124,7 +144,11 @@ class _ExerciseDetailPageState extends State<ExerciseDetailPage> {
                               return DropdownMenuItem<Plan>(
                                 alignment: Alignment.center,
                                 value: plan,
-                                child: Text(plan.planName),
+                                child: Text(
+                                  plan.planName,
+                                  style:
+                                      Theme.of(context).textTheme.labelMedium,
+                                ),
                               );
                             }).toList(),
                             onChanged: (Plan? newPlan) {
@@ -144,7 +168,10 @@ class _ExerciseDetailPageState extends State<ExerciseDetailPage> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               const SizedBox(height: 10),
-                              Text(S.of(context).whichDay),
+                              Text(
+                                S.of(context).whichDay,
+                                style: Theme.of(context).textTheme.labelMedium,
+                              ),
                               DropdownButtonHideUnderline(
                                 child: DropdownButton2<PlanDay>(
                                   alignment: Alignment.center,
@@ -160,7 +187,12 @@ class _ExerciseDetailPageState extends State<ExerciseDetailPage> {
                                     return DropdownMenuItem<PlanDay>(
                                       alignment: Alignment.center,
                                       value: day,
-                                      child: Text(day.dayTitle),
+                                      child: Text(
+                                        day.dayTitle,
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .labelMedium,
+                                      ),
                                     );
                                   }).toList(),
                                   onChanged: (PlanDay? newDay) {
@@ -216,7 +248,7 @@ class _ExerciseDetailPageState extends State<ExerciseDetailPage> {
                         style: Theme.of(context).textTheme.headlineLarge,
                       ),
                     ),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 10),
                     YoutubePlayer(
                       controller: _controller,
                       bottomActions: const [
@@ -264,7 +296,7 @@ class _ExerciseDetailPageState extends State<ExerciseDetailPage> {
                           getTranslationText(
                               widget.exerciseInfo.exercise.description,
                               context),
-                          style: Theme.of(context).textTheme.bodyLarge,
+                          style: Theme.of(context).textTheme.bodyMedium,
                           textAlign: TextAlign.justify,
                         ),
                       ],
@@ -295,7 +327,10 @@ class _ExerciseDetailPageState extends State<ExerciseDetailPage> {
                     child: Text(
                       S.of(context).addExerciseToYourPlan,
                       textAlign: TextAlign.center,
-                      style: Theme.of(context).textTheme.labelLarge,
+                      style: Theme.of(context)
+                          .textTheme
+                          .displayMedium
+                          ?.copyWith(color: whiteColor),
                     ),
                   ),
                 ),
@@ -314,7 +349,10 @@ class _ExerciseDetailPageState extends State<ExerciseDetailPage> {
                     child: Text(
                       S.of(context).exit,
                       textAlign: TextAlign.center,
-                      style: TextStyle(color: whiteColor),
+                      style: Theme.of(context)
+                          .textTheme
+                          .displayMedium
+                          ?.copyWith(color: whiteColor),
                     ),
                   ),
                 ),

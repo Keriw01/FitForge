@@ -61,26 +61,41 @@ void showRenameDialog(
               onChanged: (value) => cubit.setDayTitle(value),
               decoration: InputDecoration(
                 labelText: S.of(context).dayTitle,
-                labelStyle: Theme.of(context).textTheme.headlineMedium,
+                labelStyle: Theme.of(context).textTheme.labelMedium,
+                floatingLabelStyle: Theme.of(context).textTheme.labelSmall,
                 errorText:
                     dayTitle.isNotValid ? S.of(context).dayTitleRequired : null,
                 contentPadding: EdgeInsets.zero,
               ),
+              style: Theme.of(context).textTheme.labelMedium,
             ),
             actions: [
-              TextButton(
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-                child: Text(S.of(context).cancel),
-              ),
-              TextButton(
-                onPressed: () {
-                  if (cubit.state.dayTitle.isValid) {
-                    context.read<WorkoutsCubit>().saveRenamedDay(planId, day);
-                  }
-                },
-                child: Text(S.of(context).save),
+              Row(
+                children: [
+                  TextButton(
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: Text(
+                      S.of(context).cancel,
+                      style: Theme.of(context).textTheme.displaySmall,
+                    ),
+                  ),
+                  const Spacer(),
+                  TextButton(
+                    onPressed: () {
+                      if (cubit.state.dayTitle.isValid) {
+                        context
+                            .read<WorkoutsCubit>()
+                            .saveRenamedDay(planId, day);
+                      }
+                    },
+                    child: Text(
+                      S.of(context).save,
+                      style: Theme.of(context).textTheme.displaySmall,
+                    ),
+                  ),
+                ],
               ),
             ],
           );
@@ -114,11 +129,17 @@ void confirmDelete(
             children: [
               TextButton(
                 onPressed: () => Navigator.pop(context),
-                child: Text(S.of(context).cancel),
+                child: Text(
+                  S.of(context).cancel,
+                  style: Theme.of(context).textTheme.displaySmall,
+                ),
               ),
               TextButton(
                 onPressed: onDelete,
-                child: Text(S.of(context).delete),
+                child: Text(
+                  S.of(context).delete,
+                  style: Theme.of(context).textTheme.displaySmall,
+                ),
               ),
             ],
           ),

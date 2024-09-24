@@ -42,7 +42,6 @@ class AuthButton extends StatelessWidget {
                     ),
                   ),
                 ),
-                overlayColor: const MaterialStatePropertyAll(midNightBlue),
               ),
               child: state.item1.isInProgress
                   ? const CustomLoadingIndicator(
@@ -51,7 +50,7 @@ class AuthButton extends StatelessWidget {
                     )
                   : Text(
                       text,
-                      style: Theme.of(context).textTheme.labelLarge,
+                      style: Theme.of(context).textTheme.displayLarge,
                     ),
             ),
             FormErrorText(error: responseError),

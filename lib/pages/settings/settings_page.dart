@@ -14,7 +14,7 @@ import 'package:fit_forge/pages/settings/widgets/logout_button.dart';
 import 'package:fit_forge/pages/settings/widgets/top_goal_row.dart';
 import 'package:fit_forge/pages/settings/widgets/unit_system_row.dart';
 import 'package:fit_forge/pages/settings/widgets/user_name_row.dart';
-import 'package:fit_forge/utils/helpers/error_helpers.dart';
+import 'package:fit_forge/utils/helpers/helper_methods.dart';
 import 'package:fit_forge/widgets/custom_loading_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -76,6 +76,7 @@ class SettingsPage extends StatelessWidget {
                           S.of(context).basicInformation,
                           style: Theme.of(context).textTheme.headlineLarge,
                         ),
+                        const SizedBox(height: 5),
                         EmailRow(
                           label: S.of(context).emailLabel,
                           value: state.userProfile?.email,
@@ -115,6 +116,7 @@ class SettingsPage extends StatelessWidget {
                           S.of(context).other,
                           style: Theme.of(context).textTheme.headlineLarge,
                         ),
+                        const SizedBox(height: 5),
                         UnitSystemRow(
                           unitSystem: state.userProfile?.unitSystem,
                           profileCurrenRow: state.profileCurrenRow,

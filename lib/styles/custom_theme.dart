@@ -1,7 +1,6 @@
 import 'package:fit_forge/styles/app_colors.dart';
 import 'package:fit_forge/styles/custom_text_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class CustomTheme {
   static ThemeData get lightTheme {
@@ -19,19 +18,14 @@ class CustomTheme {
     appBarTheme: AppBarTheme(
       centerTitle: true,
       titleTextStyle: customTextThemeLight.titleLarge,
-      backgroundColor: midNightBlue,
-      iconTheme: const IconThemeData(color: whiteColor),
+      backgroundColor: lightColorScheme.primary,
+      iconTheme: IconThemeData(color: lightColorScheme.onPrimary),
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       backgroundColor: lightColorScheme.surface,
       selectedItemColor: lightColorScheme.primary,
       unselectedItemColor: lightColorScheme.onSurface,
       selectedLabelStyle: customTextThemeLight.titleSmall,
-      unselectedLabelStyle: GoogleFonts.roboto(
-        fontSize: 14,
-        fontWeight: FontWeight.normal,
-        color: lightColorScheme.onSurface,
-      ),
     ),
     progressIndicatorTheme:
         ProgressIndicatorThemeData(color: lightColorScheme.primary),
@@ -44,20 +38,18 @@ class CustomTheme {
     appBarTheme: AppBarTheme(
       centerTitle: true,
       titleTextStyle: customTextThemeDark.titleLarge,
-      backgroundColor: darkColorScheme.surface,
+      backgroundColor: darkColorScheme.background,
+      iconTheme: IconThemeData(color: darkColorScheme.onSurface),
+      elevation: 1,
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
-      backgroundColor: darkColorScheme.surface,
-      selectedItemColor: darkColorScheme.primary,
+      backgroundColor: darkColorScheme.background,
+      selectedItemColor: darkColorScheme.surfaceTint,
       unselectedItemColor: darkColorScheme.onSurface,
       selectedLabelStyle: customTextThemeDark.titleSmall,
-      unselectedLabelStyle: GoogleFonts.roboto(
-        fontSize: 14,
-        fontWeight: FontWeight.normal,
-        color: darkColorScheme.onSurface,
-      ),
+      showUnselectedLabels: false,
     ),
     progressIndicatorTheme:
-        ProgressIndicatorThemeData(color: darkColorScheme.onSurface),
+        ProgressIndicatorThemeData(color: darkColorScheme.primary),
   );
 }

@@ -27,9 +27,11 @@ class AuthCubit extends BaseCubit<AuthState> {
   late final FirestoreAuthRepository _firebaseAuthService =
       FirestoreAuthRepository();
   late final WorkoutsCubit _workoutsCubit;
+  late final ExercisesCubit _exercisesCubit;
 
   AuthCubit(AppRouter appRouter, BuildContext context)
       : _workoutsCubit = context.read<WorkoutsCubit>(),
+        _exercisesCubit = context.read<ExercisesCubit>(),
         super(
           appRouter,
           AuthState(),
@@ -68,6 +70,7 @@ class AuthCubit extends BaseCubit<AuthState> {
         ));
 
         _workoutsCubit.getUserPlansAndCurrent();
+        _exercisesCubit.getExercises();
 
         _navigateToAuthFlowScreen();
       } else {
@@ -252,11 +255,11 @@ class AuthCubit extends BaseCubit<AuthState> {
       emit(state.copyWith(formStatus: FormzSubmissionStatus.failure));
     } finally {
       navigateToLoginPage();
-      context.read<SettingsCubit>().clearState();
       context.read<ExercisesCubit>().clearState();
       context.read<QrCubit>().clearState();
       context.read<WorkoutsCubit>().clearState();
       context.read<DayCubit>().clearState();
+      context.read<SettingsCubit>().clearState();
     }
   }
 

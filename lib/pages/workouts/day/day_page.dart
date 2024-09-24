@@ -91,6 +91,7 @@ class DayPage extends StatelessWidget {
                       )),
                       child: Text(
                         S.of(context).addExercise,
+                        style: Theme.of(context).textTheme.displayMedium,
                       ),
                     ),
                     ElevatedButton(
@@ -107,8 +108,8 @@ class DayPage extends StatelessWidget {
                         S.of(context).startWorkout,
                         style: Theme.of(context)
                             .textTheme
-                            .headlineLarge!
-                            .copyWith(color: whiteColor),
+                            .displayMedium
+                            ?.copyWith(color: whiteColor),
                       ),
                     ),
                   ],

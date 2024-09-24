@@ -51,6 +51,8 @@
     "noData": "brak danych",
     "editUsernameLabel": "Edytuj nazwę użytkownkia",
     "enterNewUsername": "Wprowadź nową nazwę użytkownika",
+    "enterNewDefaultSets": "Wprowadź nową ilość serii",
+    "enterNewDefaultReps": "Wprowadź nową ilość powtórzeń",
     "cancel": "Anuluj",
     "save": "Zapisz",
     "editGenderLabel": "Wybierz płeć",

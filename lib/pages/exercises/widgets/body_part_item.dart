@@ -28,7 +28,10 @@ class BodyPartItem extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 5),
-          Text(title)
+          Text(
+            title,
+            style: Theme.of(context).textTheme.bodyMedium,
+          )
         ],
       ),
     );

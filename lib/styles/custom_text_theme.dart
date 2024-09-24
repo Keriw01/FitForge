@@ -3,91 +3,89 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 final customTextThemeLight = TextTheme(
-  ///
-  displayLarge: null,
+  /// MyPlans, Current - Top Navigation, Label-BottomNavigation
+  titleSmall: GoogleFonts.roboto(
+    fontSize: 14,
+    fontWeight: FontWeight.bold,
+  ),
+  // titleMedium: GoogleFonts.montserrat(
+  //   fontSize: 20,
+  // ),
 
-  /// Other Form Field Label
-  displayMedium: null,
-
-  /// Text Under Login / Signup Button
-  displaySmall: GoogleFonts.roboto(
-    fontSize: 12,
-    color: defaultFontsColor,
+  /// Title Of Pages
+  titleLarge: GoogleFonts.montserrat(
+    fontSize: 24,
+    fontWeight: FontWeight.w600,
+    color: lightColorScheme.onPrimary,
   ),
 
-  /// Plan Name, qr_code_page text
+  ///  Text Floating Label (Auth-password,login), Plan Name(When edit)
+  labelSmall: GoogleFonts.roboto(
+    fontSize: 12,
+    fontWeight: FontWeight.bold,
+  ),
+
+  /// Input Text (Auth-password,login), FormErrorText, Plan Name(When edit), , value of cm/kg in profile choose unit system
+  labelMedium: GoogleFonts.roboto(
+    fontSize: 14,
+  ),
+
+  // labelLarge: GoogleFonts.roboto(
+  //   fontSize: 18,
+  // ),
+
+  /// Kind of Plan e.g. 'Bulking 1 Day(s), Day Name 'Day 1', 'Email' (Settings)
+  headlineSmall: GoogleFonts.roboto(
+    fontSize: 14,
+  ),
+
+  /// Setting headers 'Basic Info', scanQr header in Descrption
+  headlineMedium: GoogleFonts.roboto(
+    fontSize: 16,
+    fontWeight: FontWeight.bold,
+  ),
+
+  /// Plan Name in Card, 'Edit Plan', 'Confirm Delete'
   headlineLarge: GoogleFonts.roboto(
     fontWeight: FontWeight.w600,
     fontSize: 18,
-    color: defaultFontsColor,
   ),
 
-  /// Basic Info In Settings
-  headlineMedium: GoogleFonts.roboto(
-    fontWeight: FontWeight.w700,
-    fontSize: 14,
-    color: midNightBlue,
-  ),
-
-  /// Small label
-  headlineSmall: GoogleFonts.openSans(
-    fontSize: 12,
-    color: lightFontColor,
-  ),
-
-  /// Titles Of Pages
-  titleLarge: GoogleFonts.montserrat(
-    fontWeight: FontWeight.w600,
-    fontSize: 24,
-    color: whiteColor,
-  ),
-
-  /// Titles Of Each Deep Screen "Day 1"
-  titleMedium: null,
-
-  /// Bottom Navigation Text / Button In Filters (selectedLabelStyle)
-  titleSmall: GoogleFonts.roboto(
+  /// Buttons Set, Active, Confirm, Cancel, Edit, Delete (Menu Dialog), email value in Settings 'test@o2.pl'
+  displaySmall: GoogleFonts.openSans(
     fontSize: 14,
     fontWeight: FontWeight.bold,
     color: lightColorScheme.primary,
   ),
 
-  /// Bottom Navigation Text / Button In Filters (unselectedLabelStyle)
-
-  /// Description of Exercises
-  bodyLarge: GoogleFonts.roboto(
-    fontSize: 13,
-    color: defaultFontsColor,
+  /// Button e.g. 'Add exercise', 'Create your Own Workout Plan'
+  displayMedium: GoogleFonts.openSans(
+    fontSize: 16,
+    fontWeight: FontWeight.bold,
+    color: lightColorScheme.primary,
   ),
 
-  /// Labels in Settings, radio title, qr_code_page text
-  bodyMedium: GoogleFonts.roboto(
-    fontSize: 14,
-    color: defaultFontsColor,
-  ),
-
-  /// Other Form Field
-  bodySmall: null,
-
-  /// Authentication Buttons
-  labelLarge: GoogleFonts.openSans(
+  /// Auth Button, LogOut
+  displayLarge: GoogleFonts.montserrat(
     fontSize: 18,
     fontWeight: FontWeight.bold,
-    color: whiteColor,
+    color: lightColorScheme.onPrimary,
   ),
 
-  /// Medium Buttons
-  labelMedium: GoogleFonts.openSans(
-    fontSize: 14,
-    fontWeight: FontWeight.bold,
-    color: whiteColor,
-  ),
-
-  /// Small Button
-  labelSmall: GoogleFonts.openSans(
+  /// Text about 'Don't have an Account ?...', label for '3x6 reps', 'dumbbell', text number of Exercises and allDuration
+  bodySmall: GoogleFonts.roboto(
     fontSize: 12,
+  ),
+
+  /// Content of Dialog Box, e.g. Delete., Title of 'Chest' in BodyParts
+  bodyMedium: GoogleFonts.openSans(
+    fontSize: 14,
+  ),
+
+  /// Text when planIsEmpty or page not displaying list
+  bodyLarge: GoogleFonts.openSans(
+    fontSize: 20,
     fontWeight: FontWeight.bold,
-    color: whiteColor,
   ),
 );
 
@@ -101,89 +99,88 @@ final customTextThemeLight = TextTheme(
 /// |
 /// |
 final customTextThemeDark = TextTheme(
-  ///
-  displayLarge: null,
-
-  /// Other Form Field Label
-  displayMedium: null,
-
-  /// Text Under Login / Signup Button
-  displaySmall: GoogleFonts.lato(
-    fontSize: 12,
-    fontWeight: FontWeight.bold,
-    color: whiteColor,
-  ),
-
-  /// Plan Name, header of settings, qr_code_page text
-  headlineLarge: GoogleFonts.roboto(
-    fontWeight: FontWeight.w600,
-    fontSize: 16,
-    color: whiteColor,
-  ),
-
-  /// Basic Info In Settings
-  headlineMedium: GoogleFonts.openSans(
-    fontWeight: FontWeight.w600,
-    fontSize: 14,
-    color: whiteColor,
-  ),
-
-  /// Small label
-  headlineSmall: GoogleFonts.openSans(
-    fontSize: 12,
-    color: babyBlue,
-  ),
-
-  /// Titles Of Pages
-  titleLarge: GoogleFonts.montserrat(
-    fontWeight: FontWeight.w600,
-    fontSize: 24,
-    color: whiteColor,
-  ),
-
-  /// Titles Of Each Deep Screen "Day 1"
-  titleMedium: null,
-
-  /// Bottom Navigation Text / Button In Filters
+  /// MyPlans, Current - Top Navigation, Label-BottomNavigation
   titleSmall: GoogleFonts.roboto(
     fontSize: 14,
+    fontWeight: FontWeight.bold,
+  ),
+  // titleMedium: GoogleFonts.montserrat(
+  //   fontSize: 20,
+  // ),
+
+  /// Title Of Pages
+  titleLarge: GoogleFonts.montserrat(
+    fontSize: 24,
+    fontWeight: FontWeight.w600,
+    color: darkColorScheme.onSurface,
+  ),
+
+  ///  Text Floating Label (Auth-password,login), Plan Name(When edit)
+  labelSmall: GoogleFonts.roboto(
+    fontSize: 12,
+    fontWeight: FontWeight.bold,
+  ),
+
+  /// Input Text (Auth-password,login), FormErrorText, Plan Name(When edit), , value of cm/kg in profile choose unit system
+  labelMedium: GoogleFonts.roboto(
+    fontSize: 14,
+  ),
+
+  // labelLarge: GoogleFonts.roboto(
+  //   fontSize: 18,
+  // ),
+
+  /// Kind of Plan e.g. 'Bulking 1 Day(s), Day Name 'Day 1', 'Email' (Settings)
+  headlineSmall: GoogleFonts.roboto(
+    fontSize: 14,
+  ),
+
+  /// Setting headers 'Basic Info', scanQr header in Descrption
+  headlineMedium: GoogleFonts.roboto(
+    fontSize: 16,
+    fontWeight: FontWeight.bold,
+  ),
+
+  /// Plan Name in Card, 'Edit Plan', 'Confirm Delete'
+  headlineLarge: GoogleFonts.roboto(
+    fontWeight: FontWeight.w600,
+    fontSize: 18,
+  ),
+
+  /// Buttons Set, Active, Confirm, Cancel, Edit, Delete (Menu Dialog), email value in Settings 'test@o2.pl'
+  displaySmall: GoogleFonts.openSans(
+    fontSize: 14,
+    fontWeight: FontWeight.bold,
+    color: darkColorScheme.surfaceTint,
+  ),
+
+  /// Button e.g. 'Add exercise', 'Create your Own Workout Plan'
+  displayMedium: GoogleFonts.openSans(
+    fontSize: 16,
     fontWeight: FontWeight.bold,
     color: darkColorScheme.primary,
   ),
 
-  /// Description of Exercises
-  bodyLarge: GoogleFonts.roboto(
-    fontSize: 13,
-    color: whiteColor,
-  ),
-
-  /// Labels in Settings, radio title, qr_code_page text
-  bodyMedium: GoogleFonts.openSans(
-    fontSize: 14,
-    color: whiteColor,
-  ),
-
-  /// Other Form Field
-  bodySmall: null,
-
-  /// Authentication Buttons
-  labelLarge: GoogleFonts.montserrat(
+  /// Auth Button, LogOut
+  displayLarge: GoogleFonts.montserrat(
     fontSize: 18,
     fontWeight: FontWeight.bold,
-    color: whiteColor,
+    color: darkColorScheme.onSurface,
   ),
 
-  /// Medium Buttons
-  labelMedium: GoogleFonts.montserrat(
-    fontSize: 14,
-    color: whiteColor,
-    fontWeight: FontWeight.w600,
-  ),
-
-  /// Small Button
-  labelSmall: GoogleFonts.openSans(
+  /// Text about 'Don't have an Account ?...', label for '3x6 reps', 'dumbbell', text number of Exercises and allDuration
+  bodySmall: GoogleFonts.roboto(
     fontSize: 12,
+  ),
+
+  /// Content of Dialog Box, e.g. Delete., Title of 'Chest' in BodyParts
+  bodyMedium: GoogleFonts.openSans(
+    fontSize: 14,
+  ),
+
+  /// Text when planIsEmpty or page not displaying list
+  bodyLarge: GoogleFonts.openSans(
+    fontSize: 20,
     fontWeight: FontWeight.bold,
-    color: defaultFontsColor,
   ),
 );

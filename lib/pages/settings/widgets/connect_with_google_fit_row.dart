@@ -22,7 +22,7 @@ class ConnectWithGoogleFitRow extends StatelessWidget {
         children: [
           Text(
             S.of(context).connectWithGoogleFit,
-            style: Theme.of(context).textTheme.bodyMedium,
+            style: Theme.of(context).textTheme.headlineSmall,
           ),
           SizedBox(
             width: 90,
@@ -37,7 +37,7 @@ class ConnectWithGoogleFitRow extends StatelessWidget {
                 S.of(context).connect,
                 style: Theme.of(context)
                     .textTheme
-                    .headlineMedium!
+                    .displaySmall!
                     .copyWith(color: whiteColor),
               ),
             ),

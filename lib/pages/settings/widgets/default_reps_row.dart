@@ -38,7 +38,7 @@ class DefaultRepsRow extends StatelessWidget {
           children: [
             Text(
               S.of(context).defaultReps,
-              style: Theme.of(context).textTheme.bodyMedium,
+              style: Theme.of(context).textTheme.headlineSmall,
             ),
             Row(
               children: [
@@ -49,7 +49,7 @@ class DefaultRepsRow extends StatelessWidget {
                       )
                     : Text(
                         defaultReps ?? S.of(context).noData,
-                        style: Theme.of(context).textTheme.headlineMedium,
+                        style: Theme.of(context).textTheme.displaySmall,
                       ),
                 const SizedBox(width: 10),
                 const Icon(
@@ -87,19 +87,30 @@ Future<void> _showEditDialog(
             FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
             FilteringTextInputFormatter.digitsOnly,
           ],
+          decoration: InputDecoration(
+            hintText: S.of(context).enterNewDefaultReps,
+            labelStyle: Theme.of(context).textTheme.labelMedium,
+          ),
+          style: Theme.of(context).textTheme.labelMedium,
         ),
         actions: <Widget>[
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               TextButton(
-                child: Text(S.of(context).cancel),
+                child: Text(
+                  S.of(context).cancel,
+                  style: Theme.of(context).textTheme.displaySmall,
+                ),
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
               ),
               TextButton(
-                child: Text(S.of(context).save),
+                child: Text(
+                  S.of(context).save,
+                  style: Theme.of(context).textTheme.displaySmall,
+                ),
                 onPressed: () {
                   onSave(int.tryParse(controller.text)!);
                   Navigator.of(context).pop();

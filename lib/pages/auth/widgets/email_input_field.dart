@@ -41,10 +41,10 @@ class EmailInputField extends StatelessWidget {
                 readOnly: state.item1.isInProgress,
                 keyboardType: TextInputType.emailAddress,
                 cursorColor: seedBlue,
-                style: const TextStyle(
-                  fontSize: 14,
-                  color: defaultFontsColor,
-                ),
+                style: Theme.of(context)
+                    .textTheme
+                    .labelMedium
+                    ?.copyWith(color: defaultFontsColor),
                 decoration: InputDecoration(
                   filled: true,
                   fillColor: whiteColor,
@@ -58,14 +58,14 @@ class EmailInputField extends StatelessWidget {
                     size: 18,
                   ),
                   labelText: S.of(context).enterEmail,
-                  labelStyle: const TextStyle(
-                    fontSize: 14,
-                    color: defaultFontsColor,
-                  ),
-                  floatingLabelStyle: const TextStyle(
-                    fontSize: 12,
-                    color: defaultFontsColor,
-                  ),
+                  labelStyle: Theme.of(context)
+                      .textTheme
+                      .labelMedium
+                      ?.copyWith(color: defaultFontsColor),
+                  floatingLabelStyle: Theme.of(context)
+                      .textTheme
+                      .labelSmall
+                      ?.copyWith(color: defaultFontsColor),
                 ),
               ),
             ),

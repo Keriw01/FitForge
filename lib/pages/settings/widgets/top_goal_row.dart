@@ -34,7 +34,7 @@ class TopGoalRow extends StatelessWidget {
           children: [
             Text(
               S.of(context).topGoalLabel,
-              style: Theme.of(context).textTheme.bodyMedium,
+              style: Theme.of(context).textTheme.headlineSmall,
             ),
             Row(
               children: [
@@ -45,7 +45,7 @@ class TopGoalRow extends StatelessWidget {
                       )
                     : Text(
                         topGoal ?? S.of(context).noData,
-                        style: Theme.of(context).textTheme.headlineMedium,
+                        style: Theme.of(context).textTheme.displaySmall,
                       ),
                 const SizedBox(width: 10),
                 const Icon(
@@ -87,7 +87,10 @@ class TopGoalRow extends StatelessWidget {
                     ),
                     subtitle: Text(
                       S.of(context).maintainingDescription,
-                      style: Theme.of(context).textTheme.headlineSmall,
+                      style: Theme.of(context)
+                          .textTheme
+                          .headlineSmall
+                          ?.copyWith(color: lightFontColor),
                     ),
                     value: 'Maintaining',
                     groupValue: tempSelectedOption,
@@ -104,7 +107,10 @@ class TopGoalRow extends StatelessWidget {
                     ),
                     subtitle: Text(
                       S.of(context).bulkingDescription,
-                      style: Theme.of(context).textTheme.headlineSmall,
+                      style: Theme.of(context)
+                          .textTheme
+                          .headlineSmall
+                          ?.copyWith(color: lightFontColor),
                     ),
                     value: 'Bulking',
                     groupValue: tempSelectedOption,
@@ -121,7 +127,10 @@ class TopGoalRow extends StatelessWidget {
                     ),
                     subtitle: Text(
                       S.of(context).cuttingDescription,
-                      style: Theme.of(context).textTheme.headlineSmall,
+                      style: Theme.of(context)
+                          .textTheme
+                          .headlineSmall
+                          ?.copyWith(color: lightFontColor),
                     ),
                     value: 'Cutting',
                     groupValue: tempSelectedOption,
@@ -138,13 +147,19 @@ class TopGoalRow extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     TextButton(
-                      child: Text(S.of(context).cancel),
+                      child: Text(
+                        S.of(context).cancel,
+                        style: Theme.of(context).textTheme.displaySmall,
+                      ),
                       onPressed: () {
                         Navigator.of(context).pop();
                       },
                     ),
                     TextButton(
-                      child: Text(S.of(context).save),
+                      child: Text(
+                        S.of(context).save,
+                        style: Theme.of(context).textTheme.displaySmall,
+                      ),
                       onPressed: () {
                         if (tempSelectedOption!.isNotEmpty) {
                           onSave(tempSelectedOption!);

@@ -23,14 +23,14 @@ class AuthTextButton extends StatelessWidget {
           children: [
             Text(
               textNormal,
-              style: Theme.of(context).textTheme.displaySmall,
+              style: Theme.of(context).textTheme.bodySmall,
               overflow: TextOverflow.ellipsis,
             ),
             Text(
               textBold,
               style: Theme.of(context)
                   .textTheme
-                  .displaySmall!
+                  .bodySmall!
                   .copyWith(fontWeight: FontWeight.bold),
               overflow: TextOverflow.clip,
             ),

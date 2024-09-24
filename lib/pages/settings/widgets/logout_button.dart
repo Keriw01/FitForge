@@ -25,9 +25,9 @@ class LogOutButton extends StatelessWidget {
             ElevatedButton(
               onPressed: state.isInProgress ? () {} : onPressed,
               style: ButtonStyle(
-                backgroundColor: MaterialStatePropertyAll(midNightBlue),
                 padding: MaterialStateProperty.all<EdgeInsets>(
                     const EdgeInsets.fromLTRB(40, 10, 40, 10)),
+                backgroundColor: MaterialStateProperty.all(seedBlue),
                 shape: MaterialStateProperty.all(
                   const RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(
@@ -43,7 +43,7 @@ class LogOutButton extends StatelessWidget {
                     )
                   : Text(
                       text,
-                      style: Theme.of(context).textTheme.labelLarge,
+                      style: Theme.of(context).textTheme.displayLarge,
                     ),
             ),
           ],

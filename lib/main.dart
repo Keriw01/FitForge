@@ -35,11 +35,11 @@ class MyApp extends StatelessWidget {
           create: (context) => WorkoutsCubit(_appRouter, context),
         ),
         BlocProvider(
-          create: (context) => AuthCubit(_appRouter, context),
+          create: (context) => ExercisesCubit(_appRouter, context),
           lazy: false,
         ),
         BlocProvider(
-          create: (context) => ExercisesCubit(_appRouter, context),
+          create: (context) => AuthCubit(_appRouter, context),
           lazy: false,
         ),
         BlocProvider(

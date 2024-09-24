@@ -560,6 +560,26 @@ class S {
     );
   }
 
+  /// `Enter New Default Sets`
+  String get enterNewDefaultSets {
+    return Intl.message(
+      'Enter New Default Sets',
+      name: 'enterNewDefaultSets',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter New Default Reps`
+  String get enterNewDefaultReps {
+    return Intl.message(
+      'Enter New Default Reps',
+      name: 'enterNewDefaultReps',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Cancel`
   String get cancel {
     return Intl.message(

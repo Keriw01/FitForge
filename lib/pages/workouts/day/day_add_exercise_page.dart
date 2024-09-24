@@ -4,10 +4,9 @@ import 'package:fit_forge/generated/l10n.dart';
 import 'package:fit_forge/pages/exercises/widgets/equipment_subtitle.dart';
 import 'package:fit_forge/pages/workouts/day/cubit/day_cubit.dart';
 import 'package:fit_forge/styles/app_colors.dart';
-import 'package:fit_forge/utils/helpers/translation_helpers.dart';
+import 'package:fit_forge/utils/helpers/helper_methods.dart';
 import 'package:fit_forge/widgets/custom_loading_indicator.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 @RoutePage()
@@ -16,6 +15,7 @@ class DayAddExercisePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isLight = isLightTheme(context);
     final dayCubit = context.read<DayCubit>();
 
     return Scaffold(
@@ -25,11 +25,18 @@ class DayAddExercisePage extends StatelessWidget {
           onPressed: () => Navigator.of(context).pop(),
         ),
         title: TextField(
-          style: const TextStyle(color: whiteColor),
-          cursorColor: blackColor,
+          style: Theme.of(context)
+              .textTheme
+              .labelMedium
+              ?.copyWith(color: whiteColor),
+          cursorColor: isLight ? defaultFontsColor : whiteColor,
           decoration: InputDecoration(
             hintText: S.of(context).searchExerciseHint,
-            hintStyle: const TextStyle(color: whiteColor),
+            labelStyle: Theme.of(context).textTheme.labelMedium,
+            hintStyle: Theme.of(context)
+                .textTheme
+                .labelMedium
+                ?.copyWith(color: whiteColor),
             border: InputBorder.none,
           ),
           onChanged: (query) {
@@ -94,6 +101,7 @@ class DayAddExercisePage extends StatelessWidget {
                               equipment: exerciseInfo.exercise.equipment,
                             ),
                             trailing: Icon(
+                              color: isLight ? seedBlue : whiteColor,
                               isSelected ? Icons.circle : Icons.circle_outlined,
                             ),
                             onTap: () {
@@ -102,7 +110,11 @@ class DayAddExercisePage extends StatelessWidget {
                           );
                         },
                       )
-                    : Center(child: Text(S.of(context).emptyExercisesList)),
+                    : Center(
+                        child: Text(
+                        S.of(context).emptyExercisesList,
+                        style: Theme.of(context).textTheme.bodyLarge,
+                      )),
               ),
               ElevatedButton(
                 onPressed: selectedExercises.isNotEmpty
@@ -112,6 +124,7 @@ class DayAddExercisePage extends StatelessWidget {
                   selectedExercises.length > 1
                       ? '${S.of(context).add} ${selectedExercises.length} ${S.of(context).exercise}'
                       : S.of(context).addExercise,
+                  style: Theme.of(context).textTheme.displayMedium,
                 ),
               ),
             ],

@@ -22,7 +22,10 @@ class TargetMuscleGroupList extends StatelessWidget {
           color: seedBlue,
           child: Text(
             muscleGroup,
-            style: Theme.of(context).textTheme.labelSmall,
+            style: Theme.of(context)
+                .textTheme
+                .labelMedium
+                ?.copyWith(color: whiteColor),
           ),
         );
       }).toList(),

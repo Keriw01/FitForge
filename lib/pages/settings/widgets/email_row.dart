@@ -20,13 +20,13 @@ class EmailRow extends StatelessWidget {
         children: [
           Text(
             label,
-            style: Theme.of(context).textTheme.bodyMedium,
+            style: Theme.of(context).textTheme.headlineSmall,
           ),
           Row(
             children: [
               Text(
                 value ?? S.of(context).noData,
-                style: Theme.of(context).textTheme.headlineMedium,
+                style: Theme.of(context).textTheme.displaySmall,
               ),
               const SizedBox(width: 34),
             ],

@@ -5,7 +5,6 @@ import 'package:fit_forge/pages/workouts/widgets/workout_utils.dart';
 import 'package:fit_forge/styles/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class CurrentPlanView extends StatelessWidget {
   const CurrentPlanView({super.key});
@@ -35,19 +34,18 @@ class CurrentPlanView extends StatelessWidget {
                         const SizedBox(height: 5),
                         Text(
                           state.currentPlan!.planName,
-                          style: GoogleFonts.roboto(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 18,
-                            color: whiteColor,
-                          ),
+                          style: Theme.of(context)
+                              .textTheme
+                              .headlineLarge
+                              ?.copyWith(color: whiteColor),
                         ),
                         const SizedBox(height: 10),
                         Text(
                           '${state.currentPlan?.planType[0].toUpperCase()}${state.currentPlan?.planType.substring(1)} ${state.currentPlan?.numberOfDays} ${S.of(context).days}',
-                          style: GoogleFonts.roboto(
-                            fontSize: 14,
-                            color: whiteColor,
-                          ),
+                          style: Theme.of(context)
+                              .textTheme
+                              .headlineSmall
+                              ?.copyWith(color: whiteColor),
                         ),
                       ],
                     ),
@@ -72,10 +70,7 @@ class CurrentPlanView extends StatelessWidget {
                         MenuItemButton(
                           child: Text(
                             S.of(context).addDay,
-                            style: GoogleFonts.roboto(
-                              color: defaultFontsColor,
-                              fontSize: 14,
-                            ),
+                            style: Theme.of(context).textTheme.displaySmall,
                           ),
                           onPressed: () {
                             context
@@ -86,10 +81,7 @@ class CurrentPlanView extends StatelessWidget {
                         MenuItemButton(
                           child: Text(
                             S.of(context).edit,
-                            style: GoogleFonts.roboto(
-                              color: defaultFontsColor,
-                              fontSize: 14,
-                            ),
+                            style: Theme.of(context).textTheme.displaySmall,
                             textAlign: TextAlign.right,
                           ),
                           onPressed: () {
@@ -103,10 +95,7 @@ class CurrentPlanView extends StatelessWidget {
                         MenuItemButton(
                           child: Text(
                             S.of(context).delete,
-                            style: GoogleFonts.roboto(
-                              color: defaultFontsColor,
-                              fontSize: 14,
-                            ),
+                            style: Theme.of(context).textTheme.displaySmall,
                             textAlign: TextAlign.right,
                           ),
                           onPressed: () {
@@ -162,10 +151,10 @@ class CurrentPlanView extends StatelessWidget {
                                           ),
                                           Text(
                                             getExercisesCount(day),
-                                            style: GoogleFonts.roboto(
-                                              color: whiteColor,
-                                              fontSize: 12,
-                                            ),
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .bodySmall
+                                                ?.copyWith(color: whiteColor),
                                           ),
                                         ],
                                       ),
@@ -181,10 +170,10 @@ class CurrentPlanView extends StatelessWidget {
                                           ),
                                           Text(
                                             getTotalExercisesDuration(day),
-                                            style: GoogleFonts.roboto(
-                                              color: whiteColor,
-                                              fontSize: 12,
-                                            ),
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .bodySmall
+                                                ?.copyWith(color: whiteColor),
                                           ),
                                         ],
                                       ),
@@ -198,18 +187,18 @@ class CurrentPlanView extends StatelessWidget {
                                   children: [
                                     Text(
                                       day.dayTitle,
-                                      style: GoogleFonts.roboto(
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 16,
-                                      ),
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .headlineSmall
+                                          ?.copyWith(color: defaultFontsColor),
                                     ),
                                     const SizedBox(height: 5),
                                     Text(
                                       S.of(context).lastPerformed,
-                                      style: GoogleFonts.roboto(
-                                        color: lightFontColor,
-                                        fontSize: 12,
-                                      ),
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodySmall
+                                          ?.copyWith(color: defaultFontsColor),
                                     ),
                                   ],
                                 ),
@@ -237,10 +226,9 @@ class CurrentPlanView extends StatelessWidget {
                                         MenuItemButton(
                                           child: Text(
                                             S.of(context).renameDay,
-                                            style: GoogleFonts.roboto(
-                                              color: defaultFontsColor,
-                                              fontSize: 14,
-                                            ),
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .displaySmall,
                                             textAlign: TextAlign.right,
                                           ),
                                           onPressed: () => showRenameDialog(
@@ -252,10 +240,9 @@ class CurrentPlanView extends StatelessWidget {
                                         MenuItemButton(
                                           child: Text(
                                             S.of(context).delete,
-                                            style: GoogleFonts.roboto(
-                                              color: defaultFontsColor,
-                                              fontSize: 14,
-                                            ),
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .displaySmall,
                                           ),
                                           onPressed: () => confirmDelete(
                                             context,
@@ -291,7 +278,7 @@ class CurrentPlanView extends StatelessWidget {
                     : Center(
                         child: Text(
                           '${S.of(context).planIsEmpty}\n${S.of(context).addDayInfo}',
-                          style: GoogleFonts.roboto(fontSize: 16),
+                          style: Theme.of(context).textTheme.bodyLarge,
                           textAlign: TextAlign.center,
                         ),
                       ),
@@ -305,6 +292,7 @@ class CurrentPlanView extends StatelessWidget {
           child: Center(
             child: Text(
               '${S.of(context).emptyCurrentPlan}: ${S.of(context).myPlansHeader}',
+              style: Theme.of(context).textTheme.bodyLarge,
               textAlign: TextAlign.center,
             ),
           ),

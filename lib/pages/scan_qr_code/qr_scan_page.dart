@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:fit_forge/generated/l10n.dart';
 import 'package:fit_forge/pages/scan_qr_code/cubit/qr_cubit.dart';
 import 'package:fit_forge/styles/app_colors.dart';
+import 'package:fit_forge/utils/helpers/helper_methods.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
@@ -12,7 +13,7 @@ class QrScanPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool isLight = Theme.of(context).brightness == Brightness.light;
+    bool isLight = isLightTheme(context);
 
     return Scaffold(
       appBar: AppBar(
@@ -47,7 +48,12 @@ class QrScanPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Container(
-                padding: const EdgeInsets.all(10),
+                padding: const EdgeInsets.only(
+                  left: 15,
+                  top: 10,
+                  right: 15,
+                  bottom: 10,
+                ),
                 width: double.infinity,
                 decoration: const BoxDecoration(
                   color: whiteColor,
@@ -58,7 +64,11 @@ class QrScanPage extends StatelessWidget {
                 ),
                 child: Text(
                   S.of(context).scanQrInfo,
-                  style: const TextStyle(color: defaultFontsColor),
+                  textAlign: TextAlign.justify,
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyMedium
+                      ?.copyWith(color: defaultFontsColor),
                 ),
               ),
               const Spacer(),
@@ -68,7 +78,10 @@ class QrScanPage extends StatelessWidget {
                   padding: const EdgeInsets.only(bottom: 20),
                   child: ElevatedButton(
                     onPressed: () => context.read<QrCubit>().closeScanner(),
-                    child: Text(S.of(context).close),
+                    child: Text(
+                      S.of(context).close,
+                      style: Theme.of(context).textTheme.displayMedium,
+                    ),
                   ),
                 ),
               ),

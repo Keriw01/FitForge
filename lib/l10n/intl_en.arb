@@ -51,6 +51,8 @@
     "noData": "no data",
     "editUsernameLabel": "Edit Username",
     "enterNewUsername": "Enter New Username",
+    "enterNewDefaultSets": "Enter New Default Sets",
+    "enterNewDefaultReps": "Enter New Default Reps",
     "cancel": "Cancel",
     "save": "Save",
     "editGenderLabel": "Choose Gender",

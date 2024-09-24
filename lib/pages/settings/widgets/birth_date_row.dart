@@ -36,7 +36,7 @@ class BirthDateRow extends StatelessWidget {
           children: [
             Text(
               S.of(context).birthDateLabel,
-              style: Theme.of(context).textTheme.bodyMedium,
+              style: Theme.of(context).textTheme.headlineSmall,
             ),
             Row(
               children: [
@@ -49,7 +49,7 @@ class BirthDateRow extends StatelessWidget {
                         birthDate == null
                             ? S.of(context).noData
                             : DateFormat('dd.MM.yyyy').format(birthDate!),
-                        style: Theme.of(context).textTheme.headlineMedium,
+                        style: Theme.of(context).textTheme.displaySmall,
                       ),
                 const SizedBox(width: 10),
                 const Icon(

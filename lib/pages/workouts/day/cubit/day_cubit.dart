@@ -12,7 +12,7 @@ import 'package:fit_forge/pages/settings/cubit/settings_cubit.dart';
 import 'package:fit_forge/pages/workouts/cubit/workouts_cubit.dart';
 import 'package:fit_forge/repositories/firestore_workouts_repository.dart';
 import 'package:fit_forge/routes/app_router.dart';
-import 'package:fit_forge/utils/helpers/translation_helpers.dart';
+import 'package:fit_forge/utils/helpers/helper_methods.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

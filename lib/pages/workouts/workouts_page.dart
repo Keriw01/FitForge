@@ -5,6 +5,7 @@ import 'package:fit_forge/pages/workouts/cubit/workouts_cubit.dart';
 import 'package:fit_forge/pages/workouts/widgets/current_plan_view.dart';
 import 'package:fit_forge/pages/workouts/widgets/my_plans_view.dart';
 import 'package:fit_forge/styles/app_colors.dart';
+import 'package:fit_forge/utils/helpers/helper_methods.dart';
 import 'package:fit_forge/widgets/custom_loading_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -15,7 +16,7 @@ class WorkoutsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool isLight = Theme.of(context).brightness == Brightness.light;
+    bool isLight = isLightTheme(context);
 
     return BlocBuilder<WorkoutsCubit, WorkoutsState>(
       builder: (context, state) {
@@ -25,14 +26,19 @@ class WorkoutsPage extends StatelessWidget {
           child: Scaffold(
             appBar: AppBar(
               backgroundColor: isLight
-                  ? whiteColor
-                  : Theme.of(context).appBarTheme.backgroundColor,
+                  ? lightColorScheme.onPrimary
+                  : darkColorScheme.background,
               iconTheme: IconThemeData(
-                color: isLight
-                    ? defaultFontsColor
-                    : Theme.of(context).appBarTheme.iconTheme?.color,
+                color: isLight ? defaultFontsColor : whiteColor,
               ),
               title: TabBar(
+                indicatorColor: seedBlue,
+                indicatorPadding: const EdgeInsets.only(bottom: 1),
+                labelStyle: Theme.of(context)
+                    .textTheme
+                    .titleSmall
+                    ?.copyWith(color: seedBlue),
+                unselectedLabelStyle: Theme.of(context).textTheme.titleSmall,
                 dividerColor: isLight ? defaultFontsColor : whiteColor,
                 tabs: [
                   Tab(text: S.of(context).myPlansHeader),

@@ -4,10 +4,9 @@ import 'package:fit_forge/generated/l10n.dart';
 import 'package:fit_forge/models/day_exercise.dart';
 import 'package:fit_forge/models/exercise_info.dart';
 import 'package:fit_forge/routes/app_router.dart';
-import 'package:fit_forge/utils/helpers/translation_helpers.dart';
+import 'package:fit_forge/utils/helpers/helper_methods.dart';
 import 'package:fit_forge/widgets/custom_loading_indicator.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class DayExerciseItem extends StatelessWidget {
   final ExerciseInfo exerciseInfo;
