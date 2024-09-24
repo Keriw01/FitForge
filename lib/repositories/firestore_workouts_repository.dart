@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fit_forge/exceptions/exceptions.dart';
-import 'package:fit_forge/models/exercise_info.dart';
 import 'package:fit_forge/models/plan.dart';
 import 'package:fit_forge/models/plan_day.dart';
 import 'package:fit_forge/models/day_exercise.dart';
@@ -31,7 +30,7 @@ class FirestoreWorkoutsRepository {
 
           for (var dayDoc in daysSnapshot.docs) {
             final exercisesCollectionRef =
-                daysCollectionRef.doc(dayDoc.id).collection('DayExercises');
+                daysCollectionRef.doc(dayDoc.id).collection('PlanExercises');
             final exercisesSnapshot = await exercisesCollectionRef.get();
 
             List<DayExercise> exercises =
