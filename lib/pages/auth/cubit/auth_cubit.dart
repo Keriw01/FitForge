@@ -7,6 +7,7 @@ import 'package:fit_forge/pages/scan_qr_code/cubit/qr_cubit.dart';
 import 'package:fit_forge/pages/settings/cubit/settings_cubit.dart';
 import 'package:fit_forge/pages/workouts/cubit/workouts_cubit.dart';
 import 'package:fit_forge/pages/workouts/day/cubit/day_cubit.dart';
+import 'package:fit_forge/pages/workouts/session/cubit/workout_session_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:fit_forge/base_cubit/base_cubit.dart';
@@ -28,10 +29,12 @@ class AuthCubit extends BaseCubit<AuthState> {
       FirestoreAuthRepository();
   late final WorkoutsCubit _workoutsCubit;
   late final ExercisesCubit _exercisesCubit;
+  late final SettingsCubit _settingsCubit;
 
   AuthCubit(AppRouter appRouter, BuildContext context)
       : _workoutsCubit = context.read<WorkoutsCubit>(),
         _exercisesCubit = context.read<ExercisesCubit>(),
+        _settingsCubit = context.read<SettingsCubit>(),
         super(
           appRouter,
           AuthState(),
@@ -71,6 +74,7 @@ class AuthCubit extends BaseCubit<AuthState> {
 
         _workoutsCubit.getUserPlansAndCurrent();
         _exercisesCubit.getExercises();
+        _settingsCubit.getUserProfile();
 
         _navigateToAuthFlowScreen();
       } else {
@@ -260,6 +264,7 @@ class AuthCubit extends BaseCubit<AuthState> {
       context.read<WorkoutsCubit>().clearState();
       context.read<DayCubit>().clearState();
       context.read<SettingsCubit>().clearState();
+      context.read<WorkoutSessionCubit>().clearState();
     }
   }
 

@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:fit_forge/pages/workouts/session/widgets/workout_session_floating.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 @RoutePage()
 class StatisticsPage extends StatelessWidget {
@@ -8,6 +8,9 @@ class StatisticsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text("StatisticsPage"));
+    return Stack(children: [
+      Center(child: Text("StatisticsPage")),
+      const WorkoutSessionFloating(),
+    ]);
   }
 }

@@ -1609,6 +1609,86 @@ class S {
       args: [],
     );
   }
+
+  /// `Weight`
+  String get weight {
+    return Intl.message(
+      'Weight',
+      name: 'weight',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Log Set`
+  String get logSet {
+    return Intl.message(
+      'Log Set',
+      name: 'logSet',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Workout Summary`
+  String get workoutSummary {
+    return Intl.message(
+      'Workout Summary',
+      name: 'workoutSummary',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Share`
+  String get share {
+    return Intl.message(
+      'Share',
+      name: 'share',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ` lifted, that's like`
+  String get liftedDescription {
+    return Intl.message(
+      ' lifted, that`s like',
+      name: 'liftedDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `New Record`
+  String get newRecord {
+    return Intl.message(
+      'New Record',
+      name: 'newRecord',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Kcal Burned`
+  String get kcalBurned {
+    return Intl.message(
+      'Kcal Burned',
+      name: 'kcalBurned',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Great Workout, Congratualations !`
+  String get congratulation {
+    return Intl.message(
+      'Great Workout, Congratualations !',
+      name: 'congratulation',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

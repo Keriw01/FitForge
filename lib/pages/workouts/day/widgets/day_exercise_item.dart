@@ -3,10 +3,13 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:fit_forge/generated/l10n.dart';
 import 'package:fit_forge/models/day_exercise.dart';
 import 'package:fit_forge/models/exercise_info.dart';
+import 'package:fit_forge/models/session.dart';
+import 'package:fit_forge/pages/workouts/session/cubit/workout_session_cubit.dart';
 import 'package:fit_forge/routes/app_router.dart';
 import 'package:fit_forge/utils/helpers/helper_methods.dart';
 import 'package:fit_forge/widgets/custom_loading_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class DayExerciseItem extends StatelessWidget {
   final ExerciseInfo exerciseInfo;
@@ -21,7 +24,12 @@ class DayExerciseItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(10),
+      padding: const EdgeInsets.only(
+        left: 10,
+        top: 10,
+        right: 15,
+        bottom: 10,
+      ),
       child: Row(
         children: [
           CircleAvatar(
@@ -42,7 +50,7 @@ class DayExerciseItem extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(width: 15),
+          const SizedBox(width: 15),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -63,10 +71,24 @@ class DayExerciseItem extends StatelessWidget {
             ],
           ),
           const Spacer(),
-          IconButton(
-            onPressed: () => context.router
-                .push(ExerciseDetailRoute(exerciseInfo: exerciseInfo)),
-            icon: const Icon(Icons.arrow_forward_ios),
+          BlocSelector<WorkoutSessionCubit, WorkoutSessionState, Session?>(
+            selector: (state) {
+              return state.session;
+            },
+            builder: (context, session) {
+              return IconButton(
+                onPressed: () => session == null
+                    ? context.router
+                        .push(ExerciseDetailRoute(exerciseInfo: exerciseInfo))
+                    : context
+                        .read<WorkoutSessionCubit>()
+                        .navigateToSessionDayExercise(
+                          exerciseInfo.exercise,
+                          dayExercise,
+                        ),
+                icon: const Icon(Icons.arrow_forward_ios),
+              );
+            },
           ),
         ],
       ),

@@ -5,6 +5,8 @@ part 'plan.freezed.dart';
 part 'plan.g.dart';
 
 @freezed
+
+/// Represents a single training plan entered by the user
 class Plan with _$Plan {
   factory Plan({
     required String difficultyLevel,

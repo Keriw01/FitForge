@@ -61,6 +61,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "close": MessageLookupByLibrary.simpleMessage("Close"),
         "confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
         "confirmDelete": MessageLookupByLibrary.simpleMessage("Confirm Delete"),
+        "congratulation": MessageLookupByLibrary.simpleMessage(
+            "Great Workout, Congratualations !"),
         "connect": MessageLookupByLibrary.simpleMessage("Connect"),
         "connectWithGoogleFit":
             MessageLookupByLibrary.simpleMessage("Connect with Google Fit"),
@@ -155,10 +157,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "The QR code is invalid or illegible. Please try scanning again."),
         "invalidEmailFormat":
             MessageLookupByLibrary.simpleMessage("Invalid Email Format"),
+        "kcalBurned": MessageLookupByLibrary.simpleMessage("Kcal Burned"),
         "lastActivity": MessageLookupByLibrary.simpleMessage("Last activity: "),
         "lastPerformed":
             MessageLookupByLibrary.simpleMessage("Last performed: "),
+        "liftedDescription":
+            MessageLookupByLibrary.simpleMessage(" lifted, that`s like"),
         "logOut": MessageLookupByLibrary.simpleMessage("Logout"),
+        "logSet": MessageLookupByLibrary.simpleMessage("Log Set"),
         "loginButton": MessageLookupByLibrary.simpleMessage("Login"),
         "loginPageTitle": MessageLookupByLibrary.simpleMessage("Login"),
         "lowerLegs": MessageLookupByLibrary.simpleMessage("Lower Legs"),
@@ -169,6 +175,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "myPlansHeader": MessageLookupByLibrary.simpleMessage("My plans"),
         "networkRequestFailed":
             MessageLookupByLibrary.simpleMessage("No internet connection"),
+        "newRecord": MessageLookupByLibrary.simpleMessage("New Record"),
         "noData": MessageLookupByLibrary.simpleMessage("no data"),
         "noExercisesFound":
             MessageLookupByLibrary.simpleMessage("No exercises found."),
@@ -228,6 +235,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "set": MessageLookupByLibrary.simpleMessage("Set"),
         "sets": MessageLookupByLibrary.simpleMessage("Sets"),
         "settingsTitle": MessageLookupByLibrary.simpleMessage("Settings"),
+        "share": MessageLookupByLibrary.simpleMessage("Share"),
         "shortPassword": MessageLookupByLibrary.simpleMessage(
             "The password is too short, at least 8 characters"),
         "shoulders": MessageLookupByLibrary.simpleMessage("Shoulders"),
@@ -250,8 +258,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "usernameLabel": MessageLookupByLibrary.simpleMessage("Username"),
         "weakPassword": MessageLookupByLibrary.simpleMessage(
             "The password must be at least 8 characters long and contain one letter, a number and a special character"),
+        "weight": MessageLookupByLibrary.simpleMessage("Weight"),
         "whichDay": MessageLookupByLibrary.simpleMessage("Which Day"),
         "whichPlan": MessageLookupByLibrary.simpleMessage("Which Plan"),
+        "workoutSummary":
+            MessageLookupByLibrary.simpleMessage("Workout Summary"),
         "workoutsLabel": MessageLookupByLibrary.simpleMessage("Workout")
       };
 }

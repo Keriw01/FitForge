@@ -51,6 +51,17 @@ abstract class _$AppRouter extends RootStackRouter {
         ),
       );
     },
+    ExerciseSessionRoute.name: (routeData) {
+      final args = routeData.argsAs<ExerciseSessionRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: ExerciseSessionPage(
+          key: args.key,
+          exercise: args.exercise,
+          dayExercise: args.dayExercise,
+        ),
+      );
+    },
     ExercisesRoute.name: (routeData) {
       final args = routeData.argsAs<ExercisesRouteArgs>();
       return AutoRoutePage<dynamic>(
@@ -125,6 +136,12 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: StatisticsPage(key: args.key),
+      );
+    },
+    WorkoutSummarySessionRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const WorkoutSummarySessionPage(),
       );
     },
     WorkoutsRoute.name: (routeData) {
@@ -242,6 +259,49 @@ class ExerciseDetailRouteArgs {
   @override
   String toString() {
     return 'ExerciseDetailRouteArgs{key: $key, exerciseInfo: $exerciseInfo}';
+  }
+}
+
+/// generated route for
+/// [ExerciseSessionPage]
+class ExerciseSessionRoute extends PageRouteInfo<ExerciseSessionRouteArgs> {
+  ExerciseSessionRoute({
+    Key? key,
+    required Exercise exercise,
+    required DayExercise dayExercise,
+    List<PageRouteInfo>? children,
+  }) : super(
+          ExerciseSessionRoute.name,
+          args: ExerciseSessionRouteArgs(
+            key: key,
+            exercise: exercise,
+            dayExercise: dayExercise,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'ExerciseSessionRoute';
+
+  static const PageInfo<ExerciseSessionRouteArgs> page =
+      PageInfo<ExerciseSessionRouteArgs>(name);
+}
+
+class ExerciseSessionRouteArgs {
+  const ExerciseSessionRouteArgs({
+    this.key,
+    required this.exercise,
+    required this.dayExercise,
+  });
+
+  final Key? key;
+
+  final Exercise exercise;
+
+  final DayExercise dayExercise;
+
+  @override
+  String toString() {
+    return 'ExerciseSessionRouteArgs{key: $key, exercise: $exercise, dayExercise: $dayExercise}';
   }
 }
 
@@ -495,6 +555,20 @@ class StatisticsRouteArgs {
   String toString() {
     return 'StatisticsRouteArgs{key: $key}';
   }
+}
+
+/// generated route for
+/// [WorkoutSummarySessionPage]
+class WorkoutSummarySessionRoute extends PageRouteInfo<void> {
+  const WorkoutSummarySessionRoute({List<PageRouteInfo>? children})
+      : super(
+          WorkoutSummarySessionRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'WorkoutSummarySessionRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for

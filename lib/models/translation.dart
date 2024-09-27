@@ -4,6 +4,8 @@ part 'translation.freezed.dart';
 part 'translation.g.dart';
 
 @freezed
+
+/// Represents a translation object, containing English and Polish translations for a specific text from firestore data
 class Translation with _$Translation {
   factory Translation({
     required String en,

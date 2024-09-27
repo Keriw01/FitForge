@@ -63,6 +63,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "confirm": MessageLookupByLibrary.simpleMessage("Potwierdź"),
         "confirmDelete":
             MessageLookupByLibrary.simpleMessage("Potwierdź usunięcie"),
+        "congratulation": MessageLookupByLibrary.simpleMessage(
+            "Świetny trening, Gratulacje !"),
         "connect": MessageLookupByLibrary.simpleMessage("Połącz"),
         "connectWithGoogleFit":
             MessageLookupByLibrary.simpleMessage("Połącz się z Google Fit"),
@@ -156,11 +158,15 @@ class MessageLookup extends MessageLookupByLibrary {
             "Kod QR jest nieprawidłowy lub nieczytelny. Spróbuj zeskanować ponownie."),
         "invalidEmailFormat":
             MessageLookupByLibrary.simpleMessage("Nie prawidłowy adres emial"),
+        "kcalBurned": MessageLookupByLibrary.simpleMessage("Spalone kalorie"),
         "lastActivity":
             MessageLookupByLibrary.simpleMessage("Ostatnia aktywność: "),
         "lastPerformed":
             MessageLookupByLibrary.simpleMessage("Ostatnio wykonany: "),
+        "liftedDescription":
+            MessageLookupByLibrary.simpleMessage(" podniesiono, nieźle"),
         "logOut": MessageLookupByLibrary.simpleMessage("Wyloguj"),
+        "logSet": MessageLookupByLibrary.simpleMessage("Zatwierdź"),
         "loginButton": MessageLookupByLibrary.simpleMessage("Zaloguj"),
         "loginPageTitle": MessageLookupByLibrary.simpleMessage("Logowanie"),
         "lowerLegs": MessageLookupByLibrary.simpleMessage("Dolne partie nóg"),
@@ -171,6 +177,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "myPlansHeader": MessageLookupByLibrary.simpleMessage("Moje plany"),
         "networkRequestFailed": MessageLookupByLibrary.simpleMessage(
             "Brak połączenia internetowego"),
+        "newRecord": MessageLookupByLibrary.simpleMessage("Nowy rekord"),
         "noData": MessageLookupByLibrary.simpleMessage("brak danych"),
         "noExercisesFound":
             MessageLookupByLibrary.simpleMessage("No exercises found."),
@@ -229,6 +236,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "set": MessageLookupByLibrary.simpleMessage("Ustaw"),
         "sets": MessageLookupByLibrary.simpleMessage("Serie"),
         "settingsTitle": MessageLookupByLibrary.simpleMessage("Ustawienia"),
+        "share": MessageLookupByLibrary.simpleMessage("Udostępnij"),
         "shortPassword": MessageLookupByLibrary.simpleMessage(
             "Hasło jest za krótkie minimum 8 znaków"),
         "shoulders": MessageLookupByLibrary.simpleMessage("Barki"),
@@ -253,8 +261,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Nazwa użytkownika"),
         "weakPassword": MessageLookupByLibrary.simpleMessage(
             "Hasło musi mieć co najmniej 8 znaków, zawierać jedną literę, cyfrę oraz znak specjalny"),
+        "weight": MessageLookupByLibrary.simpleMessage("Obciążęnie"),
         "whichDay": MessageLookupByLibrary.simpleMessage("Który dzień"),
         "whichPlan": MessageLookupByLibrary.simpleMessage("Który plan"),
+        "workoutSummary":
+            MessageLookupByLibrary.simpleMessage("Podsumowanie sesji"),
         "workoutsLabel": MessageLookupByLibrary.simpleMessage("Plany")
       };
 }

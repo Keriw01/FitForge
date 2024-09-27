@@ -1,10 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:fit_forge/utils/formation/formation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'user_profile.freezed.dart';
 part 'user_profile.g.dart';
 
 @freezed
+
+/// Represents a user's profile, containing their fitness and personal data
 class UserProfile with _$UserProfile {
   factory UserProfile({
     required bool isConnectWithGoogleFit,
@@ -18,7 +21,7 @@ class UserProfile with _$UserProfile {
     String? photoUrl,
     String? topGoal,
     String? currentWorkoutLevel,
-    @JsonKey(fromJson: _timestampFromJson, toJson: _timestampToJson)
+    @JsonKey(fromJson: timestampFromJson, toJson: timestampToJson)
     DateTime? birthDate,
     int? age,
     int? bmi,
@@ -29,14 +32,6 @@ class UserProfile with _$UserProfile {
 
   factory UserProfile.fromJson(Map<String, dynamic> json) =>
       _$UserProfileFromJson(json);
-}
-
-DateTime? _timestampFromJson(Timestamp? timestamp) {
-  return timestamp?.toDate();
-}
-
-Timestamp? _timestampToJson(DateTime? dateTime) {
-  return dateTime != null ? Timestamp.fromDate(dateTime) : null;
 }
 
 GeoPoint? _geoPointFromJson(Map<String, dynamic>? json) {

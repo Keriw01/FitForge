@@ -5,7 +5,7 @@ part 'current_user.g.dart';
 
 @freezed
 
-/// Biężąco zalogowany użytkownik, najważniejsze pole userId
+/// Currently logged in user, most important field is user Id, mostly unused
 class CurrentUser with _$CurrentUser {
   const factory CurrentUser({
     required String userId,

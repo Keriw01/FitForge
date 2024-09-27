@@ -1,10 +1,10 @@
 import 'package:fit_forge/generated/l10n.dart';
 import 'package:fit_forge/models/plan.dart';
 import 'package:fit_forge/pages/workouts/cubit/workouts_cubit.dart';
+import 'package:fit_forge/pages/workouts/session/widgets/workout_session_floating.dart';
 import 'package:fit_forge/pages/workouts/widgets/bottom_sheet_content.dart';
 import 'package:fit_forge/pages/workouts/widgets/workout_utils.dart';
 import 'package:fit_forge/styles/app_colors.dart';
-import 'package:fit_forge/utils/helpers/helper_methods.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -235,6 +235,7 @@ class _MyPlansViewState extends State<MyPlansView> {
           alignment: AlignmentDirectional.bottomCenter,
           children: [
             content,
+            const WorkoutSessionFloating(bottomPostion: 70),
             Padding(
               padding: const EdgeInsets.only(bottom: 10),
               child: ElevatedButton(

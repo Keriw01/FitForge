@@ -1,4 +1,6 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:fit_forge/models/day_exercise.dart';
+import 'package:fit_forge/models/exercise.dart';
 import 'package:fit_forge/models/exercise_info.dart';
 import 'package:fit_forge/pages/authentication_flow_screen.dart';
 import 'package:fit_forge/pages/exercises/body_parts_page.dart';
@@ -10,6 +12,8 @@ import 'package:fit_forge/pages/auth/register/register_page.dart';
 import 'package:fit_forge/pages/scan_qr_code/qr_scan_page.dart';
 import 'package:fit_forge/pages/workouts/day/day_add_exercise_page.dart';
 import 'package:fit_forge/pages/workouts/day/day_page.dart';
+import 'package:fit_forge/pages/workouts/session/exercise_session_page.dart';
+import 'package:fit_forge/pages/workouts/session/widgets/workout_summary_session_page.dart';
 import 'package:fit_forge/pages/workouts/workouts_page.dart';
 import 'package:fit_forge/pages/scan_qr_code/qr_code_page.dart';
 import 'package:fit_forge/pages/settings/settings_page.dart';
@@ -43,5 +47,7 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: QrScanRoute.page),
         AutoRoute(page: DayRoute.page),
         AutoRoute(page: DayAddExerciseRoute.page),
+        AutoRoute(page: ExerciseSessionRoute.page),
+        AutoRoute(page: WorkoutSummarySessionRoute.page),
       ];
 }

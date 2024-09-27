@@ -31,7 +31,7 @@ mixin _$UserProfile {
   String? get photoUrl => throw _privateConstructorUsedError;
   String? get topGoal => throw _privateConstructorUsedError;
   String? get currentWorkoutLevel => throw _privateConstructorUsedError;
-  @JsonKey(fromJson: _timestampFromJson, toJson: _timestampToJson)
+  @JsonKey(fromJson: timestampFromJson, toJson: timestampToJson)
   DateTime? get birthDate => throw _privateConstructorUsedError;
   int? get age => throw _privateConstructorUsedError;
   int? get bmi => throw _privateConstructorUsedError;
@@ -63,7 +63,7 @@ abstract class $UserProfileCopyWith<$Res> {
       String? photoUrl,
       String? topGoal,
       String? currentWorkoutLevel,
-      @JsonKey(fromJson: _timestampFromJson, toJson: _timestampToJson)
+      @JsonKey(fromJson: timestampFromJson, toJson: timestampToJson)
       DateTime? birthDate,
       int? age,
       int? bmi,
@@ -191,7 +191,7 @@ abstract class _$$UserProfileImplCopyWith<$Res>
       String? photoUrl,
       String? topGoal,
       String? currentWorkoutLevel,
-      @JsonKey(fromJson: _timestampFromJson, toJson: _timestampToJson)
+      @JsonKey(fromJson: timestampFromJson, toJson: timestampToJson)
       DateTime? birthDate,
       int? age,
       int? bmi,
@@ -312,7 +312,7 @@ class _$UserProfileImpl implements _UserProfile {
       this.photoUrl,
       this.topGoal,
       this.currentWorkoutLevel,
-      @JsonKey(fromJson: _timestampFromJson, toJson: _timestampToJson)
+      @JsonKey(fromJson: timestampFromJson, toJson: timestampToJson)
       this.birthDate,
       this.age,
       this.bmi,
@@ -346,7 +346,7 @@ class _$UserProfileImpl implements _UserProfile {
   @override
   final String? currentWorkoutLevel;
   @override
-  @JsonKey(fromJson: _timestampFromJson, toJson: _timestampToJson)
+  @JsonKey(fromJson: timestampFromJson, toJson: timestampToJson)
   final DateTime? birthDate;
   @override
   final int? age;
@@ -443,7 +443,7 @@ abstract class _UserProfile implements UserProfile {
       final String? photoUrl,
       final String? topGoal,
       final String? currentWorkoutLevel,
-      @JsonKey(fromJson: _timestampFromJson, toJson: _timestampToJson)
+      @JsonKey(fromJson: timestampFromJson, toJson: timestampToJson)
       final DateTime? birthDate,
       final int? age,
       final int? bmi,
@@ -477,7 +477,7 @@ abstract class _UserProfile implements UserProfile {
   @override
   String? get currentWorkoutLevel;
   @override
-  @JsonKey(fromJson: _timestampFromJson, toJson: _timestampToJson)
+  @JsonKey(fromJson: timestampFromJson, toJson: timestampToJson)
   DateTime? get birthDate;
   @override
   int? get age;

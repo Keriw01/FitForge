@@ -155,5 +155,13 @@
     "emptyExercisesList": "Empty Exercises List",
     "noPlansAvailable": "No Plans Available",
     "whichPlan": "Which Plan",
-    "whichDay": "Which Day"
+    "whichDay": "Which Day",
+    "weight": "Weight",
+    "logSet": "Log Set",
+    "workoutSummary": "Workout Summary",
+    "share": "Share",
+    "liftedDescription": " lifted, that`s like",
+    "newRecord": "New Record",
+    "kcalBurned": "Kcal Burned",
+    "congratulation": "Great Workout, Congratualations !"
 }

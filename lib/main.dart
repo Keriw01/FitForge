@@ -5,6 +5,7 @@ import 'package:fit_forge/pages/scan_qr_code/cubit/qr_cubit.dart';
 import 'package:fit_forge/pages/settings/cubit/settings_cubit.dart';
 import 'package:fit_forge/pages/workouts/cubit/workouts_cubit.dart';
 import 'package:fit_forge/pages/workouts/day/cubit/day_cubit.dart';
+import 'package:fit_forge/pages/workouts/session/cubit/workout_session_cubit.dart';
 import 'package:fit_forge/routes/app_router.dart';
 import 'package:fit_forge/styles/custom_theme.dart';
 import 'package:flutter/material.dart';
@@ -29,14 +30,17 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => SettingsCubit(_appRouter, context),
+          create: (context) => WorkoutSessionCubit(_appRouter, context),
         ),
         BlocProvider(
-          create: (context) => WorkoutsCubit(_appRouter, context),
+          create: (context) => SettingsCubit(_appRouter, context),
         ),
         BlocProvider(
           create: (context) => ExercisesCubit(_appRouter, context),
           lazy: false,
+        ),
+        BlocProvider(
+          create: (context) => WorkoutsCubit(_appRouter, context),
         ),
         BlocProvider(
           create: (context) => AuthCubit(_appRouter, context),

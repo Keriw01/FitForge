@@ -5,6 +5,8 @@ part 'plan_day.freezed.dart';
 part 'plan_day.g.dart';
 
 @freezed
+
+/// Represents a single day in plan, with a list of exercises.
 class PlanDay with _$PlanDay {
   factory PlanDay({
     required String dayId,

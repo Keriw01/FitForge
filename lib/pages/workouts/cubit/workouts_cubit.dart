@@ -8,6 +8,7 @@ import 'package:fit_forge/models/day_exercise.dart';
 import 'package:fit_forge/models/exercise_info.dart';
 import 'package:fit_forge/models/plan.dart';
 import 'package:fit_forge/models/plan_day.dart';
+import 'package:fit_forge/pages/exercises/cubit/exercises_cubit.dart';
 import 'package:fit_forge/pages/settings/cubit/settings_cubit.dart';
 import 'package:fit_forge/repositories/firestore_workouts_repository.dart';
 import 'package:fit_forge/routes/app_router.dart';
@@ -22,9 +23,11 @@ class WorkoutsCubit extends BaseCubit<WorkoutsState> {
   late final FirestoreWorkoutsRepository firestoreWorkoutsRepository =
       FirestoreWorkoutsRepository();
   late final SettingsCubit _settingsCubit;
+  late final ExercisesCubit _exercisesCubit;
 
   WorkoutsCubit(AppRouter appRouter, BuildContext context)
       : _settingsCubit = context.read<SettingsCubit>(),
+        _exercisesCubit = context.read<ExercisesCubit>(),
         super(
           appRouter,
           WorkoutsState(),
@@ -38,6 +41,8 @@ class WorkoutsCubit extends BaseCubit<WorkoutsState> {
         isLoading: true,
         firestoreResponseMessage: FirestoreResponseMessage.none,
       ));
+
+      _exercisesCubit.getExercises();
 
       User? user = FirebaseAuth.instance.currentUser;
 
@@ -487,7 +492,7 @@ class WorkoutsCubit extends BaseCubit<WorkoutsState> {
             ? updatedTargetPlan
             : plan;
       }).toList();
-      print('addNewExercise $updatedUserPlans');
+
       emit(state.copyWith(
         userPlans: updatedUserPlans,
         currentPlan: updatedTargetPlan.planId == state.currentPlan?.planId

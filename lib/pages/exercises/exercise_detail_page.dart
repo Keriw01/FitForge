@@ -7,6 +7,7 @@ import 'package:fit_forge/models/plan_day.dart';
 import 'package:fit_forge/pages/exercises/widgets/available_equipment_list.dart';
 import 'package:fit_forge/pages/exercises/widgets/target_muscle_group_list.dart';
 import 'package:fit_forge/pages/workouts/cubit/workouts_cubit.dart';
+import 'package:fit_forge/pages/workouts/session/widgets/workout_session_floating.dart';
 import 'package:fit_forge/styles/app_colors.dart';
 import 'package:fit_forge/utils/helpers/helper_methods.dart';
 import 'package:flutter/material.dart';
@@ -236,7 +237,7 @@ class _ExerciseDetailPageState extends State<ExerciseDetailPage> {
               width: double.infinity,
               child: Padding(
                 padding:
-                    const EdgeInsets.only(left: 10, right: 10, bottom: 110),
+                    const EdgeInsets.only(left: 10, right: 10, bottom: 150),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -359,6 +360,9 @@ class _ExerciseDetailPageState extends State<ExerciseDetailPage> {
               ],
             ),
           ),
+          const WorkoutSessionFloating(
+            bottomPostion: 100,
+          )
         ],
       ),
     );

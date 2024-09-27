@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:fit_forge/generated/l10n.dart';
 import 'package:fit_forge/pages/scan_qr_code/cubit/qr_cubit.dart';
+import 'package:fit_forge/pages/workouts/session/widgets/workout_session_floating.dart';
 import 'package:fit_forge/styles/app_colors.dart';
 import 'package:fit_forge/utils/helpers/helper_methods.dart';
 import 'package:flutter/material.dart';
@@ -86,7 +87,8 @@ class QrScanPage extends StatelessWidget {
                 ),
               ),
             ],
-          )
+          ),
+          const WorkoutSessionFloating(bottomPostion: 70),
         ],
       ),
     );

@@ -85,7 +85,6 @@ final customTextThemeLight = TextTheme(
   /// Text when planIsEmpty or page not displaying list
   bodyLarge: GoogleFonts.openSans(
     fontSize: 20,
-    fontWeight: FontWeight.bold,
   ),
 );
 
@@ -181,6 +180,5 @@ final customTextThemeDark = TextTheme(
   /// Text when planIsEmpty or page not displaying list
   bodyLarge: GoogleFonts.openSans(
     fontSize: 20,
-    fontWeight: FontWeight.bold,
   ),
 );

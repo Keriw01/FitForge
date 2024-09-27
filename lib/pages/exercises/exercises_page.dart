@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:fit_forge/generated/l10n.dart';
 import 'package:fit_forge/pages/exercises/cubit/exercises_cubit.dart';
 import 'package:fit_forge/pages/exercises/widgets/exercises_item_list.dart';
+import 'package:fit_forge/pages/workouts/session/widgets/workout_session_floating.dart';
 import 'package:fit_forge/widgets/custom_loading_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -43,12 +44,17 @@ class ExercisesPage extends StatelessWidget {
             ));
           }
 
-          return ListView.builder(
-            itemCount: filteredExercises.length,
-            itemBuilder: (context, index) {
-              final exerciseInfo = filteredExercises[index];
-              return ExercisesItemList(exerciseInfo: exerciseInfo);
-            },
+          return Stack(
+            children: [
+              ListView.builder(
+                itemCount: filteredExercises.length,
+                itemBuilder: (context, index) {
+                  final exerciseInfo = filteredExercises[index];
+                  return ExercisesItemList(exerciseInfo: exerciseInfo);
+                },
+              ),
+              const WorkoutSessionFloating()
+            ],
           );
         },
       ),

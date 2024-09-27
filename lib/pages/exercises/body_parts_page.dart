@@ -3,6 +3,7 @@ import 'package:fit_forge/consts/enums.dart';
 import 'package:fit_forge/generated/l10n.dart';
 import 'package:fit_forge/pages/exercises/cubit/exercises_cubit.dart';
 import 'package:fit_forge/pages/exercises/widgets/body_part_item.dart';
+import 'package:fit_forge/pages/workouts/session/widgets/workout_session_floating.dart';
 import 'package:fit_forge/utils/helpers/helper_methods.dart';
 import 'package:fit_forge/widgets/custom_loading_indicator.dart';
 import 'package:flutter/material.dart';
@@ -20,55 +21,61 @@ class BodyPartsPage extends StatelessWidget {
         S.of(context).bodyPartsPageTitle,
         style: Theme.of(context).textTheme.titleLarge,
       )),
-      body: BlocConsumer<ExercisesCubit, ExercisesState>(
-        listener: (context, state) {
-          if (state.firestoreResponseMessage != FirestoreResponseMessage.none) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: Text(
-                  getFirestoreResponseError(
-                      state.firestoreResponseMessage, context)!,
-                ),
-              ),
-            );
-          }
-        },
-        builder: (BuildContext context, ExercisesState state) {
-          if (state.isLoading) {
-            return const Center(
-              child: CustomLoadingIndicator(),
-            );
-          }
-
-          final size = MediaQuery.of(context).size;
-          final screenWidth = size.width;
-          final screenHeight = size.height;
-
-          const bottomNavBarHeight = 84;
-
-          const crossAxisCount = 3;
-
-          final itemWidth = screenWidth / crossAxisCount;
-          final itemHeight =
-              (screenHeight - kToolbarHeight - bottomNavBarHeight) /
-                  (12 / crossAxisCount);
-
-          return GridView.builder(
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: crossAxisCount,
-              childAspectRatio: itemWidth / itemHeight,
-            ),
-            itemCount: 12,
-            itemBuilder: (context, index) {
-              return BodyPartItem(
-                  title: getTitleForIndex(index, context),
-                  imageAsset: getImageAssetForIndex(index),
-                  onTap: () => context
-                      .read<ExercisesCubit>()
-                      .navigateToExercisesPage(getBodyPartForIndex(index)));
+      body: Stack(
+        children: [
+          BlocConsumer<ExercisesCubit, ExercisesState>(
+            listener: (context, state) {
+              if (state.firestoreResponseMessage !=
+                  FirestoreResponseMessage.none) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(
+                      getFirestoreResponseError(
+                          state.firestoreResponseMessage, context)!,
+                    ),
+                  ),
+                );
+              }
             },
-          );
-        },
+            builder: (BuildContext context, ExercisesState state) {
+              if (state.isLoading) {
+                return const Center(
+                  child: CustomLoadingIndicator(),
+                );
+              }
+
+              final size = MediaQuery.of(context).size;
+              final screenWidth = size.width;
+              final screenHeight = size.height;
+
+              const bottomNavBarHeight = 84;
+
+              const crossAxisCount = 3;
+
+              final itemWidth = screenWidth / crossAxisCount;
+              final itemHeight =
+                  (screenHeight - kToolbarHeight - bottomNavBarHeight) /
+                      (12 / crossAxisCount);
+
+              return GridView.builder(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: crossAxisCount,
+                  childAspectRatio: itemWidth / itemHeight,
+                ),
+                itemCount: 12,
+                itemBuilder: (context, index) {
+                  return BodyPartItem(
+                      title: getTitleForIndex(index, context),
+                      imageAsset: getImageAssetForIndex(index),
+                      onTap: () => context
+                          .read<ExercisesCubit>()
+                          .navigateToExercisesPage(getBodyPartForIndex(index)));
+                },
+              );
+            },
+          ),
+          const WorkoutSessionFloating(),
+        ],
       ),
     );
   }

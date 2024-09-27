@@ -5,6 +5,8 @@ part 'exercise_info.freezed.dart';
 part 'exercise_info.g.dart';
 
 @freezed
+
+/// Exercise information in firestore from collection 'Exercises'
 class ExerciseInfo with _$ExerciseInfo {
   factory ExerciseInfo({
     required String exerciseId,

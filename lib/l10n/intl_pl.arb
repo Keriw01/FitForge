@@ -155,6 +155,14 @@
     "emptyExercisesList": "Pusta lista ćwiczeń",
     "noPlansAvailable": "Brak planów",
     "whichPlan": "Który plan",
-    "whichDay": "Który dzień"
+    "whichDay": "Który dzień",
+    "weight": "Obciążęnie",
+    "logSet": "Zatwierdź",
+    "workoutSummary": "Podsumowanie sesji",
+    "share": "Udostępnij",
+    "liftedDescription": " podniesiono, nieźle",
+    "newRecord": "Nowy rekord",
+    "kcalBurned": "Spalone kalorie",
+    "congratulation": "Świetny trening, Gratulacje !"
 
 }
