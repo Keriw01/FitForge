@@ -15,6 +15,17 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    ActivityDetailRoute.name: (routeData) {
+      final args = routeData.argsAs<ActivityDetailRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: ActivityDetailPage(
+          key: args.key,
+          session: args.session,
+          exercises: args.exercises,
+        ),
+      );
+    },
     AuthenticationFlowRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -72,22 +83,6 @@ abstract class _$AppRouter extends RootStackRouter {
         ),
       );
     },
-    HistoryRoute.name: (routeData) {
-      final args = routeData.argsAs<HistoryRouteArgs>(
-          orElse: () => const HistoryRouteArgs());
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: HistoryPage(key: args.key),
-      );
-    },
-    InsightsRoute.name: (routeData) {
-      final args = routeData.argsAs<InsightsRouteArgs>(
-          orElse: () => const InsightsRouteArgs());
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: InsightsPage(key: args.key),
-      );
-    },
     LoginRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -100,6 +95,12 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: MainPage(key: args.key),
+      );
+    },
+    ProgressRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const ProgressPage(),
       );
     },
     QrCodeRoute.name: (routeData) {
@@ -130,14 +131,6 @@ abstract class _$AppRouter extends RootStackRouter {
         child: SettingsPage(key: args.key),
       );
     },
-    StatisticsRoute.name: (routeData) {
-      final args = routeData.argsAs<StatisticsRouteArgs>(
-          orElse: () => const StatisticsRouteArgs());
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: StatisticsPage(key: args.key),
-      );
-    },
     WorkoutSummarySessionRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -151,6 +144,49 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
   };
+}
+
+/// generated route for
+/// [ActivityDetailPage]
+class ActivityDetailRoute extends PageRouteInfo<ActivityDetailRouteArgs> {
+  ActivityDetailRoute({
+    Key? key,
+    required Session session,
+    required List<ExerciseInfo> exercises,
+    List<PageRouteInfo>? children,
+  }) : super(
+          ActivityDetailRoute.name,
+          args: ActivityDetailRouteArgs(
+            key: key,
+            session: session,
+            exercises: exercises,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'ActivityDetailRoute';
+
+  static const PageInfo<ActivityDetailRouteArgs> page =
+      PageInfo<ActivityDetailRouteArgs>(name);
+}
+
+class ActivityDetailRouteArgs {
+  const ActivityDetailRouteArgs({
+    this.key,
+    required this.session,
+    required this.exercises,
+  });
+
+  final Key? key;
+
+  final Session session;
+
+  final List<ExerciseInfo> exercises;
+
+  @override
+  String toString() {
+    return 'ActivityDetailRouteArgs{key: $key, session: $session, exercises: $exercises}';
+  }
 }
 
 /// generated route for
@@ -344,64 +380,6 @@ class ExercisesRouteArgs {
 }
 
 /// generated route for
-/// [HistoryPage]
-class HistoryRoute extends PageRouteInfo<HistoryRouteArgs> {
-  HistoryRoute({
-    Key? key,
-    List<PageRouteInfo>? children,
-  }) : super(
-          HistoryRoute.name,
-          args: HistoryRouteArgs(key: key),
-          initialChildren: children,
-        );
-
-  static const String name = 'HistoryRoute';
-
-  static const PageInfo<HistoryRouteArgs> page =
-      PageInfo<HistoryRouteArgs>(name);
-}
-
-class HistoryRouteArgs {
-  const HistoryRouteArgs({this.key});
-
-  final Key? key;
-
-  @override
-  String toString() {
-    return 'HistoryRouteArgs{key: $key}';
-  }
-}
-
-/// generated route for
-/// [InsightsPage]
-class InsightsRoute extends PageRouteInfo<InsightsRouteArgs> {
-  InsightsRoute({
-    Key? key,
-    List<PageRouteInfo>? children,
-  }) : super(
-          InsightsRoute.name,
-          args: InsightsRouteArgs(key: key),
-          initialChildren: children,
-        );
-
-  static const String name = 'InsightsRoute';
-
-  static const PageInfo<InsightsRouteArgs> page =
-      PageInfo<InsightsRouteArgs>(name);
-}
-
-class InsightsRouteArgs {
-  const InsightsRouteArgs({this.key});
-
-  final Key? key;
-
-  @override
-  String toString() {
-    return 'InsightsRouteArgs{key: $key}';
-  }
-}
-
-/// generated route for
 /// [LoginPage]
 class LoginRoute extends PageRouteInfo<void> {
   const LoginRoute({List<PageRouteInfo>? children})
@@ -441,6 +419,20 @@ class MainRouteArgs {
   String toString() {
     return 'MainRouteArgs{key: $key}';
   }
+}
+
+/// generated route for
+/// [ProgressPage]
+class ProgressRoute extends PageRouteInfo<void> {
+  const ProgressRoute({List<PageRouteInfo>? children})
+      : super(
+          ProgressRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ProgressRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
@@ -525,35 +517,6 @@ class SettingsRouteArgs {
   @override
   String toString() {
     return 'SettingsRouteArgs{key: $key}';
-  }
-}
-
-/// generated route for
-/// [StatisticsPage]
-class StatisticsRoute extends PageRouteInfo<StatisticsRouteArgs> {
-  StatisticsRoute({
-    Key? key,
-    List<PageRouteInfo>? children,
-  }) : super(
-          StatisticsRoute.name,
-          args: StatisticsRouteArgs(key: key),
-          initialChildren: children,
-        );
-
-  static const String name = 'StatisticsRoute';
-
-  static const PageInfo<StatisticsRouteArgs> page =
-      PageInfo<StatisticsRouteArgs>(name);
-}
-
-class StatisticsRouteArgs {
-  const StatisticsRouteArgs({this.key});
-
-  final Key? key;
-
-  @override
-  String toString() {
-    return 'StatisticsRouteArgs{key: $key}';
   }
 }
 

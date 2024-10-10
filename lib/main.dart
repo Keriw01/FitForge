@@ -1,6 +1,7 @@
 import 'package:fit_forge/pages/auth/cubit/auth_cubit.dart';
 import 'package:fit_forge/generated/l10n.dart';
 import 'package:fit_forge/pages/exercises/cubit/exercises_cubit.dart';
+import 'package:fit_forge/pages/progress/cubit/progress_cubit.dart';
 import 'package:fit_forge/pages/scan_qr_code/cubit/qr_cubit.dart';
 import 'package:fit_forge/pages/settings/cubit/settings_cubit.dart';
 import 'package:fit_forge/pages/workouts/cubit/workouts_cubit.dart';
@@ -55,6 +56,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => DayCubit(_appRouter, context),
+        ),
+        BlocProvider(
+          create: (context) => ProgressCubit(_appRouter, context),
         ),
       ],
       child: MaterialApp.router(

@@ -20,8 +20,8 @@ Session _$SessionFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Session {
-  String get sessionId => throw _privateConstructorUsedError;
-  String get userId => throw _privateConstructorUsedError;
+  String? get sessionId => throw _privateConstructorUsedError;
+  String? get userId => throw _privateConstructorUsedError;
   String get totalCaloriesBurned => throw _privateConstructorUsedError;
   String get totalDuration => throw _privateConstructorUsedError;
   int get totalExercises => throw _privateConstructorUsedError;
@@ -45,8 +45,8 @@ abstract class $SessionCopyWith<$Res> {
       _$SessionCopyWithImpl<$Res, Session>;
   @useResult
   $Res call(
-      {String sessionId,
-      String userId,
+      {String? sessionId,
+      String? userId,
       String totalCaloriesBurned,
       String totalDuration,
       int totalExercises,
@@ -72,8 +72,8 @@ class _$SessionCopyWithImpl<$Res, $Val extends Session>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? sessionId = null,
-    Object? userId = null,
+    Object? sessionId = freezed,
+    Object? userId = freezed,
     Object? totalCaloriesBurned = null,
     Object? totalDuration = null,
     Object? totalExercises = null,
@@ -84,14 +84,14 @@ class _$SessionCopyWithImpl<$Res, $Val extends Session>
     Object? sessionExercises = freezed,
   }) {
     return _then(_value.copyWith(
-      sessionId: null == sessionId
+      sessionId: freezed == sessionId
           ? _value.sessionId
           : sessionId // ignore: cast_nullable_to_non_nullable
-              as String,
-      userId: null == userId
+              as String?,
+      userId: freezed == userId
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       totalCaloriesBurned: null == totalCaloriesBurned
           ? _value.totalCaloriesBurned
           : totalCaloriesBurned // ignore: cast_nullable_to_non_nullable
@@ -136,8 +136,8 @@ abstract class _$$SessionImplCopyWith<$Res> implements $SessionCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String sessionId,
-      String userId,
+      {String? sessionId,
+      String? userId,
       String totalCaloriesBurned,
       String totalDuration,
       int totalExercises,
@@ -161,8 +161,8 @@ class __$$SessionImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? sessionId = null,
-    Object? userId = null,
+    Object? sessionId = freezed,
+    Object? userId = freezed,
     Object? totalCaloriesBurned = null,
     Object? totalDuration = null,
     Object? totalExercises = null,
@@ -173,14 +173,14 @@ class __$$SessionImplCopyWithImpl<$Res>
     Object? sessionExercises = freezed,
   }) {
     return _then(_$SessionImpl(
-      sessionId: null == sessionId
+      sessionId: freezed == sessionId
           ? _value.sessionId
           : sessionId // ignore: cast_nullable_to_non_nullable
-              as String,
-      userId: null == userId
+              as String?,
+      userId: freezed == userId
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       totalCaloriesBurned: null == totalCaloriesBurned
           ? _value.totalCaloriesBurned
           : totalCaloriesBurned // ignore: cast_nullable_to_non_nullable
@@ -221,8 +221,8 @@ class __$$SessionImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$SessionImpl implements _Session {
   _$SessionImpl(
-      {required this.sessionId,
-      required this.userId,
+      {this.sessionId,
+      this.userId,
       required this.totalCaloriesBurned,
       required this.totalDuration,
       required this.totalExercises,
@@ -239,9 +239,9 @@ class _$SessionImpl implements _Session {
       _$$SessionImplFromJson(json);
 
   @override
-  final String sessionId;
+  final String? sessionId;
   @override
-  final String userId;
+  final String? userId;
   @override
   final String totalCaloriesBurned;
   @override
@@ -330,8 +330,8 @@ class _$SessionImpl implements _Session {
 
 abstract class _Session implements Session {
   factory _Session(
-      {required final String sessionId,
-      required final String userId,
+      {final String? sessionId,
+      final String? userId,
       required final String totalCaloriesBurned,
       required final String totalDuration,
       required final int totalExercises,
@@ -346,9 +346,9 @@ abstract class _Session implements Session {
   factory _Session.fromJson(Map<String, dynamic> json) = _$SessionImpl.fromJson;
 
   @override
-  String get sessionId;
+  String? get sessionId;
   @override
-  String get userId;
+  String? get userId;
   @override
   String get totalCaloriesBurned;
   @override

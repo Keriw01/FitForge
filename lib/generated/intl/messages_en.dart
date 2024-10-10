@@ -31,6 +31,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "addExerciseToYourPlan":
             MessageLookupByLibrary.simpleMessage("Add Exercise To Your Plan"),
         "advanced": MessageLookupByLibrary.simpleMessage("Advanced"),
+        "age": MessageLookupByLibrary.simpleMessage("Age"),
         "alreadyHaveAccount":
             MessageLookupByLibrary.simpleMessage("Already have an Account ?"),
         "availableEquipment":
@@ -46,8 +47,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "begginer": MessageLookupByLibrary.simpleMessage("Beginner"),
         "biceps": MessageLookupByLibrary.simpleMessage("Biceps"),
         "birthDateLabel": MessageLookupByLibrary.simpleMessage("Birth Date"),
+        "bmi": MessageLookupByLibrary.simpleMessage("BMI"),
         "bodyPartsPageTitle":
             MessageLookupByLibrary.simpleMessage("Body Parts"),
+        "bodyStats": MessageLookupByLibrary.simpleMessage("Body Stats"),
         "bulking": MessageLookupByLibrary.simpleMessage("Bulking"),
         "bulkingDescription": MessageLookupByLibrary.simpleMessage(
             "Focus on gaining muscle size and building strength"),
@@ -119,6 +122,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Empty Exercises List"),
         "emptyPlans": MessageLookupByLibrary.simpleMessage(
             "You don`t have any training plan created.\nCreate one using the button at the bottom."),
+        "emptySessions":
+            MessageLookupByLibrary.simpleMessage("No sessions available"),
+        "end": MessageLookupByLibrary.simpleMessage("End"),
         "enterBirthDate":
             MessageLookupByLibrary.simpleMessage("Enter birth date"),
         "enterEmail": MessageLookupByLibrary.simpleMessage("Enter e-mail"),
@@ -135,6 +141,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Enter valid e-mail"),
         "enterValidPassword": MessageLookupByLibrary.simpleMessage(
             "Password must contains minimum 8 characters"),
+        "executedExercises":
+            MessageLookupByLibrary.simpleMessage("Executed Exercises"),
         "exercise": MessageLookupByLibrary.simpleMessage("Exercise(s)"),
         "exerciseDetailPageTitle":
             MessageLookupByLibrary.simpleMessage("Exercise Detail"),
@@ -151,7 +159,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "glutes": MessageLookupByLibrary.simpleMessage("Glutes"),
         "googleLoginCanceled":
             MessageLookupByLibrary.simpleMessage("Login with Google canceled"),
+        "height": MessageLookupByLibrary.simpleMessage("Height"),
+        "historyHeader": MessageLookupByLibrary.simpleMessage("History"),
         "inputEmpty": MessageLookupByLibrary.simpleMessage("Empty field"),
+        "insightsHeader": MessageLookupByLibrary.simpleMessage("Insights"),
         "intermediate": MessageLookupByLibrary.simpleMessage("Intermediate"),
         "invalidBarcode": MessageLookupByLibrary.simpleMessage(
             "The QR code is invalid or illegible. Please try scanning again."),
@@ -172,6 +183,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "maintainingDescription": MessageLookupByLibrary.simpleMessage(
             "Staying healthy and having good cardiovascular health"),
         "male": MessageLookupByLibrary.simpleMessage("Male"),
+        "muscleBreakdown":
+            MessageLookupByLibrary.simpleMessage("Muscle Breakdown"),
         "myPlansHeader": MessageLookupByLibrary.simpleMessage("My plans"),
         "networkRequestFailed":
             MessageLookupByLibrary.simpleMessage("No internet connection"),
@@ -243,13 +256,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "signIn": MessageLookupByLibrary.simpleMessage(" Sign In"),
         "signUp": MessageLookupByLibrary.simpleMessage(" Sign Up"),
         "signUpButton": MessageLookupByLibrary.simpleMessage("Register"),
+        "start": MessageLookupByLibrary.simpleMessage("Start"),
         "startWorkout": MessageLookupByLibrary.simpleMessage("START WORKOUT"),
         "statisticsLabel": MessageLookupByLibrary.simpleMessage("Progress"),
+        "summaryWeightLifted":
+            MessageLookupByLibrary.simpleMessage("Summary Weight Lifted"),
         "targetMuscleGroup":
             MessageLookupByLibrary.simpleMessage("Target Muscle Group"),
         "topGoalLabel": MessageLookupByLibrary.simpleMessage("Top Goal"),
         "triceps": MessageLookupByLibrary.simpleMessage("Triceps"),
         "unitSystem": MessageLookupByLibrary.simpleMessage("Unit System"),
+        "update": MessageLookupByLibrary.simpleMessage("Update"),
         "upperLegs": MessageLookupByLibrary.simpleMessage("Upper Legs"),
         "userAlreadyExist":
             MessageLookupByLibrary.simpleMessage("User already exist"),

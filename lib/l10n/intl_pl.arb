@@ -163,6 +163,19 @@
     "liftedDescription": " podniesiono, nieźle",
     "newRecord": "Nowy rekord",
     "kcalBurned": "Spalone kalorie",
-    "congratulation": "Świetny trening, Gratulacje !"
+    "congratulation": "Świetny trening, Gratulacje !",
+    "historyHeader": "Historia",
+    "insightsHeader": "Parametry",
+    "executedExercises": "Wykonane ćwiczenia",
+    "bodyStats": "Statystyki ciała",
+    "bmi": "BMI",
+    "height": "Wzrost",
+    "age": "Wiek",
+    "summaryWeightLifted": "Suma podniesionego ciężaru",
+    "muscleBreakdown": "Mięśnie które potrzebują przerwy",
+    "emptySessions": "Brak dostępnych sesji",
+    "start": "Rozpoczęto",
+    "end": "Zakończono",
+    "update": "Zmień"
 
 }

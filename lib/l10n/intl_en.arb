@@ -163,5 +163,18 @@
     "liftedDescription": " lifted, that`s like",
     "newRecord": "New Record",
     "kcalBurned": "Kcal Burned",
-    "congratulation": "Great Workout, Congratualations !"
+    "congratulation": "Great Workout, Congratualations !",
+    "historyHeader": "History",
+    "insightsHeader": "Insights",
+    "executedExercises": "Executed Exercises",
+    "bodyStats": "Body Stats",
+    "bmi": "BMI",
+    "height": "Height",
+    "age": "Age",
+    "summaryWeightLifted": "Summary Weight Lifted",
+    "muscleBreakdown": "Muscle Breakdown",
+    "emptySessions": "No sessions available",
+    "start": "Start",
+    "end": "End",
+    "update": "Update"
 }

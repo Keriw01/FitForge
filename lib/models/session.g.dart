@@ -8,8 +8,8 @@ part of 'session.dart';
 
 _$SessionImpl _$$SessionImplFromJson(Map<String, dynamic> json) =>
     _$SessionImpl(
-      sessionId: json['sessionId'] as String,
-      userId: json['userId'] as String,
+      sessionId: json['sessionId'] as String?,
+      userId: json['userId'] as String?,
       totalCaloriesBurned: json['totalCaloriesBurned'] as String,
       totalDuration: json['totalDuration'] as String,
       totalExercises: (json['totalExercises'] as num).toInt(),

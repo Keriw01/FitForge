@@ -1689,6 +1689,136 @@ class S {
       args: [],
     );
   }
+
+  /// `History`
+  String get historyHeader {
+    return Intl.message(
+      'History',
+      name: 'historyHeader',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Insights`
+  String get insightsHeader {
+    return Intl.message(
+      'Insights',
+      name: 'insightsHeader',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Executed Exercises`
+  String get executedExercises {
+    return Intl.message(
+      'Executed Exercises',
+      name: 'executedExercises',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Body Stats`
+  String get bodyStats {
+    return Intl.message(
+      'Body Stats',
+      name: 'bodyStats',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `BMI`
+  String get bmi {
+    return Intl.message(
+      'BMI',
+      name: 'bmi',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Height`
+  String get height {
+    return Intl.message(
+      'Height',
+      name: 'height',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Age`
+  String get age {
+    return Intl.message(
+      'Age',
+      name: 'age',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Summary Weight Lifted`
+  String get summaryWeightLifted {
+    return Intl.message(
+      'Summary Weight Lifted',
+      name: 'summaryWeightLifted',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Muscle Breakdown`
+  String get muscleBreakdown {
+    return Intl.message(
+      'Muscle Breakdown',
+      name: 'muscleBreakdown',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No sessions available`
+  String get emptySessions {
+    return Intl.message(
+      'No sessions available',
+      name: 'emptySessions',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Start`
+  String get start {
+    return Intl.message(
+      'Start',
+      name: 'start',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `End`
+  String get end {
+    return Intl.message(
+      'End',
+      name: 'end',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Update`
+  String get update {
+    return Intl.message(
+      'Update',
+      name: 'update',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

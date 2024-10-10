@@ -11,8 +11,8 @@ part 'session.g.dart';
 /// Represents a single workout session, started by user
 class Session with _$Session {
   factory Session({
-    required String sessionId,
-    required String userId,
+    String? sessionId,
+    String? userId,
     required String totalCaloriesBurned,
     required String totalDuration,
     required int totalExercises,

@@ -13,7 +13,7 @@ class MainPage extends StatelessWidget {
       routes: [
         WorkoutsRoute(),
         BodyPartsRoute(),
-        StatisticsRoute(),
+        ProgressRoute(),
         QrCodeRoute()
       ],
       builder: (context, child) {

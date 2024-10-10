@@ -31,6 +31,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "addExerciseToYourPlan":
             MessageLookupByLibrary.simpleMessage("Dodaj ćwiczenia do planu"),
         "advanced": MessageLookupByLibrary.simpleMessage("Zaawansowany"),
+        "age": MessageLookupByLibrary.simpleMessage("Wiek"),
         "alreadyHaveAccount":
             MessageLookupByLibrary.simpleMessage("Masz już konto ?"),
         "availableEquipment":
@@ -47,8 +48,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "biceps": MessageLookupByLibrary.simpleMessage("Biceps"),
         "birthDateLabel":
             MessageLookupByLibrary.simpleMessage("Data urodzenia"),
+        "bmi": MessageLookupByLibrary.simpleMessage("BMI"),
         "bodyPartsPageTitle":
             MessageLookupByLibrary.simpleMessage("Partie ciała"),
+        "bodyStats": MessageLookupByLibrary.simpleMessage("Statystyki ciała"),
         "bulking": MessageLookupByLibrary.simpleMessage("Zbudować masę"),
         "bulkingDescription": MessageLookupByLibrary.simpleMessage(
             "Skoncentruj się na zwiększaniu masy mięśniowej i budowaniu siły"),
@@ -118,6 +121,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Pusta lista ćwiczeń"),
         "emptyPlans": MessageLookupByLibrary.simpleMessage(
             "Nie masz utworzonego żadnego planu treningowego.\nUtwórz go poprzez przycisk na dole."),
+        "emptySessions":
+            MessageLookupByLibrary.simpleMessage("Brak dostępnych sesji"),
+        "end": MessageLookupByLibrary.simpleMessage("Zakończono"),
         "enterBirthDate":
             MessageLookupByLibrary.simpleMessage("Wprowadź datę urodzin"),
         "enterEmail": MessageLookupByLibrary.simpleMessage("Wpisz swój e-mail"),
@@ -135,6 +141,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Wprowadź poprawny adres e-mail"),
         "enterValidPassword": MessageLookupByLibrary.simpleMessage(
             "Hasło musi mieć co najmniej 8 znaków"),
+        "executedExercises":
+            MessageLookupByLibrary.simpleMessage("Wykonane ćwiczenia"),
         "exercise": MessageLookupByLibrary.simpleMessage("ćwiczenie(a)"),
         "exerciseDetailPageTitle":
             MessageLookupByLibrary.simpleMessage("Szczegóły ćwiczenia"),
@@ -151,7 +159,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "glutes": MessageLookupByLibrary.simpleMessage("Pośladki"),
         "googleLoginCanceled": MessageLookupByLibrary.simpleMessage(
             "Anulowano logowanie przez Google"),
+        "height": MessageLookupByLibrary.simpleMessage("Wzrost"),
+        "historyHeader": MessageLookupByLibrary.simpleMessage("Historia"),
         "inputEmpty": MessageLookupByLibrary.simpleMessage("Puste pole"),
+        "insightsHeader": MessageLookupByLibrary.simpleMessage("Parametry"),
         "intermediate":
             MessageLookupByLibrary.simpleMessage("Średnio-zaawansowany"),
         "invalidBarcode": MessageLookupByLibrary.simpleMessage(
@@ -174,6 +185,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "maintainingDescription": MessageLookupByLibrary.simpleMessage(
             "Bądź zdrowy i dbaj o zdrowie układu krążenia"),
         "male": MessageLookupByLibrary.simpleMessage("Mężczyzna"),
+        "muscleBreakdown": MessageLookupByLibrary.simpleMessage(
+            "Mięśnie które potrzebują przerwy"),
         "myPlansHeader": MessageLookupByLibrary.simpleMessage("Moje plany"),
         "networkRequestFailed": MessageLookupByLibrary.simpleMessage(
             "Brak połączenia internetowego"),
@@ -244,14 +257,18 @@ class MessageLookup extends MessageLookupByLibrary {
         "signIn": MessageLookupByLibrary.simpleMessage(" Zaloguj się"),
         "signUp": MessageLookupByLibrary.simpleMessage(" Zarejestruj się"),
         "signUpButton": MessageLookupByLibrary.simpleMessage("Zarejestruj"),
+        "start": MessageLookupByLibrary.simpleMessage("Rozpoczęto"),
         "startWorkout":
             MessageLookupByLibrary.simpleMessage("Rozpocznij sesję"),
         "statisticsLabel": MessageLookupByLibrary.simpleMessage("Historia"),
+        "summaryWeightLifted":
+            MessageLookupByLibrary.simpleMessage("Suma podniesionego ciężaru"),
         "targetMuscleGroup":
             MessageLookupByLibrary.simpleMessage("Grupa docelowa mięśni"),
         "topGoalLabel": MessageLookupByLibrary.simpleMessage("Cel"),
         "triceps": MessageLookupByLibrary.simpleMessage("Triceps"),
         "unitSystem": MessageLookupByLibrary.simpleMessage("Jednostki"),
+        "update": MessageLookupByLibrary.simpleMessage("Zmień"),
         "upperLegs": MessageLookupByLibrary.simpleMessage("Górne partie nóg"),
         "userAlreadyExist":
             MessageLookupByLibrary.simpleMessage("Użytkownik już istnieje"),

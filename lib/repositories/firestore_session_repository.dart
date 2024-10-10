@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fit_forge/exceptions/exceptions.dart';
+import 'package:fit_forge/models/exercise_set.dart';
 import 'package:fit_forge/models/session.dart';
+import 'package:fit_forge/models/session_exercise.dart';
 
 class FirestoreSessionRepository {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
@@ -111,6 +113,71 @@ class FirestoreSessionRepository {
       final sessionDocRef = sessionsCollectionRef.doc(session.sessionId);
 
       await sessionDocRef.delete();
+    } catch (e) {
+      print(e);
+      throw FirestoreException();
+    }
+  }
+
+  Future<List<Session>> getUserSessions(String? userId) async {
+    try {
+      final userDocRef =
+          _firestore.collection('UserTrainingSessions').doc(userId);
+      final userSnapshot = await userDocRef.get();
+
+      final sessionsCollectionRef = userDocRef.collection('Sessions');
+      final sessionSnapshot = await sessionsCollectionRef.get();
+
+      final String? currentSessionId = userSnapshot.data()?['currentSessionId'];
+
+      List<Session> sessions = [];
+      if (sessionSnapshot.docs.isEmpty) {
+        return sessions;
+      } else {
+        for (var sessionDoc in sessionSnapshot.docs) {
+          final sessionData = sessionDoc.data();
+          final sessionId = sessionDoc.id;
+
+          if (sessionId != currentSessionId) {
+            final sessionExercisesCollectionRef = sessionsCollectionRef
+                .doc(sessionId)
+                .collection('SessionExercises');
+
+            final sessionExerciseSnapshot =
+                await sessionExercisesCollectionRef.get();
+
+            List<SessionExercise> sessionExercises = [];
+
+            for (var sessionExerciseDoc in sessionExerciseSnapshot.docs) {
+              final exerciseSetsCollectionRef = sessionExercisesCollectionRef
+                  .doc(sessionExerciseDoc.id)
+                  .collection('ExerciseSets');
+              final exerciseSetSnapshot = await exerciseSetsCollectionRef.get();
+
+              List<ExerciseSet> exerciseSets =
+                  exerciseSetSnapshot.docs.map((exerciseSet) {
+                return ExerciseSet.fromJson(exerciseSet.data());
+              }).toList();
+
+              SessionExercise sessionExercise =
+                  SessionExercise.fromJson(sessionExerciseDoc.data())
+                      .copyWith(exercisesSets: exerciseSets);
+
+              sessionExercises.add(sessionExercise);
+            }
+
+            Session session = Session.fromJson(sessionData).copyWith(
+              sessionId: sessionId,
+              userId: userId,
+              sessionExercises: sessionExercises,
+            );
+
+            sessions.add(session);
+          }
+        }
+        print(sessions);
+        return sessions;
+      }
     } catch (e) {
       print(e);
       throw FirestoreException();
