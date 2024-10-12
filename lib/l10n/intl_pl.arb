@@ -176,6 +176,7 @@
     "emptySessions": "Brak dostępnych sesji",
     "start": "Rozpoczęto",
     "end": "Zakończono",
-    "update": "Zmień"
+    "update": "Zmień",
+    "editBodyStats": "Edytuj parametry ciała"
 
 }

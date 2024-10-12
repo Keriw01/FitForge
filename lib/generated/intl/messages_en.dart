@@ -100,6 +100,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Don`t have an Account ?"),
         "duration": MessageLookupByLibrary.simpleMessage("Duration"),
         "edit": MessageLookupByLibrary.simpleMessage("Edit"),
+        "editBodyStats":
+            MessageLookupByLibrary.simpleMessage("Edit Body Stats"),
         "editCurrentWorkoutLevel":
             MessageLookupByLibrary.simpleMessage("Choose your workout level"),
         "editDefaultReps":

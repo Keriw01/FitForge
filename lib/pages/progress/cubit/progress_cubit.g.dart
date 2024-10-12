@@ -14,6 +14,14 @@ abstract class _$ProgressStateCWProxy {
 
   ProgressState sessions(List<Session>? sessions);
 
+  ProgressState userBodyStats(UserBodyStats? userBodyStats);
+
+  ProgressState inputWeight(double? inputWeight);
+
+  ProgressState inputHeight(String? inputHeight);
+
+  ProgressState inputAge(int? inputAge);
+
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `ProgressState(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
   /// Usage
@@ -24,6 +32,10 @@ abstract class _$ProgressStateCWProxy {
     FirestoreResponseMessage? firestoreResponseMessage,
     bool? isLoading,
     List<Session>? sessions,
+    UserBodyStats? userBodyStats,
+    double? inputWeight,
+    String? inputHeight,
+    int? inputAge,
   });
 }
 
@@ -45,6 +57,21 @@ class _$ProgressStateCWProxyImpl implements _$ProgressStateCWProxy {
   ProgressState sessions(List<Session>? sessions) => this(sessions: sessions);
 
   @override
+  ProgressState userBodyStats(UserBodyStats? userBodyStats) =>
+      this(userBodyStats: userBodyStats);
+
+  @override
+  ProgressState inputWeight(double? inputWeight) =>
+      this(inputWeight: inputWeight);
+
+  @override
+  ProgressState inputHeight(String? inputHeight) =>
+      this(inputHeight: inputHeight);
+
+  @override
+  ProgressState inputAge(int? inputAge) => this(inputAge: inputAge);
+
+  @override
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `ProgressState(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
@@ -56,6 +83,10 @@ class _$ProgressStateCWProxyImpl implements _$ProgressStateCWProxy {
     Object? firestoreResponseMessage = const $CopyWithPlaceholder(),
     Object? isLoading = const $CopyWithPlaceholder(),
     Object? sessions = const $CopyWithPlaceholder(),
+    Object? userBodyStats = const $CopyWithPlaceholder(),
+    Object? inputWeight = const $CopyWithPlaceholder(),
+    Object? inputHeight = const $CopyWithPlaceholder(),
+    Object? inputAge = const $CopyWithPlaceholder(),
   }) {
     return ProgressState(
       firestoreResponseMessage:
@@ -72,6 +103,22 @@ class _$ProgressStateCWProxyImpl implements _$ProgressStateCWProxy {
           ? _value.sessions
           // ignore: cast_nullable_to_non_nullable
           : sessions as List<Session>?,
+      userBodyStats: userBodyStats == const $CopyWithPlaceholder()
+          ? _value.userBodyStats
+          // ignore: cast_nullable_to_non_nullable
+          : userBodyStats as UserBodyStats?,
+      inputWeight: inputWeight == const $CopyWithPlaceholder()
+          ? _value.inputWeight
+          // ignore: cast_nullable_to_non_nullable
+          : inputWeight as double?,
+      inputHeight: inputHeight == const $CopyWithPlaceholder()
+          ? _value.inputHeight
+          // ignore: cast_nullable_to_non_nullable
+          : inputHeight as String?,
+      inputAge: inputAge == const $CopyWithPlaceholder()
+          ? _value.inputAge
+          // ignore: cast_nullable_to_non_nullable
+          : inputAge as int?,
     );
   }
 }

@@ -9,9 +9,12 @@ import 'package:fit_forge/exceptions/exceptions.dart';
 import 'package:fit_forge/models/exercise_info.dart';
 import 'package:fit_forge/models/session.dart';
 import 'package:fit_forge/models/session_exercise.dart';
+import 'package:fit_forge/models/user_body_stats.dart';
 import 'package:fit_forge/pages/exercises/cubit/exercises_cubit.dart';
+import 'package:fit_forge/repositories/firestore_profile_repository.dart';
 import 'package:fit_forge/repositories/firestore_session_repository.dart';
 import 'package:fit_forge/routes/app_router.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
@@ -22,6 +25,8 @@ part 'progress_cubit.g.dart';
 class ProgressCubit extends BaseCubit<ProgressState> {
   late final FirestoreSessionRepository firestoreSessionRepository =
       FirestoreSessionRepository();
+  late final FirestoreProfileRepository firestoreProfileRepository =
+      FirestoreProfileRepository();
   late final ExercisesCubit _exercisesCubit;
 
   ProgressCubit(AppRouter appRouter, BuildContext context)
@@ -30,10 +35,10 @@ class ProgressCubit extends BaseCubit<ProgressState> {
           appRouter,
           ProgressState(),
         ) {
-    getUserSessions();
+    getUserProgress();
   }
 
-  Future<void> getUserSessions() async {
+  Future<void> getUserProgress() async {
     try {
       emit(state.copyWith(isLoading: true));
 
@@ -42,8 +47,36 @@ class ProgressCubit extends BaseCubit<ProgressState> {
       final sessions =
           await firestoreSessionRepository.getUserSessions(user?.uid);
 
+      emit(state.copyWith(sessions: sessions));
+
+      await getUserBodyStats();
+    } on FirestoreException {
       emit(state.copyWith(
-        sessions: sessions,
+        firestoreResponseMessage: FirestoreResponseMessage.firestoreException,
+        isLoading: false,
+      ));
+    } catch (e) {
+      emit(state.copyWith(
+        firestoreResponseMessage: FirestoreResponseMessage.defaultError,
+        isLoading: false,
+      ));
+    }
+  }
+
+  Future<void> getUserBodyStats() async {
+    try {
+      emit(state.copyWith(isLoading: true));
+
+      User? user = FirebaseAuth.instance.currentUser;
+
+      final userBodyStats =
+          await firestoreProfileRepository.getUserBodyStats(user?.uid);
+
+      emit(state.copyWith(
+        userBodyStats: userBodyStats,
+        inputWeight: userBodyStats.weight,
+        inputHeight: userBodyStats.height,
+        inputAge: userBodyStats.age,
         isLoading: false,
       ));
     } on FirestoreException {
@@ -100,7 +133,7 @@ class ProgressCubit extends BaseCubit<ProgressState> {
     final String defaultLocale = Platform.localeName;
 
     final dateFormat = DateFormat('MMM', defaultLocale);
-    print(dateFormat);
+
     for (Session session in sessions) {
       final monthKey = dateFormat.format(session.startTime!);
 
@@ -113,6 +146,63 @@ class ProgressCubit extends BaseCubit<ProgressState> {
     }
 
     return monthlyWeightLifted;
+  }
+
+  Future<void> updateUserBodyStats() async {
+    try {
+      emit(state.copyWith(
+        isLoading: true,
+      ));
+
+      User? user = FirebaseAuth.instance.currentUser;
+      UserBodyStats updatedUserBodyStats = UserBodyStats(
+        weight: state.inputWeight,
+        height: state.inputHeight,
+        age: state.inputAge,
+      );
+
+      await firestoreProfileRepository.updateUserBodyStats(
+        user?.uid,
+        updatedUserBodyStats,
+      );
+
+      emit(state.copyWith(
+        userBodyStats: updatedUserBodyStats,
+        isLoading: false,
+      ));
+      appRouter.maybePop();
+    } on FirestoreException {
+      emit(state.copyWith(
+        firestoreResponseMessage: FirestoreResponseMessage.firestoreException,
+        isLoading: false,
+      ));
+    } catch (e) {
+      emit(state.copyWith(
+        firestoreResponseMessage: FirestoreResponseMessage.defaultError,
+        isLoading: false,
+      ));
+    }
+  }
+
+  void updateWeight(double? weight) {
+    emit(state.copyWith(inputWeight: weight));
+  }
+
+  void updateHeight(String? height) {
+    emit(state.copyWith(inputHeight: height));
+  }
+
+  void updateAge(int? age) {
+    emit(state.copyWith(inputAge: age));
+  }
+
+  clearForm() {
+    emit(state.copyWith(
+      inputWeight: state.userBodyStats?.weight,
+      inputHeight: state.userBodyStats?.height,
+      inputAge: state.userBodyStats?.age,
+    ));
+    appRouter.maybePop();
   }
 
   void clearState() {

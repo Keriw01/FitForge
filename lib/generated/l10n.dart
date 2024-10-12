@@ -1819,6 +1819,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Edit Body Stats`
+  String get editBodyStats {
+    return Intl.message(
+      'Edit Body Stats',
+      name: 'editBodyStats',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

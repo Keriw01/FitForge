@@ -1,24 +1,50 @@
 import 'package:fit_forge/generated/l10n.dart';
 import 'package:fit_forge/models/session.dart';
+import 'package:fit_forge/models/user_body_stats.dart';
 import 'package:fit_forge/pages/progress/cubit/progress_cubit.dart';
+import 'package:fit_forge/pages/progress/widgets/insights_bottom_sheet.dart';
 import 'package:fit_forge/styles/app_colors.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:tuple/tuple.dart';
 
-class InsightsView extends StatelessWidget {
+class InsightsView extends StatefulWidget {
   const InsightsView({super.key});
 
   @override
+  State<InsightsView> createState() => _InsightsViewState();
+}
+
+class _InsightsViewState extends State<InsightsView> {
+  void _openBottomSheet() {
+    showModalBottomSheet(
+        context: context,
+        builder: (context) {
+          return Padding(
+            padding: EdgeInsets.only(
+              left: 10,
+              top: 20,
+              right: 20,
+              bottom: MediaQuery.of(context).viewInsets.bottom,
+            ),
+            child: InsightsSheetContent(),
+          );
+        });
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return BlocSelector<ProgressCubit, ProgressState, List<Session>?>(
-      selector: (state) {
-        return state.sessions;
-      },
-      builder: (context, sessions) {
+    return BlocSelector<ProgressCubit, ProgressState,
+        Tuple2<List<Session>?, UserBodyStats?>>(
+      selector: (state) => Tuple2(
+        state.sessions,
+        state.userBodyStats,
+      ),
+      builder: (context, state) {
         final monthlyWeightLifted =
-            context.read<ProgressCubit>().getMonthlyWeightLifted(sessions);
+            context.read<ProgressCubit>().getMonthlyWeightLifted(state.item1);
         final barChartData = createBarChartData(monthlyWeightLifted);
 
         return SingleChildScrollView(
@@ -67,12 +93,14 @@ class InsightsView extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              '70 kg',
+                              state.item2?.weight != null
+                                  ? state.item2!.weight.toString()
+                                  : S.of(context).noData,
                               style: Theme.of(context).textTheme.displaySmall,
                             ),
                             const SizedBox(height: 7),
                             Text(
-                              '182 cm',
+                              state.item2?.height ?? S.of(context).noData,
                               style: Theme.of(context).textTheme.displaySmall,
                             ),
                             const SizedBox(height: 7),
@@ -82,7 +110,9 @@ class InsightsView extends StatelessWidget {
                             ),
                             const SizedBox(height: 7),
                             Text(
-                              '21',
+                              state.item2?.age != null
+                                  ? state.item2!.age.toString()
+                                  : S.of(context).noData,
                               style: Theme.of(context).textTheme.displaySmall,
                             ),
                           ],
@@ -97,7 +127,7 @@ class InsightsView extends StatelessWidget {
                   ],
                 ),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () => _openBottomSheet(),
                   child: Text(
                     S.of(context).update,
                     style: Theme.of(context).textTheme.displaySmall,

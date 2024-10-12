@@ -176,5 +176,6 @@
     "emptySessions": "No sessions available",
     "start": "Start",
     "end": "End",
-    "update": "Update"
+    "update": "Update",
+    "editBodyStats": "Edit Body Stats"
 }
