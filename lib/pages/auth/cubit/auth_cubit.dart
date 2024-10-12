@@ -131,6 +131,10 @@ class AuthCubit extends BaseCubit<AuthState> {
           formStatus: FormzSubmissionStatus.success,
           currentUser: user,
         ));
+
+        _exercisesCubit.getExercises();
+        _settingsCubit.getUserProfile();
+
         _navigateToAuthFlowScreen();
       } else {
         emit(state.copyWith(
@@ -165,6 +169,10 @@ class AuthCubit extends BaseCubit<AuthState> {
           formStatus: FormzSubmissionStatus.success,
           currentUser: user,
         ));
+
+        _exercisesCubit.getExercises();
+        _settingsCubit.getUserProfile();
+
         _navigateToAuthFlowScreen();
       } else {
         emit(state.copyWith(
@@ -217,6 +225,10 @@ class AuthCubit extends BaseCubit<AuthState> {
           formStatus: FormzSubmissionStatus.success,
           currentUser: user,
         ));
+
+        _exercisesCubit.getExercises();
+        _settingsCubit.getUserProfile();
+
         _navigateToAuthFlowScreen();
       } else {
         emit(state.copyWith(
