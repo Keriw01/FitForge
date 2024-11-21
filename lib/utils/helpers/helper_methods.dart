@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:fit_forge/consts/enums.dart';
 import 'package:fit_forge/generated/l10n.dart';
 import 'package:fit_forge/models/translation.dart';
@@ -8,8 +10,8 @@ bool isLightTheme(BuildContext context) {
 }
 
 String getTranslationText(
-  Translation text,
   BuildContext context,
+  Translation text,
 ) {
   Locale currentLocale = Localizations.localeOf(context);
 
@@ -22,52 +24,65 @@ String getTranslationText(
   }
 }
 
-String? getTranslationPlanTypes(
-  PlanTypes planType,
+String getTranslationTopGoal(
   BuildContext context,
+  TopGoal planType,
 ) {
   switch (planType) {
-    case PlanTypes.maintaining:
+    case TopGoal.maintaining:
       return S.of(context).maintaining;
 
-    case PlanTypes.bulking:
+    case TopGoal.bulking:
       return S.of(context).bulking;
 
-    case PlanTypes.cutting:
+    case TopGoal.cutting:
       return S.of(context).cutting;
 
     default:
-      return null;
+      return S.of(context).noData;
   }
 }
 
-String? getTranslationDifficultLevel(
-  DifficultyLevels difficultyLevel,
+String getTranslationWorkoutLevel(
   BuildContext context,
+  WorkoutLevel difficultyLevel,
 ) {
   switch (difficultyLevel) {
-    case DifficultyLevels.beginner:
+    case WorkoutLevel.beginner:
       return S.of(context).begginer;
 
-    case DifficultyLevels.intermediate:
+    case WorkoutLevel.intermediate:
       return S.of(context).intermediate;
 
-    case DifficultyLevels.advanced:
+    case WorkoutLevel.advanced:
       return S.of(context).advanced;
 
     default:
-      return null;
+      return S.of(context).noData;
   }
 }
 
-String? getFirestoreResponseError(
-  FirestoreResponseMessage firestoreResponseMessage,
+String getTranslationGender(
   BuildContext context,
+  Gender gender,
+) {
+  switch (gender) {
+    case Gender.male:
+      return S.of(context).male;
+
+    case Gender.female:
+      return S.of(context).female;
+
+    default:
+      return S.of(context).noData;
+  }
+}
+
+String getFirestoreResponseError(
+  BuildContext context,
+  FirestoreResponseMessage firestoreResponseMessage,
 ) {
   switch (firestoreResponseMessage) {
-    case FirestoreResponseMessage.none:
-      return null;
-
     case FirestoreResponseMessage.documentIdNotExist:
       return S.of(context).documentIdNotExist;
 
@@ -83,8 +98,8 @@ String? getFirestoreResponseError(
 }
 
 String? getQrScanError(
-  QrScanErrorMessage qrScanErrorMessage,
   BuildContext context,
+  QrScanErrorMessage qrScanErrorMessage,
 ) {
   switch (qrScanErrorMessage) {
     case QrScanErrorMessage.none:
@@ -112,6 +127,20 @@ List<String> convertMapToList(
   BuildContext context,
 ) {
   return map.values.map((translation) {
-    return getTranslationText(translation, context);
+    return getTranslationText(context, translation);
   }).toList();
+}
+
+String calculateBMI(
+  BuildContext context,
+  double? weight,
+  String? height,
+) {
+  if (weight != null && height != null && height != "0") {
+    double bmi = weight / pow(double.parse(height) / 100, 2);
+
+    return double.parse(bmi.toStringAsFixed(2)).toString();
+  } else {
+    return S.of(context).noData;
+  }
 }

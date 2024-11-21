@@ -76,7 +76,7 @@ class ProgressCubit extends BaseCubit<ProgressState> {
         userBodyStats: userBodyStats,
         inputWeight: userBodyStats.weight,
         inputHeight: userBodyStats.height,
-        inputAge: userBodyStats.age,
+        inputBirthDate: userBodyStats.birthDate,
         isLoading: false,
       ));
     } on FirestoreException {
@@ -158,7 +158,7 @@ class ProgressCubit extends BaseCubit<ProgressState> {
       UserBodyStats updatedUserBodyStats = UserBodyStats(
         weight: state.inputWeight,
         height: state.inputHeight,
-        age: state.inputAge,
+        birthDate: state.inputBirthDate,
       );
 
       await firestoreProfileRepository.updateUserBodyStats(
@@ -192,15 +192,14 @@ class ProgressCubit extends BaseCubit<ProgressState> {
     emit(state.copyWith(inputHeight: height));
   }
 
-  void updateAge(int? age) {
-    emit(state.copyWith(inputAge: age));
+  void updateAge(DateTime? inputBirthDate) {
+    emit(state.copyWith(inputBirthDate: inputBirthDate));
   }
 
   clearForm() {
     emit(state.copyWith(
       inputWeight: state.userBodyStats?.weight,
       inputHeight: state.userBodyStats?.height,
-      inputAge: state.userBodyStats?.age,
     ));
     appRouter.maybePop();
   }

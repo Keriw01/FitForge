@@ -2,6 +2,7 @@ import 'package:fit_forge/consts/enums.dart';
 import 'package:fit_forge/generated/l10n.dart';
 import 'package:fit_forge/pages/settings/cubit/settings_cubit.dart';
 import 'package:fit_forge/styles/app_colors.dart';
+import 'package:fit_forge/utils/helpers/helper_methods.dart';
 import 'package:fit_forge/widgets/custom_loading_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -21,14 +22,18 @@ class TopGoalRow extends StatelessWidget {
     return InkWell(
       onTap: () => profileCurrenRow != ProfileCurrenRow.none
           ? null
-          : _showEditDialog(context, topGoal ?? '', (newTopGoal) {
+          : _showEditDialog(context, topGoal, (newTopGoal) {
               context.read<SettingsCubit>().updateUserProfile(
                     ProfileCurrenRow.topGoal,
                     topGoal: newTopGoal,
                   );
             }),
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 10),
+        padding: const EdgeInsets.only(
+          left: 8,
+          top: 4,
+          bottom: 4,
+        ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -62,10 +67,10 @@ class TopGoalRow extends StatelessWidget {
 
   Future<void> _showEditDialog(
     BuildContext context,
-    String initialValue,
+    String? topGoal,
     Function(String) onSave,
   ) async {
-    String? tempSelectedOption = initialValue;
+    String? tempSelectedOption = topGoal;
     return showDialog<void>(
       context: context,
       builder: (BuildContext context) {
@@ -92,7 +97,7 @@ class TopGoalRow extends StatelessWidget {
                           .headlineSmall
                           ?.copyWith(color: lightFontColor),
                     ),
-                    value: 'Maintaining',
+                    value: getTranslationTopGoal(context, TopGoal.maintaining),
                     groupValue: tempSelectedOption,
                     onChanged: (value) {
                       setState(() {
@@ -112,7 +117,7 @@ class TopGoalRow extends StatelessWidget {
                           .headlineSmall
                           ?.copyWith(color: lightFontColor),
                     ),
-                    value: 'Bulking',
+                    value: getTranslationTopGoal(context, TopGoal.bulking),
                     groupValue: tempSelectedOption,
                     onChanged: (value) {
                       setState(() {
@@ -132,7 +137,7 @@ class TopGoalRow extends StatelessWidget {
                           .headlineSmall
                           ?.copyWith(color: lightFontColor),
                     ),
-                    value: 'Cutting',
+                    value: getTranslationTopGoal(context, TopGoal.cutting),
                     groupValue: tempSelectedOption,
                     onChanged: (value) {
                       setState(() {

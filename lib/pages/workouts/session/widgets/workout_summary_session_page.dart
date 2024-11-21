@@ -136,19 +136,6 @@ class WorkoutSummarySessionPage extends StatelessWidget {
                               Text(tuple.item1!.totalDuration.toString()),
                             ],
                           ),
-                          const Spacer(),
-                          Column(
-                            children: [
-                              const Icon(
-                                FontAwesomeIcons.fire,
-                                color: redColor,
-                              ),
-                              const SizedBox(height: 4),
-                              Text(S.of(context).kcalBurned),
-                              const SizedBox(height: 2),
-                              Text(tuple.item1!.totalCaloriesBurned.toString()),
-                            ],
-                          ),
                         ],
                       ),
                       const SizedBox(height: 40),

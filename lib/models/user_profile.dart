@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:fit_forge/consts/enums.dart';
 import 'package:fit_forge/utils/formation/formation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 

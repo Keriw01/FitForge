@@ -91,7 +91,7 @@ class DayAddExercisePage extends StatelessWidget {
                             ),
                             title: Text(
                               getTranslationText(
-                                  exerciseInfo.exercise.title, context),
+                                  context, exerciseInfo.exercise.title),
                               style: Theme.of(context)
                                   .textTheme
                                   .bodyMedium

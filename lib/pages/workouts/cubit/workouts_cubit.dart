@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fit_forge/base_cubit/base_cubit.dart';
 import 'package:fit_forge/consts/enums.dart';
 import 'package:fit_forge/exceptions/exceptions.dart';
+import 'package:fit_forge/generated/l10n.dart';
 import 'package:fit_forge/models/day_exercise.dart';
 import 'package:fit_forge/models/exercise_info.dart';
 import 'package:fit_forge/models/plan.dart';
@@ -22,8 +23,19 @@ part 'workouts_cubit.g.dart';
 class WorkoutsCubit extends BaseCubit<WorkoutsState> {
   late final FirestoreWorkoutsRepository firestoreWorkoutsRepository =
       FirestoreWorkoutsRepository();
+
   late final SettingsCubit _settingsCubit;
   late final ExercisesCubit _exercisesCubit;
+
+  final levels = {
+    "Beginner": LevelConfig(repDuration: 3, restTimeBetweenSets: 180),
+    "Intermediate": LevelConfig(repDuration: 4, restTimeBetweenSets: 120),
+    "Advance": LevelConfig(repDuration: 5, restTimeBetweenSets: 60),
+    "Początkujący": LevelConfig(repDuration: 3, restTimeBetweenSets: 180),
+    "Średnio-zaawansowany":
+        LevelConfig(repDuration: 4, restTimeBetweenSets: 120),
+    "Zaawansowany": LevelConfig(repDuration: 5, restTimeBetweenSets: 60),
+  };
 
   WorkoutsCubit(AppRouter appRouter, BuildContext context)
       : _settingsCubit = context.read<SettingsCubit>(),
@@ -226,7 +238,10 @@ class WorkoutsCubit extends BaseCubit<WorkoutsState> {
     }
   }
 
-  void deletePlan(Plan plan) async {
+  void deletePlan(
+    Plan plan,
+    BuildContext context,
+  ) async {
     try {
       emit(state.copyWith(
         firestoreResponseMessage: FirestoreResponseMessage.none,
@@ -248,6 +263,10 @@ class WorkoutsCubit extends BaseCubit<WorkoutsState> {
       emit(state.copyWith(
         userPlans: updatedPlans,
       ));
+
+      Navigator.of(context).popUntil(
+        (route) => route.isFirst,
+      );
     } on FirestoreException {
       emit(state.copyWith(
         firestoreResponseMessage: FirestoreResponseMessage.firestoreException,
@@ -502,7 +521,35 @@ class WorkoutsCubit extends BaseCubit<WorkoutsState> {
     }
   }
 
+  String getTotalExercisesDuration(PlanDay day) {
+    try {
+      final config =
+          levels[_settingsCubit.state.userProfile?.currentWorkoutLevel]!;
+
+      int totalTime = 0;
+
+      for (var exercise in day.dayExercises!) {
+        int exerciseTime = exercise.numberOfSets *
+            (exercise.numberOfReps * config.repDuration +
+                config.restTimeBetweenSets);
+        totalTime += exerciseTime - config.restTimeBetweenSets;
+      }
+
+      int minutes = totalTime ~/ 60;
+      return '$minutes';
+    } catch (e) {
+      return '0';
+    }
+  }
+
   void clearState() {
     emit(WorkoutsState());
   }
+}
+
+class LevelConfig {
+  final int repDuration;
+  final int restTimeBetweenSets;
+
+  LevelConfig({required this.repDuration, required this.restTimeBetweenSets});
 }

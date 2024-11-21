@@ -194,7 +194,7 @@ class DayCubit extends BaseCubit<DayState> {
     } else {
       filteredExercises = filteredExercises
           ?.where((exerciseInfo) =>
-              getTranslationText(exerciseInfo.exercise.title, context)
+              getTranslationText(context, exerciseInfo.exercise.title)
                   .toLowerCase()
                   .contains(query.toLowerCase()))
           .toList();

@@ -56,7 +56,7 @@ class _ExerciseSessionPageState extends State<ExerciseSessionPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          getTranslationText(widget.exercise.title, context),
+          getTranslationText(context, widget.exercise.title),
           style: Theme.of(context).textTheme.titleLarge,
         ),
       ),

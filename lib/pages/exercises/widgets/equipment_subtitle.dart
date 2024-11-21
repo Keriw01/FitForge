@@ -14,7 +14,7 @@ class EquipmentSubtitle extends StatelessWidget {
   Widget build(BuildContext context) {
     final allTranslations = equipment.entries.map((entry) {
       final translation = entry.value;
-      return getTranslationText(translation, context);
+      return getTranslationText(context, translation);
     }).join(', ');
 
     return Text(

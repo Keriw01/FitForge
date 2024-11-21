@@ -84,21 +84,23 @@ class BottomSheetContent extends StatelessWidget {
                 style: Theme.of(context).textTheme.labelMedium,
               ),
               ToggleButtons(
-                isSelected: PlanTypes.values
+                isSelected: TopGoal.values
                     .map((type) => state.selectedPlanType == type.name)
                     .toList(),
                 onPressed: (index) {
-                  cubit.setPlanType(PlanTypes.values[index].name);
+                  cubit.setPlanType(
+                    getTranslationTopGoal(context, TopGoal.values[index]),
+                  );
                 },
                 constraints: const BoxConstraints(
                   minHeight: 0,
                   minWidth: 0,
                 ),
-                children: PlanTypes.values.map((type) {
+                children: TopGoal.values.map((type) {
                   return Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    padding: const EdgeInsets.all(8),
                     child: Text(
-                      type.name,
+                      getTranslationTopGoal(context, type),
                       style: Theme.of(context).textTheme.labelMedium,
                     ),
                   );
@@ -108,24 +110,28 @@ class BottomSheetContent extends StatelessWidget {
                 S.of(context).selectDifficultyLevel,
                 style: Theme.of(context).textTheme.labelMedium,
               ),
-              ToggleButtons(
-                isSelected: DifficultyLevels.values
-                    .map((level) => state.selectedDifficultyLevel == level.name)
-                    .toList(),
-                onPressed: (index) {
-                  cubit.setDifficultyLevel(DifficultyLevels.values[index].name);
-                },
-                constraints: const BoxConstraints(
-                  minHeight: 0,
-                  minWidth: 0,
-                ),
-                children: DifficultyLevels.values.map((level) {
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
-                    child: Text(
-                      level.name,
-                      style: Theme.of(context).textTheme.labelMedium,
+              Wrap(
+                children: WorkoutLevel.values.map((level) {
+                  return ToggleButtons(
+                    isSelected: [state.selectedDifficultyLevel == level.name],
+                    onPressed: (_) {
+                      cubit.setDifficultyLevel(
+                        getTranslationWorkoutLevel(context, level),
+                      );
+                    },
+                    constraints: const BoxConstraints(
+                      minHeight: 0,
+                      minWidth: 0,
                     ),
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8),
+                        child: Text(
+                          getTranslationWorkoutLevel(context, level),
+                          style: Theme.of(context).textTheme.labelMedium,
+                        ),
+                      ),
+                    ],
                   );
                 }).toList(),
               ),

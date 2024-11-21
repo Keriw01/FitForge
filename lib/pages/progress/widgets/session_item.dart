@@ -30,8 +30,8 @@ class SessionItem extends StatelessWidget {
             .bodyMedium
             ?.copyWith(fontWeight: FontWeight.bold),
       ),
-      subtitle: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      subtitle: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
               '${S.of(context).start}: $startTime - ${S.of(context).end}: $endTime'),

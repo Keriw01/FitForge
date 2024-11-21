@@ -44,7 +44,7 @@ class CurrentPlanView extends StatelessWidget {
                             ),
                             const SizedBox(height: 10),
                             Text(
-                              '${state.currentPlan?.planType[0].toUpperCase()}${state.currentPlan?.planType.substring(1)} ${state.currentPlan?.numberOfDays} ${S.of(context).days}',
+                              '${state.currentPlan?.planType} ${state.currentPlan?.numberOfDays} ${S.of(context).days}',
                               style: Theme.of(context)
                                   .textTheme
                                   .headlineSmall
@@ -104,7 +104,7 @@ class CurrentPlanView extends StatelessWidget {
                               onPressed: () {
                                 context
                                     .read<WorkoutsCubit>()
-                                    .deletePlan(state.currentPlan!);
+                                    .deletePlan(state.currentPlan!, context);
                               },
                             ),
                           ],
@@ -175,7 +175,10 @@ class CurrentPlanView extends StatelessWidget {
                                                 color: whiteColor,
                                               ),
                                               Text(
-                                                getTotalExercisesDuration(day),
+                                                context
+                                                    .read<WorkoutsCubit>()
+                                                    .getTotalExercisesDuration(
+                                                        day),
                                                 style: Theme.of(context)
                                                     .textTheme
                                                     .bodySmall

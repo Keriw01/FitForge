@@ -61,6 +61,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Uprawnienia kamery zostały ograniczone."),
         "cancel": MessageLookupByLibrary.simpleMessage("Anuluj"),
         "cardio": MessageLookupByLibrary.simpleMessage("Cardio"),
+        "changeBirthDate":
+            MessageLookupByLibrary.simpleMessage("Zmień datę urodziń"),
         "chest": MessageLookupByLibrary.simpleMessage("Klatka piersiowa"),
         "close": MessageLookupByLibrary.simpleMessage("Zamknij"),
         "confirm": MessageLookupByLibrary.simpleMessage("Potwierdź"),
@@ -82,9 +84,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "cutting": MessageLookupByLibrary.simpleMessage("Schudnąć"),
         "cuttingDescription": MessageLookupByLibrary.simpleMessage(
             "Skoncentruj się na utracie tkanki tłuszczowej lub ogólnie schudnij"),
-        "dayTitle": MessageLookupByLibrary.simpleMessage("Tytuł dnia"),
+        "dayTitle": MessageLookupByLibrary.simpleMessage("Nazwa dnia"),
         "dayTitleRequired":
-            MessageLookupByLibrary.simpleMessage("Tytuł dnia wymagany"),
+            MessageLookupByLibrary.simpleMessage("Nazwa dnia wymagana"),
         "days": MessageLookupByLibrary.simpleMessage("Dni"),
         "defaultError": MessageLookupByLibrary.simpleMessage("Błąd"),
         "defaultReps": MessageLookupByLibrary.simpleMessage("Ilość powtórzeń"),
@@ -92,6 +94,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "delete": MessageLookupByLibrary.simpleMessage("Usuń"),
         "deleteDayConfirmation": MessageLookupByLibrary.simpleMessage(
             "Wybrany dzień zostanie usunięty."),
+        "deletePlanConfirmation": MessageLookupByLibrary.simpleMessage(
+            "Wybrany plan zostanie usunięty."),
         "description": MessageLookupByLibrary.simpleMessage("Opis"),
         "discard": MessageLookupByLibrary.simpleMessage("Odrzuć"),
         "documentIdNotExist":
@@ -145,7 +149,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Hasło musi mieć co najmniej 8 znaków"),
         "executedExercises":
             MessageLookupByLibrary.simpleMessage("Wykonane ćwiczenia"),
-        "exercise": MessageLookupByLibrary.simpleMessage("ćwiczenie(a)"),
+        "exercise": MessageLookupByLibrary.simpleMessage("Ćwiczenie(a)"),
         "exerciseDetailPageTitle":
             MessageLookupByLibrary.simpleMessage("Szczegóły ćwiczenia"),
         "exercisesLabel": MessageLookupByLibrary.simpleMessage("Ćwiczenia"),
@@ -276,11 +280,13 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Użytkownik już istnieje"),
         "userAlreadyLogIn":
             MessageLookupByLibrary.simpleMessage("Użytkownik już zalogowany"),
+        "userSet": MessageLookupByLibrary.simpleMessage("Seria"),
+        "userWeight": MessageLookupByLibrary.simpleMessage("Waga"),
         "usernameLabel":
             MessageLookupByLibrary.simpleMessage("Nazwa użytkownika"),
         "weakPassword": MessageLookupByLibrary.simpleMessage(
             "Hasło musi mieć co najmniej 8 znaków, zawierać jedną literę, cyfrę oraz znak specjalny"),
-        "weight": MessageLookupByLibrary.simpleMessage("Obciążęnie"),
+        "weight": MessageLookupByLibrary.simpleMessage("Obciążenie"),
         "whichDay": MessageLookupByLibrary.simpleMessage("Który dzień"),
         "whichPlan": MessageLookupByLibrary.simpleMessage("Który plan"),
         "workoutSummary":

@@ -154,34 +154,6 @@ class ActivityDetailPage extends StatelessWidget {
                                   ],
                                 ),
                                 const Spacer(),
-                                Column(
-                                  children: [
-                                    const Icon(
-                                      FontAwesomeIcons.fire,
-                                      color: redColor,
-                                      size: 20,
-                                    ),
-                                    const SizedBox(height: 5),
-                                    Text(
-                                      S.of(context).kcalBurned,
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .headlineSmall
-                                          ?.copyWith(color: whiteColor),
-                                    ),
-                                    const SizedBox(height: 2),
-                                    Text(
-                                      session.totalCaloriesBurned.toString(),
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .headlineSmall
-                                          ?.copyWith(
-                                            color: whiteColor,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                    ),
-                                  ],
-                                ),
                               ],
                             ),
                             const SizedBox(height: 20),

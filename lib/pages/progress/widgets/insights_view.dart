@@ -4,6 +4,7 @@ import 'package:fit_forge/models/user_body_stats.dart';
 import 'package:fit_forge/pages/progress/cubit/progress_cubit.dart';
 import 'package:fit_forge/pages/progress/widgets/insights_bottom_sheet.dart';
 import 'package:fit_forge/styles/app_colors.dart';
+import 'package:fit_forge/utils/helpers/helper_methods.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -68,7 +69,7 @@ class _InsightsViewState extends State<InsightsView> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              S.of(context).weight,
+                              S.of(context).userWeight,
                               style: Theme.of(context).textTheme.headlineSmall,
                             ),
                             const SizedBox(height: 5),
@@ -81,11 +82,11 @@ class _InsightsViewState extends State<InsightsView> {
                               S.of(context).bmi,
                               style: Theme.of(context).textTheme.headlineSmall,
                             ),
-                            const SizedBox(height: 5),
-                            Text(
-                              S.of(context).age,
-                              style: Theme.of(context).textTheme.headlineSmall,
-                            ),
+                            // const SizedBox(height: 5),
+                            // Text(
+                            //   S.of(context).age,
+                            //   style: Theme.of(context).textTheme.headlineSmall,
+                            // ),
                           ],
                         ),
                         const SizedBox(width: 15),
@@ -94,7 +95,9 @@ class _InsightsViewState extends State<InsightsView> {
                           children: [
                             Text(
                               state.item2?.weight != null
-                                  ? state.item2!.weight.toString()
+                                  ? state.item2!.weight!
+                                      .roundToDouble()
+                                      .toString()
                                   : S.of(context).noData,
                               style: Theme.of(context).textTheme.displaySmall,
                             ),
@@ -105,16 +108,21 @@ class _InsightsViewState extends State<InsightsView> {
                             ),
                             const SizedBox(height: 7),
                             Text(
-                              '26',
+                              calculateBMI(
+                                context,
+                                state.item2?.weight,
+                                state.item2?.height,
+                              ),
                               style: Theme.of(context).textTheme.displaySmall,
                             ),
-                            const SizedBox(height: 7),
-                            Text(
-                              state.item2?.age != null
-                                  ? state.item2!.age.toString()
-                                  : S.of(context).noData,
-                              style: Theme.of(context).textTheme.displaySmall,
-                            ),
+                            // const SizedBox(height: 7),
+                            // Text(
+                            //   state.item2?.birthDate != null
+                            //       ? calculateAge(
+                            //           context, state.item2!.birthDate!)
+                            //       : S.of(context).noData,
+                            //   style: Theme.of(context).textTheme.displaySmall,
+                            // ),
                           ],
                         ),
                       ],

@@ -39,14 +39,19 @@ enum QrScanErrorMessage {
   cameraAccessLimited,
 }
 
-enum PlanTypes {
+enum TopGoal {
   maintaining,
   bulking,
   cutting,
 }
 
-enum DifficultyLevels {
+enum WorkoutLevel {
   beginner,
   intermediate,
   advanced,
+}
+
+enum Gender {
+  male,
+  female,
 }

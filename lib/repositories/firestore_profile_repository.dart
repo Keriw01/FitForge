@@ -65,7 +65,7 @@ class FirestoreProfileRepository {
       await _firestore.collection('Users').doc(userId).update({
         'weight': userBodyStats?.weight,
         'height': userBodyStats?.height,
-        'age': userBodyStats?.age,
+        'birthDate': userBodyStats?.birthDate,
       });
     } catch (e) {
       throw FirestoreException();

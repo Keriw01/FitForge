@@ -22,7 +22,7 @@ UserBodyStats _$UserBodyStatsFromJson(Map<String, dynamic> json) {
 mixin _$UserBodyStats {
   double? get weight => throw _privateConstructorUsedError;
   String? get height => throw _privateConstructorUsedError;
-  int? get age => throw _privateConstructorUsedError;
+  DateTime? get birthDate => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,7 +36,7 @@ abstract class $UserBodyStatsCopyWith<$Res> {
           UserBodyStats value, $Res Function(UserBodyStats) then) =
       _$UserBodyStatsCopyWithImpl<$Res, UserBodyStats>;
   @useResult
-  $Res call({double? weight, String? height, int? age});
+  $Res call({double? weight, String? height, DateTime? birthDate});
 }
 
 /// @nodoc
@@ -54,7 +54,7 @@ class _$UserBodyStatsCopyWithImpl<$Res, $Val extends UserBodyStats>
   $Res call({
     Object? weight = freezed,
     Object? height = freezed,
-    Object? age = freezed,
+    Object? birthDate = freezed,
   }) {
     return _then(_value.copyWith(
       weight: freezed == weight
@@ -65,10 +65,10 @@ class _$UserBodyStatsCopyWithImpl<$Res, $Val extends UserBodyStats>
           ? _value.height
           : height // ignore: cast_nullable_to_non_nullable
               as String?,
-      age: freezed == age
-          ? _value.age
-          : age // ignore: cast_nullable_to_non_nullable
-              as int?,
+      birthDate: freezed == birthDate
+          ? _value.birthDate
+          : birthDate // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
     ) as $Val);
   }
 }
@@ -81,7 +81,7 @@ abstract class _$$UserBodyStatsImplCopyWith<$Res>
       __$$UserBodyStatsImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({double? weight, String? height, int? age});
+  $Res call({double? weight, String? height, DateTime? birthDate});
 }
 
 /// @nodoc
@@ -97,7 +97,7 @@ class __$$UserBodyStatsImplCopyWithImpl<$Res>
   $Res call({
     Object? weight = freezed,
     Object? height = freezed,
-    Object? age = freezed,
+    Object? birthDate = freezed,
   }) {
     return _then(_$UserBodyStatsImpl(
       weight: freezed == weight
@@ -108,10 +108,10 @@ class __$$UserBodyStatsImplCopyWithImpl<$Res>
           ? _value.height
           : height // ignore: cast_nullable_to_non_nullable
               as String?,
-      age: freezed == age
-          ? _value.age
-          : age // ignore: cast_nullable_to_non_nullable
-              as int?,
+      birthDate: freezed == birthDate
+          ? _value.birthDate
+          : birthDate // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
     ));
   }
 }
@@ -119,7 +119,7 @@ class __$$UserBodyStatsImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$UserBodyStatsImpl implements _UserBodyStats {
-  _$UserBodyStatsImpl({this.weight, this.height, this.age});
+  _$UserBodyStatsImpl({this.weight, this.height, this.birthDate});
 
   factory _$UserBodyStatsImpl.fromJson(Map<String, dynamic> json) =>
       _$$UserBodyStatsImplFromJson(json);
@@ -129,11 +129,11 @@ class _$UserBodyStatsImpl implements _UserBodyStats {
   @override
   final String? height;
   @override
-  final int? age;
+  final DateTime? birthDate;
 
   @override
   String toString() {
-    return 'UserBodyStats(weight: $weight, height: $height, age: $age)';
+    return 'UserBodyStats(weight: $weight, height: $height, birthDate: $birthDate)';
   }
 
   @override
@@ -143,12 +143,13 @@ class _$UserBodyStatsImpl implements _UserBodyStats {
             other is _$UserBodyStatsImpl &&
             (identical(other.weight, weight) || other.weight == weight) &&
             (identical(other.height, height) || other.height == height) &&
-            (identical(other.age, age) || other.age == age));
+            (identical(other.birthDate, birthDate) ||
+                other.birthDate == birthDate));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, weight, height, age);
+  int get hashCode => Object.hash(runtimeType, weight, height, birthDate);
 
   @JsonKey(ignore: true)
   @override
@@ -168,7 +169,7 @@ abstract class _UserBodyStats implements UserBodyStats {
   factory _UserBodyStats(
       {final double? weight,
       final String? height,
-      final int? age}) = _$UserBodyStatsImpl;
+      final DateTime? birthDate}) = _$UserBodyStatsImpl;
 
   factory _UserBodyStats.fromJson(Map<String, dynamic> json) =
       _$UserBodyStatsImpl.fromJson;
@@ -178,7 +179,7 @@ abstract class _UserBodyStats implements UserBodyStats {
   @override
   String? get height;
   @override
-  int? get age;
+  DateTime? get birthDate;
   @override
   @JsonKey(ignore: true)
   _$$UserBodyStatsImplCopyWith<_$UserBodyStatsImpl> get copyWith =>

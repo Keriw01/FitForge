@@ -8,7 +8,7 @@ class UserBodyStats with _$UserBodyStats {
   factory UserBodyStats({
     double? weight,
     String? height,
-    int? age,
+    DateTime? birthDate,
   }) = _UserBodyStats;
 
   factory UserBodyStats.fromJson(Map<String, dynamic> json) =>

@@ -20,7 +20,7 @@ abstract class _$ProgressStateCWProxy {
 
   ProgressState inputHeight(String? inputHeight);
 
-  ProgressState inputAge(int? inputAge);
+  ProgressState inputBirthDate(DateTime? inputBirthDate);
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `ProgressState(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
@@ -35,7 +35,7 @@ abstract class _$ProgressStateCWProxy {
     UserBodyStats? userBodyStats,
     double? inputWeight,
     String? inputHeight,
-    int? inputAge,
+    DateTime? inputBirthDate,
   });
 }
 
@@ -69,7 +69,8 @@ class _$ProgressStateCWProxyImpl implements _$ProgressStateCWProxy {
       this(inputHeight: inputHeight);
 
   @override
-  ProgressState inputAge(int? inputAge) => this(inputAge: inputAge);
+  ProgressState inputBirthDate(DateTime? inputBirthDate) =>
+      this(inputBirthDate: inputBirthDate);
 
   @override
 
@@ -86,7 +87,7 @@ class _$ProgressStateCWProxyImpl implements _$ProgressStateCWProxy {
     Object? userBodyStats = const $CopyWithPlaceholder(),
     Object? inputWeight = const $CopyWithPlaceholder(),
     Object? inputHeight = const $CopyWithPlaceholder(),
-    Object? inputAge = const $CopyWithPlaceholder(),
+    Object? inputBirthDate = const $CopyWithPlaceholder(),
   }) {
     return ProgressState(
       firestoreResponseMessage:
@@ -115,10 +116,10 @@ class _$ProgressStateCWProxyImpl implements _$ProgressStateCWProxy {
           ? _value.inputHeight
           // ignore: cast_nullable_to_non_nullable
           : inputHeight as String?,
-      inputAge: inputAge == const $CopyWithPlaceholder()
-          ? _value.inputAge
+      inputBirthDate: inputBirthDate == const $CopyWithPlaceholder()
+          ? _value.inputBirthDate
           // ignore: cast_nullable_to_non_nullable
-          : inputAge as int?,
+          : inputBirthDate as DateTime?,
     );
   }
 }

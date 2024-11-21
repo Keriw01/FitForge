@@ -83,14 +83,13 @@ class _MyPlansViewState extends State<MyPlansView> {
                         ?.copyWith(color: redColor),
                   ),
                   onTap: () {
-                    Navigator.pop(context);
                     confirmDelete(
                       context,
                       plan,
                       S.of(context).deletePlanConfirmation,
-                      () {
-                        context.read<WorkoutsCubit>().deletePlan(plan);
-                      },
+                      () => context
+                          .read<WorkoutsCubit>()
+                          .deletePlan(plan, context),
                     );
                   },
                 ),
@@ -149,7 +148,7 @@ class _MyPlansViewState extends State<MyPlansView> {
                               ?.copyWith(color: whiteColor),
                         ),
                         Text(
-                          '${state.userPlans![index].planType[0].toUpperCase()}${state.userPlans![index].planType.substring(1)} ${state.userPlans![index].numberOfDays} ${S.of(context).days}',
+                          '${state.userPlans![index].planType} ${state.userPlans![index].numberOfDays} ${S.of(context).days}',
                           style: Theme.of(context)
                               .textTheme
                               .headlineSmall

@@ -2,6 +2,7 @@ import 'package:fit_forge/consts/enums.dart';
 import 'package:fit_forge/generated/l10n.dart';
 import 'package:fit_forge/pages/settings/cubit/settings_cubit.dart';
 import 'package:fit_forge/styles/app_colors.dart';
+import 'package:fit_forge/utils/helpers/helper_methods.dart';
 import 'package:fit_forge/widgets/custom_loading_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -28,7 +29,11 @@ class GenderRow extends StatelessWidget {
                   );
             }),
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 10),
+        padding: const EdgeInsets.only(
+          left: 8,
+          top: 4,
+          bottom: 4,
+        ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -85,7 +90,7 @@ class GenderRow extends StatelessWidget {
                       S.of(context).male,
                       style: Theme.of(context).textTheme.bodyMedium,
                     ),
-                    value: 'Male',
+                    value: getTranslationGender(context, Gender.male),
                     groupValue: tempSelectedOption,
                     onChanged: (value) {
                       setState(() {
@@ -98,7 +103,7 @@ class GenderRow extends StatelessWidget {
                       S.of(context).female,
                       style: Theme.of(context).textTheme.bodyMedium,
                     ),
-                    value: 'Female',
+                    value: getTranslationGender(context, Gender.female),
                     groupValue: tempSelectedOption,
                     onChanged: (value) {
                       setState(() {

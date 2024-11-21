@@ -3,6 +3,7 @@ import 'package:equatable/equatable.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fit_forge/consts/enums.dart';
 import 'package:fit_forge/pages/exercises/cubit/exercises_cubit.dart';
+import 'package:fit_forge/pages/progress/cubit/progress_cubit.dart';
 import 'package:fit_forge/pages/scan_qr_code/cubit/qr_cubit.dart';
 import 'package:fit_forge/pages/settings/cubit/settings_cubit.dart';
 import 'package:fit_forge/pages/workouts/cubit/workouts_cubit.dart';
@@ -277,6 +278,7 @@ class AuthCubit extends BaseCubit<AuthState> {
       context.read<DayCubit>().clearState();
       context.read<SettingsCubit>().clearState();
       context.read<WorkoutSessionCubit>().clearState();
+      context.read<ProgressCubit>().clearState();
     }
   }
 

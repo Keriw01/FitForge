@@ -32,7 +32,11 @@ class DefaultRepsRow extends StatelessWidget {
                       ),
             ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 10),
+        padding: const EdgeInsets.only(
+          left: 8,
+          top: 4,
+          bottom: 4,
+        ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [

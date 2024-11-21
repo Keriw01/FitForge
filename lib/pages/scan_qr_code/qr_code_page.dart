@@ -26,7 +26,7 @@ class QrCodePage extends StatelessWidget {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
                 content: Text(
-                  getQrScanError(state.qrScanErrorMessage, context)!,
+                  getQrScanError(context, state.qrScanErrorMessage)!,
                 ),
               ),
             );

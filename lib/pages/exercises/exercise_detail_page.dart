@@ -245,7 +245,7 @@ class _ExerciseDetailPageState extends State<ExerciseDetailPage> {
                     Center(
                       child: Text(
                         getTranslationText(
-                            widget.exerciseInfo.exercise.title, context),
+                            context, widget.exerciseInfo.exercise.title),
                         style: Theme.of(context).textTheme.headlineLarge,
                       ),
                     ),
@@ -273,9 +273,8 @@ class _ExerciseDetailPageState extends State<ExerciseDetailPage> {
                           targetMuscleGroupList: convertMapToList(
                               widget.exerciseInfo.exercise.otherBodyParts,
                               context),
-                          mainBodyPart: getTranslationText(
-                              widget.exerciseInfo.exercise.mainBodyPart,
-                              context),
+                          mainBodyPart: getTranslationText(context,
+                              widget.exerciseInfo.exercise.mainBodyPart),
                         ),
                         const SizedBox(height: 10),
                         Text(
@@ -294,9 +293,8 @@ class _ExerciseDetailPageState extends State<ExerciseDetailPage> {
                         ),
                         const SizedBox(height: 10),
                         Text(
-                          getTranslationText(
-                              widget.exerciseInfo.exercise.description,
-                              context),
+                          getTranslationText(context,
+                              widget.exerciseInfo.exercise.description),
                           style: Theme.of(context).textTheme.bodyMedium,
                           textAlign: TextAlign.justify,
                         ),

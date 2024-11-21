@@ -39,7 +39,7 @@ class SettingsPage extends StatelessWidget {
               SnackBar(
                 content: Text(
                   getFirestoreResponseError(
-                      state.firestoreResponseMessage, context)!,
+                      context, state.firestoreResponseMessage),
                 ),
               ),
             );
@@ -63,7 +63,7 @@ class SettingsPage extends StatelessWidget {
                       children: [
                         //TODO
                         // Obsłużyć możliwości dodania zdjęcia profilowego z pamięci urządzenia
-                        const SizedBox(height: 20),
+                        const SizedBox(height: 32),
                         CircleAvatar(
                           minRadius: 32,
                           child: state.userProfile?.photoUrl != null
@@ -72,7 +72,10 @@ class SettingsPage extends StatelessWidget {
                         ),
                         Padding(
                           padding: const EdgeInsets.only(
-                              top: 25, left: 10, right: 10),
+                            top: 32,
+                            left: 10,
+                            right: 10,
+                          ),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -81,7 +84,7 @@ class SettingsPage extends StatelessWidget {
                                 style:
                                     Theme.of(context).textTheme.headlineLarge,
                               ),
-                              const SizedBox(height: 5),
+                              const SizedBox(height: 8),
                               EmailRow(
                                 label: S.of(context).emailLabel,
                                 value: state.userProfile?.email,
@@ -137,15 +140,16 @@ class SettingsPage extends StatelessWidget {
                                     state.userProfile?.defaultReps.toString(),
                                 profileCurrenRow: state.profileCurrenRow,
                               ),
-                              ConnectWithGoogleFitRow(
-                                isConnectWithGoogleFit:
-                                    state.userProfile?.isConnectWithGoogleFit,
-                                profileCurrenRow: state.profileCurrenRow,
-                              ),
+                              // TODO w przyszłości obsłużyć łączenie GoogleFit i wyświetlanie danych
+                              // ConnectWithGoogleFitRow(
+                              //   isConnectWithGoogleFit:
+                              //       state.userProfile?.isConnectWithGoogleFit,
+                              //   profileCurrenRow: state.profileCurrenRow,
+                              // ),
                             ],
                           ),
                         ),
-                        const SizedBox(height: 50),
+                        const SizedBox(height: 32),
                         LogOutButton(
                           onPressed: () =>
                               context.read<AuthCubit>().logOut(context),

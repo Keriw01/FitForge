@@ -31,7 +31,7 @@ class BodyPartsPage extends StatelessWidget {
                   SnackBar(
                     content: Text(
                       getFirestoreResponseError(
-                          state.firestoreResponseMessage, context)!,
+                          context, state.firestoreResponseMessage),
                     ),
                   ),
                 );

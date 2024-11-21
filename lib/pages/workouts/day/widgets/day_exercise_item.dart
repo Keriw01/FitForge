@@ -46,8 +46,8 @@ class DayExerciseItem extends StatelessWidget {
       ),
       title: Text(
         getTranslationText(
-          exerciseInfo.exercise.title,
           context,
+          exerciseInfo.exercise.title,
         ),
         style: Theme.of(context)
             .textTheme

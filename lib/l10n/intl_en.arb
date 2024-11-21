@@ -125,6 +125,7 @@
     "planNameRequired": "Plan name required",
     "planDescriptionRequired": "Plan description required",
     "set": "Set",
+    "userSet": "Set",
     "lastActivity": "Last activity: ",
     "days": "Day(s)",
     "active": "Active",
@@ -156,6 +157,7 @@
     "noPlansAvailable": "No Plans Available",
     "whichPlan": "Which Plan",
     "whichDay": "Which Day",
+    "userWeight": "Weight",
     "weight": "Weight",
     "logSet": "Log Set",
     "workoutSummary": "Workout Summary",
@@ -177,5 +179,6 @@
     "start": "Start",
     "end": "End",
     "update": "Update",
-    "editBodyStats": "Edit Body Stats"
+    "editBodyStats": "Edit Body Stats",
+    "changeBirthDate": "Change Birth Date"
 }

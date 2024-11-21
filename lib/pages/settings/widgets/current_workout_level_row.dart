@@ -2,8 +2,10 @@ import 'package:fit_forge/consts/enums.dart';
 import 'package:fit_forge/generated/l10n.dart';
 import 'package:fit_forge/pages/settings/cubit/settings_cubit.dart';
 import 'package:fit_forge/styles/app_colors.dart';
+import 'package:fit_forge/utils/helpers/helper_methods.dart';
 import 'package:fit_forge/widgets/custom_loading_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CurrentWorkoutLevelRow extends StatelessWidget {
@@ -21,39 +23,42 @@ class CurrentWorkoutLevelRow extends StatelessWidget {
     return InkWell(
       onTap: () => profileCurrenRow != ProfileCurrenRow.none
           ? null
-          : _showEditDialog(context, currentWorkoutLevel ?? '',
-              (newWorkoutLevel) {
+          : _showEditDialog(context, currentWorkoutLevel, (newWorkoutLevel) {
               context.read<SettingsCubit>().updateUserProfile(
                     ProfileCurrenRow.currentWorkoutLevel,
                     currentWorkoutLevel: newWorkoutLevel,
                   );
             }),
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 10),
+        padding: const EdgeInsets.only(
+          left: 8,
+          top: 4,
+          bottom: 4,
+        ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(
-              S.of(context).currentWorkoutLevelLabel,
-              style: Theme.of(context).textTheme.headlineSmall,
+            Flexible(
+              flex: 2,
+              child: Text(
+                S.of(context).currentWorkoutLevelLabel,
+                style: Theme.of(context).textTheme.headlineSmall,
+              ),
             ),
-            Row(
-              children: [
-                profileCurrenRow == ProfileCurrenRow.currentWorkoutLevel
-                    ? const CustomLoadingIndicator(
-                        width: 20,
-                        height: 20,
-                      )
-                    : Text(
-                        currentWorkoutLevel ?? S.of(context).noData,
-                        style: Theme.of(context).textTheme.displaySmall,
-                      ),
-                const SizedBox(width: 10),
-                const Icon(
-                  Icons.arrow_forward_ios,
-                  color: lightGreyColor,
-                ),
-              ],
+            const Spacer(),
+            profileCurrenRow == ProfileCurrenRow.currentWorkoutLevel
+                ? const CustomLoadingIndicator(
+                    width: 20,
+                    height: 20,
+                  )
+                : Text(
+                    currentWorkoutLevel ?? S.of(context).noData,
+                    style: Theme.of(context).textTheme.displaySmall,
+                  ),
+            const SizedBox(width: 10),
+            const Icon(
+              Icons.arrow_forward_ios,
+              color: lightGreyColor,
             ),
           ],
         ),
@@ -63,7 +68,7 @@ class CurrentWorkoutLevelRow extends StatelessWidget {
 
   Future<void> _showEditDialog(
     BuildContext context,
-    String initialValue,
+    String? initialValue,
     Function(String) onSave,
   ) async {
     String? tempSelectedOption = initialValue;
@@ -86,7 +91,8 @@ class CurrentWorkoutLevelRow extends StatelessWidget {
                       S.of(context).begginer,
                       style: Theme.of(context).textTheme.bodyMedium,
                     ),
-                    value: 'Beginner',
+                    value: getTranslationWorkoutLevel(
+                        context, WorkoutLevel.beginner),
                     groupValue: tempSelectedOption,
                     onChanged: (value) {
                       setState(() {
@@ -99,7 +105,8 @@ class CurrentWorkoutLevelRow extends StatelessWidget {
                       S.of(context).intermediate,
                       style: Theme.of(context).textTheme.bodyMedium,
                     ),
-                    value: 'Intermediate',
+                    value: getTranslationWorkoutLevel(
+                        context, WorkoutLevel.intermediate),
                     groupValue: tempSelectedOption,
                     onChanged: (value) {
                       setState(() {
@@ -112,7 +119,8 @@ class CurrentWorkoutLevelRow extends StatelessWidget {
                       S.of(context).advanced,
                       style: Theme.of(context).textTheme.bodyMedium,
                     ),
-                    value: 'Advanced',
+                    value: getTranslationWorkoutLevel(
+                        context, WorkoutLevel.advanced),
                     groupValue: tempSelectedOption,
                     onChanged: (value) {
                       setState(() {

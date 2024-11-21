@@ -44,7 +44,7 @@ class ExerciseHistoryItem extends StatelessWidget {
         ),
       ),
       title: Text(
-        getTranslationText(exerciseInfo.exercise.title, context),
+        getTranslationText(context, exerciseInfo.exercise.title),
         style: Theme.of(context)
             .textTheme
             .bodyMedium
@@ -55,7 +55,7 @@ class ExerciseHistoryItem extends StatelessWidget {
         children: [
           for (int i = 0; i < sessionExercises.exercisesSets!.length; i++)
             Text(
-                '${S.of(context).set} $i: ${sessionExercises.exercisesSets?[i].weight} kg x ${sessionExercises.exercisesSets?[i].reps}'),
+                '${S.of(context).userSet} $i: ${sessionExercises.exercisesSets?[i].weight} kg x ${sessionExercises.exercisesSets?[i].reps}'),
         ],
       ),
     );

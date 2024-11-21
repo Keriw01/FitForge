@@ -1300,6 +1300,16 @@ class S {
     );
   }
 
+  /// `Set`
+  String get userSet {
+    return Intl.message(
+      'Set',
+      name: 'userSet',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Last activity: `
   String get lastActivity {
     return Intl.message(
@@ -1611,6 +1621,16 @@ class S {
   }
 
   /// `Weight`
+  String get userWeight {
+    return Intl.message(
+      'Weight',
+      name: 'userWeight',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Weight`
   String get weight {
     return Intl.message(
       'Weight',
@@ -1825,6 +1845,16 @@ class S {
     return Intl.message(
       'Edit Body Stats',
       name: 'editBodyStats',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Change Birth Date`
+  String get changeBirthDate {
+    return Intl.message(
+      'Change Birth Date',
+      name: 'changeBirthDate',
       desc: '',
       args: [],
     );

@@ -60,6 +60,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Camera permissions have been restricted."),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "cardio": MessageLookupByLibrary.simpleMessage("Cardio"),
+        "changeBirthDate":
+            MessageLookupByLibrary.simpleMessage("Change Birth Date"),
         "chest": MessageLookupByLibrary.simpleMessage("Chest"),
         "close": MessageLookupByLibrary.simpleMessage("Close"),
         "confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
@@ -274,6 +276,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("User already exist"),
         "userAlreadyLogIn":
             MessageLookupByLibrary.simpleMessage("User already LogIn"),
+        "userSet": MessageLookupByLibrary.simpleMessage("Set"),
+        "userWeight": MessageLookupByLibrary.simpleMessage("Weight"),
         "usernameLabel": MessageLookupByLibrary.simpleMessage("Username"),
         "weakPassword": MessageLookupByLibrary.simpleMessage(
             "The password must be at least 8 characters long and contain one letter, a number and a special character"),

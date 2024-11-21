@@ -25,8 +25,8 @@ class ExercisesItemList extends StatelessWidget {
         trailing: const Icon(Icons.arrow_forward_ios),
         title: Text(
           getTranslationText(
-            exerciseInfo.exercise.title,
             context,
+            exerciseInfo.exercise.title,
           ),
           style: Theme.of(context)
               .textTheme

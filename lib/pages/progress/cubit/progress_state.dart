@@ -8,16 +8,16 @@ class ProgressState with EquatableMixin {
   final UserBodyStats? userBodyStats;
   final double? inputWeight;
   final String? inputHeight;
-  final int? inputAge;
+  final DateTime? inputBirthDate;
 
   ProgressState({
     this.firestoreResponseMessage = FirestoreResponseMessage.none,
-    this.isLoading = true,
+    this.isLoading = false,
     this.sessions,
     this.userBodyStats,
     this.inputWeight,
     this.inputHeight,
-    this.inputAge,
+    this.inputBirthDate,
   });
 
   @override
@@ -28,6 +28,6 @@ class ProgressState with EquatableMixin {
         userBodyStats,
         inputWeight,
         inputHeight,
-        inputAge,
+        inputBirthDate,
       ];
 }

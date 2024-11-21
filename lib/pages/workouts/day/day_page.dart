@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:fit_forge/generated/l10n.dart';
 import 'package:fit_forge/models/session.dart';
+import 'package:fit_forge/pages/workouts/cubit/workouts_cubit.dart';
 import 'package:fit_forge/pages/workouts/day/cubit/day_cubit.dart';
 import 'package:fit_forge/pages/workouts/day/widgets/day_exercise_item.dart';
 import 'package:fit_forge/pages/workouts/session/cubit/workout_session_cubit.dart';
@@ -34,7 +35,7 @@ class DayPage extends StatelessWidget {
         return Scaffold(
           appBar: AppBar(
             title: Text(
-              '${state.planDay!.dayTitle} - ${getTotalExercisesDuration(state.planDay!)} min',
+              '${state.planDay!.dayTitle} - ${context.read<WorkoutsCubit>().getTotalExercisesDuration(state.planDay!)} min',
               style: Theme.of(context).textTheme.titleLarge,
             ),
             actions: [

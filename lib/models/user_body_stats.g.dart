@@ -10,12 +10,14 @@ _$UserBodyStatsImpl _$$UserBodyStatsImplFromJson(Map<String, dynamic> json) =>
     _$UserBodyStatsImpl(
       weight: (json['weight'] as num?)?.toDouble(),
       height: json['height'] as String?,
-      age: (json['age'] as num?)?.toInt(),
+      birthDate: json['birthDate'] == null
+          ? null
+          : DateTime.parse(json['birthDate'] as String),
     );
 
 Map<String, dynamic> _$$UserBodyStatsImplToJson(_$UserBodyStatsImpl instance) =>
     <String, dynamic>{
       'weight': instance.weight,
       'height': instance.height,
-      'age': instance.age,
+      'birthDate': instance.birthDate?.toIso8601String(),
     };

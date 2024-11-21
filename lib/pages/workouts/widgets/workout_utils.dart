@@ -73,9 +73,7 @@ void showRenameDialog(
               Row(
                 children: [
                   TextButton(
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    },
+                    onPressed: () => Navigator.of(context).pop(),
                     child: Text(
                       S.of(context).cancel,
                       style: Theme.of(context).textTheme.displaySmall,
@@ -147,16 +145,6 @@ void confirmDelete(
       );
     },
   );
-}
-
-String getTotalExercisesDuration(PlanDay planDay) {
-  int totalDuration = 0;
-  if (planDay.dayExercises != null) {
-    for (var exercise in planDay.dayExercises!) {
-      totalDuration += exercise.duration ?? 0;
-    }
-  }
-  return totalDuration.toString();
 }
 
 String getExercisesCount(PlanDay planDay) {

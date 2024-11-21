@@ -10,8 +10,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 @RoutePage()
-class ProgressPage extends StatelessWidget {
+class ProgressPage extends StatefulWidget {
   const ProgressPage({super.key});
+
+  @override
+  State<ProgressPage> createState() => _ProgressPageState();
+}
+
+class _ProgressPageState extends State<ProgressPage> {
+  @override
+  void initState() {
+    context.read<ProgressCubit>().getUserProgress();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

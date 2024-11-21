@@ -1,12 +1,10 @@
 import 'package:fit_forge/generated/l10n.dart';
 import 'package:fit_forge/pages/progress/cubit/progress_cubit.dart';
-import 'package:fit_forge/pages/workouts/cubit/workouts_cubit.dart';
+import 'package:fit_forge/routes/app_router.dart';
 import 'package:fit_forge/styles/app_colors.dart';
 import 'package:fit_forge/utils/helpers/helper_methods.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class InsightsSheetContent extends StatelessWidget {
@@ -63,7 +61,7 @@ class InsightsSheetContent extends StatelessWidget {
                           children: [
                             Expanded(
                               child: Text(
-                                S.of(context).weight,
+                                S.of(context).userWeight,
                                 style: Theme.of(context).textTheme.labelMedium,
                               ),
                             ),
@@ -119,34 +117,31 @@ class InsightsSheetContent extends StatelessWidget {
                           ],
                         ),
                         const SizedBox(height: 8),
-                        Row(
-                          children: [
-                            Expanded(
-                              child: Text(
-                                S.of(context).age,
-                                style: Theme.of(context).textTheme.labelMedium,
-                              ),
-                            ),
-                            Expanded(
-                              flex: 2,
-                              child: TextFormField(
-                                initialValue: state.inputAge != null
-                                    ? state.inputAge.toString()
-                                    : '',
-                                onChanged: (value) => cubit.updateAge(
-                                  int.tryParse(value),
-                                ),
-                                keyboardType: TextInputType.number,
-                                decoration: const InputDecoration(
-                                  hintText: 'age',
-                                ),
-                                textAlign: TextAlign.center,
-                                style: Theme.of(context).textTheme.labelMedium,
-                              ),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(height: 16),
+                        // Row(
+                        //   children: [
+                        //     Expanded(
+                        //       child: Text(
+                        //         S.of(context).age,
+                        //         style: Theme.of(context).textTheme.labelMedium,
+                        //       ),
+                        //     ),
+                        //     Expanded(
+                        //       flex: 2,
+                        //       child: ElevatedButton(
+                        //         onPressed: () => context
+                        //             .read<ProgressCubit>()
+                        //             .navigateToSettingsPage(),
+                        //         child: Text(
+                        //           S.of(context).changeBirthDate,
+                        //           textAlign: TextAlign.center,
+                        //           style:
+                        //               Theme.of(context).textTheme.displaySmall,
+                        //         ),
+                        //       ),
+                        //     ),
+                        //   ],
+                        // ),
+                        // const SizedBox(height: 16),
                       ],
                     ),
                   ),
