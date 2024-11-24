@@ -1,11 +1,24 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:fit_forge/generated/l10n.dart';
+import 'package:fit_forge/pages/settings/cubit/settings_cubit.dart';
 import 'package:fit_forge/routes/app_router.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 @RoutePage()
-class MainPage extends StatelessWidget {
+class MainPage extends StatefulWidget {
   MainPage({super.key});
+
+  @override
+  State<MainPage> createState() => _MainPageState();
+}
+
+class _MainPageState extends State<MainPage> {
+  @override
+  void initState() {
+    context.read<SettingsCubit>().getUserProfile();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

@@ -4,7 +4,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fit_forge/base_cubit/base_cubit.dart';
 import 'package:fit_forge/consts/enums.dart';
 import 'package:fit_forge/exceptions/exceptions.dart';
-import 'package:fit_forge/generated/l10n.dart';
 import 'package:fit_forge/models/day_exercise.dart';
 import 'package:fit_forge/models/exercise_info.dart';
 import 'package:fit_forge/models/plan.dart';
@@ -518,6 +517,33 @@ class WorkoutsCubit extends BaseCubit<WorkoutsState> {
             ? updatedTargetPlan
             : state.currentPlan,
       ));
+    }
+  }
+
+  void deleteExerciseFromPlan(
+    PlanDay? planDay,
+  ) async {
+    if (planDay != null) {
+      final updatedDays = state.currentPlan?.days?.map((day) {
+            return day.dayId == planDay.dayId ? planDay : day;
+          }).toList() ??
+          [];
+
+      Plan updatedTargetPlan = state.currentPlan!.copyWith(days: updatedDays);
+
+      List<Plan> updatedUserPlans = (state.userPlans ?? []).map((plan) {
+        return plan.planId == updatedTargetPlan.planId
+            ? updatedTargetPlan
+            : plan;
+      }).toList();
+
+      emit(state.copyWith(
+        userPlans: updatedUserPlans,
+        currentPlan: updatedTargetPlan.planId == state.currentPlan?.planId
+            ? updatedTargetPlan
+            : state.currentPlan,
+      ));
+      print(state.currentPlan);
     }
   }
 

@@ -21,6 +21,8 @@ abstract class _$DayStateCWProxy {
 
   DayState selectedListExercises(List<DayExercise>? selectedListExercises);
 
+  DayState isEditing(bool isEditing);
+
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `DayState(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
   /// Usage
@@ -34,6 +36,7 @@ abstract class _$DayStateCWProxy {
     List<ExerciseInfo>? exercisesOfDay,
     List<ExerciseInfo>? filteredExercisesForAdding,
     List<DayExercise>? selectedListExercises,
+    bool? isEditing,
   });
 }
 
@@ -68,6 +71,9 @@ class _$DayStateCWProxyImpl implements _$DayStateCWProxy {
       this(selectedListExercises: selectedListExercises);
 
   @override
+  DayState isEditing(bool isEditing) => this(isEditing: isEditing);
+
+  @override
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `DayState(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
@@ -82,6 +88,7 @@ class _$DayStateCWProxyImpl implements _$DayStateCWProxy {
     Object? exercisesOfDay = const $CopyWithPlaceholder(),
     Object? filteredExercisesForAdding = const $CopyWithPlaceholder(),
     Object? selectedListExercises = const $CopyWithPlaceholder(),
+    Object? isEditing = const $CopyWithPlaceholder(),
   }) {
     return DayState(
       isLoading: isLoading == const $CopyWithPlaceholder() || isLoading == null
@@ -112,6 +119,10 @@ class _$DayStateCWProxyImpl implements _$DayStateCWProxy {
               ? _value.selectedListExercises
               // ignore: cast_nullable_to_non_nullable
               : selectedListExercises as List<DayExercise>?,
+      isEditing: isEditing == const $CopyWithPlaceholder() || isEditing == null
+          ? _value.isEditing
+          // ignore: cast_nullable_to_non_nullable
+          : isEditing as bool,
     );
   }
 }

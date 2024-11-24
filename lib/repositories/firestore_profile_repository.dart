@@ -47,7 +47,14 @@ class FirestoreProfileRepository {
           await _firestore.collection('Users').doc(userId).get();
 
       Map<String, dynamic>? data = snapshot.data();
+
       if (data != null) {
+        // final filteredData = {
+        //   'weight': data['weight'],
+        //   'height': data['height'],
+        //   'birthDate': data['birthDate'],
+        // };
+
         return UserBodyStats.fromJson(data);
       } else {
         throw DocumentIdNotExist();

@@ -47,7 +47,9 @@ class ProgressCubit extends BaseCubit<ProgressState> {
       final sessions =
           await firestoreSessionRepository.getUserSessions(user?.uid);
 
-      emit(state.copyWith(sessions: sessions));
+      emit(state.copyWith(
+          sessions: sessions
+            ..sort((a, b) => b.startTime!.compareTo(a.startTime!))));
 
       await getUserBodyStats();
     } on FirestoreException {
@@ -71,7 +73,7 @@ class ProgressCubit extends BaseCubit<ProgressState> {
 
       final userBodyStats =
           await firestoreProfileRepository.getUserBodyStats(user?.uid);
-
+      print("userBodyStats $userBodyStats");
       emit(state.copyWith(
         userBodyStats: userBodyStats,
         inputWeight: userBodyStats.weight,

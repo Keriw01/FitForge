@@ -203,6 +203,46 @@ class DayCubit extends BaseCubit<DayState> {
     }
   }
 
+  void deleteExerciseFromDay(DayExercise dayExercise) async {
+    try {
+      emit(state.copyWith(
+        firestoreResponseMessage: FirestoreResponseMessage.none,
+      ));
+
+      User? user = FirebaseAuth.instance.currentUser;
+      String? planId = _workoutsCubit.state.currentPlan?.planId;
+      await firestoreWorkoutsRepository.deleteExerciseFromDay(
+        user?.uid,
+        planId,
+        state.planDay?.dayId,
+        dayExercise.exerciseRefId,
+      );
+
+      List<DayExercise> updatedPlanDay =
+          List.from(state.planDay?.dayExercises ?? []);
+
+      updatedPlanDay.removeWhere(
+          (element) => element.exerciseRefId == dayExercise.exerciseRefId);
+
+      emit(state.copyWith(
+          planDay: state.planDay?.copyWith(dayExercises: updatedPlanDay)));
+
+      _workoutsCubit.deleteExerciseFromPlan(state.planDay);
+    } on FirestoreException {
+      emit(state.copyWith(
+        firestoreResponseMessage: FirestoreResponseMessage.firestoreException,
+      ));
+    } catch (e) {
+      emit(state.copyWith(
+        firestoreResponseMessage: FirestoreResponseMessage.defaultError,
+      ));
+    }
+  }
+
+  void toogleIsEditing() {
+    emit(state.copyWith(isEditing: !state.isEditing));
+  }
+
   void clearState() {
     emit(DayState());
   }

@@ -175,7 +175,7 @@ class FirestoreSessionRepository {
             sessions.add(session);
           }
         }
-        print(sessions);
+
         return sessions;
       }
     } catch (e) {

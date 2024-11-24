@@ -320,6 +320,34 @@ class FirestoreWorkoutsRepository {
     }
   }
 
+  Future<void> deleteExerciseFromDay(
+    String? userId,
+    String? planId,
+    String? dayId,
+    String exerciseRefId,
+  ) async {
+    try {
+      final exercisesCollectionRef = _firestore
+          .collection('UserTrainingPlans')
+          .doc(userId)
+          .collection('Plans')
+          .doc(planId)
+          .collection('Days')
+          .doc(dayId)
+          .collection('PlanExercises');
+
+      final querySnapshot = await exercisesCollectionRef
+          .where('exerciseRefId', isEqualTo: exerciseRefId)
+          .get();
+
+      for (final doc in querySnapshot.docs) {
+        await doc.reference.delete();
+      }
+    } catch (e) {
+      throw FirestoreException();
+    }
+  }
+
   Future<void> addNewExerciseToDayFromExerciseDetail(
     String? userId,
     String? planId,

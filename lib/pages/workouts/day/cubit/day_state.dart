@@ -11,6 +11,8 @@ class DayState with EquatableMixin {
   final List<ExerciseInfo>? filteredExercisesForAdding;
   final List<DayExercise>? selectedListExercises;
 
+  final bool isEditing;
+
   DayState({
     this.isLoading = true,
     this.firestoreResponseMessage = FirestoreResponseMessage.none,
@@ -18,6 +20,7 @@ class DayState with EquatableMixin {
     this.exercisesOfDay,
     this.filteredExercisesForAdding,
     this.selectedListExercises,
+    this.isEditing = false,
   });
 
   @override
@@ -28,5 +31,6 @@ class DayState with EquatableMixin {
         exercisesOfDay,
         filteredExercisesForAdding,
         selectedListExercises,
+        isEditing,
       ];
 }

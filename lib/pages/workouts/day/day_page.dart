@@ -15,9 +15,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 @RoutePage()
-class DayPage extends StatelessWidget {
+class DayPage extends StatefulWidget {
   const DayPage({super.key});
 
+  @override
+  State<DayPage> createState() => _DayPageState();
+}
+
+class _DayPageState extends State<DayPage> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<DayCubit, DayState>(
@@ -40,9 +45,9 @@ class DayPage extends StatelessWidget {
             ),
             actions: [
               TextButton(
-                onPressed: () => null,
+                onPressed: () => context.read<DayCubit>().toogleIsEditing(),
                 child: Text(
-                  S.of(context).edit,
+                  state.isEditing ? S.of(context).cancel : S.of(context).edit,
                   style: GoogleFonts.roboto(
                       color: whiteColor,
                       fontSize: 16,
@@ -77,14 +82,24 @@ class DayPage extends StatelessWidget {
                                       state.planDay?.dayExercises?[index];
                                   final exerciseInfo =
                                       state.exercisesOfDay?[index];
-                                  return Column(
-                                    children: [
-                                      DayExerciseItem(
-                                        exerciseInfo: exerciseInfo!,
-                                        dayExercise: dayExercise!,
-                                      ),
-                                      const Divider(height: 1),
-                                    ],
+
+                                  return Dismissible(
+                                    key: Key(exerciseInfo!.exerciseId),
+                                    onDismissed: (direction) {
+                                      setState(() {
+                                        state.planDay?.dayExercises!
+                                            .removeAt(index);
+                                      });
+                                    },
+                                    child: Column(
+                                      children: [
+                                        DayExerciseItem(
+                                          exerciseInfo: exerciseInfo,
+                                          dayExercise: dayExercise!,
+                                        ),
+                                        const Divider(height: 2),
+                                      ],
+                                    ),
                                   );
                                 },
                               ),
