@@ -82,6 +82,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "cutting": MessageLookupByLibrary.simpleMessage("Cutting"),
         "cuttingDescription": MessageLookupByLibrary.simpleMessage(
             "Focus on losing body fat or lose weight in general"),
+        "day": MessageLookupByLibrary.simpleMessage("Day"),
         "dayTitle": MessageLookupByLibrary.simpleMessage("Day Title"),
         "dayTitleRequired":
             MessageLookupByLibrary.simpleMessage("Day Title Required"),
@@ -122,6 +123,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "emailLabel": MessageLookupByLibrary.simpleMessage("Email"),
         "emptyCurrentPlan": MessageLookupByLibrary.simpleMessage(
             "You don`t have a training plan selected.\nSelect one in the section"),
+        "emptyData": MessageLookupByLibrary.simpleMessage("empty data"),
         "emptyExercisesList":
             MessageLookupByLibrary.simpleMessage("Empty Exercises List"),
         "emptyPlans": MessageLookupByLibrary.simpleMessage(

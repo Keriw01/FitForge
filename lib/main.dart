@@ -31,9 +31,6 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => WorkoutSessionCubit(_appRouter, context),
-        ),
-        BlocProvider(
           create: (context) => SettingsCubit(_appRouter, context),
           lazy: false,
         ),
@@ -43,6 +40,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => WorkoutsCubit(_appRouter, context),
+        ),
+        BlocProvider(
+          create: (context) => WorkoutSessionCubit(_appRouter, context),
         ),
         BlocProvider(
           create: (context) => AuthCubit(_appRouter, context),

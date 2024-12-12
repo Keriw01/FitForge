@@ -5,6 +5,7 @@ import 'package:fit_forge/pages/workouts/session/widgets/workout_session_floatin
 import 'package:fit_forge/pages/workouts/widgets/bottom_sheet_content.dart';
 import 'package:fit_forge/pages/workouts/widgets/workout_utils.dart';
 import 'package:fit_forge/styles/app_colors.dart';
+import 'package:fit_forge/utils/formation/formation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -155,12 +156,18 @@ class _MyPlansViewState extends State<MyPlansView> {
                               ?.copyWith(color: whiteColor),
                         ),
                         // TODO Display actual last activity data
-                        Text(
-                          '${S.of(context).lastActivity}empty data',
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodySmall
-                              ?.copyWith(color: whiteColor),
+                        SizedBox(
+                          width: 250,
+                          child: Text(
+                            state.userPlans![index].lastPerformed != null
+                                ? '${S.of(context).lastActivity}${formatLastPerformed(state.userPlans![index].lastPerformed)}'
+                                : '${S.of(context).lastActivity}${S.of(context).emptyData}',
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodySmall
+                                ?.copyWith(color: whiteColor),
+                            softWrap: true,
+                          ),
                         ),
                       ],
                     ),

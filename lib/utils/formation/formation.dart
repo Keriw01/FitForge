@@ -20,6 +20,18 @@ String formatHour(DateTime? dateTime) {
   return formattedDate;
 }
 
+String formatLastPerformed(DateTime? dateTime) {
+  final dateFormat = DateFormat('EEEE, MMM. HH:mm');
+  String formattedDate = '';
+
+  if (dateTime != null) {
+    formattedDate = dateFormat.format(dateTime);
+  }
+
+  return formattedDate.replaceFirst(
+      formattedDate[0], formattedDate[0].toUpperCase());
+}
+
 String formatGeoPoint(GeoPoint? geoPoint) {
   if (geoPoint == null) {
     return '';

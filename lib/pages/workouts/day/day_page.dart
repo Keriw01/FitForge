@@ -83,23 +83,14 @@ class _DayPageState extends State<DayPage> {
                                   final exerciseInfo =
                                       state.exercisesOfDay?[index];
 
-                                  return Dismissible(
-                                    key: Key(exerciseInfo!.exerciseId),
-                                    onDismissed: (direction) {
-                                      setState(() {
-                                        state.planDay?.dayExercises!
-                                            .removeAt(index);
-                                      });
-                                    },
-                                    child: Column(
-                                      children: [
-                                        DayExerciseItem(
-                                          exerciseInfo: exerciseInfo,
-                                          dayExercise: dayExercise!,
-                                        ),
-                                        const Divider(height: 2),
-                                      ],
-                                    ),
+                                  return Column(
+                                    children: [
+                                      DayExerciseItem(
+                                        exerciseInfo: exerciseInfo!,
+                                        dayExercise: dayExercise!,
+                                      ),
+                                      const Divider(height: 2),
+                                    ],
                                   );
                                 },
                               ),

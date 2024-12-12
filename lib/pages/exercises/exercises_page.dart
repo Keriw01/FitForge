@@ -17,7 +17,7 @@ class ExercisesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    context.read<ExercisesCubit>().filteringExercises(bodyPart);
+    context.read<ExercisesCubit>().filteringExercises(context, bodyPart);
 
     return Scaffold(
       appBar: AppBar(

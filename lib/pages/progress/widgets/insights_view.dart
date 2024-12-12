@@ -3,6 +3,7 @@ import 'package:fit_forge/models/session.dart';
 import 'package:fit_forge/models/user_body_stats.dart';
 import 'package:fit_forge/pages/progress/cubit/progress_cubit.dart';
 import 'package:fit_forge/pages/progress/widgets/insights_bottom_sheet.dart';
+import 'package:fit_forge/pages/settings/cubit/settings_cubit.dart';
 import 'package:fit_forge/styles/app_colors.dart';
 import 'package:fit_forge/utils/helpers/helper_methods.dart';
 import 'package:fl_chart/fl_chart.dart';
@@ -37,6 +38,9 @@ class _InsightsViewState extends State<InsightsView> {
 
   @override
   Widget build(BuildContext context) {
+    final unitSystem =
+        context.select((SettingsCubit b) => b.state.userProfile!.unitSystem);
+
     return BlocSelector<ProgressCubit, ProgressState,
         Tuple2<List<Session>?, UserBodyStats?>>(
       selector: (state) => Tuple2(
@@ -95,15 +99,22 @@ class _InsightsViewState extends State<InsightsView> {
                           children: [
                             Text(
                               state.item2?.weight != null
-                                  ? state.item2!.weight!
-                                      .roundToDouble()
-                                      .toString()
+                                  ? formatWeightInRightUnit(
+                                      unitSystem: unitSystem,
+                                      weight: state.item2!.weight!
+                                          .roundToDouble()
+                                          .toString())
                                   : S.of(context).noData,
                               style: Theme.of(context).textTheme.displaySmall,
                             ),
                             const SizedBox(height: 7),
                             Text(
-                              state.item2?.height ?? S.of(context).noData,
+                              state.item2?.height == null
+                                  ? S.of(context).noData
+                                  : formatHeightInRightUnit(
+                                      unitSystem: unitSystem,
+                                      height: state.item2?.height ?? '0',
+                                    ),
                               style: Theme.of(context).textTheme.displaySmall,
                             ),
                             const SizedBox(height: 7),

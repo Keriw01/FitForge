@@ -84,6 +84,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "cutting": MessageLookupByLibrary.simpleMessage("Schudnąć"),
         "cuttingDescription": MessageLookupByLibrary.simpleMessage(
             "Skoncentruj się na utracie tkanki tłuszczowej lub ogólnie schudnij"),
+        "day": MessageLookupByLibrary.simpleMessage("Dzień"),
         "dayTitle": MessageLookupByLibrary.simpleMessage("Nazwa dnia"),
         "dayTitleRequired":
             MessageLookupByLibrary.simpleMessage("Nazwa dnia wymagana"),
@@ -123,6 +124,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "emailLabel": MessageLookupByLibrary.simpleMessage("Email"),
         "emptyCurrentPlan": MessageLookupByLibrary.simpleMessage(
             "Nie masz wybranego planu treningowego.\nWybierz go w sekcji"),
+        "emptyData": MessageLookupByLibrary.simpleMessage("brak danych"),
         "emptyExercisesList":
             MessageLookupByLibrary.simpleMessage("Pusta lista ćwiczeń"),
         "emptyPlans": MessageLookupByLibrary.simpleMessage(

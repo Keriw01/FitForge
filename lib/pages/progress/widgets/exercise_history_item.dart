@@ -3,9 +3,11 @@ import 'package:fit_forge/generated/l10n.dart';
 import 'package:fit_forge/models/exercise_info.dart';
 import 'package:fit_forge/models/session.dart';
 import 'package:fit_forge/models/session_exercise.dart';
+import 'package:fit_forge/pages/settings/cubit/settings_cubit.dart';
 import 'package:fit_forge/utils/helpers/helper_methods.dart';
 import 'package:fit_forge/widgets/custom_loading_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ExerciseHistoryItem extends StatelessWidget {
   final ExerciseInfo exerciseInfo;
@@ -19,6 +21,9 @@ class ExerciseHistoryItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final unitSystem =
+        context.select((SettingsCubit b) => b.state.userProfile!.unitSystem);
+
     SessionExercise sessionExercises = session.sessionExercises!.firstWhere(
         (sessionExercise) =>
             sessionExercise.exerciseRefId == exerciseInfo.exerciseId);
@@ -55,7 +60,7 @@ class ExerciseHistoryItem extends StatelessWidget {
         children: [
           for (int i = 0; i < sessionExercises.exercisesSets!.length; i++)
             Text(
-                '${S.of(context).userSet} $i: ${sessionExercises.exercisesSets?[i].weight} kg x ${sessionExercises.exercisesSets?[i].reps}'),
+                '${S.of(context).userSet} $i: ${formatWeightInRightUnit(unitSystem: unitSystem, weight: sessionExercises.exercisesSets?[i].weight.toString() ?? '0')} x ${sessionExercises.exercisesSets?[i].reps}'),
         ],
       ),
     );

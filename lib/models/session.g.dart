@@ -8,6 +8,7 @@ part of 'session.dart';
 
 _$SessionImpl _$$SessionImplFromJson(Map<String, dynamic> json) =>
     _$SessionImpl(
+      planId: json['planId'] as String,
       sessionId: json['sessionId'] as String?,
       userId: json['userId'] as String?,
       totalCaloriesBurned: json['totalCaloriesBurned'] as String,
@@ -24,6 +25,7 @@ _$SessionImpl _$$SessionImplFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$SessionImplToJson(_$SessionImpl instance) =>
     <String, dynamic>{
+      'planId': instance.planId,
       'sessionId': instance.sessionId,
       'userId': instance.userId,
       'totalCaloriesBurned': instance.totalCaloriesBurned,

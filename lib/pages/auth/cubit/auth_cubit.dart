@@ -133,6 +133,7 @@ class AuthCubit extends BaseCubit<AuthState> {
           currentUser: user,
         ));
 
+        _workoutsCubit.getUserPlansAndCurrent();
         _exercisesCubit.getExercises();
         _settingsCubit.getUserProfile();
 
@@ -171,6 +172,7 @@ class AuthCubit extends BaseCubit<AuthState> {
           currentUser: user,
         ));
 
+        _workoutsCubit.getUserPlansAndCurrent();
         _exercisesCubit.getExercises();
         _settingsCubit.getUserProfile();
 

@@ -144,3 +144,59 @@ String calculateBMI(
     return S.of(context).noData;
   }
 }
+
+String formatWeightInRightUnit({
+  required String unitSystem,
+  required String weight,
+  bool displayUnit = true,
+}) {
+  final weightInKg = double.tryParse(weight);
+
+  if (weightInKg == null) {
+    return displayUnit ? '$weight kg' : weight;
+  }
+
+  if (unitSystem == 'inch/lb') {
+    final weightInLb = weightInKg * 2.20462;
+
+    return displayUnit
+        ? '${weightInLb.toStringAsFixed(1)} lb'
+        : weightInLb.toStringAsFixed(1);
+  }
+
+  return displayUnit ? '$weight kg' : weight;
+}
+
+String displayWeightUnit({
+  required String unitSystem,
+}) {
+  return unitSystem == 'inch/lb' ? 'lb' : 'kg';
+}
+
+String formatHeightInRightUnit({
+  required String unitSystem,
+  required String height,
+  bool displayUnit = true,
+}) {
+  final heightInCmParsed = double.tryParse(height);
+  if (heightInCmParsed == null) {
+    return displayUnit ? '$height cm' : height;
+  }
+
+  if (unitSystem == 'inch/lb') {
+    final heightInInches = heightInCmParsed / 2.54;
+    return displayUnit
+        ? '${heightInInches.toStringAsFixed(1)} inch'
+        : heightInInches.toStringAsFixed(1);
+  }
+
+  return displayUnit
+      ? '${heightInCmParsed.toStringAsFixed(1)} cm'
+      : heightInCmParsed.toStringAsFixed(1);
+}
+
+String displayHeightUnit({
+  required String unitSystem,
+}) {
+  return unitSystem == 'inch/lb' ? 'inch' : 'cm';
+}

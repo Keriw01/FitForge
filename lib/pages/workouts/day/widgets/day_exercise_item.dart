@@ -26,8 +26,6 @@ class DayExerciseItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final isEditing = context.watch<DayCubit>().state.isEditing;
 
-    print(exerciseInfo);
-    print(dayExercise);
     return ListTile(
       leading: CircleAvatar(
         backgroundColor: Colors.transparent,

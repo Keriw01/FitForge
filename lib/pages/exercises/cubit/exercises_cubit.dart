@@ -4,6 +4,7 @@ import 'package:fit_forge/exceptions/exceptions.dart';
 import 'package:fit_forge/models/exercise_info.dart';
 import 'package:fit_forge/repositories/firestore_exercises_repository.dart';
 import 'package:fit_forge/routes/app_router.dart';
+import 'package:fit_forge/utils/helpers/helper_methods.dart';
 import 'package:flutter/widgets.dart';
 import 'package:equatable/equatable.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
@@ -49,11 +50,27 @@ class ExercisesCubit extends BaseCubit<ExercisesState> {
     appRouter.push(ExercisesRoute(bodyPart: bodyPart));
   }
 
-  void filteringExercises(String bodyPart) {
+  void filteringExercises(BuildContext context, String bodyPart) {
     emit(state.copyWith(
       isFiltering: true,
       filteredExercises: [],
     ));
+
+    if (bodyPart == 'Show All') {
+      List<ExerciseInfo> sortedExercises = List.from(state.exercises ?? [])
+        ..sort((a, b) {
+          return getTranslationText(context, a.exercise.title)
+              .toLowerCase()
+              .compareTo(
+                  getTranslationText(context, b.exercise.title).toLowerCase());
+        });
+
+      emit(state.copyWith(
+        isFiltering: false,
+        filteredExercises: sortedExercises,
+      ));
+      return;
+    }
 
     final filteredExercised = state.exercises
         ?.where((element) => element.exercise.mainBodyPart.en == bodyPart)

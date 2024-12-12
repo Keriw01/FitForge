@@ -85,7 +85,9 @@ class BottomSheetContent extends StatelessWidget {
               ),
               ToggleButtons(
                 isSelected: TopGoal.values
-                    .map((type) => state.selectedPlanType == type.name)
+                    .map((type) =>
+                        state.selectedPlanType ==
+                        getTranslationTopGoal(context, type))
                     .toList(),
                 onPressed: (index) {
                   cubit.setPlanType(
@@ -113,8 +115,13 @@ class BottomSheetContent extends StatelessWidget {
               Wrap(
                 children: WorkoutLevel.values.map((level) {
                   return ToggleButtons(
-                    isSelected: [state.selectedDifficultyLevel == level.name],
+                    isSelected: [
+                      state.selectedDifficultyLevel ==
+                          getTranslationWorkoutLevel(context, level),
+                    ],
                     onPressed: (_) {
+                      print(state.selectedDifficultyLevel);
+                      print(level.name);
                       cubit.setDifficultyLevel(
                         getTranslationWorkoutLevel(context, level),
                       );

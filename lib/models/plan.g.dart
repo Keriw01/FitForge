@@ -13,6 +13,7 @@ _$PlanImpl _$$PlanImplFromJson(Map<String, dynamic> json) => _$PlanImpl(
       planId: json['planId'] as String?,
       planName: json['planName'] as String,
       planType: json['planType'] as String,
+      lastPerformed: timestampFromJson(json['lastPerformed'] as Timestamp?),
       days: (json['days'] as List<dynamic>?)
           ?.map((e) => PlanDay.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -26,5 +27,6 @@ Map<String, dynamic> _$$PlanImplToJson(_$PlanImpl instance) =>
       'planId': instance.planId,
       'planName': instance.planName,
       'planType': instance.planType,
+      'lastPerformed': timestampToJson(instance.lastPerformed),
       'days': instance.days,
     };

@@ -4,6 +4,7 @@ import 'package:fit_forge/models/day_exercise.dart';
 import 'package:fit_forge/models/exercise.dart';
 import 'package:fit_forge/models/session.dart';
 import 'package:fit_forge/models/session_exercise.dart';
+import 'package:fit_forge/pages/settings/cubit/settings_cubit.dart';
 import 'package:fit_forge/pages/workouts/session/cubit/workout_session_cubit.dart';
 import 'package:fit_forge/pages/workouts/session/widgets/workout_session_floating.dart';
 import 'package:fit_forge/styles/app_colors.dart';
@@ -53,6 +54,9 @@ class _ExerciseSessionPageState extends State<ExerciseSessionPage> {
 
   @override
   Widget build(BuildContext context) {
+    final unitSystem =
+        context.select((SettingsCubit b) => b.state.userProfile!.unitSystem);
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -95,17 +99,17 @@ class _ExerciseSessionPageState extends State<ExerciseSessionPage> {
                           ],
                         ),
                         const SizedBox(height: 20),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            const Text('1RM: '),
-                            Text(
-                              widget.dayExercise.best1RM?.toString() ?? 'N/A',
-                              style: Theme.of(context).textTheme.displaySmall,
-                            ),
-                          ],
-                        ),
-                        const SizedBox(height: 10),
+                        // Row(
+                        //   mainAxisAlignment: MainAxisAlignment.end,
+                        //   children: [
+                        //     const Text('1RM: '),
+                        //     Text(
+                        //       widget.dayExercise.best1RM?.toString() ?? 'N/A',
+                        //       style: Theme.of(context).textTheme.displaySmall,
+                        //     ),
+                        //   ],
+                        // ),
+                        // const SizedBox(height: 10),
                         Row(
                           children: [
                             Expanded(
@@ -181,10 +185,18 @@ class _ExerciseSessionPageState extends State<ExerciseSessionPage> {
                                       enabled: index == tuple.item4,
                                       decoration: InputDecoration(
                                         hintText: setExists
-                                            ? tuple.item2?.exercisesSets![index]
-                                                .weight
-                                                .toString()
-                                            : 'kg',
+                                            ? formatWeightInRightUnit(
+                                                unitSystem: unitSystem,
+                                                weight: tuple
+                                                        .item2
+                                                        ?.exercisesSets![index]
+                                                        .weight
+                                                        .toStringAsPrecision(
+                                                            2) ??
+                                                    '0',
+                                                displayUnit: false)
+                                            : displayWeightUnit(
+                                                unitSystem: unitSystem),
                                       ),
                                       textAlign: TextAlign.center,
                                     ),

@@ -1,8 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:fit_forge/generated/l10n.dart';
 import 'package:fit_forge/models/session.dart';
+import 'package:fit_forge/pages/settings/cubit/settings_cubit.dart';
 import 'package:fit_forge/pages/workouts/session/cubit/workout_session_cubit.dart';
 import 'package:fit_forge/styles/app_colors.dart';
+import 'package:fit_forge/utils/helpers/helper_methods.dart';
 import 'package:fit_forge/widgets/custom_loading_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -16,6 +18,9 @@ class WorkoutSummarySessionPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final unitSystem =
+        context.select((SettingsCubit b) => b.state.userProfile!.unitSystem);
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -74,16 +79,17 @@ class WorkoutSummarySessionPage extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            tuple.item1!.totalWeightLifted,
+                            formatWeightInRightUnit(
+                                unitSystem: unitSystem,
+                                weight: tuple.item1!.totalWeightLifted),
                             style: Theme.of(context)
                                 .textTheme
                                 .bodyLarge
                                 ?.copyWith(fontWeight: FontWeight.bold),
                           ),
-
-                          /// TODO kg - na wybrane przez usera unit zmienić.
+                          const SizedBox(width: 4),
                           Text(
-                            ' kg${S.of(context).liftedDescription}',
+                            S.of(context).liftedDescription,
                             style: Theme.of(context).textTheme.bodyLarge,
                           ),
                         ],
@@ -110,20 +116,21 @@ class WorkoutSummarySessionPage extends StatelessWidget {
                               Text(tuple.item1!.totalExercises.toString()),
                             ],
                           ),
-                          const Spacer(),
-                          Column(
-                            children: [
-                              const Icon(
-                                FontAwesomeIcons.trophy,
-                                color: greenButton,
-                              ),
-                              const SizedBox(height: 4),
-                              Text(S.of(context).newRecord),
-                              const SizedBox(height: 2),
-                              Text(tuple.item1!.exercisesWith1RM.toString()),
-                            ],
-                          ),
-                          const Spacer(),
+                          // const Spacer(),
+                          // Column(
+                          //   children: [
+                          //     const Icon(
+                          //       FontAwesomeIcons.trophy,
+                          //       color: greenButton,
+                          //     ),
+                          //     const SizedBox(height: 4),
+                          //     Text(S.of(context).newRecord),
+                          //     const SizedBox(height: 2),
+                          //     Text(tuple.item1!.exercisesWith1RM.toString()),
+                          //   ],
+                          // ),
+                          // const Spacer(),
+                          const SizedBox(width: 64),
                           Column(
                             children: [
                               const Icon(

@@ -1859,6 +1859,26 @@ class S {
       args: [],
     );
   }
+
+  /// `empty data`
+  String get emptyData {
+    return Intl.message(
+      'empty data',
+      name: 'emptyData',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Day`
+  String get day {
+    return Intl.message(
+      'Day',
+      name: 'day',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

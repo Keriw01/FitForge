@@ -10,6 +10,7 @@ import 'package:fit_forge/models/plan.dart';
 import 'package:fit_forge/models/plan_day.dart';
 import 'package:fit_forge/pages/exercises/cubit/exercises_cubit.dart';
 import 'package:fit_forge/pages/settings/cubit/settings_cubit.dart';
+import 'package:fit_forge/repositories/firestore_session_repository.dart';
 import 'package:fit_forge/repositories/firestore_workouts_repository.dart';
 import 'package:fit_forge/routes/app_router.dart';
 import 'package:fit_forge/utils/forms/inputs.dart';
@@ -22,6 +23,8 @@ part 'workouts_cubit.g.dart';
 class WorkoutsCubit extends BaseCubit<WorkoutsState> {
   late final FirestoreWorkoutsRepository firestoreWorkoutsRepository =
       FirestoreWorkoutsRepository();
+  late final FirestoreSessionRepository firestoreSessionRepository =
+      FirestoreSessionRepository();
 
   late final SettingsCubit _settingsCubit;
   late final ExercisesCubit _exercisesCubit;
@@ -53,12 +56,31 @@ class WorkoutsCubit extends BaseCubit<WorkoutsState> {
         firestoreResponseMessage: FirestoreResponseMessage.none,
       ));
 
-      _exercisesCubit.getExercises();
+      await _exercisesCubit.getExercises();
 
       User? user = FirebaseAuth.instance.currentUser;
 
       List<Plan>? userPlans =
           await firestoreWorkoutsRepository.getUserPlans(user?.uid);
+
+      final sessions =
+          await firestoreSessionRepository.getUserSessions(user?.uid);
+
+      if (userPlans != null) {
+        userPlans = userPlans.map((plan) {
+          final planSessions = sessions.where((s) => s.planId == plan.planId);
+
+          if (planSessions.isNotEmpty) {
+            return plan.copyWith(
+              lastPerformed: planSessions
+                  .map((s) => s.startTime)
+                  .whereType<DateTime>()
+                  .reduce((a, b) => a.isAfter(b) ? a : b),
+            );
+          }
+          return plan;
+        }).toList();
+      }
 
       Plan? currentPlan =
           await firestoreWorkoutsRepository.getCurrentPlan(user?.uid);
@@ -142,6 +164,8 @@ class WorkoutsCubit extends BaseCubit<WorkoutsState> {
       if (addedPlan?.planId != null) {
         List<Plan> updatedPlans = List.from(state.userPlans ?? [])
           ..add(addedPlan!);
+
+        setCurrentPlan(addedPlan);
 
         emit(state.copyWith(
           userPlans: updatedPlans,
@@ -543,14 +567,12 @@ class WorkoutsCubit extends BaseCubit<WorkoutsState> {
             ? updatedTargetPlan
             : state.currentPlan,
       ));
-      print(state.currentPlan);
     }
   }
 
   String getTotalExercisesDuration(PlanDay day) {
     try {
-      final config =
-          levels[_settingsCubit.state.userProfile?.currentWorkoutLevel]!;
+      final config = levels[state.currentPlan?.difficultyLevel ?? 'Beginner']!;
 
       int totalTime = 0;
 

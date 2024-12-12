@@ -4,6 +4,7 @@ import 'package:fit_forge/pages/workouts/day/cubit/day_cubit.dart';
 import 'package:fit_forge/pages/workouts/session/widgets/workout_session_floating.dart';
 import 'package:fit_forge/pages/workouts/widgets/workout_utils.dart';
 import 'package:fit_forge/styles/app_colors.dart';
+import 'package:fit_forge/utils/formation/formation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -34,7 +35,7 @@ class CurrentPlanView extends StatelessWidget {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const SizedBox(height: 5),
+                            const SizedBox(height: 8),
                             Text(
                               state.currentPlan!.planName,
                               style: Theme.of(context)
@@ -42,7 +43,7 @@ class CurrentPlanView extends StatelessWidget {
                                   .headlineLarge
                                   ?.copyWith(color: whiteColor),
                             ),
-                            const SizedBox(height: 10),
+                            const SizedBox(height: 8),
                             Text(
                               '${state.currentPlan?.planType} ${state.currentPlan?.numberOfDays} ${S.of(context).days}',
                               style: Theme.of(context)
@@ -191,30 +192,18 @@ class CurrentPlanView extends StatelessWidget {
                                       ),
                                     ),
                                     const SizedBox(width: 10),
-                                    Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          day.dayTitle,
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .headlineSmall
-                                              ?.copyWith(
-                                                  color: defaultFontsColor),
-                                        ),
-                                        const SizedBox(height: 5),
-                                        Text(
-                                          S.of(context).lastPerformed,
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .bodySmall
-                                              ?.copyWith(
-                                                  color: defaultFontsColor),
-                                        ),
-                                      ],
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 16),
+                                      child: Text(
+                                        day.dayTitle,
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .headlineSmall
+                                            ?.copyWith(
+                                              color: defaultFontsColor,
+                                              fontSize: 20,
+                                            ),
+                                      ),
                                     ),
                                     const Spacer(),
                                     Column(

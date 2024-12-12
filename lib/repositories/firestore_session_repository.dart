@@ -7,7 +7,7 @@ import 'package:fit_forge/models/session_exercise.dart';
 class FirestoreSessionRepository {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
-  Future<Session> addNewSession(String? userId) async {
+  Future<Session> addNewSession(String? userId, String currentPlanId) async {
     try {
       final userDocRef =
           _firestore.collection('UserTrainingSessions').doc(userId);
@@ -21,6 +21,7 @@ class FirestoreSessionRepository {
       }, SetOptions(merge: true));
 
       Session session = Session(
+        planId: currentPlanId,
         sessionId: sessionId,
         userId: userId!,
         totalCaloriesBurned: '0',
@@ -32,6 +33,7 @@ class FirestoreSessionRepository {
       );
 
       await sessionDocRef.set({
+        'planId': session.planId,
         'startTime': session.startTime,
         'totalCaloriesBurned': session.totalCaloriesBurned,
         'totalDuration': session.totalDuration,

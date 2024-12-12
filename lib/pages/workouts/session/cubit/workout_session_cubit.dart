@@ -11,10 +11,12 @@ import 'package:fit_forge/models/exercise.dart';
 import 'package:fit_forge/models/exercise_set.dart';
 import 'package:fit_forge/models/session.dart';
 import 'package:fit_forge/models/session_exercise.dart';
+import 'package:fit_forge/pages/workouts/cubit/workouts_cubit.dart';
 import 'package:fit_forge/repositories/firestore_session_repository.dart';
 import 'package:fit_forge/routes/app_router.dart';
 import 'package:fit_forge/utils/formation/formation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'workout_session_state.dart';
 part 'workout_session_cubit.g.dart';
@@ -23,10 +25,13 @@ class WorkoutSessionCubit extends BaseCubit<WorkoutSessionState> {
   late final FirestoreSessionRepository firestoreSessionRepository =
       FirestoreSessionRepository();
 
+  late final WorkoutsCubit _workoutsCubit;
+
   Timer? _timer;
 
   WorkoutSessionCubit(AppRouter appRouter, BuildContext context)
-      : super(
+      : _workoutsCubit = context.read<WorkoutsCubit>(),
+        super(
           appRouter,
           WorkoutSessionState(),
         );
@@ -40,8 +45,10 @@ class WorkoutSessionCubit extends BaseCubit<WorkoutSessionState> {
 
       User? user = FirebaseAuth.instance.currentUser;
 
-      Session newSession =
-          await firestoreSessionRepository.addNewSession(user?.uid);
+      Session newSession = await firestoreSessionRepository.addNewSession(
+        user?.uid,
+        _workoutsCubit.state.currentPlan!.planId!,
+      );
 
       emit(state.copyWith(
         workoutDuration: Duration.zero,

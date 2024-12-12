@@ -4,6 +4,7 @@ import 'package:fit_forge/models/exercise_info.dart';
 import 'package:fit_forge/models/session.dart';
 import 'package:fit_forge/pages/progress/cubit/progress_cubit.dart';
 import 'package:fit_forge/pages/progress/widgets/exercise_history_item.dart';
+import 'package:fit_forge/pages/settings/cubit/settings_cubit.dart';
 import 'package:fit_forge/styles/app_colors.dart';
 import 'package:fit_forge/utils/formation/formation.dart';
 import 'package:fit_forge/utils/helpers/helper_methods.dart';
@@ -27,6 +28,8 @@ class ActivityDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     bool isLight = isLightTheme(context);
+    final unitSystem =
+        context.select((SettingsCubit b) => b.state.userProfile!.unitSystem);
 
     return BlocBuilder<ProgressCubit, ProgressState>(
       builder: (context, state) {
@@ -113,7 +116,9 @@ class ActivityDetailPage extends StatelessWidget {
                                     ),
                                     const SizedBox(height: 2),
                                     Text(
-                                      session.totalWeightLifted.toString(),
+                                      formatWeightInRightUnit(
+                                          unitSystem: unitSystem,
+                                          weight: session.totalWeightLifted),
                                       style: Theme.of(context)
                                           .textTheme
                                           .headlineSmall

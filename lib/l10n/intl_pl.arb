@@ -180,5 +180,7 @@
     "end": "Zakończono",
     "update": "Zmień",
     "editBodyStats": "Edytuj parametry ciała",
-    "changeBirthDate": "Zmień datę urodziń"
+    "changeBirthDate": "Zmień datę urodziń",
+    "emptyData": "brak danych",
+    "day": "Dzień"
 }

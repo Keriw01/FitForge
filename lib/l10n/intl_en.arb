@@ -180,5 +180,7 @@
     "end": "End",
     "update": "Update",
     "editBodyStats": "Edit Body Stats",
-    "changeBirthDate": "Change Birth Date"
+    "changeBirthDate": "Change Birth Date",
+    "emptyData": "empty data",
+    "day": "Day"
 }

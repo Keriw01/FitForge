@@ -62,7 +62,7 @@ class BodyPartsPage extends StatelessWidget {
                   crossAxisCount: crossAxisCount,
                   childAspectRatio: itemWidth / itemHeight,
                 ),
-                itemCount: 12,
+                itemCount: 11,
                 itemBuilder: (context, index) {
                   return BodyPartItem(
                       title: getTitleForIndex(index, context),
@@ -92,7 +92,6 @@ class BodyPartsPage extends StatelessWidget {
       S.of(context).lowerLegs,
       S.of(context).glutes,
       S.of(context).core,
-      S.of(context).cardio,
       S.of(context).showAll,
     ];
 
@@ -111,7 +110,6 @@ class BodyPartsPage extends StatelessWidget {
       'assets/images/body_parts/lower_legs.png',
       'assets/images/body_parts/glutes.png',
       'assets/images/body_parts/core.png',
-      'assets/images/body_parts/cardio.png',
       'assets/images/body_parts/show_all.png',
     ];
 
@@ -130,7 +128,6 @@ class BodyPartsPage extends StatelessWidget {
       'Lower Legs',
       'Glutes',
       'Core',
-      'Cardio',
       'Show All',
     ];
 

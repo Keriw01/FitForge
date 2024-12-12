@@ -73,7 +73,7 @@ class ProgressCubit extends BaseCubit<ProgressState> {
 
       final userBodyStats =
           await firestoreProfileRepository.getUserBodyStats(user?.uid);
-      print("userBodyStats $userBodyStats");
+
       emit(state.copyWith(
         userBodyStats: userBodyStats,
         inputWeight: userBodyStats.weight,

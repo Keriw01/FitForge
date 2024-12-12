@@ -26,6 +26,8 @@ mixin _$Plan {
   String? get planId => throw _privateConstructorUsedError;
   String get planName => throw _privateConstructorUsedError;
   String get planType => throw _privateConstructorUsedError;
+  @JsonKey(fromJson: timestampFromJson, toJson: timestampToJson)
+  DateTime? get lastPerformed => throw _privateConstructorUsedError;
   List<PlanDay>? get days => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -45,6 +47,8 @@ abstract class $PlanCopyWith<$Res> {
       String? planId,
       String planName,
       String planType,
+      @JsonKey(fromJson: timestampFromJson, toJson: timestampToJson)
+      DateTime? lastPerformed,
       List<PlanDay>? days});
 }
 
@@ -67,6 +71,7 @@ class _$PlanCopyWithImpl<$Res, $Val extends Plan>
     Object? planId = freezed,
     Object? planName = null,
     Object? planType = null,
+    Object? lastPerformed = freezed,
     Object? days = freezed,
   }) {
     return _then(_value.copyWith(
@@ -94,6 +99,10 @@ class _$PlanCopyWithImpl<$Res, $Val extends Plan>
           ? _value.planType
           : planType // ignore: cast_nullable_to_non_nullable
               as String,
+      lastPerformed: freezed == lastPerformed
+          ? _value.lastPerformed
+          : lastPerformed // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
       days: freezed == days
           ? _value.days
           : days // ignore: cast_nullable_to_non_nullable
@@ -116,6 +125,8 @@ abstract class _$$PlanImplCopyWith<$Res> implements $PlanCopyWith<$Res> {
       String? planId,
       String planName,
       String planType,
+      @JsonKey(fromJson: timestampFromJson, toJson: timestampToJson)
+      DateTime? lastPerformed,
       List<PlanDay>? days});
 }
 
@@ -135,6 +146,7 @@ class __$$PlanImplCopyWithImpl<$Res>
     Object? planId = freezed,
     Object? planName = null,
     Object? planType = null,
+    Object? lastPerformed = freezed,
     Object? days = freezed,
   }) {
     return _then(_$PlanImpl(
@@ -162,6 +174,10 @@ class __$$PlanImplCopyWithImpl<$Res>
           ? _value.planType
           : planType // ignore: cast_nullable_to_non_nullable
               as String,
+      lastPerformed: freezed == lastPerformed
+          ? _value.lastPerformed
+          : lastPerformed // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
       days: freezed == days
           ? _value._days
           : days // ignore: cast_nullable_to_non_nullable
@@ -180,6 +196,8 @@ class _$PlanImpl implements _Plan {
       this.planId,
       required this.planName,
       required this.planType,
+      @JsonKey(fromJson: timestampFromJson, toJson: timestampToJson)
+      this.lastPerformed,
       final List<PlanDay>? days})
       : _days = days;
 
@@ -198,6 +216,9 @@ class _$PlanImpl implements _Plan {
   final String planName;
   @override
   final String planType;
+  @override
+  @JsonKey(fromJson: timestampFromJson, toJson: timestampToJson)
+  final DateTime? lastPerformed;
   final List<PlanDay>? _days;
   @override
   List<PlanDay>? get days {
@@ -210,7 +231,7 @@ class _$PlanImpl implements _Plan {
 
   @override
   String toString() {
-    return 'Plan(difficultyLevel: $difficultyLevel, numberOfDays: $numberOfDays, planDescription: $planDescription, planId: $planId, planName: $planName, planType: $planType, days: $days)';
+    return 'Plan(difficultyLevel: $difficultyLevel, numberOfDays: $numberOfDays, planDescription: $planDescription, planId: $planId, planName: $planName, planType: $planType, lastPerformed: $lastPerformed, days: $days)';
   }
 
   @override
@@ -229,6 +250,8 @@ class _$PlanImpl implements _Plan {
                 other.planName == planName) &&
             (identical(other.planType, planType) ||
                 other.planType == planType) &&
+            (identical(other.lastPerformed, lastPerformed) ||
+                other.lastPerformed == lastPerformed) &&
             const DeepCollectionEquality().equals(other._days, _days));
   }
 
@@ -242,6 +265,7 @@ class _$PlanImpl implements _Plan {
       planId,
       planName,
       planType,
+      lastPerformed,
       const DeepCollectionEquality().hash(_days));
 
   @JsonKey(ignore: true)
@@ -266,6 +290,8 @@ abstract class _Plan implements Plan {
       final String? planId,
       required final String planName,
       required final String planType,
+      @JsonKey(fromJson: timestampFromJson, toJson: timestampToJson)
+      final DateTime? lastPerformed,
       final List<PlanDay>? days}) = _$PlanImpl;
 
   factory _Plan.fromJson(Map<String, dynamic> json) = _$PlanImpl.fromJson;
@@ -282,6 +308,9 @@ abstract class _Plan implements Plan {
   String get planName;
   @override
   String get planType;
+  @override
+  @JsonKey(fromJson: timestampFromJson, toJson: timestampToJson)
+  DateTime? get lastPerformed;
   @override
   List<PlanDay>? get days;
   @override

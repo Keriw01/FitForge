@@ -1,5 +1,6 @@
 import 'package:fit_forge/generated/l10n.dart';
 import 'package:fit_forge/pages/progress/cubit/progress_cubit.dart';
+import 'package:fit_forge/pages/settings/cubit/settings_cubit.dart';
 import 'package:fit_forge/routes/app_router.dart';
 import 'package:fit_forge/styles/app_colors.dart';
 import 'package:fit_forge/utils/helpers/helper_methods.dart';
@@ -15,6 +16,8 @@ class InsightsSheetContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     bool isLight = isLightTheme(context);
+    final unitSystem =
+        context.select((SettingsCubit b) => b.state.userProfile!.unitSystem);
 
     return BlocBuilder<ProgressCubit, ProgressState>(
       builder: (context, state) {
@@ -69,7 +72,10 @@ class InsightsSheetContent extends StatelessWidget {
                               flex: 2,
                               child: TextFormField(
                                 initialValue: state.inputWeight != null
-                                    ? state.inputWeight.toString()
+                                    ? formatWeightInRightUnit(
+                                        unitSystem: unitSystem,
+                                        weight: state.inputWeight.toString(),
+                                        displayUnit: false)
                                     : '',
                                 onChanged: (value) => cubit.updateWeight(
                                   double.tryParse(value),
@@ -83,8 +89,9 @@ class InsightsSheetContent extends StatelessWidget {
                                     RegExp(r'[0-9\.]'),
                                   ),
                                 ],
-                                decoration: const InputDecoration(
-                                  hintText: 'kg',
+                                decoration: InputDecoration(
+                                  hintText:
+                                      displayWeightUnit(unitSystem: unitSystem),
                                 ),
                                 textAlign: TextAlign.center,
                                 style: Theme.of(context).textTheme.labelMedium,
@@ -104,11 +111,15 @@ class InsightsSheetContent extends StatelessWidget {
                             Expanded(
                               flex: 2,
                               child: TextFormField(
-                                initialValue: state.inputHeight,
+                                initialValue: formatHeightInRightUnit(
+                                    unitSystem: unitSystem,
+                                    height: state.inputHeight ?? '0',
+                                    displayUnit: false),
                                 onChanged: (value) => cubit.updateHeight(value),
                                 keyboardType: TextInputType.number,
-                                decoration: const InputDecoration(
-                                  hintText: 'cm',
+                                decoration: InputDecoration(
+                                  hintText:
+                                      displayHeightUnit(unitSystem: unitSystem),
                                 ),
                                 textAlign: TextAlign.center,
                                 style: Theme.of(context).textTheme.labelMedium,
