@@ -78,6 +78,16 @@ String getTranslationGender(
   }
 }
 
+String getTranslationDay(String languageCode) {
+  switch (languageCode) {
+    case 'pl':
+      return 'Dzień';
+    case 'en':
+    default:
+      return 'Day';
+  }
+}
+
 String getFirestoreResponseError(
   BuildContext context,
   FirestoreResponseMessage firestoreResponseMessage,

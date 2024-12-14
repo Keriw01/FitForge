@@ -3,6 +3,7 @@ import 'package:fit_forge/exceptions/exceptions.dart';
 import 'package:fit_forge/models/plan.dart';
 import 'package:fit_forge/models/plan_day.dart';
 import 'package:fit_forge/models/day_exercise.dart';
+import 'package:fit_forge/utils/helpers/helper_methods.dart';
 
 class FirestoreWorkoutsRepository {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
@@ -114,7 +115,11 @@ class FirestoreWorkoutsRepository {
     }
   }
 
-  Future<Plan?> addNewPlan(String? userId, Plan newPlan) async {
+  Future<Plan?> addNewPlan(
+    String languageCode,
+    String? userId,
+    Plan newPlan,
+  ) async {
     try {
       final userDocRef = _firestore.collection('UserTrainingPlans').doc(userId);
 
@@ -148,12 +153,13 @@ class FirestoreWorkoutsRepository {
         final dayId = daysDocRef.id;
 
         days.add(
-          PlanDay(dayId: dayId, dayTitle: 'Day $i'),
+          PlanDay(
+              dayId: dayId, dayTitle: '${getTranslationDay(languageCode)} $i'),
         );
 
         await daysDocRef.set({
           'dayId': dayId,
-          'dayTitle': 'Day $i',
+          'dayTitle': '${getTranslationDay(languageCode)} $i',
         });
       }
 

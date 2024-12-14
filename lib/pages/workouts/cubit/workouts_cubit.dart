@@ -141,7 +141,7 @@ class WorkoutsCubit extends BaseCubit<WorkoutsState> {
     appRouter.maybePop();
   }
 
-  void addNewPlan() async {
+  void addNewPlan(BuildContext context) async {
     try {
       emit(state.copyWith(
         firestoreResponseMessage: FirestoreResponseMessage.none,
@@ -158,8 +158,10 @@ class WorkoutsCubit extends BaseCubit<WorkoutsState> {
 
       User? user = FirebaseAuth.instance.currentUser;
 
-      Plan? addedPlan =
-          await firestoreWorkoutsRepository.addNewPlan(user?.uid, newPlan);
+      String languageCode = Localizations.localeOf(context).languageCode;
+
+      Plan? addedPlan = await firestoreWorkoutsRepository.addNewPlan(
+          languageCode, user?.uid, newPlan);
 
       if (addedPlan?.planId != null) {
         List<Plan> updatedPlans = List.from(state.userPlans ?? [])

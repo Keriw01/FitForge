@@ -53,7 +53,7 @@ class BottomSheetContent extends StatelessWidget {
                   ),
                   TextButton(
                     onPressed: () => isCreatingPlan
-                        ? cubit.addNewPlan()
+                        ? cubit.addNewPlan(context)
                         : cubit.saveEditedPlan(planId),
                     child: Text(
                       isCreatingPlan
